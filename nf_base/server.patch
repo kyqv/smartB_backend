@@ -1,0 +1,73 @@
+diff --git a/netforce/netforce/action.py b/netforce/netforce/action.py
+index 4d13d5e..c598439 100644
+--- a/netforce/netforce/action.py
++++ b/netforce/netforce/action.py
+@@ -43,6 +43,7 @@ def load_actions():
+     _actions.clear()
+     loaded_modules = module.get_loaded_modules()
+     for m in loaded_modules:
++        print("module",m)
+         if not pkg_resources.resource_exists(m, "actions"):
+             continue
+         for fname in pkg_resources.resource_listdir(m, "actions"):
+diff --git a/netforce/netforce/model/model.py b/netforce/netforce/model/model.py
+index 917f04a..3d78569 100644
+--- a/netforce/netforce/model/model.py
++++ b/netforce/netforce/model/model.py
+@@ -28,7 +28,10 @@ import codecs
+ import tempfile
+ import json
+ import quickjs
+-import pandas as pd
++try:
++    import pandas as pd
++except:
++    print("Failed to import pandas")
+ from netforce import tracer
+ 
+ dir_path=os.path.dirname(os.path.abspath(__file__))
+diff --git a/netforce_general/netforce_general/layouts/main_menu.xml b/netforce_general/netforce_general/layouts/main_menu.xml
+index 1a39e15..172b0c5 100644
+--- a/netforce_general/netforce_general/layouts/main_menu.xml
++++ b/netforce_general/netforce_general/layouts/main_menu.xml
+@@ -17,5 +17,5 @@
+     <item string="Documents" action="doc_board"/>
+     <item string="Messaging" action="msg_board"/>
+     <item string="General" action="gen_board"/>
+-    <item string="Addons" action="addon"/>
++    <!--<item string="Addons" action="addon"/>-->
+ </menu>
+diff --git a/netforce_general/netforce_general/models/ui_params.py b/netforce_general/netforce_general/models/ui_params.py
+index e84ffd0..964cc20 100644
+--- a/netforce_general/netforce_general/models/ui_params.py
++++ b/netforce_general/netforce_general/models/ui_params.py
+@@ -78,7 +78,7 @@ class UIParams(Model):
+         templates=template.templates_to_json(modules=context.get("modules"))
+         languages=get_model("language").languages_to_json()
+         translations=get_model("translation").translations_to_json()
+-        addons=get_model("addon").addons_to_json()
++        #addons=get_model("addon").addons_to_json()
+         menu_access=get_model("menu.access").menu_access_to_json(profile_id=profile_id,user_id=user_id)
+         field_access=get_model("field.access").field_access_to_json(profile_id=profile_id,user_id=user_id)
+         profile=get_model("profile").profile_to_json(profile_id=profile_id)
+@@ -100,7 +100,7 @@ class UIParams(Model):
+                 "templates": templates,
+                 "languages": languages,
+                 "translations": translations,
+-                "addons": addons,
++                #"addons": addons,
+                 "menu_access": menu_access,
+                 "field_access": field_access,
+                 "profile": profile,
+diff --git a/netforce_hr.2 b/netforce_hr.2
+--- a/netforce_hr.2
++++ b/netforce_hr.2
+@@ -1 +1 @@
+-Subproject commit 47d9e7300beddef7a71ab8db75eac158149ae27a
++Subproject commit 47d9e7300beddef7a71ab8db75eac158149ae27a-dirty
+diff --git a/netforce_hr.bac b/netforce_hr.bac
+--- a/netforce_hr.bac
++++ b/netforce_hr.bac
+@@ -1 +1 @@
+-Subproject commit 47d9e7300beddef7a71ab8db75eac158149ae27a
++Subproject commit 47d9e7300beddef7a71ab8db75eac158149ae27a-dirty
