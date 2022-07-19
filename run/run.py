@@ -29,7 +29,7 @@ modules=[
     #"netforce_delivery",
     #"netforce_job_control",
     #"netforce_kff",
-    "netforce_shopee",
+    #"netforce_shopee",
 ]
 
 netforce.load_modules(modules)
