@@ -1,0 +1,12 @@
+<list model="cycle.stock.count" priority="20">
+    <top>
+        <button string="Config/Schedule Stock-Count" action="pick_location"/>
+        <!-- <button string="Assign SKU Category" action="pick_location"/>
+        <button string="Schedule Stock-Count" action="pick_location"/> -->
+    </top>
+    <field name="product_id"/>
+    <field name="location_id"/>
+    <field name="date"/>
+    <field name="abc_categ"/>
+    <field name="xyz_categ"/>
+</list>

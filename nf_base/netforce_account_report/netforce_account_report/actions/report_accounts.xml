@@ -1,0 +1,6 @@
+<action>
+    <field name="type">report</field>
+    <field name="model">report.accounts</field>
+    <field name="method">get_data</field>
+    <field name="template">accounts</field>
+</action>

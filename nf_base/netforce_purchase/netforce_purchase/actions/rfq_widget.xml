@@ -1,0 +1,6 @@
+<action>
+    <field name="view">list</field>
+    <field name="model">purchase.order</field>
+    <field name="condition">[["state", "=", "confirmed"]]</field>
+    <field name="layout">rfq_widget</field>
+</action>

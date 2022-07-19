@@ -1,0 +1,10 @@
+<form model="attach">
+    <field name="file"/>
+    <field name="date"/>
+    <field name="user_id"/>
+    <field name="related_id"/>
+    <field name="description"/>
+    <related>
+        <field name="comments"/>
+    </related>
+</form>

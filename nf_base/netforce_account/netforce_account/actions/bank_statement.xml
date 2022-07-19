@@ -1,0 +1,5 @@
+<action>
+    <field name="view">list</field>
+    <field name="model">account.statement</field>
+    <field name="layout">bank_statement</field>
+</action>

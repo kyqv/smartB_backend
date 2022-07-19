@@ -1,0 +1,16 @@
+<form model="custom.field.set">
+    <group span="6" columns="1">
+        <field name="model_id"/>
+        <newline/>
+        <field name="name"/>
+        <newline/>
+        <field name="custom_fields" view="field_multi_select"/>
+        <newline/>
+        <field name="default"/>
+    </group>
+    <group span="6" columns="1">
+        <field name="user_id"/>
+        <newline/>
+        <field name="company_id"/>
+    </group>
+</form>

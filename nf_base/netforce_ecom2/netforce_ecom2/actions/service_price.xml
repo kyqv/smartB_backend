@@ -1,0 +1,10 @@
+<action>
+    <field name="string">Service Pricing</field>
+    <field name="view">multi_view</field>
+    <field name="model">service.price</field>
+    <field name="list_layout">service_price_list</field>
+    <field name="form_layout">service_price_form</field>
+    <field name="model_string">Service Pricing</field>
+    <field name="modes">list,form,calendar</field>
+    <field name="menu">ecom2_menu</field>
+</action>

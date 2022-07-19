@@ -1,0 +1,12 @@
+<form model="inline.help">
+    <field name="action"/>
+    <newline/>
+    <field name="title"/>
+    <newline/>
+    <field name="content" wysi="1" width="600" height="400"/>
+    <newline/>
+    <field name="create_date"/>
+    <field name="modif_date"/>
+    <newline/>
+    <field name="hide"/>
+</form>

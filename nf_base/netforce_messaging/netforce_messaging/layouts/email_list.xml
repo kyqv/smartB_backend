@@ -1,0 +1,16 @@
+<list model="email.message" priority="5">
+    <top replace="1">
+        <button string="New Email" icon="plus-sign" action="email" action_options='{"mode":"form"}'/>
+        <button string="Get Emails" icon="refresh" method="get_emails"/>
+        <button string="Send Emails" method="send_emails_async"/>
+        <button string="Delete Unlinked Emails" method="delete_unlinked_emails" icon="remove" confirm="Are you sure?" type="danger"/>
+    </top>
+    <field name="from_addr"/>
+    <field name="to_addrs"/>
+    <field name="subject"/>
+    <field name="date"/>
+    <field name="name_id"/>
+    <field name="related_id"/>
+    <field name="mailbox_id"/>
+    <field name="state"/>
+</list>

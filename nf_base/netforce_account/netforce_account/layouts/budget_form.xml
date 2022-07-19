@@ -1,0 +1,30 @@
+<form model="account.budget">
+    <field name="name"/>
+    <newline/>
+    <field name="date_from"/>
+    <field name="date_to"/>
+    <related>
+        <field name="lines">
+            <list>
+                <field name="sequence"/>
+                <field name="account_id"/>
+                <field name="track_id"/>
+                <field name="contact_id"/>
+                <field name="budget_amount"/>
+                <field name="actual_amount"/>
+                <field name="variance"/>
+                <field name="variance_percent"/>
+                <field name="paid_amount"/>
+                <field name="unpaid_amount"/>
+            </list>
+            <form>
+                <field name="sequence"/>
+                <field name="account_id"/>
+                <field name="track_id"/>
+                <field name="contact_id"/>
+                <separator/>
+                <field name="budget_amount"/>
+            </form>
+        </field>
+    </related>
+</form>

@@ -1,0 +1,3 @@
+<form model="help.overlay">
+    <field name="code"/>
+</form>

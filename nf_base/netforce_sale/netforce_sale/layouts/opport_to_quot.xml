@@ -1,0 +1,7 @@
+<form model="opport.to.quot">
+    <field name="opport_id" invisible="1"/>
+    <field name="template_id"/>
+    <foot>
+        <button string="Create Quotation" method="create_quot" type="primary"/>
+    </foot>
+</form>

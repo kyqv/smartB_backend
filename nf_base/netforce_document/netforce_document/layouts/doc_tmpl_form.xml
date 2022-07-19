@@ -1,0 +1,21 @@
+<form model="document.tmpl">
+    <field name="file"/>
+    <field name="categ_id"/>
+    <field name="description"/>
+    <field name="date"/>
+    <related>
+        <field name="attachments">
+            <list>
+                <field name="file"/>
+                <field name="date"/>
+                <field name="user_id"/>
+                <field name="description"/>
+            </list>
+            <form>
+                <field name="file"/>
+                <field name="description"/>
+            </form>
+        </field>
+        <field name="comments"/>
+    </related>
+</form>

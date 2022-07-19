@@ -1,0 +1,6 @@
+<list model="account.invoice" noselect="1" action="portal_invoice">
+    <field name="number"/>
+    <field name="due_date"/>
+    <field name="amount_due"/>
+    <field name="memo"/>
+</list>

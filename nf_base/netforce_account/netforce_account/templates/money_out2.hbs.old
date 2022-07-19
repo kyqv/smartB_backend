@@ -1,0 +1,12 @@
+{{#with context.data}}
+    <div style="float:right;width:120px">
+        <a href="#name=supp_invoice&tab_no=4" style="font-size:12px">{{t "Overdue Invoices"}} ({{overdue_count}})</a>
+        <b>{{currency overdue_amount}}</b>
+    </div>
+    <div style="float:right;width:120px">
+        <a href="#name=supp_invoice&tab_no=2" style="font-size:12px">{{t "Draft Invoices"}} ({{draft_count}})</a>
+        <b>{{currency draft_amount}}</b>
+    </div>
+{{/with}}
+{{view "button" string="New Payable Invoice" icon="plus-sign" action="supp_invoice" action_options="mode=form&form_view_xml=supp_invoice_form&defaults.type=in&defaults.inv_type=invoice" context=context}}
+{{view "chart" height="150" type="multibar" time="1" nocontrols="1" nolegend="1" context=context}}

@@ -1,0 +1,15 @@
+<form_m model="contact">
+    <field name="name"/>
+    <newline/>
+    <field name="code"/>
+    <newline/>
+    <field name="email"/>
+    <newline/>
+    <field name="mobile"/>
+    <related>
+        <field name="opports"/>
+        <field name="quotations"/>
+        <field name="sale_orders"/>
+        <field name="emails"/>
+    </related>
+</form_m>

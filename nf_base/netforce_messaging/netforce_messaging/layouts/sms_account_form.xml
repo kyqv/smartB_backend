@@ -1,0 +1,9 @@
+<form model="sms.account">
+    <field name="name"/>
+    <field name="type"/>
+    <field name="username"/>
+    <field name="password" password="1"/>
+    <field name="sender"/>
+    <field name="sequence"/>
+    <field name="skip_verif"/>
+</form>

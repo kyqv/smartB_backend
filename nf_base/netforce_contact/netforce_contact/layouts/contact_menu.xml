@@ -1,0 +1,20 @@
+<menu string="Contacts">
+    <item string="Dashboard" action="contact_board"/>
+    <item string="Contacts">
+        <item string="Contacts" action="contact"/>
+        <item string="Customers" action="contact" action_options='{"active_tab":1}'/>
+        <item string="Suppliers" action="contact" action_options='{"active_tab":2}'/>
+    </item>
+    <item string="Reports">
+        <item string="Contact Analysis" action="contact_analysis"/>
+    </item>
+    <item string="Settings">
+        <item string="Contact Categories" action="contact_categ"/>
+        <item string="Contact Groups" action="contact_group"/>
+        <item string="Relation Types" action="contact_rel_type"/>
+        <item string="Regions" action="region"/>
+        <item string="Industries" action="industry"/>
+        <item string="Business Areas" action="business_area"/>
+        <item string="Fleet Sizes" action="fleet_size"/>
+    </item>
+</menu>

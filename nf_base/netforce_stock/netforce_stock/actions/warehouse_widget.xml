@@ -1,0 +1,9 @@
+<action>
+    <field name="view">list_details</field>
+    <field name="string">Warehouses</field>
+    <field name="model">stock.location</field>
+    <field name="condition">[["type","=","internal"]]</field>
+    <field name="order">name</field>
+    <field name="layout">warehouse_widget</field>
+    <field name="no_search">1</field>
+</action>

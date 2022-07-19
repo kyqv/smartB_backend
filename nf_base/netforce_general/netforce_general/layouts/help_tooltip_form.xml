@@ -1,0 +1,6 @@
+<form model="help.tooltip">
+    <field name="code"/>
+    <field name="title"/>
+    <field name="description"/>
+    <field name="placement"/>
+</form>

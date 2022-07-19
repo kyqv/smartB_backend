@@ -1,0 +1,7 @@
+<action>
+    <field name="view_type">collection</field>
+    <field name="model">stock.balance</field>
+    <field name="condition">[["location_id","=",warehouse_id]]</field>
+    <field name="limit">10</field>
+    <field name="template">warehouse_product_sum</field>
+</action>

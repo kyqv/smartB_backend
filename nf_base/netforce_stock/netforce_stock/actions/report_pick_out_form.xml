@@ -1,0 +1,7 @@
+<action>
+    <field name="view">form_popup</field>
+    <field name="string">Print Goods Issue</field>
+    <field name="model">print.wizard</field>
+    <field name="target">popup</field>
+    <field name="context">{"model":"stock.picking","template_type":"goods_issue"}</field>
+</action>

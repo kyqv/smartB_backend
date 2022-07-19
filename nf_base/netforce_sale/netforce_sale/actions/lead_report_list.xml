@@ -1,0 +1,5 @@
+<action>
+    <field name="view_type">collection</field>
+    <field name="model">sale.lead</field>
+    <field name="template">lead_report_list</field>
+</action>

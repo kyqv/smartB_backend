@@ -1,0 +1,68 @@
+<form model="stock.transform" attrs='{"readonly":[["state","!=","draft"]]}'>
+    <top>
+        <button string="Options" dropdown="1">
+            <item string="Copy To Purchase Order (Service)" method="copy_to_purchase"/>
+            <item string="To Draft" method="to_draft" states="done,voided"/>
+            <item string="Void" method="void" states="done" confirm="Are you sure?"/>
+            <item string="Update Cost" method="update_cost" show_progress="1"/>
+            <item string="Assign Lots" method="assign_lots" show_progress="1"/>
+            <item string="Assign Lots (Qty2)" method="assign_lots_qty2" show_progress="1"/>
+        </button>
+    </top>
+    <head>
+        <field name="state"/>
+    </head>
+    <field name="date"/>
+    <field name="number"/>
+    <newline/>
+    <field name="journal_id"/>
+    <!--<field name="sale_id"/>-->
+    <separator string="From Products"/>
+    <field name="lines_in" nolabel="1">
+        <list>
+            <field name="type"/>
+            <field name="product_id" onchange="onchange_product" condition='[["type","=","stock"]]'/>
+            <field name="lot_id"/>
+            <field name="qty" onchange="onchange_qty"/>
+            <field name="uom_id"/>
+            <field name="qty2"/>
+            <field name="location_id"/>
+            <field name="cost_price"/>
+            <field name="cost_amount"/>
+        </list>
+    </field>
+    <separator string="To Products"/>
+    <field name="lines_out" nolabel="1">
+        <list>
+            <field name="type"/>
+            <field name="product_id" onchange="onchange_product" condition='[["type","=","stock"]]'/>
+            <field name="lot_id"/>
+            <field name="qty" onchange="onchange_qty"/>
+            <field name="uom_id"/>
+            <field name="qty2"/>
+            <field name="location_id"/>
+            <field name="cost_price"/>
+            <field name="cost_amount"/>
+        </list>
+    </field>
+    <separator string="Service"/>
+    <field name="lines_service" nolabel="1">
+        <list>
+            <field name="type"/>
+            <field name="product_id" onchange="onchange_product_service" condition='[["type","=","service"]]'/>
+            <field name="cost_price" required="1"/>
+            <field name="qty" onchange="onchange_qty"/>
+            <field name="uom_id"/>
+            <field name="supplier_id"/>
+        </list>
+    </field>
+    <separator/>
+    <field name="notes"/>
+    <foot>
+        <button string="Validate" method="validate" states="draft" type="success"/>
+    </foot>
+    <related>
+        <field name="stock_moves"/>
+        <field name="purchase_orders"/>
+    </related>
+</form>

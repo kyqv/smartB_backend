@@ -1,0 +1,8 @@
+<action>
+    <field name="name">holiday</field>
+    <field name="string">Holidays</field>
+    <field name="view_cls">multi_view</field>
+    <field name="model">hr.holiday</field>
+    <field name="menu">hr_menu</field>
+    <field name="modes">list,calendar,page,form</field>
+</action>

@@ -1,0 +1,5 @@
+<list model="hr.leave.type">
+    <field name="name"/>
+    <field name="description"/>
+    <field name="day_rate"/>
+</list>

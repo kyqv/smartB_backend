@@ -1,0 +1,8 @@
+<action>
+    <field name="name">fixed_asset_type</field>
+    <field name="string">Asset Type</field>
+    <field name="view">multi_view</field>
+    <field name="model">account.fixed.asset.type</field>
+    <field name="menu">account_menu</field>
+</action>
+

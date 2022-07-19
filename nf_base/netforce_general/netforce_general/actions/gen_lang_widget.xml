@@ -1,0 +1,5 @@
+<action>
+    <field name="view">list</field>
+    <field name="model">language</field>
+    <field name="layout">gen_lang_widget</field>
+</action>

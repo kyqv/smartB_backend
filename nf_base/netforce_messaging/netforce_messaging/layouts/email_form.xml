@@ -1,0 +1,91 @@
+<form model="email.message">
+    <head>
+        <field name="state"/>
+        <button string="Options" dropdown="1">
+            <item string="Link Email" method="link_emails"/>
+            <item string="To Draft" method="to_draft" states='to_send,sent,delivered,bounced,rejected,received,error'/>
+            <item string="Exec Rules" method="exec_rules"/>
+        </button>
+    </head>
+    <tabs>
+        <tab string="Message">
+            <field name="date"/>
+            <newline/>
+            <field name="from_addr"/>
+            <field name="reply_to"/>
+            <newline/>
+            <field name="to_addrs"/>
+            <newline/>
+            <field name="cc_addrs"/>
+            <newline/>
+            <field name="subject"/>
+            <newline/>
+            <field name="body" width="800" height="400" view="field_html"/>
+            <newline/>
+            <field name="state"/>
+            <field name="error_message" attrs='{"invisible":[["state","!=","error"]]}'/>
+        </tab>
+        <tab string="Details">
+            <field name="mailbox_id"/>
+            <newline/>
+            <field name="mailbox_message_uid"/>
+            <newline/>
+            <field name="message_id" nowrap="1"/>
+            <newline/>
+            <field name="parent_uid" nowrap="1"/>
+            <newline/>
+            <field name="parent_id"/>
+            <newline/>
+            <field name="opened"/>
+            <field name="clicked"/>
+            <newline/>
+            <field name="template_id"/>
+            <newline/>
+            <field name="is_spam"/>
+        </tab>
+        <tab string="Links">
+            <field name="name_id"/>
+            <newline/>
+            <field name="related_id"/>
+        </tab>
+        <tab string="Other">
+            <field name="source" width="800" height="500"/>
+            <newline/>
+            <field name="orig_from_addr"/>
+        </tab>
+    </tabs>
+    <field name="open_detect" invisible="1"/>
+    <foot>
+        <button string="Send" method="send" states="draft" type="success" icon="envelope"/>
+        <button string="Reply" method="reply" states="received" type="success" icon="share-alt"/>
+    </foot>
+    <related>
+        <field name="attachments">
+            <list>
+                <head>
+                    <button string="Copy To Document" method="copy_to_doc"/>
+                </head>
+                <field name="file" preview="1"/>
+            </list>
+            <form>
+                <field name="file"/>
+            </form>
+        </field>
+        <field name="events">
+            <list>
+                <field name="type"/>
+                <field name="date"/>
+            </list>
+            <form>
+                <field name="type"/>
+                <field name="date"/>
+                <field name="ip_addr"/>
+                <field name="location"/>
+                <field name="user_agent"/>
+                <field name="url"/>
+                <field name="details"/>
+            </form>
+        </field>
+        <field name="comments"/>
+    </related>
+</form>

@@ -1,0 +1,7 @@
+Name,Components / Name,Components / Rate,Components / Account / Account Code,Components / Tax Type,Components / Transaction Type
+Product Sales,Output VAT,7,,VAT,Sale
+Product Purchases,Input VAT,7,,VAT,Purchase
+Service Sales,Output VAT,7,,VAT,Sale
+,Withholding Tax,3,,VAT,Sale
+Service Purchases,Input VAT,7,,VAT,Purchase
+,Withholding Tax,3,,VAT,Purchase

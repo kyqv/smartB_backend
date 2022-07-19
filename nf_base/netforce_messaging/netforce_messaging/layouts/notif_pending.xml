@@ -1,0 +1,8 @@
+<list model="notif" priority="20" hide_page="1" hide_select="1" method="view_notif">
+    <field name="time"/>
+    <field name="title" show_html="1"/>
+    <button string="Dismiss" method="dismiss" icon="remove"/>
+    <foot>
+        <button string="Dismiss All" icon="remove" method="dismiss_all"/>
+    </foot>
+</list>

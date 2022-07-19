@@ -1,0 +1,7 @@
+<form model="template">
+    <field name="name"/>
+    <field name="theme_id"/>
+    <field name="module_id"/>
+    <newline/>
+    <field name="template" width="800" height="500" view="field_code" mode="handlebars"/>
+</form>

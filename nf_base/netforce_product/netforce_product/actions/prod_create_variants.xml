@@ -1,0 +1,8 @@
+<action>
+    <field name="name">prod_create_variants</field>
+    <field name="string">Create Variants</field>
+    <field name="model">prod.create.variants</field>
+    <field name="view">form_view</field>
+    <field name="layout">prod_create_variants</field>
+    <field name="menu">product_menu</field>
+</action>

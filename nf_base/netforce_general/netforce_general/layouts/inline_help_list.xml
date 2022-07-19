@@ -1,0 +1,10 @@
+<list model="inline.help">
+    <top>
+        <button string="Google Docs Import" action="import_inline_help" icon="download"/>
+    </top>
+    <field name="action"/>
+    <field name="title"/>
+    <field name="create_date"/>
+    <field name="modif_date"/>
+    <field name="hide"/>
+</list>

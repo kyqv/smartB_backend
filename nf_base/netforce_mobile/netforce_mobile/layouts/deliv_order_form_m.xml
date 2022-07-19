@@ -1,0 +1,26 @@
+<form_m model="nd.order">
+    <field name="delivery_date"/>
+    <field name="number"/>
+    <newline/>
+    <field name="customer_id"/>
+    <field name="route_id"/>
+    <field name="lines">
+        <list>
+            <field name="image"/>
+            <field name="product_id"/>
+            <field name="qty"/>
+        </list>
+        <form>
+            <field name="image"/>
+            <field name="product_id"/>
+            <field name="qty"/>
+        </form>
+    </field>
+    <field name="state"/>
+    <newline/>
+    <button title="Pick Up" method="set_in_progress" states="waiting" icon="ios-arrow-forward"/>
+    <button title="Completed" method="set_done" type="success" states="in_progress" icon="ios-checkmark"/>
+    <button title="Can Not Deliver" method="set_error" type="danger" states="in_progress" icon="ios-close"/>
+    <button title="Waiting" method="set_waiting" states="in_progress" icon="ios-arrow-back"/>
+    <button title="Reopen" method="set_in_progress" states="done,error" icon="ios-arrow-back"/>
+</form_m>

@@ -1,0 +1,6 @@
+<form model="update.ui" title="Update UI">
+    <label string="Click the button below to update the user interface."/>
+    <foot replace="1">
+        <button string="Update" method="do_update" type="primary"/>
+    </foot>
+</form>

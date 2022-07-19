@@ -1,0 +1,18 @@
+<form model="task">
+    <field name="title"/>
+    <field name="project_id"/>
+    <field name="resource_id"/>
+    <field name="sequence"/>
+    <separator/>
+    <field name="plan_hours"/>
+    <field name="actual_hours" view="field_duration"/>
+    <field name="timer_start" invisible="1"/>
+    <separator/>
+    <field name="state"/>
+    <field name="priority"/>
+    <separator/>
+    <field name="details"/>
+    <field name="image"/>
+    <separator/>
+    <field name="date_created"/>
+</form>

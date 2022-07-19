@@ -1,0 +1,209 @@
+<form model="account.payment" attrs='{"readonly":[["state","!=","draft"]]}' show_company="1">
+    <top>
+        <button string="Post" method="post_check_overpay" type="success" states="draft" perm="approve_payment"/>
+    </top>
+    <head>
+        <field name="state"/>
+        <button string="New" icon="plus" action="payment" action_options='{"mode":"form"}'/>
+        <button string="Print" icon="print" action="report_payment_form3" action_options='{"active_id":id}'/>
+        <button string="Options" dropdown="1">
+            <item string="Copy" method="copy"/>
+            <item string="Void" method="void" states="posted" confirm="Are you sure you want to void this payment?"/>
+            <item string="To Draft" method="to_draft" states="posted"/>
+            <divider/>
+            <item string="View Journal Entry" method="view_journal_entry" states="posted"/>
+        </button>
+    </head>
+    <tabs>
+        <tab string="General">
+            <group form_layout="stacked">
+                <field name="contact_id" span="2" attrs='{"required":[["pay_type","in",["invoice","prepay","overpay"]]]}' onchange="onchange_contact"/>
+                <field name="type" span="2" onchange="onchange_type"/>
+                <field name="pay_type" span="2" onchange="onchange_pay_type"/>
+                <field name="date" span="2" onchange="onchange_date"/>
+                <field name="number" span="2"/>
+                <field name="employee_id" span="2" attrs='{"invisible":[["pay_type","!=","claim"]]}' onchange="onchange_employee"/>
+                <newline/>
+                <field name="account_id" span="2" condition='[["company_id","=",company_id],["or",["type","in",["bank","cash","cheque"]],["enable_payment","=",true]]]' onchange="onchange_payment_account"/>
+                <field name="currency_id" span="2"/>
+                <field name="tax_type" span="2" attrs='{"invisible":[["pay_type","in",["invoice","overpay"]]]}'/>
+                <field name="tax_no" span="2"/>
+                <field name="wht_no" span="2"/>
+                <newline/>
+                <field name="memo" span="4"/>
+                <field name="ref" span="2"/>
+                <field name="related_id" span="2"/>
+                <field name="track_id" span="2"/>
+                <newline/>
+                <field name="default_line_desc" attrs='{"invisibile":[["pay_type","!=","direct"]]}'/>
+            </group>
+            <group attrs='{"invisible":[["pay_type","!=","invoice"]]}'>
+                <tabs>
+                    <tab string="Invoice Payments">
+                        <field name="invoice_lines" nolabel="1" count="5">
+                            <list>
+                                <field name="invoice_id" condition='[["state","=","waiting_payment"],["contact_id","=",parent.contact_id],["company_id","=",parent.company_id]]' onchange="onchange_invoice" click_action="view_invoice"/>
+                                <field name="invoice_currency_id"/>
+                                <field name="invoice_amount_due"/>
+                                <field name="amount_invoice" onchange="onchange_amount_invoice"/>
+                                <field name="amount" onchange="onchange_amount_payment"/>
+                                <field name="currency_rate" onchange="onchange_amount_invoice"/>
+                                <field name="tax_no"/>
+                            </list>
+                        </field>
+                        <group offset="8" span="4" columns="1">
+                            <field name="amount_total"/>
+                            <field name="amount_wht"/>
+                            <field name="amount_wht_base"/>
+                            <field name="amount_payment"/>
+                            <field name="amount_adjust"/>
+                        </group>
+                    </tab>
+                    <tab string="Adjustments">
+                        <field name="adjust_lines" nolabel="1" count="5">
+                            <list>
+                                <!--<field name="account_id" condition='[["type","!=","view"],["company_id","=",parent.company_id]]'/>-->
+                                <field name="account_id" condition='[["type","!=","view"],["enable_adjust","=",true]]'/>
+                                <field name="description"/>
+                                <field name="tax_comp_id"/>
+                                <field name="tax_base"/>
+                                <field name="track_id"/>
+                                <field name="track2_id"/>
+                                <field name="amount" onchange="update_amounts"/>
+                                <field name="amount_company" onchange="update_amounts"/>
+                            </list>
+                        </field>
+                        <group offset="8" span="4" columns="1">
+                            <field name="amount_subtotal"/>
+                            <field name="amount_tax"/>
+                            <field name="amount_total"/>
+                            <field name="amount_wht"/>
+                            <field name="amount_wht_base"/>
+                            <field name="amount_payment"/>
+                            <field name="amount_adjust"/>
+                        </group>
+                    </tab>
+                </tabs>
+            </group>
+            <group attrs='{"invisible":[["pay_type","!=","direct"]]}'>
+                <field name="direct_lines" nolabel="1" count="10">
+                    <list>
+                        <field name="product_id" onchange="onchange_product"/>
+                        <!--<field name="description" onfocus="get_line_desc"/>-->
+                        <field name="description"/>
+                        <field name="qty" onchange="update_amounts"/>
+                        <field name="unit_price" onchange="update_amounts"/>
+                        <!--<field name="account_id" onchange="onchange_account" condition='[["type","!=","view"],["company_id","=",parent.company_id]]'/>-->
+                        <field name="account_id" onchange="onchange_account" condition='[["type","!=","view"]]'/>
+                        <field name="tax_id" onchange="update_amounts"/>
+                        <field name="track_id"/>
+                        <field name="track2_id"/>
+                        <field name="amount" attrs='{"readonly":[["unit_price","!=",null]]}' onchange="update_amounts"/>
+                        <field name="contact_id"/>
+                        <field name="tax_no"/>
+                        <field name="tax_date"/>
+                    </list>
+                </field>
+                <group offset="8" span="4" columns="1">
+                    <field name="amount_subtotal"/>
+                    <field name="amount_tax"/>
+                    <field name="amount_total"/>
+                    <field name="amount_wht"/>
+                    <field name="amount_wht_base"/>
+                    <field name="amount_payment"/>
+                </group>
+            </group>
+            <group attrs='{"invisible":[["pay_type","!=","prepay"]]}'>
+                <field name="prepay_lines" nolabel="1">
+                    <list>
+                        <field name="description"/>
+                        <field name="qty" onchange="update_amounts"/>
+                        <field name="unit_price" onchange="update_amounts"/>
+                        <field name="account_id" onchange="onchange_account"/>
+                        <field name="tax_id" onchange="update_amounts"/>
+                        <field name="track_id"/>
+                        <field name="track2_id"/>
+                        <field name="amount"/>
+                    </list>
+                </field>
+                <group offset="8" span="4" columns="1">
+                    <field name="amount_subtotal"/>
+                    <field name="amount_tax"/>
+                    <field name="amount_total"/>
+                </group>
+            </group>
+            <group attrs='{"invisible":[["pay_type","!=","overpay"]]}'>
+                <field name="overpay_lines" nolabel="1">
+                    <list>
+                        <field name="description"/>
+                        <field name="amount" onchange="update_amounts"/>
+                        <field name="track_id"/>
+                        <field name="track2_id"/>
+                    </list>
+                </field>
+                <group offset="8" span="4">
+                    <field name="amount_total"/>
+                </group>
+            </group>
+            <group attrs='{"invisible":[["pay_type","!=","claim"]]}'>
+                <field name="claim_lines" nolabel="1">
+                    <list>
+                        <field name="expense_id" condition='[["state","=","approved"]]' onchange="onchange_claim"/>
+                        <field name="amount"/>
+                    </list>
+                </field>
+                <group offset="8" span="4">
+                    <field name="amount_total"/>
+                </group>
+            </group>
+        </tab>
+        <tab string="Other Info">
+            <field name="sequence_id" condition='[["type","in",["pay_in","pay_out"]]]' onchange="onchange_sequence"/>
+            <newline/>
+            <field name="journal_id" onchange="onchange_journal"/>
+            <newline/>
+            <field name="currency_rate"/>
+            <newline/>
+            <field name="pay_method_id"/>
+            <newline/>
+            <field name="transaction_no"/>
+            <newline/>
+            <field name="image"/>
+        </tab>
+    </tabs>
+    <field name="company_id" invisible="1"/>
+    <foot states="draft">
+        <button string="Post" method="post_check_overpay" type="success" states="draft" perm="approve_payment"/>
+    </foot>
+    <related>
+        <field name="cheques">
+            <form>
+                <field name="date"/>
+                <field name="amount"/>
+                <field name="number"/>
+                <field name="bank_id"/>
+                <field name="branch"/>
+                <separator/>
+                <field name="contact_id"/>
+                <field name="related_id"/>
+                <separator/>
+                <field name="state"/>
+                <field name="image"/>
+                <field name="company_id" invisible="1"/>
+            </form>
+            <list>
+                <field name="date"/>
+                <field name="amount"/>
+                <field name="number"/>
+                <field name="bank_id"/>
+                <field name="branch"/>
+                <field name="contact_id"/>
+                <field name="related_id"/>
+                <field name="state"/>
+                <field name="image"/>
+            </list>
+        </field>
+        <field name="documents" show_inline="1"/>
+        <field name="comments"/>
+    </related>
+</form>

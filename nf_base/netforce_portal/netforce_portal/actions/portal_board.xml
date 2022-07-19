@@ -1,0 +1,6 @@
+<action>
+    <field name="view_cls">board</field>
+    <field name="string">Customer Portal Dashboard</field>
+    <field name="view_xml">portal_board</field>
+    <field name="menu">portal_menu</field>
+</action>

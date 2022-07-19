@@ -1,0 +1,63 @@
+<menu string="Accounting">
+    <item string="Dashboard" action="account_board"/>
+    <item string="Bank">
+        <item string="Bank Accounts" action="bank"/>
+        <item string="Payments" action="payment"/>
+        <item string="Transfers" action="bank_transfer"/>
+        <item string="Statements" action="statement"/>
+        <item string="Cheques" action="cheque"/>
+    </item>
+    <item string="Receivable">
+        <item string="Customer Invoices" action="cust_invoice"/>
+        <item string="Billing Notes" action="bill_note"/>
+    </item>
+    <item string="Payable">
+        <item string="Supplier Invoices" action="supp_invoice"/>
+    </item>
+    <item string="Expenses" perm="hr_expense">
+        <item string="Expenses" action="expense"/>
+        <item string="Expense Claims" action="expense_claim"/>
+    </item>
+    <item string="Reports">
+        <item string="All Reports" action="report_page"/>
+        <divider/>
+        <item string="Aged Receivables Details" action="report_ar_details"/>
+        <item string="Aged Payables Details" action="report_ap_details"/>
+        <item string="Profit &amp; Loss" action="report_profit_loss"/>
+        <item string="Balance Sheet" action="report_balance_sheet"/>
+        <item string="Cash Flow Statement" action="report_cash_flow"/>
+        <item string="Trial Balance" action="report_tb"/>
+        <item string="Journal Report" action="report_journal"/>
+        <item string="Account Transactions" action="report_account_trans"/>
+        <item string="General Ledger Summary" action="report_gl"/>
+        <item string="General Ledger Details" action="report_gl_details"/>
+        <item string="Tax Monthly Report" action="report_tax_month"/>
+        <item string="Tax Audit Report" action="report_tax_audit"/>
+        <item string="Invoice Analysis" action="invoice_analysis"/>
+        <item string="Invoice Line Analysis" action="invoice_line_analysis"/>
+        <item string="Payment Analysis" action="payment_analysis"/>
+    </item>
+    <item string="Other">
+        <item string="Journal Entries" action="journal_entry"/>
+        <item string="Ledger Entries" action="account_entry"/>
+        <item string="Fixed Assets" action="fixed_asset"/>
+        <item string="Budgets" action="budget"/>
+        <item string="Tracking Entries" action="account_track_entry"/>
+        <item string="Account Reconciliation" action="account_reconcile"/>
+        <item string="Year End" action="year_end"/>
+    </item>
+    <item string="Settings">
+        <item string="Financial Settings" action="fin_settings"/>
+        <item string="Chart of Accounts" action="account"/>
+        <item string="Fixed Asset Types" action="fixed_asset_type"/>
+        <item string="Journals" action="journal"/>
+        <item string="Tax Rates" action="tax_rate"/>
+        <item string="Currencies" action="currency"/>
+        <item string="Tracking Categories" action="account_track"/>
+        <item string="Tracking Distributions" action="track_distrib"/>
+        <item string="Payment Methods" action="payment_method"/>
+        <item string="Payment Terms" action="payment_term"/>
+        <item string="Conversion Balances" action="conv_bal"/>
+        <!--<item string="Tax Periods" action="tax_period"/>-->
+    </item>
+</menu>

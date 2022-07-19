@@ -1,0 +1,10 @@
+<action>
+    <field name="view">multi_view</field>
+    <field name="string">Warehouses</field>
+    <field name="model">stock.location</field>
+    <field name="modes">list_details,page</field>
+    <field name="condition">[["type","=","internal"]]</field>
+    <field name="list_details_layout">warehouse_list_details</field>
+    <field name="page_layout">warehouse_page</field>
+    <field name="menu">stock_menu</field>
+</action>

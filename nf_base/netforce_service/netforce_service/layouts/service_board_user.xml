@@ -1,0 +1,13 @@
+<board>
+    <hpanel>
+        <widget string="My Pending Jobs" action="user_pending_job_widget"/>
+        <widget string="My Pending Tasks" action="user_pending_task_widget"/>
+    </hpanel>
+    <hpanel>
+        <widget string="Other Shared Pending Jobs" action="shared_job_widget"/>
+        <widget string="My Jobs Per Service" action="user_task_serv_widget"/>
+    </hpanel>
+    <hpanel>
+        <widget string="Open Issues" action="issue_widget"/>
+    </hpanel>
+</board>

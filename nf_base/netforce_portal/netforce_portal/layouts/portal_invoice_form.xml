@@ -1,0 +1,106 @@
+<form model="account.invoice" attrs='{"readonly":[["state","in",["waiting_payment","paid","voided"]]]}' show_company="1">
+    <head>
+        <field name="state"/>
+        <button string="Print" icon="print" dropdown="1">
+            <item string="PDF" action="report_cust_invoice_form" action_options='{"invoice_id":id,"convert":"pdf"}'/>
+        </button>
+    </head>
+    <group form_layout="stacked">
+        <field name="partner_id" span="2" create="1" onchange="onchange_partner"/>
+        <field name="bill_address_id" span="2" condition='[["partner_id","=",partner_id],["partner_id","!=",null]]'/>
+        <field name="date" span="2" onchange="onchange_date"/>
+        <field name="due_date" span="2"/>
+        <field name="number" required="1" span="2"/>
+        <field name="ref" span="2"/>
+        <newline/>
+        <field name="currency_id" span="2"/>
+        <field name="tax_type" span="2" onchange="update_amounts"/>
+        <field name="tax_no" span="2"/>
+        <field name="related_id" span="2"/>
+        <newline/>
+        <field name="memo" span="4"/>
+    </group>
+    <field name="lines" count="10" nolabel="1">
+        <list onchange="update_amounts">
+            <field name="description"/>
+            <field name="qty" onchange="update_amounts"/>
+            <field name="uom_id" onchange="update_amounts"/>
+            <field name="unit_price" onchange="update_amounts"/>
+            <field name="discount" onchange="update_amounts"/>
+            <field name="amount" attrs='{"readonly":[["unit_price","!=",null]]}' onchange="update_amounts"/>
+        </list>
+    </field>
+    <group offset="8" span="4">
+        <field name="amount_subtotal" span="4"/>
+        <field name="amount_tax" span="4"/>
+        <field name="amount_total" span="4"/>
+        <field name="credit_notes">
+            <fields>
+                <field name="credit_id"/>
+                <field name="credit_type"/>
+                <field name="amount"/>
+            </fields>
+            <template>
+                {{#each context.data}}
+                    <div class="control-group">
+                        <label class="control-label">
+                            {{#ifeq credit_type "credit"}}
+                                Less <a href="#name=view_invoice&amp;active_id={{credit_id.0.}}">Credit Note</a>
+                            {{/ifeq}}
+                            {{#ifeq credit_type "prepay"}}
+                                Less <a href="#name=view_invoice&amp;active_id={{credit_id.0.}}">Prepayment</a>
+                            {{/ifeq}}
+                            {{#ifeq credit_type "overpay"}}
+                                Less <a href="#name=view_invoice&amp;active_id={credit_id.0.}}">Overpayment</a>
+                            {{/ifeq}}
+                        </label>
+                        <div class="controls" style="text-align:right;padding-right:5px">
+                            {{currency amount}}
+                        </div>
+                    </div>
+                {{/each}}
+            </template>
+        </field>
+        <field name="payments">
+            <fields>
+                <field name="payment_id"/>
+                <field name="amount_currency"/>
+            </fields>
+            <template>
+                {{#each context.data}}
+                    <div class="control-group">
+                        <label class="control-label">Less <a href="#name=payment&amp;mode=form&amp;active_id={{payment_id.0.}}">Payment</a></label>
+                        <div class="controls" style="text-align:right;padding-right:5px">
+                            {{currency amount_currency}}
+                        </div>
+                    </div>
+                {{/each}}
+            </template>
+        </field>
+        <field name="amount_due" span="4" states="waiting_payment,paid"/>
+    </group>
+    <field name="type" invisible="1"/>
+    <field name="inv_type" invisible="1"/>
+    <field name="partner_credit" invisible="1"/>
+    <field name="company_id" invisible="1"/>
+    <foot states="draft,waiting_approval" replace="1">
+    </foot>
+    <related>
+        <field name="documents">
+            <list>
+                <field name="file" target="_blank" preview="1"/>
+                <field name="categ_id"/>
+                <field name="description"/>
+                <field name="date"/>
+            </list>
+            <form>
+                <field name="categ_id"/>
+                <field name="file" target="_blank" onchange="onchange_file"/>
+                <field name="date"/>
+                <field name="description"/>
+                <field name="partner_id" invisible="1"/>
+            </form>
+        </field>
+        <field name="comments"/>
+    </related>
+</form>

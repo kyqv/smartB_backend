@@ -1,0 +1,48 @@
+<form model="sale.forecast">
+    <head>
+        <field name="state"/>
+        <button string="Options" dropdown="1">
+            <item string="Copy" method="copy"/>
+            <!--<item string="Update Planned Stock Transactions" method="update_stock"/>-->
+            <divider/>
+            <item string="Copy To FG and RM Purchase Orders" method="copy_to_rm_purchase"/>
+            <item string="Copy To Production Plan" method="copy_to_production_plan"/>
+        </button>
+    </head>
+    <field name="number"/>
+    <field name="location_id"/>
+    <newline/>
+    <field name="date_from"/>
+    <field name="date_to"/>
+    <newline/>
+    <field name="description"/>
+    <foot>
+        <button string="Close Forecast" method="close" states="open"/>
+        <button string="Reopen Forecast" method="reopen" states="closed"/>
+    </foot>
+    <related>
+        <field name="lines">
+            <list>
+                <field name="product_id"/>
+                <field name="customer_id"/>
+                <field name="min_shelf_life"/>
+                <field name="plan_qty"/>
+                <field name="actual_qty"/>
+                <field name="prev_diff_percent"/>
+            </list>
+            <form>
+                <field name="product_id" onchange="onchange_product"/>
+                <newline/>
+                <field name="customer_id" onchange="onchange_customer"/>
+                <field name="min_shelf_life"/>
+                <field name="plan_qty"/>
+                <field name="actual_qty"/>
+                <separator/>
+                <field name="prev_plan_qty"/>
+                <field name="prev_diff_percent"/>
+            </form>
+        </field>
+        <field name="stock_moves"/>
+        <field name="comments"/>
+    </related>
+</form>

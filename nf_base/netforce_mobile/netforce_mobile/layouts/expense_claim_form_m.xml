@@ -1,0 +1,17 @@
+<form_m model="hr.expense.claim">
+    <field name="name"/>
+    <newline/>
+    <field name="employee_id"/>
+    <newline/>
+    <field name="description"/>
+    <newline/>
+    <field name="num_expenses"/>
+    <field name="amount_total"/>
+    <newline/>
+    <field name="state"/>
+    <newline/>
+    <button title="Add Expense" type="primary" icon="ios-add" action='{"view":"form_m","model":"hr.expense","target":"sub_action",context:{"defaults":{"claim_id":id,"employee_id":employee_id}}}'/>
+    <related>
+        <field name="expenses"/>
+    </related>
+</form_m>

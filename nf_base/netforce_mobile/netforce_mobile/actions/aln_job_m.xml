@@ -1,0 +1,7 @@
+<action>
+    <field name="view">list_m</field>
+    <field name="title">Jobs</field>
+    <field name="model">aln.job</field>
+    <field name="tabs">[["All",[]],["Pending",[["state","=","pending"]]],["Disposed",[["state","=","disposed"]]]]</field>
+    <field name="menu">main_menu_m</field>
+</action>

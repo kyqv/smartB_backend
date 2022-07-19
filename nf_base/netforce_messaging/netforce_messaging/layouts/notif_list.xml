@@ -1,0 +1,7 @@
+<list model="notif">
+    <field name="time"/>
+    <field name="user_id"/>
+    <field name="title"/>
+    <field name="related_id"/>
+    <field name="state"/>
+</list>

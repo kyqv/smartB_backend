@@ -1,0 +1,17 @@
+<form model="log">
+    <field name="date"/>
+    <field name="user_id"/>
+    <field name="ip_addr"/>
+    <field name="country_id"/>
+    <field name="message"/>
+    <field name="details"/>
+    <!--<field name="related_id"/>-->
+    <separator/>
+    <field name="type"/>
+    <field name="txid"/>
+    <field name="entry_point"/>
+    <field name="client_name"/>
+    <related>
+        <field name="comments"/>
+    </related>
+</form>

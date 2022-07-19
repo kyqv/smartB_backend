@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Applications</field>
+    <field name="view">multi_view</field>
+    <field name="model">service.application</field>
+    <field name="menu">service_menu</field>
+</action>

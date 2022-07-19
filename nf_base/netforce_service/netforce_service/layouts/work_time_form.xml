@@ -1,0 +1,28 @@
+<form model="work.time">
+    <head>
+        <field name="state"/>
+    </head>
+    <field name="date"/>
+    <field name="resource_id"/>
+    <separator/>
+    <field name="project_id"/>
+    <field name="related_id"/>
+    <field name="description"/>
+    <separator/>
+    <field name="actual_hours" view="field_duration"/>
+    <field name="bill_hours"/>
+    <separator string="Costing"/>
+    <field name="track_id"/>
+    <field name="cost_amount"/>
+    <separator string="Invoicing"/>
+    <field name="invoice_id"/>
+    <foot>
+        <button string="Approve" type="success" method="approve" states="waiting_approval" icon="ok" perm="approve_timesheet"/>
+        <button string="Reject" type="danger" method="reject" states="waiting_approval" icon="remove" perm="approve_timesheet"/>
+        <button string="Waiting Approval" icon="arrow-left" method="waiting_approval" states="approved,rejected"/>
+    </foot>
+    <related>
+        <field name="track_entries"/>
+        <field name="comments"/>
+    </related>
+</form>

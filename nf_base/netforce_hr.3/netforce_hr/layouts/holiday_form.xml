@@ -1,0 +1,11 @@
+<form model="hr.holiday">
+    <group>
+        <field name="date"/>
+        <field name="name"/>
+        <field name="description"/>
+        <field name="generic"/>
+    </group>
+    <related>
+        <field name="comments"/>
+    </related>
+</form>

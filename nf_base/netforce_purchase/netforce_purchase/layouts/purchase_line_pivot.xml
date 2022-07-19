@@ -1,0 +1,17 @@
+<pivot model="purchase.order.line" rows="product_id.name" cols="order_id.state" vals="amount,qty" agg_name="sum">
+    <field name="product_id.name" string="Product"/>
+    <field name="product_id.categ_id.name" string="Product Category"/>
+    <field name="order_id.number" string="PO Number"/>
+    <field name="order_id.contact_id.name" string="Supplier"/>
+    <field name="order_id.contact_id.categ_id.name" string="Supplier Category"/>
+    <field name="order_id.state"/>
+    <field name="order_id.user_id.name" string="Responsible User"/>
+    <field name="order_id.date"/>
+    <field name="order_id.date_month"/>
+    <field name="order_id.date_week"/>
+    <field name="amount" string="Line Total"/>
+    <field name="amount_cur" string="Line Total (Converted)"/>
+    <field name="qty"/>
+    <field name="track_id.name" string="Tracking Category"/>
+    <field name="order_id.currency_id.code" string="Currency"/>
+</pivot>

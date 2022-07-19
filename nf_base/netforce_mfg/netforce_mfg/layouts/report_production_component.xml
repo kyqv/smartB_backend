@@ -1,0 +1,11 @@
+<form model="report.production.component">
+    <group>
+        <field name="date_from"/>
+        <field name="date_to"/>
+        <field name="product_id"/>
+        <field name="categ_id"/>
+        <field name="sale_id"/>
+        <field name="production_location_id"/>
+        <field name="show_empty"/>
+    </group>
+</form>

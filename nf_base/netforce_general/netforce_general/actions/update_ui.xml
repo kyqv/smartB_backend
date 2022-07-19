@@ -1,0 +1,5 @@
+<action>
+    <field name="view">form_view</field>
+    <field name="model">update.ui</field>
+    <field name="menu">gen_menu</field>
+</action>

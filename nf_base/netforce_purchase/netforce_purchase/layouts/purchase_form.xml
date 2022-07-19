@@ -1,0 +1,123 @@
+<form model="purchase.order" attrs='{"readonly":[["state","in",["wait_approve","confirmed","done","voided"]]]}' show_company="1" show_save="1">
+    <top>
+        <!--<button string="Print" icon="print" action="report_purchase_form" states="confirmed,done"/>
+        <button string="Print (New)" icon="print" action="report_purchase_form2" action_options='{"active_id":id}' states="confirmed,done"/-->>
+        <button string="Print" icon="print" action="report_purchase_form3" action_options='{"active_id":id}' states="confirmed,done"/>
+        <button string="Send" icon="envelope" action="send_purchase"/>
+        <button string="test" method="test"/>
+        <button string="Options" dropdown="1" align="right">
+            <item string="Add Products" action="purchase_add" action_options='{"context":{"defaults":{"purchase_id":id}}}'/>
+            <divider/>
+            <item string="Copy To Goods Receipt" method="copy_to_picking"/>
+            <item string="Copy To Grading" method="copy_to_grading"/>
+            <item string="Copy To Supplier Invoice" method="copy_to_invoice" states="confirmed"/>
+            <item string="Copy To Customer Invoice" method="copy_to_cust_invoice" states="confirmed"/>
+            <item string="Copy" method="copy"/>
+            <divider/>
+            <item string="Copy To RM Goods Issue" method="copy_to_rm_picking" states="confirmed"/>
+            <item string="Copy To FG Goods Receipt" method="copy_to_fg_picking" states="confirmed"/>
+            <divider/>
+            <item string="Copy To Sales Order" method="copy_to_sale"/>
+            <divider/>
+            <item string="Copy To Supplier Sales Order" method="copy_to_supplier_sale" states="confirmed"/>
+            <divider/>
+            <item string="To Draft" method="to_draft" states="wait_approve,confirmed,done"/>
+            <item string="Void" method="void" confirm="Are you sure you want to void this purchase order?" states="confirmed,done"/>
+        </button>
+    </top>
+    <head>
+        <field name="state"/>
+    </head>
+    <tabs>
+        <tab string="General">
+            <group form_layout="stacked">
+                <field name="contact_id" span="2" create="1" onchange="onchange_contact" condition='[["supplier", "=", "True"]]'/>
+                <field name="contact_person_id" span="2" condition='[["type", "=", "person"],["org_id","=",contact_id]]'/>
+                <field name="date" span="2" onchange="onchange_date"/>
+                <field name="number" span="2"/>
+                <field name="ref" span="2"/>
+                <field name="is_delivered" span="1"/>
+                <newline/>
+                <field name="currency_id" span="2"/>
+                <field name="tax_type" span="2"/>
+                <field name="price_list_id" span="2" onchange="onchange_price_list"/>
+                <field name="purchase_type_id" span="2"/>
+                <field name="customer_id" span="2"/>
+                <field name="is_paid" span="1"/>
+                <newline/>
+                <field name="bill_address_id" span="2" condition='[["is_active_company_address","=",1],["contact_id","=",contact_id],["contact_id","!=",null]]'/>
+                <field name="ship_address_id" span="2" condition='[["is_active_company_address","=",1],["contact_id","=",contact_id],["contact_id","!=",null]]'/>
+                <field name="pay_term_id" span="2"/>
+                <field name="purchase_request_id" span="2"/>
+                <field name="related_id" span="2"/>
+                <field name="delivery_date" span="2"/>
+                <newline/>
+                <field name="project_id" span="2"/>
+            </group>
+            <field name="lines" nolabel="1">
+                <list onchange="update_amounts" reorder_field="sequence">
+                    <field name="sequence"/>
+                    <field name="product_id" onchange="onchange_product" condition='[["can_purchase","=",true]]'/>
+                    <field name="description"/>
+                    <field name="qty" onchange="onchange_qty"/>
+                    <field name="uom_id" onchange="update_amounts"/>
+                    <field name="unit_price" onchange="update_amounts"/>
+                    <field name="tax_id" onchange="update_amounts"/>
+                    <field name="discount_amount" onchange="update_amounts"/>
+                    <field name="amount_input" onchange="onchange_amount_input"/>
+                    <field name="amount"/>
+                    <field name="amount_tax"/>
+                    <field name="location_id" show_required="1"/>
+                    <field name="track_id"/>
+                    <field name="track2_id"/>
+                    <field name="qty_stock_func"/>
+                    <field name="ship_method_id"/>
+                    <field name="qty_received"/>
+                    <field name="qty_invoiced"/>
+                    <field name="sale_id"/>
+                    <field name="department_id"/>
+                    <field name="notes"/>
+                </list>
+            </field>
+            <group offset="8" span="4" columns="1">
+                <field name="amount_subtotal"/>
+                <field name="amount_tax"/>
+                <field name="amount_total"/>
+                <field name="amount_total_cur"/>
+            </group>
+            <newline/>
+            <field name="other_info"/>
+        </tab>
+        <tab string="Approval">
+            <field name="approvals"/>
+            <newline/>
+            <field name="date_approve"/>
+        </tab>
+        <tab string="Other Info">
+            <field name="user_id"/>
+            <newline/>
+            <field name="procurement_employee_id"/>
+            <newline/>
+            <field name="sequence_id" condition='[["type","=","purchase_order"]]' onchange="onchange_sequence"/>
+            <newline/>
+            <field name="ship_term_id"/>
+        </tab>
+    </tabs>
+    <field name="company_id" invisible="1"/>
+    <foot>
+        <button string="Submit For Approval" method="submit_for_approval" icon="arrow-right" states="draft"/>
+        <button string="Approve" method="approve" states="draft,wait_approve" icon="ok" type="success"/>
+        <!--<button string="Confirm" method="confirm" type="success" states="draft" perm="approve_purchase"/>-->
+        <button string="Completed" method="done" type="success" states="confirmed"/>
+        <button string="Reopen" method="reopen" icon="refresh" states="done"/>
+    </foot>
+    <related>
+        <field name="invoices" click_action="view_invoice"/>
+        <field name="pickings"/>
+        <field name="gradings"/>
+        <field name="sale_orders"/>
+        <field name="documents" show_inline="1"/>
+        <field name="emails"/>
+        <field name="comments"/>
+    </related>
+</form>

@@ -1,0 +1,7 @@
+<form model="purchase.add">
+    <field name="purchase_id" invisible="1"/>
+    <field name="master_product_id"/>
+    <foot>
+        <button string="Add Products" method="add_products" type="primary" icon="plus"/>
+    </foot>
+</form>

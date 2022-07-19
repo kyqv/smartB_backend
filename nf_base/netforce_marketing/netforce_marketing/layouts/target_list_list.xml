@@ -1,0 +1,7 @@
+<list model="mkt.target.list">
+    <field name="name"/>
+    <field name="date"/>
+    <field name="num_targets"/>
+    <field name="num_emails_verified"/>
+    <field name="num_emails_error"/>
+</list>

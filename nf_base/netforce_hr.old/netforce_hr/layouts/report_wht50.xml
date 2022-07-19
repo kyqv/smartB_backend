@@ -1,0 +1,9 @@
+<form model="report.wht50" title="WHT50: Personal Income Tax Report">
+    <field name="year" mode="year" span="4"/>
+    <field name="doc_date" span="4"/>
+    <field name="show_doc_date" span="4"/>
+    <field name="employee_id" span="4"/>
+    <foot replace="1">
+        <button string="Print" method="print_wht50" icon="print"/>
+    </foot>
+</form>

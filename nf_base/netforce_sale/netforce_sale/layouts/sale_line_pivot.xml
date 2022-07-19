@@ -1,0 +1,23 @@
+<pivot model="sale.order.line" rows="product_id.name" cols="order_id.state" vals="amount,qty" agg_name="sum">
+    <field name="product_id.name" string="Product"/>
+    <field name="product_id.categ_id.name" string="Product Category"/>
+    <field name="order_id.contact_id.name" string="Contact"/>
+    <field name="order_id.contact_id.categ_id.name" string="Contact Category"/>
+    <field name="order_id.state"/>
+    <field name="order_id.user_id.name" string="Responsible User"/>
+    <field name="order_id.date"/>
+    <field name="order_id.date_week"/>
+    <field name="order_id.date_month"/>
+    <field name="order_id.due_date"/>
+    <field name="order_id.due_date_weekday"/>
+    <field name="order_id.number" string="SO Number"/>
+    <field name="order_id.other_info" string="Order Notes"/>
+    <field name="notes" string="Line Notes"/>
+    <field name="amount"/>
+    <field name="qty"/>
+    <field name="order_id.seller_id.name" string="Sales Person"/>
+    <field name="order_id.ship_port_id.name" string="Shipping Port"/>
+    <field name="ship_method_id.name" string="Shipping Method"/>
+    <field name="packaging_id.name" string="Packaging"/>
+    <field name="location_id.name" string="Location"/>
+</pivot>

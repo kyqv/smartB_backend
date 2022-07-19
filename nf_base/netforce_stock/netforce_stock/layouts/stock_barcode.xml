@@ -1,0 +1,36 @@
+<form model="stock.barcode" title="Barcode Inventory Update">
+    <group form_layout="stacked">
+        <field name="station_id" span="2"/>
+        <field name="type" span="2" onchange="onchange_type" required="1"/>
+        <field name="related_id" span="2" onchange="onchange_related"/>
+        <newline/>
+        <field name="location_from_id" span="2" required="1"/>
+        <field name="location_to_id" span="2" required="1"/>
+        <field name="container_from_id" span="2" create="1" onchange="onchange_container_from"/>
+        <field name="container_to_id" span="2" create="1"/>
+        <button string="Add Container Products" span="2" icon="plus" method="add_container_products"/>
+    </group>
+    <separator string="Add Product"/>
+    <group form_layout="stacked">
+        <field name="product_id" span="2" onchange="onchange_product"/>
+        <field name="qty" span="2" method="add_product"/>
+        <field name="uom_id" span="2"/>
+        <field name="lot_id" span="2" create="1"/>
+        <button string="Add Product" span="2" type="primary" icon="plus" method="add_product"/>
+    </group>
+    <separator string="Product List"/>
+    <field name="lines" nolabel="1">
+        <list noadd="1" noremove="1">
+            <field name="product_id"/>
+            <field name="qty"/>
+            <field name="uom_id"/>
+            <field name="lot_id"/>
+        </list>
+    </field>
+    <group form_layout="stacked">
+        <field name="gross_weight" offset="10" span="2"/>
+    </group>
+    <foot replace="1">
+        <button string="Validate" method="validate" type="success" icon="ok"/>
+    </foot>
+</form>

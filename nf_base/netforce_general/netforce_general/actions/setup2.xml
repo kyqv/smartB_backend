@@ -1,0 +1,6 @@
+<action>
+    <field name="view">steps</field>
+    <field name="model">setup</field>
+    <field name="layout">setup2</field>
+    <field name="menu">setup_menu</field>
+</action>

@@ -1,0 +1,13 @@
+<list model="access.token" colors='{"#ccc":[["state","in",["expired","logout"]]]}'>
+    <head>
+        <button string="Expire" method="expire" icon="remove" confirm="Are you sure?"/>
+    </head>
+    <field name="time"/>
+    <field name="ip_addr"/>
+    <field name="client_name"/>
+    <field name="user_id"/>
+    <field name="token"/>
+    <field name="logout_time"/>
+    <field name="expire_time"/>
+    <field name="state"/>
+</list>

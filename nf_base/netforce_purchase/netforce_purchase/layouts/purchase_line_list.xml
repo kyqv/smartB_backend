@@ -1,0 +1,12 @@
+<list model="purchase.order.line" action="view_purchase">
+    <field name="order_id"/>
+    <field name="contact_id"/>
+    <field name="date"/>
+    <field name="product_id"/>
+    <field name="description"/>
+    <field name="qty"/>
+    <field name="uom_id"/>
+    <field name="unit_price"/>
+    <field name="amount"/>
+    <field name="state"/>
+</list>

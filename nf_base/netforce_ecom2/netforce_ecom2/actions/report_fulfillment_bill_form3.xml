@@ -1,0 +1,5 @@
+<action>
+    <field name="view">print_wizard2</field>
+    <field name="model">fulfillment.bill</field>
+    <field name="menu">ecom2_menu</field>
+</action>

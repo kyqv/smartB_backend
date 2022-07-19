@@ -1,0 +1,5 @@
+<action>
+    <field name="type">report_odt2</field>
+    <field name="model">stock.picking</field>
+    <field name="template">pick_in_form</field>
+</action>

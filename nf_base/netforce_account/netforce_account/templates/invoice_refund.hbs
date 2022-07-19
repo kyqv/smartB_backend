@@ -1,0 +1,18 @@
+{{view "flash" context=context}}
+{{#view "form" type="inline" border="1" context=context}}
+    {{#view "form_body" background="1" context=context}}
+        <div style="margin-bottom:10px">
+            <strong>Make a refund</strong>
+        </div>
+        <div class="row">
+            {{view "field" name="amount" span="2" context=context}}
+            {{view "field" name="date" span="2" context=context}}
+            {{view "field" name="account_id" span="2" condition='[["type","!=","view"]]' context=context}}
+            {{view "field" name="ref" span="2" context=context}}
+            {{view "field" name="invoice_id" invisible="1" context=context}}
+            <div class="span2" style="padding-top:10px">
+                {{view "button" string="Add Refund" method="add_refund" type="success" icon="ok" icon_white="1" context=context}}
+            </div>
+        </div>
+    {{/view}}
+{{/view}}

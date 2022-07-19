@@ -1,0 +1,5 @@
+<action>
+    <field name="type">report_odt2</field>
+    <field name="model">product.borrow</field>
+    <field name="template">borrow_form</field>
+</action>

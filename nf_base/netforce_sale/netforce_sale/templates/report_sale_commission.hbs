@@ -1,0 +1,136 @@
+<center>
+    <h2>
+        Sales Commission Report
+    </h2>
+    <h3>
+        From {{fmt_date date_from}} to {{fmt_date date_to}}
+    </h3>
+</center>
+
+<b>Total Profit: {{currency profit}}</b>
+<br/>
+<b>Total Commission: {{currency total_commission}}</b>
+<br/>
+<b>Profit After Commission: {{currency profit_remain}}</b>
+<br/>
+<br/>
+
+<table class="table">
+    <thead class="scroll-header">
+        <tr>
+            <th>
+                Contact Name
+            </th>
+            <th style="text-align:right">
+                Seller Commission
+            </th>
+            <th style="text-align:right">
+                Parent Commission
+            </th>
+            <th style="text-align:right">
+                Grand Parent Commission
+            </th>
+            <th style="text-align:right">
+                Total Commission
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each lines context=context}}
+            <tr>
+                <td>
+                    [{{contact_code}}] {{contact_name}}
+                </td>
+                <td style="text-align:right">
+                    {{currency amount_seller zero=""}}
+                </td>
+                <td style="text-align:right">
+                    {{currency amount_parent zero=""}}
+                </td>
+                <td style="text-align:right">
+                    {{currency amount_grand_parent zero=""}}
+                </td>
+                <td style="text-align:right">
+                    {{currency amount zero=""}}
+                </td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+<h3>Calculation Details</h3>
+
+<table class="table">
+    <thead class="scroll-header">
+        <tr>
+            <th>
+                Contact Name
+            </th>
+            <th>
+                Sales Order
+            </th>
+            <th>
+                Product
+            </th>
+            <th style="text-align:right">
+                Qty
+            </th>
+            <th style="text-align:right">
+                Sales Price
+            </th>
+            <th style="text-align:right">
+                Purchase Price
+            </th>
+            <th style="text-align:right">
+                Profit 
+            </th>
+            <th>
+                Level
+            </th>
+            <th style="text-align:right">
+                Commission
+            </th>
+            <th>
+                Seller
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each details context=context}}
+            <tr>
+                <td>
+                    [{{contact_code}}] {{contact_name}}
+                </td>
+                <td>
+                    {{#link action="sale" action_options='{"mode":"form"}' active_id=sale_id}}
+                        {{sale_no}}
+                    {{/link}}
+                </td>
+                <td>
+                    {{prod_name}}
+                </td>
+                <td style="text-align:right">
+                    {{currency qty zero=""}}
+                </td>
+                <td style="text-align:right">
+                    {{currency sale_price zero=""}}
+                </td>
+                <td style="text-align:right">
+                    {{currency purch_price zero=""}}
+                </td>
+                <td style="text-align:right">
+                    {{currency profit zero=""}}
+                </td>
+                <td>
+                    {{level}}
+                </td>
+                <td style="text-align:right">
+                    {{currency com_amt zero=""}}
+                </td>
+                <td>
+                    {{seller_name}}
+                </td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>

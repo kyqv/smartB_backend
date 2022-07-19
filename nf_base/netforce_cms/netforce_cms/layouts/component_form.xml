@@ -1,0 +1,6 @@
+<form model="theme.component">
+    <field name="name"/>
+    <field name="theme_id"/>
+    <separator string="Code (JSX)"/>
+    <field name="body" width="100%" height="600" view="field_code" mode="jsx" nolabel="1" span="12"/>
+</form>

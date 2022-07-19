@@ -1,0 +1,5 @@
+<form_m model="lead.source">
+    <field name="name"/>
+    <newline/>
+    <field name="description"/>
+</form_m>

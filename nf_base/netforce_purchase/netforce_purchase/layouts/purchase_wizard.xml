@@ -1,0 +1,7 @@
+<form model="purchase.wizard">
+    <field name="product_id"/>
+    <field name="product_supplier_id" condition='[["product_id","=",product_id]]'/>
+    <foot>
+        <button string="Make PO" method="make_po" type="primary"/>
+    </foot>
+</form>

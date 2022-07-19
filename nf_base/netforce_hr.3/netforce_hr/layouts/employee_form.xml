@@ -1,0 +1,130 @@
+<form model="hr.employee" show_company="1">
+    <head>
+        <field name="work_status"/>
+    </head>
+    <field name="code"/>
+    <field name="department_id"/>
+    <field name="first_name"/>
+    <field name="last_name"/>
+    <field name="title" onchange="onchange_gender"/>
+    <field name="position"/>
+    <field name="work_status"/>
+    <field name="work_type"/>
+    <field name="hire_date"/>
+    <field name="resign_date"/>
+    <field name="user_id"/>
+    <field name="approver_id"/>
+    <tabs>
+        <tab string="General">
+            <group span="6" columns="1">
+                <field name="birth_date"/>
+                <field name="age"/>
+                <field name="gender"/>
+                <field name="marital_status"/>
+                <field name="id_no" onchange="onchange_id_no"/>
+                <field name="picture"/>
+                <field name="email"/>
+            </group>
+            <group span="6" columns="1">
+                <field name="phone"/>
+                <field name="drive_license_type"/>
+                <field name="drive_license_no"/>
+                <field name="country_id"/>
+                <field name="bank_account"/>
+                <field name="salary"/>
+                <field name="schedule_id"/>
+            </group>
+            <separator string="Address"/>
+            <field name="addresses" view="form_list"/>
+        </tab>
+        <tab string="Payroll">
+            <field name="payslip_template_id" domain='[["name","=",code]]'/>
+            <separator string="YTD"/>
+            <field name="year_income"/>
+            <field name="year_deduct"/>
+            <field name="year_tax"/>
+            <field name="year_soc"/>
+            <field name="year_prov"/>
+            <separator string="Report Config"/>
+            <field name="name_th"/>
+            <field name="name_last_th"/>
+            <newline/>
+            <field name="depart_name"/>
+            <field name="depart_room_number"/>
+            <field name="depart_stage"/>
+            <field name="depart_village"/>
+            <field name="depart_number"/>
+            <field name="depart_sub_number"/>
+            <field name="depart_soi"/>
+            <field name="depart_road"/>
+            <field name="depart_sub_district"/>
+            <field name="depart_district"/>
+            <field name="depart_province"/>
+            <field name="depart_zip"/>
+            <field name="depart_tel"/>
+        </tab>
+        <tab string="Personal Income Tax">
+            <field name="tax_no"/>
+            <field name="tax_register"/>
+            <!--<field name="tax_profile_id"/>-->
+        </tab>
+        <tab string="Social Security">
+            <field name="social_no"/>
+            <field name="social_register"/>
+        </tab>
+        <tab string="Provident Fund">
+            <field name="prov_fund_no"/>
+            <field name="prov_open_date"/>
+            <field name="prov_rate_employer"/>
+            <field name="prov_rate_employee"/>
+            <field name="prov_regis"/>
+        </tab>
+        <tab string="Leaves" perm="hr_employee_leave">
+            <group>
+                <field name="leave_types" nolabel="1" span="11"/>
+            </group>
+        </tab>
+        <tab string="Attendance Config">
+            <field name="attendance_code"/>
+        </tab>
+    </tabs>
+    <field name="company_id" invisible="1"/>
+    <related>
+        <field name="sellers"/>
+        <field name="tax_profiles"/>
+        <field name="payslips">
+            <list colors='{"#cfc":[["state","=","approved"]]}'>
+                <field name="run_id"/>
+                <field name="due_date"/>
+                <field name="amount_salary" sum="1"/>
+                <field name="amount_bonus" sum="1"/>
+                <field name="amount_overtime" sum="1"/>
+                <field name="amount_allow" sum="1"/>
+                <field name="amount_tax" sum="1"/>
+                <field name="amount_social" sum="1"/>
+                <field name="amount_provident" sum="1"/>
+                <field name="amount_other_expense" sum="1"/>
+                <field name="amount_net" sum="1"/>
+                <field name="state"/>
+            </list>
+        </field>
+        <field name="leaves"/>
+        <field name="documents">
+            <list>
+                <field name="file" target="_blank"/>
+                <field name="categ_id"/>
+                <field name="description"/>
+                <field name="date"/>
+                <field name="expiry_date"/>
+            </list>
+            <form>
+                <field name="categ_id"/>
+                <field name="file" target="_blank" onchange="onchange_file"/>
+                <field name="date"/>
+                <field name="expiry_date"/>
+                <field name="description"/>
+            </form>
+        </field>
+        <field name="comments"/>
+    </related>
+</form>

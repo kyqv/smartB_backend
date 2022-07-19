@@ -1,0 +1,83 @@
+<form model="settings" title="Inventory Settings">
+    <separator string="Journals"/>
+    <field name="pick_in_journal_id"/>
+    <newline/>
+    <field name="pick_out_journal_id"/>
+    <newline/>
+    <field name="pick_internal_journal_id"/>
+    <newline/>
+    <field name="pick_out_return_journal_id"/>
+    <newline/>
+    <field name="stock_count_journal_id"/>
+    <newline/>
+    <field name="landed_cost_journal_id"/>
+    <newline/>
+    <field name="waste_journal_id"/>
+    <newline/>
+    <field name="transform_journal_id"/>
+    <newline/>
+    <field name="production_journal_id"/>
+    <newline/>
+    <field name="product_borrow_journal_id"/>
+    <newline/>
+    <field name="lot_expiry_journal_id"/>
+    <newline/>
+    <field name="life_75_journal_id"/>
+    <newline/>
+    <field name="life_50_journal_id"/>
+    <newline/>
+    <field name="forecast_journal_id"/>
+    <newline/>
+    <field name="landed_cost_variance_account_id"/>
+    <newline/>
+    <field name="est_ship_account_id"/>
+    <newline/>
+    <field name="est_duty_account_id"/>
+    <newline/>
+    <field name="act_ship_account_id"/>
+    <newline/>
+    <field name="act_duty_account_id"/>
+    <newline/>
+    <field name="stock_cost_auto_compute"/>
+    <newline/>
+    <field name="stock_cost_mode"/>
+    <newline/>
+    <field name="unique_barcode"/>
+    <separator string="QC"/>
+    <field name="require_qc_in"/>
+    <field name="require_qc_out"/>
+    <separator string="Workflow"/>
+    <field name="pick_out_create_invoice"/>
+    <field name="check_neg_stock"/>
+    <separator string="Permissions"/>
+    <field name="approve_pick_in"/>
+    <field name="approve_pick_internal"/>
+    <field name="approve_pick_out"/>
+
+    <separator string="Cycle Stock-Count By Category"/> <!-- Max 07 Jul 2021 -->
+    <field name="total_stockcount_per_year"/>
+    <newline/>
+    <field name="cycle_stockcount_xyz"/>
+    <group attrs='{"invisible": [["cycle_stockcount_xyz","!=","1"]]}'>
+    <separator string="XYZ percentage"/>
+    <field name="x_by_percentage" span="3"/>
+    <field name="y_by_percentage" span="3"/>
+    <field name="z_by_percentage" span="3"/>
+    <field name="xyz_period" span="3"/>
+    <separator string="XYZ Ratio"/>
+    <field name="x2z_ratio" span="3"/>
+    <field name="y2z_ratio" span="3"/>
+    <separator string="XYZ Stock-Count per Year"/>
+    <field name="x_total_stockcount_per_year" span="3"/>
+    <field name="y_total_stockcount_per_year" span="3"/>
+    <field name="z_total_stockcount_per_year" span="3"/>
+    <separator/>
+    </group>
+    <newline/>
+    <field name="cycle_stockcount_abc"/>     
+    <group attrs='{"invisible": [["cycle_stockcount_abc","!=","1"]]}'>
+    <field name="a_by_percentage"/>
+    <field name="b_by_percentage"/>
+    <field name="c_by_percentage"/>
+    </group>
+</form>

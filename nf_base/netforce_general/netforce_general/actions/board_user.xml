@@ -1,0 +1,6 @@
+<action>
+    <field name="string">User Dashboards</field>
+    <field name="view">multi_view</field>
+    <field name="model">board.user</field>
+    <field name="menu">gen_menu</field>
+</action>

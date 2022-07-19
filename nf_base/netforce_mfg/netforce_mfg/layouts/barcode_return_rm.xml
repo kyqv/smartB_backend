@@ -1,0 +1,25 @@
+<form model="barcode.return.rm" title="Barcode: Return Raw Materials">
+    <group form_layout="stacked">
+        <field name="location_to_id" span="2" required="1"/>
+        <field name="journal_id" span="2"/>
+        <newline/>
+        <field name="production_id" span="2" required="1" onchange="onchange_production"/>
+        <field name="location_from_id" span="2" required="1"/>
+        <button string="Fill Products" icon="align-justify" method="fill_products"/>
+    </group>
+    <separator string="Products"/>
+    <field name="lines" nolabel="1">
+        <list>
+            <field name="product_id"/>
+            <field name="lot_id"/>
+            <field name="qty"/>
+            <field name="uom_id"/>
+        </list>
+    </field>
+    <separator/>
+    <field name="state"/>
+    <foot replace="1">
+        <button string="Create" method="validate" type="success" icon="ok"/>
+        <button string="Clear" method="clear"/>
+    </foot>
+</form>

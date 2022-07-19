@@ -1,0 +1,129 @@
+<center>
+    <h2>
+        Aged Payables (Details)
+    </h2>
+    <h3>
+        {{company_name}}
+        <br/>
+        As at {{fmt_date date}}
+    </h3>
+</center>
+<table class="table table-striped">
+    <thead class="scroll-header">
+        <tr>
+            <th>
+                Number
+            </th>
+            <th>
+                Ref
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Doc Date
+            </th>
+            <th>
+                Due Date
+            </th>
+            <th style="text-align:right">
+                Total Payable
+            </th>
+            <th style="text-align:right">
+                Current
+            </th>
+            {{#each periods}}
+                <th style="text-align:right">
+                    {{period_name}}
+                </th>
+            {{/each}}
+            <th style="text-align:right">
+                Older
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each lines context=context}}
+            <tr>
+                <td colspan="11" style="font-weight:bold">
+                    {{contact_name}}
+                </td>
+            </tr>
+            {{#each details context=context}}
+                <tr>
+                    <td>
+                        {{#link action="view_transaction" active_id=id context=context}}
+                            {{number}}
+                        {{/link}}
+                    </td>
+                    <td>
+                        {{ref}}
+                    </td>
+                    <td>
+                        {{description}}
+                    </td>
+                    <td>
+                        {{fmt_date doc_date}}
+                    </td>
+                    <td>
+                        {{fmt_date due_date}}
+                    </td>
+                    <td style="text-align:right">
+                        {{currency amount}}
+                    </td>
+                    <td style="text-align:right">
+                        {{currency amount_current}}
+                    </td>
+                    {{#each periods}}
+                        <td style="text-align:right">
+                            {{currency amount}}
+                        </td>
+                    {{/each}}
+                    <td style="text-align:right">
+                        {{currency amount_older}}
+                    </td>
+                </tr>
+            {{/each}}
+            <tr>
+                <td colspan="4" style="border-bottom:1px solid #999;font-weight:bold">
+                    Total
+                </td>
+                <td style="text-align:right;border-bottom:1px solid #999;font-weight:bold">
+                    {{currency amount_total}}
+                </td>
+                <td style="text-align:right;border-bottom:1px solid #999;font-weight:bold">
+                    {{currency amount_current}}
+                </td>
+                {{#each periods}}
+                    <td style="text-align:right;border-bottom:1px solid #999;font-weight:bold">
+                        {{currency amount}}
+                    </td>
+                {{/each}}
+                <td style="text-align:right;border-bottom:1px solid #999;font-weight:bold">
+                    {{currency amount_older}}
+                </td>
+            </tr>
+        {{/each}}
+    </tbody>
+    <tfoot>
+        <tr style="font-weight:bold">
+            <td colspan="4">
+                Grand Total
+            </td>
+            <td style="text-align:right">
+                {{currency total}}
+            </td>
+            <td style="text-align:right">
+                {{currency total_current}}
+            </td>
+            {{#each periods}}
+                <td style="text-align:right">
+                    {{currency total}}
+                </td>
+            {{/each}}
+            <td style="text-align:right">
+                {{currency total_older}}
+            </td>
+        </tr>
+    </tfoot>
+</table>

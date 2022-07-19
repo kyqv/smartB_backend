@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Form Submissions</field>
+    <field name="view">multi_view</field>
+    <field name="model">form.data</field>
+    <field name="menu">cms_menu</field>
+</action>

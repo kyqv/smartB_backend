@@ -1,0 +1,4 @@
+<form_m model="reason.code">
+    <field name="type"/>
+    <field name="name"/>
+</form_m>

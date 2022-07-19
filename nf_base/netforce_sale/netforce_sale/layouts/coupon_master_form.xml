@@ -1,0 +1,24 @@
+<form model="sale.coupon.master">
+    <head>
+        <button string="Options" dropdown="1">
+            <item string="Create Coupons" method="create_coupons"/>
+        </button>
+    </head>
+    <field name="name"/>
+    <field name="image"/>
+    <separator string="Time Constraints"/>
+    <field name="expiry_date"/>
+    <field name="use_duration"/>
+    <field name="hide_date"/>
+    <separator string="Description"/>
+    <field name="description"/>
+    <field name="instructions"/>
+    <field name="notes"/>
+    <separator string="Customer Conditions"/>
+    <field name="contact_categs"/>
+    <field name="contact_groups"/>
+    <related>
+        <field name="promotions"/>
+        <field name="coupons"/>
+    </related>
+</form> 

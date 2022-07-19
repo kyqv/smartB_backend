@@ -1,0 +1,7 @@
+<action>
+    <field name="string">Payslip Tax</field>
+    <field name="view_cls">multi_view</field>
+    <field name="model">hr.payslip.tax</field>
+    <!--<field name="tabs">[["Active",[]],["Archived",[["active","=",false]]]]</field>-->
+    <field name="menu">hr_menu</field>
+</action>

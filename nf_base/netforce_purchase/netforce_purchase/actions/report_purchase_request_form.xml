@@ -1,0 +1,5 @@
+<action>
+    <field name="type">report_odt2</field>
+    <field name="model">purchase.request</field>
+    <field name="template">purchase_request</field>
+</action>

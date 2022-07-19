@@ -1,0 +1,5 @@
+<inherit inherit="prod_categ_search">
+    <field name="parent_id" position="after">
+        <field name="is_shopee"/>
+    </field>
+</inherit>

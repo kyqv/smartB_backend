@@ -1,0 +1,9 @@
+<form_m model="aln.client">
+    <field name="name"/>
+    <field name="code"/>
+    <related>
+        <field name="jobs"/>
+        <field name="meetings"/>
+        <field name="documents"/>
+    </related>
+</form_m>

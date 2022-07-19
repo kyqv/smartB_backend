@@ -1,0 +1,31 @@
+<form model="price.list">
+    <head>
+        <button string="Print PDF" icon="print" action="report_pricelist"/>
+        <button string="Options" dropdown="1">
+            <item string="Update Price List Items" method="update_items" show_progress="1"/>
+        </button>
+    </head>
+    <field name="name"/>
+    <field name="code"/>
+    <field name="type"/>
+    <field name="currency_id"/>
+    <field name="date"/>
+    <related>
+        <field name="categs">
+            <list>
+                <field name="categ_id"/>
+                <field name="discount_percent"/>
+                <field name="discount_text"/>
+            </list>
+            <form>
+                <field name="categ_id"/>
+                <newline/>
+                <field name="discount_percent"/>
+                <field name="discount_text"/>
+            </form>
+        </field>
+        <field name="lines"/>
+        <field name="sale_channels"/>
+        <field name="comments"/>
+    </related>
+</form>

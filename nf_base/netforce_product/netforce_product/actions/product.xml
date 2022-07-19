@@ -1,0 +1,8 @@
+<action>
+    <field name="string">Products</field>
+    <field name="view">multi_view</field>
+    <field name="model">product</field>
+    <field name="tabs">[["All",[]],["Draft",[["state","=","draft"]]],["Approved",[["state","=","approved"]]],["Archived",[["active","=",false]]]]</field>
+    <field name="import_sample">import_products.csv</field>
+    <field name="menu">product_menu</field>
+</action>

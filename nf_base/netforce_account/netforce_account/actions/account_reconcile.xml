@@ -1,0 +1,8 @@
+<action>
+    <field name="string">Account Reconciliation</field>
+    <field name="view">multi_view</field>
+    <field name="model">account.move.line</field>
+    <field name="condition">[["move_id.state","=","posted"]]</field>
+    <field name="list_layout">account_move_line_list_reconcile</field>
+    <field name="menu">account_menu</field>
+</action>

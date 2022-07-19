@@ -1,0 +1,9 @@
+<action>
+    <field name="view">chart</field>
+    <field name="string">Contact Category Widget</field>
+    <field name="model">report.contact</field>
+    <field name="method">contacts_per_categ</field>
+    <field name="chart_type">pie</field>
+    <field name="height">250</field>
+    <field name="board_select">1</field>
+</action>

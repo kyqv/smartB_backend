@@ -1,0 +1,6 @@
+<form model="page.style">
+    <field name="name"/>
+    <field name="code"/>
+    <newline/>
+    <field name="styles" width="800" height="500"/>
+</form>

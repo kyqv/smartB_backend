@@ -1,0 +1,11 @@
+<calendar model="activity" date_field="due_date" colors='{"#c00":[["overdue","=",true]],"#0c0":[["state","=","done"]]}'>
+    <field name="subject"/>
+    <field name="type"/>
+    <field name="user_id"/>
+    <field name="related_id"/>
+    <field name="name_id"/>
+    <field name="priority"/>
+    <field name="due_date"/>
+    <field name="state"/>
+    <field name="overdue" invisible="1"/>
+</calendar>

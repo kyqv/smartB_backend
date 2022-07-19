@@ -1,0 +1,5 @@
+<board>
+    <hpanel>
+        <widget string="Users" action="msg_user_widget"/>
+    </hpanel>
+</board>

@@ -1,0 +1,5 @@
+<list model="price.type">
+    <field name="name"/>
+    <field name="currency_id"/>
+    <field name="uom_id"/>
+</list>

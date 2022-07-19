@@ -1,0 +1,11 @@
+<action>
+    <field name="string">Invoices</field>
+    <field name="view_cls">multi_view</field>
+    <field name="model">account.invoice</field>
+    <field name="condition">[["type","=","out"],["state","in",["waiting_payment","paid"]]]</field>
+    <field name="modes">list,page</field>
+    <field name="tabs">[["Waiting Payment",[["state","=","waiting_payment"]]],["Paid",[["state","=","paid"]]]]</field>
+    <field name="menu">portal_menu</field>
+    <field name="list_view_xml">portal_invoice_list</field>
+    <field name="form_view_xml">portal_invoice_form</field>
+</action>

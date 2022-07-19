@@ -1,0 +1,51 @@
+<form model="fulfillment.bill" attrs='{"readonly":[["state","in",["confirmed"]]]}' show_company="1" show_save="1">
+    <top>
+        <button string="Print" icon="print" action="report_fulfillment_bill_form3" action_options='{"active_id":id}'/>
+        <button string="Options" dropdown="1" align="right">
+            <item string="To Draft" method="to_draft"/>
+            <item string="To Void" method="void"/>
+            <divider/>
+            <item string="Generate Monthly Bill" method="generate_bill"/>
+        </button>
+    </top>
+    <head>
+        <field name="state"/>
+    </head>
+    <tabs>
+        <tab string="General">
+            <group form_layout="stacked">
+                <field name="number" span="2"/>
+                <field name="contact_id" span="2" onchange="onchange_contact"/>
+                <field name="month" span="2"/>
+                <field name="year" span="2"/>
+                <field name="date" span="2"/>
+                <field name="ref" span="2"/>
+                <field name="memo" span="2"/>
+                <field name="related_id" span="2"/>
+                <field name="currency_id" span="2"/>
+                <!-- <field name="currency_rate"/> -->
+                <field name="bill_address_id" span="4"/>
+            </group>
+            <field name="lines">
+                <list>
+                <field name="product_id" onchange="onchange_product"/>
+                <field name="description"/>
+                <field name="qty" onchange="onchange_unit_price"/>
+                <field name="uom_id"/>
+                <field name="unit_price" onchange="onchange_unit_price"/>
+                <!-- <field name="discount"/>
+                <field name="discount_amount"/> -->
+                <field name="amount"/>
+                </list>
+            </field>
+            <group offset="8" span="4" columns="1">
+                <field name="qty_total"/>
+                <field name="amount_total"/>
+                <field name="remarks"/>
+            </group>
+        </tab>
+    </tabs> 
+    <foot>
+        <button string="Confirm" method="to_confirm"/>
+    </foot>
+</form>

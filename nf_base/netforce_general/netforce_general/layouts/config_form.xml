@@ -1,0 +1,7 @@
+<form model="config" priority="1">
+    <field name="type"/>
+    <field name="name"/>
+    <field name="label"/>
+    <field name="value"/>
+    <field name="user_id"/>
+</form>

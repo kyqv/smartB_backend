@@ -1,0 +1,7 @@
+<action>
+    <field name="view">form_view</field>
+    <field name="model">settings</field>
+    <field name="active_id">1</field>
+    <field name="layout">fin_settings</field>
+    <field name="menu">account_menu</field>
+</action>

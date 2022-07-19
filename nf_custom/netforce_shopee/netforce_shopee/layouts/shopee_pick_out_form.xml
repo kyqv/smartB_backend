@@ -1,0 +1,14 @@
+<inherit inherit="pick_out_form">
+    <tab string="Shipping" position="append">
+        <separator string="Airway Billing Details"/>
+        <field name="recipient_first_name"/>
+        <field name="recipient_last_name"/>
+        <field name="recipient_address"/>
+        <field name="recipient_address2"/>
+        <field name="recipient_city"/>
+        <field name="recipient_postcode"/>
+        <field name="recipient_province"/>
+        <field name="recipient_country"/>
+        <field name="recipient_phone"/>
+    </tab>
+</inherit>

@@ -1,0 +1,7 @@
+<action>
+    <field name="view">multi_view</field>
+    <field name="string">Production Orders</field>
+    <field name="model">production.order</field>
+    <field name="tabs">[["All",[]],["Draft",[["state","=","draft"]]],["Confirmed",[["state","=","confirmed"]]],["In Progress",[["state","=","in_progress"]]],["Completed",[["state","=","done"]]]]</field>
+    <field name="menu">mfg_menu</field>
+</action>

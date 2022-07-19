@@ -1,0 +1,5 @@
+<menu string="Customer Portal">
+    <item string="Dashboard" action="portal_board"/>
+    <item string="Invoices" action="portal_invoice"/>
+    <item string="Documents" action="portal_doc"/>
+</menu>

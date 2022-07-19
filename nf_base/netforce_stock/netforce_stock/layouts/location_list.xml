@@ -1,0 +1,11 @@
+<list model="stock.location">
+    <field name="name"/>
+    <field name="code"/>
+    <field name="type"/>
+    <field name="parent_id"/>
+    <field name="account_id"/>
+    <field name="track_id"/>
+    <field name="company_id"/>
+    <field name="company2_id"/>
+    <field name="contact_id"/>
+</list>

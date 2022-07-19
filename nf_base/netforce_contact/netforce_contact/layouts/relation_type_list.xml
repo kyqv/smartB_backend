@@ -1,0 +1,3 @@
+<list model="contact.relation.type">
+    <field name="name"/>
+</list>

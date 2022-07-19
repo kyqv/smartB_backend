@@ -1,0 +1,19 @@
+<pivot model="stock.balance" agg_name="sum" vals="qty_phys" cols="location_id.name" rows="product_id.categ_id.name">
+    <field name="product_id.name" string="Product Name"/>
+    <field name="product_id.code" string="Product Code"/>
+    <field name="product_id.categ_id.name" string="Product Category"/>
+    <field name="product_id.parent_id.code" string="Master Product Code"/>
+    <field name="product_id.parent_id.name" string="Master Product Name"/>
+    <field name="uom_id.name" string="UoM"/>
+    <field name="location_id.code" string="Location Code"/>
+    <field name="lot_id.number" string="Lot/Serial Number"/>
+    <field name="location_id.name" string="Location Name"/>
+    <!--<field name="location_id.parent_id.name" string="Parent Location Name"/>-->
+    <!--<field name="agg_qty_phys" string="Physical Qty"/>
+    <field name="agg_qty_virt" string="Virtual Qty"/>
+    <field name="agg_amount" string="Cost Amount"/>
+    -->
+    <field name="qty_phys" string="Physical Qty"/>
+    <field name="qty_virt" string="Virtual Qty"/>
+    <field name="amount" string="Cost Amount"/>
+</pivot>

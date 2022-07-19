@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Folders</field>
+    <field name="view">multi_view</field>
+    <field name="model">folder</field>
+    <field name="menu">doc_menu</field>
+</action>

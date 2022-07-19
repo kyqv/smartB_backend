@@ -1,0 +1,3 @@
+<list model="stock.cut">
+    <field name="date"/>
+</list>

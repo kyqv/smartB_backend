@@ -1,0 +1,8 @@
+<form model="uom.conv">
+    <field name="uom_from_id"/>
+    <field name="uom_to_id"/>
+    <field name="factor"/>
+    <separator/>
+    <field name="product_id"/>
+    <field name="product_categ_id"/>
+</form>

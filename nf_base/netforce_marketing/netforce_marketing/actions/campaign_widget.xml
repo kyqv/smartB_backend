@@ -1,0 +1,7 @@
+<action>
+    <field name="name">campaign_widget</field>
+    <field name="view_cls">list_view</field>
+    <field name="model">mkt.campaign</field>
+    <field name="condition">[["state","=","active"]]</field>
+    <field name="view_xml">campaign_list</field>
+</action>

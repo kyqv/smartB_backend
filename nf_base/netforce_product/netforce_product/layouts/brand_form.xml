@@ -1,0 +1,12 @@
+<form model="product.brand">
+    <field name="name"/>
+    <field name="code"/>
+    <field name="description"/>
+    <field name="image"/>
+    <field name="parent_id"/>
+    <field name="groups"/>
+    <related>
+        <field name="sub_brands"/>
+        <field name="products"/>
+    </related>
+</form>

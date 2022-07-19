@@ -1,0 +1,4 @@
+<list model="ship.port">
+    <field name="name"/>
+    <field name="country_id"/>
+</list>

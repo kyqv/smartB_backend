@@ -1,0 +1,24 @@
+<form model="ship.rate">
+    <field name="sequence"/>
+    <newline/>
+    <field name="method_id"/>
+    <newline/>
+    <field name="country_id"/>
+    <newline/>
+    <field name="province_id"/>
+    <newline/>
+    <field name="district_id"/>
+    <newline/>
+    <field name="postal_code"/>
+    <newline/>
+    <field name="min_amount"/>
+    <newline/>
+    <field name="min_weight"/>
+    <newline/>
+    <field name="address_name"/>
+    <newline/>
+    <field name="ship_price"/>
+    <related>
+        <field name="comments"/>
+    </related>
+</form>

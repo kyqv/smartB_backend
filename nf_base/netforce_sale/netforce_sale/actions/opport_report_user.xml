@@ -1,0 +1,9 @@
+<action>
+    <field name="string">Opportunities By Salesperson</field>
+    <field name="view">report_view</field>
+    <field name="model">sale.opportunity</field>
+    <field name="group_select">year,quarter,month,week,user_id,contact_id,stage_id,lead_source</field>
+    <field name="function_select">agg_amount</field>
+    <field name="group_fields">user_id</field>
+    <field name="menu">sale_menu</field>
+</action>

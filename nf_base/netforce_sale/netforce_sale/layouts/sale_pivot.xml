@@ -1,0 +1,21 @@
+<pivot model="sale.order" rows="date_month,date_week" cols="contact_id.categ_id.name" agg_name="sum" vals="amount_total">
+    <field name="number" string="Order Number"/>
+    <field name="contact_id.name" string="Customer"/>
+    <field name="contact_id.categ_id.name" string="Customer Category"/>
+    <field name="contact_id.categ_id.description" string="Customer Category Description"/>
+    <field name="state"/>
+    <field name="user_id.name" string="Responsible User"/>
+    <field name="date"/>
+    <field name="date_week"/>
+    <field name="date_month"/>
+    <field name="due_date"/>
+    <field name="due_date_weekday"/>
+    <field name="amount_total"/>
+    <field name="cost_amount"/>
+    <field name="profit_amount"/>
+    <!--<field name="act_cost_amount"/>
+    <field name="act_profit_amount"/>-->
+    <field name="seller_id"/>
+    <field name="ship_port_id.name"/>
+    <field name="other_info"/>
+</pivot>

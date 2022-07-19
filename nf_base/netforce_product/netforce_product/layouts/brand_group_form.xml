@@ -1,0 +1,9 @@
+<form model="product.brand.group">
+    <field name="name"/>
+    <field name="code"/>
+    <field name="image"/>
+    <field name="parent_id"/>
+    <group span="12" form_layout="stacked">
+        <field name="brands" span="12"/>
+    </group>
+</form>

@@ -1,0 +1,58 @@
+<center>
+    <h2>
+        Stock Aging
+    </h2>
+    <h3>
+        {{company_name}}
+    </h3>
+    <h4>
+        {{#if product_name}}
+            Product: {{product_name}}
+            <br/>
+        {{/if}}
+        {{#if location_name}}
+            Location: {{location_name}}
+            <br/>
+        {{/if}}
+        As at {{fmt_date date}}
+    </h4>
+</center>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th colspan="3"></td>
+            <th colspan="20" style="text-align:center">Aged Qty</th>
+        </tr>
+        <tr>
+            <th>Product</th>
+            <th>Location</th>
+            <th>Current Qty</th>
+            {{#each periods}}
+                <th>{{period_name}}</th>
+            {{/each}}
+            <th>Older</th>
+        </tr>
+    <tbody>
+        {{#each lines context=context}}
+            <tr>
+                <td>
+                    {{product_name}}
+                </td>
+                <td>
+                    {{location_name}}
+                </td>
+                <td>
+                    <a href="/ui#name=report_stock_card&defaults.product_id={{product_id}}&defaults.location_id={{location_id}}&defaults.date_from={{../current_date_from}}&defaults.date_to={{../date}}">{{cur_qty}}</a>
+                </td>
+                {{#each periods}}
+                    <td {{#if warning}}style="color:red;font-weight:bold"{{/if}}>
+                        <a href="/ui#name=report_stock_card&defaults.product_id={{../product_id}}&defaults.location_id={{../location_id}}&defaults.date_from={{date_from}}&defaults.date_to={{date_to}}">{{qty}}</a>
+                    </td>
+                {{/each}}
+                <td>
+                    <a href="/ui#name=report_stock_card&defaults.product_id={{product_id}}&defaults.location_id={{location_id}}&defaults.date_from={{../current_date_from}}&defaults.date_to={{../older_date_to}}">{{older_qty}}</a>
+                </td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>

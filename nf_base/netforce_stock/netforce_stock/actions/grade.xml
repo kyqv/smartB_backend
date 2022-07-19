@@ -1,0 +1,7 @@
+<action>
+    <field name="string">Product Grading</field>
+    <field name="view">multi_view</field>
+    <field name="model">stock.grade</field>
+    <field name="tabs">[["All",[]],["Draft",[["state","=","draft"]]],["Completed",[["state","=","done"]]]]</field>
+    <field name="menu">stock_menu</field>
+</action>

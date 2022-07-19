@@ -1,0 +1,52 @@
+<center>
+    <h2>
+        Tax Monthly Report
+    </h2>
+    <h3>
+        {{company_name}}
+        <br/>
+        From {{fmt_date date_from}} to {{fmt_date date_to}}
+    </h3>
+</center>
+
+<table class="table">
+    <thead class="scroll-header">
+        <tr>
+            <th>Date</th>
+            <th>Print Form No.</th>
+            <th>Tax Invoice</th>
+            <th>Tax Component</th>
+            <th>Customer Name</th>
+            <th>Tax ID</th>
+            <th>Branch</th>
+            <th>Amount</th>
+            <th>VAT</th>
+            <th>Amount Incl VAT</th>
+            <th>Remark</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each lines}}
+            <tr>
+                <td>{{date}}</td>
+                <td>{{print_form_no}}</td>
+                <td><a href="/action?name=view_invoice&active_id={{invoice_id}}">{{invoice_no}}</a></td>
+                <td>{{tax_comp_name}}</td>
+                <td>{{contact_name}}</td>
+                <td>{{contact_tax_id}}</td>
+                <td>{{contact_branch}}</td>
+                <td style="text-align:right">{{currency base_amount}}</td>
+                <td style="text-align:right">{{currency tax_amount}}</td>
+                <td style="text-align:right">{{currency amount}}</td>
+                <td>{{comments}}</td>
+            </tr>
+        {{/each}}
+        <tr>
+            <td colspan="7"></td>
+            <th style="text-align:right">{{currency base_total}}</th>
+            <th style="text-align:right">{{currency tax_total}}</th>
+            <th style="text-align:right">{{currency amount_total}}</th>
+            <td></td>
+        </tr>
+    </tbody>
+</table>

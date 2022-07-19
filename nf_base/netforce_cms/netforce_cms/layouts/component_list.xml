@@ -1,0 +1,7 @@
+<list model="theme.component">
+    <head>
+        <button string="Sync Components" method="sync_components" icon="refresh"/>
+    </head>
+    <field name="theme_id"/>
+    <field name="name"/>
+</list>

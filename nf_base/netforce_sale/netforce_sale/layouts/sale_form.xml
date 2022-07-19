@@ -1,0 +1,228 @@
+<form model="sale.order" attrs='{"readonly":[["state","in",["confirmed","done","voided"]]]}' show_company="1" show_save="1">
+    <top>
+        <!--<button string="Print" icon="print" action="report_sale_form"/>
+        <button string="Print (New)" icon="print" action="report_sale_form2" action_options='{"active_id":id}'/-->>
+        <button string="Print" icon="print" action="report_sale_form3" action_options='{"active_id":id}'/>
+        <button string="Options" dropdown="1">
+            <item string="Copy To Sale Return" method="copy_to_sale_return" state="done"/>
+            <item string="Copy" method="copy"/>
+            <item string="Copy To Customer Invoice" method="copy_to_invoice" states="confirmed,done"/>
+            <item string="Copy To Goods Issue" method="copy_to_picking" states="confirmed"/>
+            <item string="Copy To Reservation Goods Transfer" method="copy_to_reserve_picking" states="reserved"/>
+            <item string="Copy To Purchase Orders" method="copy_to_purchase"/>
+            <item string="Copy To Production Orders" method="copy_to_production"/>
+            <item string="Copy To Project" method="copy_to_project"/>
+            <item string="Copy To Service Order" method="copy_to_job"/>
+            <item string="Create Invoice And Record Payment" method="create_invoice_payment" confirm="Are you sure?"/>
+            <item string="To Draft" method="to_draft"/>
+            <item string="Void" method="void" confirm="Are you sure you want to void this sales order?" states="confirmed,done"/>
+            <divider/>
+            <item string="Apply Voucher" method="apply_voucher"/>
+            <item string="Apply All Vouchers" method="apply_all_vouchers"/>
+            <divider/>
+            <item string="Copy To RM Goods Receipt" method="copy_to_rm_picking"/>
+            <divider/>
+            <item string="Copy To Customer Purchase Order" method="copy_to_customer_purchase"/>
+            <divider/>
+            <item string="Create Tracking Code" method="create_track"/>
+            <divider/>
+            <item string="Modify Sales Order" action="sale_modif" states="confirmed" action_options='{"context":{"defaults":{"order_id":id}}}'/>
+            <divider/>
+            <item string="Online Payment" method="pay_online" states="confirmed"/>
+        </button>
+    </top>
+    <head>
+        <field name="state"/>
+    </head>
+    <tabs>
+        <tab string="General">
+            <group form_layout="stacked">
+                <field name="contact_id" span="2" create="1" onchange="onchange_contact" condition='[["customer", "=", "True"]]'/>
+                <field name="contact_person_id" span="2" condition='[["type", "=", "person"],["org_id","=",contact_id]]'/>
+                <field name="date" span="2" onchange="onchange_date"/>
+                <field name="number" span="2"/>
+                <field name="ref" span="2"/>
+                <field name="is_delivered" span="2"/>
+                <newline/>
+                <field name="currency_id" span="2"/>
+                <field name="tax_type" span="2" onchange="update_amounts"/>
+                <field name="price_list_id" span="2"/>
+                <field name="related_id" span="2"/>
+                <field name="ship_method_id" span="2"/>
+                <field name="is_paid" span="2"/>
+                <newline/>
+                <field name="bill_address_id" span="2" condition='[["contact_id","!=",null],["contact_id","=",contact_id]]'/>
+                <field name="ship_address_id" span="2" condition='[["contact_id","!=",null],["contact_id","=",contact_id]]'/>
+                <field name="due_date" span="2" show_required="1"/>
+                <field name="ship_time" span="2" view="field_time"/>
+                <field name="delivery_date" span="2"/>
+                <field name="delivery_slot_id" span="2"/>
+            </group>
+            <field name="lines" nolabel="1">
+                <list reorder_field="sequence_no">
+                    <field name="sequence_no"/>
+                    <field name="type"/>
+                    <field name="product_id" onchange="onchange_product" condition='[["can_sell","=",true]]'/>
+                    <field name="description"/>
+                    <field name="qty" onchange="onchange_qty"/>
+                    <field name="uom_id" onchange="onchange_uom"/>
+                    <field name="qty2"/>
+                    <field name="uom2_id"/>
+                    <field name="unit_price" onchange="update_amounts"/>
+                    <field name="discount" onchange="update_amounts"/>
+                    <field name="discount_amount" onchange="update_amounts"/>
+                    <field name="tax_id" onchange="update_amounts"/>
+                    <field name="amount"/>
+                    <field name="location_id" show_required="1"/>
+                    <field name="reserve_location_id"/>
+                    <field name="packaging_id"/>
+                    <field name="lot_id"/>
+                    <field name="qty_avail"/>
+                    <field name="supplier_id"/>
+                    <field name="qty_stock"/>
+                    <field name="qty_produced"/>
+                    <field name="qty_delivered"/>
+                    <field name="ship_method_id"/>
+                    <field name="due_date"/>
+                    <field name="track_id"/>
+                    <field name="track2_id"/>
+                    <field name="delivery_slot_id"/>
+                    <field name="ship_address_id"/>
+                    <field name="packaging_id"/>
+                    <field name="addons"/>
+                    <field name="cost_price"/>
+                    <field name="cost_amount"/>
+                    <field name="profit_amount"/>
+                    <field name="margin_percent"/>
+					<field name="amount_tax"/>
+                    <field name="notes"/>
+                </list>
+            </field>
+            <group span="8">
+                <field name="other_info" readonly="0"/>
+            </group>
+            <group span="4" columns="1" horizontal="1">
+                <field name="amount_subtotal"/>
+                <field name="amount_tax"/>
+                <field name="amount_total"/>
+            </group>
+        </tab>
+        <tab string="Promotions">
+            <field name="voucher_id"/>
+        </tab>
+        <tab string="Costing">
+            <separator string="Estimate Costs"/>
+            <group form_layout="stacked">
+                <field name="cost_amount" span="4"/>
+                <field name="profit_amount" span="4"/>
+                <field name="margin_percent" span="4"/>
+            </group>
+            <separator string="Actual Costs"/>
+            <field name="track_id"/>
+            <field name="track_balance"/>
+            <field name="track_entries" nolabel="1">
+                <list>
+                    <field name="date"/>
+                    <field name="product_id"/>
+                    <field name="description"/>
+                    <field name="qty"/>
+                    <field name="uom_id"/>
+                    <field name="amount"/>
+                    <field name="contact_id"/>
+                    <field name="related_id"/>
+                </list>
+            </field>
+            <newline/>
+            <field name="act_mfg_cost"/>
+            <newline/>
+            <group form_layout="stacked">
+                <field name="act_cost_amount" span="4"/>
+                <field name="act_profit_amount" span="4"/>
+                <field name="act_margin_percent" span="4"/>
+            </group>
+        </tab>
+        <tab string="Currencies">
+            <field name="currency_rates" nolabel="1">
+                <list>
+                    <field name="currency_id"/>
+                    <field name="rate"/>
+                </list>
+            </field>
+        </tab>
+        <tab string="Approval">
+            <field name="approved_by_id"/>
+            <button string="Approve" icon="ok" action="sale_approve"/>
+        </tab>
+        <tab string="Other Info">
+            <field name="sale_categ_id"/>
+            <newline/>
+            <field name="user_id"/>
+            <newline/>
+            <field name="company_id"/>
+            <newline/>
+            <field name="pay_term_id"/>
+            <newline/>
+            <field name="seller_id" readonly="0"/>
+            <newline/>
+            <field name="seller_contact_id" readonly="0"/>
+            <newline/>
+            <field name="sequence_id" condition='[["type","=","sale_order"]]' onchange="onchange_sequence"/>
+            <newline/>
+            <field name="ship_term_id"/>
+            <newline/>
+            <field name="ship_port_id"/>
+            <newline/>
+            <field name="sale_channel_id"/>
+            <newline/>
+            <field name="project_id"/>
+            <newline/>
+            <field name="job_template_id"/>
+            <newline/>
+            <field name="pay_method_id"/>
+            <newline/>
+            <field name="transaction_no"/>
+            <newline/>
+            <field name="ship_tracking"/>
+            <newline/>
+            <field name="receipt_printed"/>
+            <newline/>
+            <field name="orig_sale_id"/>
+            <newline/>
+            <field name="report_no"/>
+            <newline/>
+            <field name="create_time"/>
+            <separator/>
+            <field name="quote_id"/>
+            <newline/>
+            <field name="gross_weight"/>
+            <newline/>
+            <field name="net_weight"/>
+            <newline/>
+            <field name="customer_date"/>
+            <separator string="Notify"/>
+            <field name="agent_id" create="1" onchange="onchange_agent" condition='[["agent", "=", "True"]]'/>
+            <field name="agent_person_id" condition='[["type", "=", "person"],["org_id","=",agent_id]]'/>
+            <field name="agent_address_id" condition='[["contact_id","!=",null],["contact_id","=",agent_id]]'/>
+        </tab>
+    </tabs>
+    <field name="company_id" invisible="1"/>
+    <foot>
+        <button string="Confirm" method="confirm" size="large" type="success" states="draft,reserved" perm="approve_sale"/>
+        <button string="Reserve" method="reserve" size="large" states="draft" perm="reserve"/>
+        <button string="Completed" method="done" size="large" type="success" states="confirmed"/>
+        <button string="Reopen" method="reopen" size="large" states="done" icon="refresh"/>
+    </foot>
+    <related>
+        <field name="documents" show_inline="1"/>
+        <field name="invoices" click_action="view_invoice"/>
+        <field name="pickings"/>
+        <field name="purchase_orders"/>
+        <field name="sale_orders"/>
+        <field name="production_orders"/>
+        <field name="transforms"/>
+        <field name="jobs"/>
+        <field name="activities" show_inline="1"/>
+        <field name="emails"/>
+        <field name="comments"/>
+    </related>
+</form>

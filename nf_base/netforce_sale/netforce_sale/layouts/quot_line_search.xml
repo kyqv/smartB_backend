@@ -1,0 +1,7 @@
+<search model="sale.quot.line">
+    <field name="date"/>
+    <field name="contact_id"/>
+    <field name="product_id"/>
+    <field name="product_categs" child_of="1"/>
+    <field name="state"/>
+</search>

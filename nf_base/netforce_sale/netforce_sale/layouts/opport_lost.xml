@@ -1,0 +1,6 @@
+<form model="sale.opportunity" priority="20">
+    <field name="lost_reason_id"/>
+    <foot>
+        <button string="Lost" method="lost" type="primary"/>
+    </foot>
+</form>

@@ -1,0 +1,10 @@
+<form_m model="aln.meeting">
+    <field name="date"/>
+    <field name="client_id"/>
+    <newline/>
+    <field name="job_id"/>
+    <newline/>
+    <field name="subject"/>
+    <newline/>
+    <field name="state"/>
+</form_m>

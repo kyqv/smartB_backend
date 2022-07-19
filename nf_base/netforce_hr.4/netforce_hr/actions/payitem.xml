@@ -1,0 +1,10 @@
+<action>
+    <field name="string">Pay Items</field>
+    <field name="view_cls">multi_view</field>
+    <field name="model">hr.payitem</field>
+    <field name="tabs">[["Active",[]],
+                        ["Archived",[["active","=",false]]],
+                        ["Show Default",[["show_default","=",true]]]
+                        ]</field>
+    <field name="menu">hr_menu</field>
+</action>

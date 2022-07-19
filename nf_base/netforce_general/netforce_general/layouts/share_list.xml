@@ -1,0 +1,7 @@
+<list model="share.access">
+    <field name="model_id"/>
+    <field name="default_access"/>
+    <field name="grant_parent"/>
+    <field name="profile_names"/>
+    <field name="description"/>
+</list>

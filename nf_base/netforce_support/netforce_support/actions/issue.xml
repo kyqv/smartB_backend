@@ -1,0 +1,7 @@
+<action>
+    <field name="string">Issues</field>
+    <field name="view_cls">multi_view</field>
+    <field name="model">issue</field>
+    <field name="tabs">[["Open",[["state","!=","closed"]]],["Closed",[["state","=","closed"]]]]</field>
+    <field name="menu">support_menu</field>
+</action>

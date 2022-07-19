@@ -1,0 +1,7 @@
+<list model="queue.message" colors='{"#fcc":[["state","=","error"]]}'>
+    <field name="queue_id"/>
+    <field name="time_received"/>
+    <field name="time_processed"/>
+    <field name="body"/>
+    <field name="state"/>
+</list>

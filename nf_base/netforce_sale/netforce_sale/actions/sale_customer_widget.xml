@@ -1,0 +1,6 @@
+<action>
+    <field name="view_type">model</field>
+    <field name="model">report.sale</field>
+    <field name="method">sales_per_customer</field>
+    <field name="template">sale_customer_widget</field>
+</action>

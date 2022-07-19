@@ -1,0 +1,22 @@
+<form model="report.stock.summary">
+    <group form_layout="stacked">
+        <field name="date_from" span="2"/>
+        <field name="date_to" span="2"/>
+        <field name="product_id" span="2"/>
+        <field name="master_product_id" span="2"/>
+        <field name="location_id" span="2"/>
+        <newline/>
+        <field name="lot_id" span="2"/>
+        <field name="container_id" span="2"/>
+        <field name="prod_categ_id" span="2"/>
+        <field name="prod_code" span="2"/>
+        <field name="prod_company_id" span="2"/>
+        <field name="brand_id" span="2"/>
+        <newline/>
+        <field name="show_lot" span="2"/>
+        <field name="show_container" span="2"/>
+        <field name="show_qty2" span="2"/>
+        <field name="only_closing" span="2"/>
+        <field name="show_image" span="2"/>
+    </group>
+</form>

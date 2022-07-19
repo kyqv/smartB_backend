@@ -1,0 +1,160 @@
+<center>
+    <h2>
+        Reconciliation Report
+    </h2>
+    <h3>
+        {{company_name}}
+        <br/>
+        {{account_name}}
+        <br/>
+        From {{fmt_date date_from}} to {{fmt_date date_to}}
+    </h3>
+</center>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Date
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Reference
+            </th>
+            <th style="text-align:right">
+                Amount
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="font-weight:bold" colspan="2">
+                Reconciled Paid
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+        </tr>
+        {{#each rec_paid}}
+            <tr>
+                <td>
+                    {{fmt_date date}}
+                </td>
+                <td>
+                    {{description}}
+                </td>
+                <td>
+                    {{ref}}
+                </td>
+                <td style="text-align:right">
+                    {{currency amount}}
+                </td>
+            </tr>
+        {{/each}}
+        <tr>
+            <td style="font-weight:bold" colspan="2">
+                Total Reconciled Paid
+            </td>
+            <td>
+            </td>
+            <td style="text-align:right">
+                {{currency total_rec_paid}}
+            </td>
+        </tr>
+        <tr>
+            <td style="font-weight:bold;padding-top:20px" colspan="2">
+                Reconciled Received
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+        </tr>
+        {{#each rec_received}}
+            <tr>
+                <td>
+                    {{fmt_date date}}
+                </td>
+                <td>
+                    {{description}}
+                </td>
+                <td>
+                    {{ref}}
+                </td>
+                <td style="text-align:right">
+                    {{currency amount}}
+                </td>
+            </tr>
+        {{/each}}
+        <tr>
+            <td style="font-weight:bold" colspan="2">
+                Total Reconciled Received
+            </td>
+            <td>
+            </td>
+            <td style="text-align:right">
+                {{currency total_rec_received}}
+            </td>
+        </tr>
+        <tr>
+            <td style="font-weight:bold;padding-top:20px;border-top:1px solid black" colspan="2">
+                Reconciliation
+            </td>
+            <td style="border-top:1px solid black">
+            </td>
+            <td style="border-top:1px solid black">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{fmt_date date_to}}
+            </td>
+            <td>
+                Accounting Balance
+            </td>
+            <td>
+            </td>
+            <td style="text-align:right">
+                {{currency acc_balance}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>
+                Plus Outstanding Paid
+            </td>
+            <td>
+            </td>
+            <td style="text-align:right">
+                {{currency unrec_paid_amt}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>
+                Minus Outstanding Received
+            </td>
+            <td>
+            </td>
+            <td style="text-align:right">
+                {{currency unrec_received_amt}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>
+                Expected statement balance
+            </td>
+            <td>
+            </td>
+            <td style="text-align:right">
+                {{currency st_balance}}
+            </td>
+        </tr>
+    </tbody>
+</table>

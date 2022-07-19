@@ -1,0 +1,5 @@
+<action>
+    <field name="type">view</field>
+    <field name="template">prod_comp_page</field>
+    <field name="menu">prod_menu</field>
+</action>

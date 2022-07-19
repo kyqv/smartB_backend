@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Fault Codes</field>
+    <field name="view">multi_view</field>
+    <field name="model">fault.code</field>
+    <field name="menu">service_menu</field>
+</action>

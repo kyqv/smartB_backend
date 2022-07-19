@@ -1,0 +1,132 @@
+<form model="ecom.cart">
+    <head>
+        <field name="state"/>
+        <button string="Print" icon="print" action="report_cart_form"/>
+        <button string="Options" dropdown="1">
+            <item string="Auto Apply Promotions" method="auto_apply_promotions"/>
+            <item string="Calculate Shipping" method="calc_shipping"/>
+            <item string="Copy" method="copy"/>
+            <item string="Copy To Contact" method="copy_to_contact"/>
+            <item string="Copy To Sales Order" method="copy_to_sale"/>
+            <item string="Cancel Order" method="ecom_cancel_cart"/>
+            <divider/>
+            <item string="Import Paypal Payment" method="import_paypal_payment"/> 
+            <item string="Import Paysbuy Payment" method="import_paysbuy_payment"/> 
+            <item string="Import SCB Payment" method="import_scb_payment"/> 
+        </button>
+    </head>
+    <tabs>
+        <tab string="General">
+            <group form_layout="stacked">
+                <field name="number" span="2"/>
+                <field name="website_id" span="2"/>
+                <field name="pricelist_id" span="2"/>
+                <field name="user_id" span="2"/>
+                <field name="contact_id" span="2"/>
+                <newline/>
+                <field name="date_created" span="2"/>
+                <field name="date_confirmed" span="2"/>
+            </group>
+            <separator string="Items"/>
+            <field name="lines" nolabel="1">
+                <list>
+                    <field name="sequence"/>
+                    <field name="product_id"/>
+                    <field name="description"/>
+                    <field name="qty"/>
+                    <field name="unit_price"/>
+                    <field name="discount_percent"/>
+                    <field name="discount_amount"/>
+                    <field name="promotion_amount"/>
+                    <field name="special_price"/>
+                    <field name="amount_before_discount"/>
+                    <field name="amount"/>
+                    <field name="ship_method_id"/>
+                </list>
+            </field>
+            <group offset="8" span="4" columns="1">
+                <field name="amount_subtotal"/>
+                <field name="amount_ship"/>
+                <field name="amount_discount"/>
+                <field name="amount_total"/>
+            </group>
+        </tab>
+        <tab string="Promotions">
+            <separator string="Promotions"/>
+            <field name="used_promotions" nolabel="1">
+                <list>
+                    <field name="promotion_id"/>
+                    <field name="cond_product_id"/>
+                    <field name="cond_qty"/>
+                    <field name="product_id"/>
+                    <field name="qty"/>
+                    <field name="percent"/>
+                    <field name="amount"/>
+                </list>
+            </field>
+        </tab>
+        <tab string="Customer Details">
+            <field name="email"/>
+            <field name="tax_no"/>
+            <field name="tax_branch_no"/>
+            <field name="ip_addr"/>
+            <newline/>
+            <group span="6" columns="1">
+                <separator string="Billing Address"/>
+                <field name="bill_first_name"/>
+                <field name="bill_last_name"/>
+                <field name="bill_company"/>
+                <field name="bill_address"/>
+                <field name="bill_address2"/>
+                <field name="bill_city"/>
+                <field name="bill_country_id"/>
+                <field name="bill_district_id"/>
+                <field name="bill_subdistrict_id"/>
+                <field name="bill_postal_code"/>
+                <field name="bill_phone"/>
+                <field name="ship_to_bill"/>
+            </group>
+            <group span="6" columns="1">
+                <separator string="Shipping Address"/>
+                <field name="ship_first_name"/>
+                <field name="ship_last_name"/>
+                <field name="ship_company"/>
+                <field name="ship_address"/>
+                <field name="ship_address2"/>
+                <field name="ship_city"/>
+                <field name="ship_country_id"/>
+                <field name="ship_district_id"/>
+                <field name="ship_subdistrict_id"/>
+                <field name="ship_postal_code"/>
+                <field name="ship_phone"/>
+            </group>
+        </tab>
+        <tab string="Payment">
+            <field name="pay_method_id"/>
+            <field name="payment_ref"/>
+            <field name="payment_notes"/>
+            <field name="payment_checked"/>
+        </tab>
+    </tabs>
+    <related>
+        <field name="sale_orders"/>
+        <field name="payments"/>
+        <field name="emails"/>
+        <field name="related_comments"/>
+        <field name="documents">
+            <list>
+                <field name="file" target="_blank" preview="1"/>
+                <field name="categ_id"/>
+                <field name="description"/>
+                <field name="date"/>
+            </list>
+            <form>
+                <field name="file" target="_blank" onchange="onchange_file"/>
+                <field name="categ_id"/>
+                <field name="date"/>
+                <field name="description"/>
+                <field name="contact_id" invisible="1"/>
+            </form>
+        </field>
+    </related>
+</form> 

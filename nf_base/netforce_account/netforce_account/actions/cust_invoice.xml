@@ -1,0 +1,10 @@
+<action>
+    <field name="string">Accounts Receivable</field>
+    <field name="view">multi_view</field>
+    <field name="model">account.invoice</field>
+    <field name="condition">[["type","=","out"]]</field>
+    <field name="tabs">[["Summary","receivable_summary"],["All",[]],["Draft",[["state","=","draft"]]],["Awaiting Approval",[["state","=","waiting_approval"]]],["Awaiting Payment",[["state","=","waiting_payment"]]],["Paid",[["state","=","paid"]]],["Repeating",[["state","=","repeat"]]]]</field>
+    <field name="list_layout">cust_invoice_list</field>
+    <field name="import_sample">import_customer_invoices.csv</field>
+    <field name="menu">account_menu</field>
+</action>

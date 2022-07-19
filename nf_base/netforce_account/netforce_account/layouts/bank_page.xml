@@ -1,0 +1,29 @@
+<page model="account.account" title="View Bank Account">
+    <head>
+        <field name="name"/>
+        <field name="bank_no"/>
+        <button string="Manage Account" dropdown="1">
+            <item string="Account Transactions" action="bank" action_options='{"mode":"page","active_id":id,"related_tab":2}'/>
+            <item string="Bank Statements" action="bank" action_options='{"mode":"page","active_id":id,"related_tab":1}'/>
+            <divider/>
+            <item string="Spend Money" action="payment" action_options='{"mode":"form","defaults":{"account_id":id,"type":"out"}}'/>
+            <item string="Receive Money" action="payment" action_options='{"mode":"form","defaults":{"account_id":id,"type":"in"}}'/>
+            <item string="Transfer Money" action="bank_transfer" action_options='{"mode":"form","defaults":{"account_from_id":id}}'/>
+            <divider/>
+            <item string="Reconcile Account" action="bank" action_options='{"mode":"page","active_id":id,"related_tab":0}'/>
+            <item string="Import a Statement" action="import_statement" action_options='{"defaults":{"account_id":id}}'/>
+            <item string="Auto-match Transactions" method="auto_bank_reconcile"/>
+            <item string="Reconcile All Matched" method="reconcile_all_matched"/>
+        </button>
+    </head>
+    <group form_layout="stacked">
+        <field name="balance_statement" span="2" strong="1"/>
+        <field name="balance" span="2" strong="1"/>
+    </group>
+    <related_tabs>
+        <tab string="Awaiting Reconciliation" action="bank_reconcile" action_options='{"condition":[["statement_id.account_id","=",id],["state","=","not_reconciled"]]}'/>
+        <tab string="Reconciled" action="bank_reconciled" action_options='{"condition":[["statement_id.account_id","=",id],["state","=","reconciled"]]}'/>
+        <tab string="Bank Statements" action="bank_statement" action_options='{"condition":[["account_id","=",id]]}'/>
+        <tab string="Account Transactions" action="bank_move_line" action_options='{"condition":[["account_id","=",id]]}'/>
+    </related_tabs>
+</page>

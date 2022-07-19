@@ -1,0 +1,7 @@
+<form model="hr.payitem.profile">
+    <group form_layout="stacked">
+        <field name="name" span="4"/>
+        <newline/>
+        <field name="pay_items" span="12"/>
+    </group>
+</form>

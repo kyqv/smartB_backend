@@ -1,0 +1,9 @@
+<form model="message.tmpl">
+    <field name="name"/>
+    <newline/>
+    <field name="from_user"/>
+    <field name="to_user"/>
+    <field name="subject" size="xlarge"/>
+    <newline/>
+    <field name="body" width="600"/>
+</form>

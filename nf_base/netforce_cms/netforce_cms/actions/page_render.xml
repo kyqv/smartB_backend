@@ -1,0 +1,4 @@
+<action>
+    <field name="view">page_render</field>
+    <field name="no_login">1</field>
+</action>

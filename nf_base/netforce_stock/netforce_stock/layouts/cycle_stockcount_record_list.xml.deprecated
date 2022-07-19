@@ -1,0 +1,12 @@
+<list model="cycle.stock.count.record" priority="20">
+    <head>
+        <button string="Test1" method="test_func"/>
+    </head>
+    <field name="product_id"/>
+    <field name="location_id"/>
+    <field name="date"/>
+    <field name="expected_qty"/>
+    <field name="actual_qty"/>
+    <field name="pic_id"/>
+    <field name="state"/>
+</list>

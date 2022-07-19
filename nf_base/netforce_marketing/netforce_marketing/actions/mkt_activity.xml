@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Activities</field>
+    <field name="view_cls">multi_view</field>
+    <field name="model">mkt.activity</field>
+    <field name="menu">mkt_menu</field>
+</action>

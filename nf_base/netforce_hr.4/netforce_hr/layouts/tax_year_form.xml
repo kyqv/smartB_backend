@@ -1,0 +1,26 @@
+<form model="hr.tax.year">
+    <head>
+        <button string="Options" dropdown="1">
+            <item string="Copy" method="copy"/>
+        </button>
+    </head>
+    <group form_layout="stacked">
+        <field name="name" span="2"/>
+        <separator string="Tax Deductions"/>
+        <field name="pc_gross_income" span="2"/>
+        <field name="not_exceed" span="2"/>
+        <separator string="Tax Allowances"/>
+        <field name="tax_payer" span="2"/>
+    </group>
+    <separator string="Tax Rates"/>
+    <field name="tax_rates" nolabel="1">
+        <list>
+            <field name="min_income"/>
+            <field name="max_income"/>
+            <field name="rate"/>
+        </list>
+    </field>
+    <related>
+        <field name="comments"/>
+    </related>
+</form>

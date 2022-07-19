@@ -1,0 +1,7 @@
+<form model="select.location">
+    <field name="location_id"/>
+    <foot>
+        <button string="Calculate XYZ/ABC Category" method="assign_sku_categ" type="success" show_progress="1"/>
+        <button string="Schedule Cycle Count" method="schedule_cycle_count" type="success" show_progress="1"/>
+    </foot>
+</form>

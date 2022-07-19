@@ -1,0 +1,6 @@
+<calendar model="stock.picking" date_field="date" colors='{"#090":[["state","=","done"]]}'>
+    <field name="number"/>
+    <field name="ref"/>
+    <field name="contact_id"/>
+    <field name="state"/>
+</calendar>

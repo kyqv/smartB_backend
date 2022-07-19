@@ -1,0 +1,9 @@
+<form model="language">
+    <field name="name"/>
+    <field name="code"/>
+    <field name="sequence"/>
+    <related>
+        <field name="comments"/>
+        <field name="translations"/>
+    </related>
+</form>

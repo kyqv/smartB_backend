@@ -1,0 +1,4 @@
+<list model="profile">
+    <field name="name"/>
+    <field name="code"/>
+</list>

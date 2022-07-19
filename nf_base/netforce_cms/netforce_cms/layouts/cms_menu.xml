@@ -1,0 +1,30 @@
+<menu string="Website">
+    <item string="Dashboard" action="cms_board"/>
+    <item string="Content">
+        <item string="Page Contents" action="page"/>
+        <item string="Blogs" action="blog"/>
+        <item string="Blog Posts" action="blog_post"/>
+        <item string="Blocks" action="cms_block"/>
+        <item string="Navigation" action="linklist"/>
+        <item string="Form Submissions" action="form_data"/>
+    </item>
+    <item string="Design">
+        <item string="Page Builder" action="page_builder"/>
+        <item string="Pages" action="page_layout"/>
+        <item string="Page Groups" action="page_group"/>
+        <item string="Element Groups" action="el_group"/>
+        <item string="Page Styles" action="page_style"/>
+    </item>
+    <item string="Settings">
+        <item string="Websites" action="website"/>
+        <item string="Themes" action="theme"/>
+        <item string="Components" action="component"/>
+        <item string="Static Files" action="theme_file"/>
+        <item string="Rewrite Rules" action="url_rewrite"/>
+    </item>
+    <item string="Tracking">
+        <item string="Visitors" action="visitor"/>
+        <item string="Sessions" action="visitor_session"/>
+        <item string="Actions" action="visitor_action"/>
+    </item>
+</menu>

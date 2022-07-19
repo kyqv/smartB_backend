@@ -1,0 +1,6 @@
+<list model="sale.categ">
+    <field name="name"/>
+    <field name="code"/>
+    <field name="description"/>
+    <field name="sale_sequence_id"/>
+</list>

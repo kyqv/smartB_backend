@@ -1,0 +1,21 @@
+<form model="sequence">
+    <field name="name"/>
+    <field name="type"/>
+    <field name="model_id"/>
+    <field name="prefix"/>
+    <field name="padding"/>
+    <field name="company_id"/>
+    <related>
+        <field name="running">
+            <list>
+                <field name="prefix"/>
+                <field name="next"/>
+            </list>
+            <form>
+                <field name="prefix"/>
+                <field name="next"/>
+            </form>
+        </field>
+        <field name="comments"/>
+    </related>
+</form>

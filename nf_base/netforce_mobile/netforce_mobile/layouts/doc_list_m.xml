@@ -1,0 +1,6 @@
+<list_m model="document">
+    <field name="date"/>
+    <field name="state"/>
+    <newline/>
+    <field name="file"/>
+</list_m>

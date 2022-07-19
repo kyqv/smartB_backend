@@ -1,0 +1,6 @@
+<list model="language" priority="1">
+    <field name="name"/>
+    <field name="code"/>
+    <field name="num_translations"/>
+    <field name="sequence"/>
+</list>

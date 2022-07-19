@@ -1,0 +1,7 @@
+<record model="action">
+    <field name="type">report_xls</field>
+    <field name="model">report.pp30</field>
+    <field name="method">get_data_report</field>
+    <field name="template">report_pp30</field>
+</record>
+

@@ -1,0 +1,347 @@
+<form model="product" show_company="1">
+    <top>
+        <button string="New Product" action="product" action_options='{"mode":"form"}' icon="plus"/>
+        <button string="Print" icon="print" action="report_product_form" action_options='{"active_id":id}'/>
+        <button string="Options" dropdown="1">
+            <item string="Duplicate" method="copy"/>
+            <!--<item string="Create Variants" method="create_variants"/>-->
+            <item string="Create Variants" action="prod_create_variants"/>
+            <item string="To Draft" method="to_draft"/>
+            <item string="Generate Lots" action="gen_lots" action_options='{"context":{"defaults":{"product_id":id}}}'/>
+            <divider/>
+            <item string="Ecommerce Preview" method="ecom_preview"/>
+        </button>
+    </top>
+    <head>
+        <field name="state"/>
+    </head>
+    <tabs>
+        <tab string="General">
+            <separator string="Compulsory Details"/>
+            <field name="code"/>
+            <field name="name"/>
+            <field name="type"/>
+            <field name="uom_id"/>
+            <separator string="Optional Details"/>
+            <field name="procure_method"/>
+            <field name="supply_method"/>
+            <field name="description"/>
+            <field name="barcode"/>
+            <field name="parent_id" condition='[["type","=","master"]]'/>
+            <field name="image"/>
+            <field name="brand_id"/>
+            <newline/>
+            <field name="categ_id"/>
+            <field name="groups" view="field_multi_select"/>
+            <newline/>
+            <field name="replacements" view="field_multi_select"/>
+            <separator string="Related Products"/>
+            <field name="related_products" nolabel="1"/>
+        </tab>
+        <tab string="Pricing">
+            <separator string="Purchase Cost Price"/>
+            <group form_layout="stacked">
+                <field name="purchase_price" span="2" onchange="update_prices"/>
+                <field name="purchase_currency_rate" span="2" onchange="update_prices"/>
+                <field name="purchase_currency_id" span="2"/>
+                <newline/>
+                <field name="purchase_ship_percent" span="2" onchange="update_prices"/>
+                <field name="purchase_duty_percent" span="2" onchange="update_prices"/>
+                <newline/>
+                <field name="labor_cost" span="2"/>
+                <newline/>
+                <field name="landed_cost" span="2"/>
+                <field name="landed_cost_conv" span="2"/>
+            </group>
+            <separator string="Selling List Price"/>
+            <group form_layout="stacked">
+                <field name="sale_price" span="2" onchange="update_prices"/>
+                <field name="min_sale_price" span="2"/>
+                <field name="sale_price_uom_id" span="2"/>
+                <newline/>
+                <field name="gross_profit" span="2" onchange="update_prices"/>
+                <newline/>
+                <field name="sale_price_order_uom" span="2"/>
+                <field name="auto_list_price" span="2"/>
+                <field name="max_discount" span="2" string="Listed Gross Profit (%)"/>
+                <!--<field name="price_index" span="2"/>-->
+            </group>
+            <separator/>
+            <field name="price_notes"/>
+            <field name="price_date"/>
+        </tab>
+        <tab string="Sales">
+            <field name="can_sell"/>
+            <newline/>
+            <separator string="End-Customer Information"/>
+            <field name="customers" nolabel="1">
+                <list>
+                    <field name="sequence"/>
+                    <field name="customer_id"/>
+                    <field name="customer_product_code"/>
+                    <field name="customer_product_name"/>
+                    <field name="packaging_id"/>
+                </list>
+            </field>
+            <separator string="Optional Conversion"/>
+            <field name="min_sale_qty"/>
+            <field name="sale_unit_qty"/>
+            <field name="sale_uom_id"/>
+            <field name="sale_invoice_uom_id"/>
+            <field name="sale_to_stock_uom_factor"/>
+            <field name="sale_to_invoice_uom_factor"/>
+            <separator string="Special Circumstances"/>
+            <field name="sale_channels"/>
+            <field name="payment_methods"/>
+            <field name="events"/>
+            <separator/>
+            <field name="sale_lead_time_nostock"/>
+            <!--
+            <separator string="Commission"/>
+            <field name="commission_seller"/>
+            <field name="commission_buyer"/>
+            <field name="profit_after_commission"/>
+            -->
+        </tab>
+        <tab string="Purchasing">
+            <field name="can_purchase"/>
+            <newline/>
+            <separator string="Suppliers"/>
+            <field name="suppliers" nolabel="1">
+                <list>
+                    <field name="sequence"/>
+                    <field name="supplier_id"/>
+                    <field name="supplier_product_code"/>
+                    <field name="supplier_product_name"/>
+                    <field name="purchase_price"/>
+                </list>
+            </field>
+            <separator string="Optional Conversion"/>
+            <field name="purchase_uom_id"/>
+            <field name="purchase_invoice_uom_id"/>
+            <field name="purchase_to_stock_uom_factor"/>
+            <field name="purchase_to_invoice_uom_factor"/>
+            <field name="purchase_lead_time"/>
+            <newline/>
+            <field name="purchase_min_qty"/>
+            <field name="purchase_qty_multiple"/>
+        </tab>
+        <tab string="Service">
+            <field name="est_hours"/>
+        </tab>
+        <tab string="Manufacturing">
+            <field name="mfg_lead_time"/>
+            <newline/>
+            <field name="mfg_min_qty"/>
+            <field name="mfg_qty_multiple"/>
+        </tab>
+        <tab string="Accounting">
+            <separator string="Purchasing"/>
+            <field name="purchase_account_id" condition='[["type","!=","view"],["company_id","=",context.company_id]]'/>
+            <field name="purchase_return_account_id" condition='[["type","!=","view"],["company_id","=",context.company_id]]'/>
+            <field name="purchase_tax_id"/>
+            <separator string="Sales"/>
+            <field name="sale_account_id" condition='[["type","!=","view"],["company_id","=",context.company_id]]'/>
+            <field name="sale_tax_id"/>
+            <field name="sale_return_account_id" condition='[["type","!=","view"],["company_id","=",context.company_id]]'/>
+            <field name="sale_promotion_account_id" condition='[["type","!=","view"],["company_id","=",context.company_id]]'/>
+            <field name="sale_promotion_tax_id"/>
+            <separator string="Costing"/>
+            <field name="cost_method"/>
+            <field name="cost_price"/>
+            <field name="cogs_account_id" condition='[["type","!=","view"],["company_id","=",context.company_id]]'/>
+            <field name="stock_account_id" condition='[["type","!=","view"],["company_id","=",context.company_id]]'/>
+        </tab>
+        <tab string="Inventory">
+            <field name="weight"/>
+            <field name="volume"/>
+            <field name="width"/>
+            <field name="height"/>
+            <field name="length"/>
+            <field name="uoms" view="field_multi_select"/>
+            <field name="store_type_id"/>
+            <field name="shelf_life"/>
+            <!--field name="packing_size"/>-->
+            <separator string="Product Locations"/>
+            <field name="locations" nolabel="1">
+                <list>
+                    <field name="sequence"/>
+                    <field name="location_id"/>
+                    <field name="bin_location"/>
+                    <field name="reserve_location_id"/>
+                    <field name="stock_qty"/>
+                </list>
+            </field>
+            <field name="stock_qty"/>
+            <separator/>
+            <field name="min_qty"/>
+            <field name="max_qty"/>
+            <separator/>
+            <field name="min_qty_50"/>
+            <field name="min_qty_75"/>
+            <separator string="Settings"/>
+            <field name="require_qty2"/>
+            <field name="require_lot"/>
+            <field name="require_unique_lot"/>
+            <field name="auto_lot"/>
+            <field name="prevent_new_lot"/>
+            <field name="check_neg_stock"/>
+            <field name="check_lot_neg_stock"/>
+            <field name="need_return"/>
+            <field name="check_neg_stock"/>
+            <separator/>
+            <field name="product_gb_id"/>
+            <field name="lot_select"/>
+            <field name="qty2_factor"/>
+            <field name="min_life_remain_percent"/>
+            <field name="max_lots_per_sale"/>
+            <field name="stock_plan_horizon"/>
+            <field name="max_qty_loss"/>
+        </tab>
+        <tab string="Delivery">
+            <field name="ship_methods"/>
+            <newline/>
+            <field name="delivery_weekdays"/>
+        </tab>
+        <tab string="Ecommerce">
+            <field name="is_published"/>
+            <newline/>
+            <field name="other_url"/>
+            <newline/>
+            <field name="details" view="field_html" width="800" height="200"/>
+            <newline/>
+            <field name="details2_label"/>
+            <newline/>
+            <field name="details2" view="field_html" width="800" height="200"/>
+            <newline/>
+            <field name="details3_label"/>
+            <newline/>
+            <field name="details3" view="field_html" width="800" height="200"/>
+            <newline/>
+            <field name="details4_label"/>
+            <newline/>
+            <field name="details4" view="field_html" width="800" height="200"/>
+            <newline/>
+            <field name="ecom_hide_qty"/>
+            <field name="ecom_hide_unavail"/>
+            <field name="ecom_no_order_unavail"/>
+            <field name="ecom_select_lot"/>
+            <newline/>
+            <field name="product_origin"/>
+            <newline/>
+            <field name="old_sale_price"/>
+            <field name="discount_text"/>
+        </tab>
+        <tab string="POS">
+            <field name="publish_pos"/>
+            <newline/>
+            <field name="pos_print_template_id"/>
+            <newline/>
+            <field name="pos_create_lot"/>
+            <newline/>
+            <field name="pos_auto_print"/>
+            <newline/>
+            <field name="pos_read_weight"/>
+            <newline/>
+            <field name="pos_auto_add"/>
+            <newline/>
+            <field name="pos_packaging_id"/>
+            <newline/>
+            <field name="pos_container_type_id"/>
+            <newline/>
+            <field name="container_sequence_id"/>
+        </tab>
+        <tab string="Billing (Fulfillment)">
+            <separator string="Chargable Services for Inbound"/>
+            <field name="fulfillment_in">
+                <list>
+                    <field name="type"/>
+                    <field name="product_id" onchange="onchange_fulfillment_product"/>
+                    <!-- <field name="qty"/> redundant -->
+                    <field name="uom_id"/>
+                    <field name="unit_price"/>
+                </list>
+            </field>
+            <separator string="Chargable Services for Outbound"/>
+            <field name="fulfillment_out">
+                <list>
+                    <field name="type"/>
+                    <field name="product_id" onchange="onchange_fulfillment_product"/>
+                    <!-- <field name="qty"/> redundant -->
+                    <field name="uom_id"/>
+                    <field name="unit_price"/>
+                </list>
+            </field>
+            <!-- <field name="service_prod_id"/>
+            <field name="package_price"/> -->
+        </tab>
+        <tab string="Other">
+            <field name="id"/>
+            <field name="create_time"/>
+            <field name="write_time"/>
+            <field name="approve_date" readonly="1"/>
+            <field name="company_id"/>
+            <field name="sale_company_id"/>
+            <field name="sequence"/>
+        </tab>
+    </tabs>
+    <foot>
+        <button string="Approve" type="success" method="approve" icon="ok" states="draft" perm="approve_product"/>
+    </foot>
+    <related>
+        <field name="documents" show_inline="1"/>
+        <field name="pricelist_items"/>
+        <field name="variants"/>
+        <field name="attributes">
+            <list>
+                <field name="attribute_id"/>
+                <field name="option_id"/>
+            </list>
+            <form>
+                <field name="attribute_id"/>
+                <field name="option_id" condition='[["attribute_id","=",attribute_id]]'/>
+            </form>
+        </field>
+        <field name="components">
+            <list>
+                <field name="component_id"/>
+                <field name="qty"/>
+            </list>
+            <form>
+                <field name="component_id" condition='[["type","=","stock"]]'/>
+                <field name="qty"/>
+            </form>
+        </field>
+        <field name="images">
+            <list>
+                <field name="image" preview="1"/>
+                <field name="title"/>
+                <field name="description"/>
+            </list>
+            <form>
+                <field name="image"/>
+                <field name="title"/>
+                <field name="description"/>
+            </form>
+        </field>
+        <field name="stock_balances"/>
+        <field name="lots"/>
+        <field name="sale_lines"/>
+        <field name="purchase_lines"/>
+        <field name="service_items"/>
+        <field name="boms"/>
+        <field name="costs">
+            <list>
+                <field name="cost_type_id"/>
+                <field name="amount"/>
+                <field name="amount_type"/>
+                <field name="contact_group_id"/>
+            </list>
+            <form>
+                <field name="cost_type_id"/>
+                <field name="amount"/>
+            </form>
+        </field>
+        <field name="comments"/>
+    </related>
+</form>

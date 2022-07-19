@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Expense Categories</field>
+    <field name="view_cls">multi_view</field>
+    <field name="model">expense.categ</field>
+    <field name="menu">account_menu</field>
+</action>

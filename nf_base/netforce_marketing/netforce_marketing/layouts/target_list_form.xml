@@ -1,0 +1,18 @@
+<form model="mkt.target.list">
+    <head>
+        <button string="Options" dropdown="1">
+            <item string="Remove duplicate emails" method="remove_duplicate_emails"/>
+            <item string="Verify emails" method="verify_emails"/>
+        </button>
+    </head>
+    <field name="name"/>
+    <field name="date"/>
+    <field name="num_targets"/>
+    <newline/>
+    <field name="num_emails_verified"/>
+    <field name="num_emails_error"/>
+    <related>
+        <field name="targets"/>
+        <field name="comments"/>
+    </related>
+</form>

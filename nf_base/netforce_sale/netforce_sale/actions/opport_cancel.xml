@@ -1,0 +1,7 @@
+<action>
+    <field name="view">form_popup</field>
+    <field name="string">Cancel Sales Opportunity</field>
+    <field name="model">sale.opportunity</field>
+    <field name="layout">opport_cancel</field>
+    <field name="target">popup</field>
+</action>

@@ -1,0 +1,145 @@
+<form model="stock.picking" attrs='{"readonly":[["state","in",["done","voided"]]]}' show_company="1" show_save="1">
+    <top>
+        <button string="Print" icon="print" action="report_pick_out_form3" action_options='{"active_id":id}'/>
+        <button string="Options" dropdown="1" align="right">
+            <item string="Copy To Customer Invoice" method="copy_to_invoice" states="pending,approved,done"/>
+            <item string="Copy" method="copy"/>
+            <item string="Copy To Good Receipt" method="copy_to_receipt"/>
+            <divider/>
+            <item string="To Draft" method="to_draft" states="pending,approved,done,voided,rejected"/>
+            <item string="Void" method="void" confirm="Are you sure you want to void this goods issue?" states="done,draft,pending,approved"/>
+            <divider/>
+            <item string="Assign Lots" method="assign_lots" states="draft"/>
+            <item string="Expand Bundles" method="expand_bundles"/>
+            <item string="Remove Bundle Components" method="remove_bundle_components" confirm="Are you sure?"/>
+            <item string="Update Invoice" method="update_invoice"/>
+            <divider/>
+            <item string="View Journal Entry" method="view_journal_entry" states="done"/>
+            <item string="Repost Journal Entry" method="repost_journal_entry"/>
+            <divider/>
+            <item string="Copy To Delivery Order" method="copy_delivery"/>
+        </button>
+    </top>
+    <head>
+        <field name="state"/>
+    </head>
+    <field name="type" invisible="1"/>
+    <tabs>
+        <tab string="General">
+            <group form_layout="stacked">
+                <field name="journal_id" span="2" onchange="onchange_journal"/>
+                <field name="number" span="2"/>
+                <field name="date" span="2"/>
+                <field name="contact_id" span="2" onchange="onchange_contact"/>
+                <field name="contact_person_id" span="2" condition='[["type", "=", "person"],["org_id","=",contact_id]]'/>
+                <field name="ship_address_id" span="2" condition='[["contact_id","=",contact_id],["contact_id","!=",null]]'/>
+                <newline/>
+                <field name="container_id" span="2" onchange="onchange_container"/>
+                <field name="ref" span="2"/>
+                <field name="related_id" span="2"/>
+                <field name="packaging_id" span="2"/>
+                <field name="invoice_id" span="2"/>
+                <field name="delivery_slot_id" span="2"/>
+            </group>
+            <field name="lines" nolabel="1" reorder_field="sequence">
+                <list>
+                    <field name="sequence"/>
+                    <field name="product_id" onchange="onchange_product" condition='[["type","in",["stock","consumable","bundle"]]]'/>
+                    <field name="qty"/>
+                    <field name="uom_id"/>
+                    <field name="location_from_id" condition='[["type","=","internal"]]'/>
+                    <field name="location_to_id" condition='[["type","!=","internal"]]'/>
+                    <field name="lot_id" create="1"/>
+                    <field name="container_id"/>
+                    <field name="qty2"/>
+                    <field name="uom2_id" onchange="onchange_uom2"/>
+                    <field name="qty_stock"/>
+                    <field name="invoice_id"/>
+                    <field name="cost_price" readonly="1"/>
+                    <field name="cost_amount" readonly="1"/>
+                    <field name="gross_weight"/>
+                    <field name="net_weight"/>
+                    <field name="track_id" create="1"/>
+                    <field name="container_from_id"/>
+                    <field name="packaging_id"/>
+                    <field name="num_packages"/>
+                    <field name="addons"/>
+                    <field name="related_id"/>
+                    <field name="notes"/>
+                </list>
+            </field>
+            <field name="other_info"/>
+        </tab>
+        <tab string="QC">
+            <field name="qc_results">
+                <list>
+                    <field name="product_id"/>
+                    <field name="lot_id"/>
+                    <field name="total_qty"/>
+                    <field name="sample_qty"/>
+                    <field name="test1"/>
+                    <field name="test2"/>
+                    <field name="test3"/>
+                    <field name="test4"/>
+                    <field name="test5"/>
+                    <field name="result"/>
+                </list>
+            </field>
+        </tab>
+        <tab string="Shipping">
+            <field name="ship_method_id"/>
+            <newline/>
+            <!--<field name="delivery_id" readonly="0"/>-->
+            <!--<field name="route_id" readonly="0"/>-->
+            <newline/>
+            <field name="pallet_id" span="2"/>
+            <field name="num_pallets" span="2"/>
+        </tab>
+        <tab string="Approval">
+            <field name="pending_by_id"/>
+            <field name="done_by_id"/>
+            <separator string="Complete Transaction"/>
+            <field name="done_approved_by_id"/>
+            <button string="Approve" icon="ok" method="approve_done" confirm="Are you sure?" perm="stock_approve_done"/>
+        </tab>
+        <tab string="Other">
+            <field name="date_done"/>
+            <newline/>
+            <field name="sequence"/>
+            <newline/>
+            <field name="employee_id"/>
+        </tab>
+    </tabs>
+    <group offset="8" span="4" columns="1">
+        <field name="total_qty"/>
+        <field name="total_net_weight"/>
+        <field name="total_gross_weight"/>
+    </group>
+    <field name="company_id" invisible="1"/>
+    <foot>
+        <button string="Confirm" method="pending" states="draft"/>
+        <button string="Approve" method="approve" states="pending" perm="approve_picking"/>
+        <button string="Validate" action="pick_validate" states="approved" perm="validate_picking"/>
+    </foot>
+    <related>
+        <field name="pickings"/>
+        <field name="expand_lines"/>
+        <field name="documents">
+            <list>
+                <field name="date"/>
+                <field name="files" view="field_files" preview="1"/>
+                <field name="file" target="_blank" preview="1"/>
+            </list>
+            <form>
+                <field name="categ_id"/>
+                <field name="file" target="_blank" onchange="onchange_file"/>
+                <field name="files" view="field_files" onchange="onchange_files"/>
+                <field name="date"/>
+                <field name="description"/>
+                <field name="contact_id" invisible="1"/>
+                <field name="title"/>
+            </form>
+        </field>
+        <field name="comments"/>
+    </related>
+</form>

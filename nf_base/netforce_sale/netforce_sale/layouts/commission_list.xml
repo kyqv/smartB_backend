@@ -1,0 +1,8 @@
+<list model="seller.commission">
+    <field name="seller_id"/>
+    <field name="sequence"/>
+    <field name="customer_id"/>
+    <field name="customer_group_id"/>
+    <field name="commission_percent"/>
+    <field name="min_amount"/>
+</list>

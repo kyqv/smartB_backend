@@ -1,0 +1,9 @@
+<list model="folder">
+    <field name="name"/>
+    <field name="parent_id"/>
+    <field name="num_files"/>
+    <field name="contact_id"/>
+    <field name="related_id"/>
+    <field name="user_id"/>
+    <field name="company_id"/>
+</list>

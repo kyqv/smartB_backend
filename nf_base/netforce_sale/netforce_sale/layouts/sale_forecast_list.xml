@@ -1,0 +1,11 @@
+<list model="sale.forecast" colors='{"#f99":[["plan_remain_qty","&lt;",0]]}'>
+    <head>
+        <!--<button string="Update Planned Stock" method="update_stock"/>-->
+    </head>
+    <field name="number"/>
+    <field name="location_id"/>
+    <field name="date_from"/>
+    <field name="date_to"/>
+    <field name="num_lines"/>
+    <field name="state"/>
+</list>

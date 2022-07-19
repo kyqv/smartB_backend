@@ -1,0 +1,8 @@
+<menu string="Ecommerce">
+    <item string="Dashboard" action="ecom_board"/>
+    <item string="Ecommerce">
+        <item string="Website Carts" action="ecom_cart"/>
+        <item string="Wishlists" action="wishlist"/>
+        <item string="Product Reviews" action="product_review"/>
+    </item>
+</menu>

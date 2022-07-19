@@ -1,0 +1,7 @@
+<action>
+    <field name="name">country</field>
+    <field name="string">Countries</field>
+    <field name="view">multi_view</field>
+    <field name="model">country</field>
+    <field name="menu">gen_menu</field>
+</action>

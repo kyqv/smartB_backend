@@ -1,0 +1,7 @@
+<action>
+    <field name="string">Stock Movements</field>
+    <field name="view">multi_view</field>
+    <field name="model">stock.move</field>
+    <field name="tabs">[["All",[]],["Draft",[["state","=","Draft"]]],["Planned",[["state","=","pending"]]],["Approved",[["state","=","approved"]]],["Forecast",[["state","=","forecast"]]],["Completed",[["state","=","done"]]]]</field>
+    <field name="menu">stock_menu</field>
+</action>

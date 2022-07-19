@@ -1,0 +1,12 @@
+<form model="field.access.add">
+    <field name="field_access_id" invisible="1"/>
+    <field name="profile_id"/>
+    <field name="user_id"/>
+    <field name="model_id"/>
+    <field name="field_id"/>
+    <field name="access"/>
+    <foot>
+        <button string="Add" method="duplicate_field_access" type="primary"/>
+        <!--<button string="Add" method="add_lines" type="primary"/>-->
+    </foot>
+</form>

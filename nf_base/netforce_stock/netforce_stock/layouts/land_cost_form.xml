@@ -1,0 +1,18 @@
+<form model="land.cost">
+    <head>
+        <field name="state"/>
+    </head>
+    <field name="number"/>
+    <field name="date"/>
+    <field name="invoice_id"/>
+    <field name="state"/>
+    <separator/>
+    <field name="amount"/>
+    <field name="alloc_amount"/>
+    <foot>
+        <button string="Allocate Costs" method="alloc_cost"/>
+    </foot>
+    <related>
+        <field name="invoices"/>
+    </related>
+</form>

@@ -1,0 +1,9 @@
+<menu string="Documents">
+    <item string="Dashboard" action="doc_board"/>
+    <item string="Documents" action="doc_doc"/>
+    <item string="Folders" action="folder"/>
+    <item string="Settings">
+        <item string="Document Categories" action="doc_categ"/>
+        <item string="Document Templates" action="doc_tmpl"/>
+    </item>
+</menu>

@@ -1,0 +1,14 @@
+<form model="push.notif">
+    <head>
+        <field name="state"/>
+    </head>
+    <field name="time"/>
+    <field name="device_id"/>
+    <field name="title"/>
+    <field name="message"/>
+    <field name="state"/>
+    <field name="error"/>
+    <foot>
+        <button string="Send" method="send" states="draft,to_send" type="success" icon="arrow-right"/>
+    </foot>
+</form>

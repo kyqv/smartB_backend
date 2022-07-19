@@ -1,0 +1,6 @@
+<form model="service.type">
+    <field name="name"/>
+    <field name="code"/>
+    <field name="description"/>
+    <field name="parent_id"/>
+</form>

@@ -1,0 +1,9 @@
+<board>
+    <vpanel>
+        <widget string="Current Attendance" action="attend_widget"/>
+        <!--<widget string="Attendance History" action="attend_hist_widget"/>-->
+    </vpanel>
+    <vpanel>
+        <widget string="Leave Request" action="leave_widget"/>
+    </vpanel>
+</board>

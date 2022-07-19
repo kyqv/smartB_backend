@@ -1,0 +1,32 @@
+<list model="sale.order" colors='{"due_date,#f00":[["overdue","=",true]],"#ccc":[["state","=","done"]],"#ccc":[["state","=","done"]]}' priority="1">
+    <top>
+        <button string="Gen Report" action="gen_sale_report"/>
+        <button string="Set Tax Inclusive" method="set_tax_in_all" confirm="Are you sure?" show_progress="1"/>
+    </top>
+    <head>
+        <!--<button string="Print" icon="print" action="report_sale_form" action_options='{"convert":"pdf"}'/>
+        <button string="Print (New)" icon="print" action="report_sale_form2" action_options='{"ids":ids}'/>-->
+        <button string="Print" icon="print" action="report_sale_form3" action_options='{"ids":ids}'/>
+        <button string="Copy To Customer Invoice" method="copy_to_invoice" states="confirmed,done"/>
+        <button string="Copy To Purchase Orders" method="copy_to_purchase"/>
+        <button string="Copy To Production Orders" method="copy_to_production"/>
+        <button string="Set Tax Inclusive" method="set_tax_in" confirm="Are you sure?" show_progress="1"/>
+    </head>
+    <field name="number"/>
+    <field name="contact_id"/>
+    <field name="ref"/>
+    <field name="sale_categ_id"/>
+    <field name="date"/>
+    <field name="due_date"/>
+    <field name="amount_total"/>
+    <field name="currency_id"/>
+    <field name="is_delivered"/>
+    <field name="is_invoiced"/>
+    <field name="is_paid"/>
+    <field name="pay_method_id"/>
+    <field name="state"/>
+    <field name="company_id"/>
+    <field name="receipt_printed"/>
+    <field name="report_no"/>
+    <field name="overdue" invisible="1"/>
+</list>

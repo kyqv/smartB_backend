@@ -1,0 +1,9 @@
+<form model="invoice.payment" title="Make a payment" form_layout="stacked">
+    <field name="invoice_id" invisible="1"/>
+    <field name="amount" span="2"/>
+    <field name="date" span="2"/>
+    <field name="account_id" span="2"/>
+    <field name="track_id" span="2"/>
+    <field name="ref" span="2"/>
+    <button string="Add Payment" method="add_payment" type="success" icon="ok" span="2"/>
+</form>

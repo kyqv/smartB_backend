@@ -1,0 +1,6 @@
+<action>
+    <field name="type">report</field>
+    <field name="model">report.provident</field>
+    <field name="method">get_data</field>
+    <field name="template">provident</field>
+</action>

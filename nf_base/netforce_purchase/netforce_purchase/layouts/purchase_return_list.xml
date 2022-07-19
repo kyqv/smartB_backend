@@ -1,0 +1,14 @@
+<list model="purchase.return">
+    <head>
+        <button string="Print" icon="print" action="report_purchase_return_form" action_options='{"convert":"pdf"}'/>
+    </head>
+    <field name="number"/>
+    <field name="ref"/>
+    <field name="contact_id"/>
+    <field name="date"/>
+    <field name="is_delivered"/>
+    <field name="is_paid"/>
+    <field name="state"/>
+    <field name="amount_total"/>
+    <field name="currency_id"/>
+</list>

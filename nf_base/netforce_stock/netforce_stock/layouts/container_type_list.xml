@@ -1,0 +1,10 @@
+<list model="stock.container.type">
+    <field name="name"/>
+    <field name="code"/>
+    <field name="description"/>
+    <field name="width"/>
+    <field name="height"/>
+    <field name="length"/>
+    <field name="weight"/>
+    <field name="num_items"/>
+</list>

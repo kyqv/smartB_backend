@@ -1,0 +1,10 @@
+<list model="shopee.product.categ">
+    <top>
+        <button string="Download Shopee Product Categories" method="get_categ" show_progress="1"/>
+    </top>
+    <field name="sync_id"/>
+    <field name="original_category_name"/>
+    <field name="display_category_name"/>
+    <field name="parent_id"/>
+    <field name="has_children"/>
+</list>

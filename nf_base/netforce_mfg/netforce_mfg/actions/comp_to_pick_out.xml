@@ -1,0 +1,6 @@
+<action>
+    <field name="view_type">collection</field>
+    <field name="model">production.component</field>
+    <field name="condition">[["order_id","=",order_id],["issue_method","=","manual"]]</field>
+    <field name="template">comp_to_pick_out</field>
+</action>

@@ -1,0 +1,9 @@
+<form model="bank.account">
+    <field name="bank_id"/>
+    <field name="branch"/>
+    <field name="number"/>
+    <field name="name"/>
+    <separator/>
+    <field name="contact_id"/>
+    <field name="related_id"/>
+</form>

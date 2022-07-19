@@ -1,0 +1,6 @@
+<search model="base.user">
+    <field name="login"/>
+    <field name="name"/>
+    <field name="email"/>
+    <field name="profile_id"/>
+</search>

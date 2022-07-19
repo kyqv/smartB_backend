@@ -1,0 +1,7 @@
+<action>
+    <field name="view">form_popup</field>
+    <field name="string">Print Sales Order</field>
+    <field name="model">print.wizard</field>
+    <field name="target">popup</field>
+    <field name="context">{"model":"sale.order","template_type":"sale_order"}</field>
+</action>

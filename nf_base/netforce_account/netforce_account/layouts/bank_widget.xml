@@ -1,0 +1,22 @@
+<list_details model="account.account" action="bank" action_options='{"mode":"page","active_id":id}'>
+    <head>
+        <field name="name"/>
+        <field name="bank_no"/>
+        <button string="Manage Account" dropdown="1">
+            <item string="Account Transactions" action="bank" action_options='{"mode":"page","active_id":id,"related_tab":2}'/>
+            <item string="Bank Statements" action="bank" action_options='{"mode":"page","active_id":id,"related_tab":1}'/>
+            <divider/>
+            <item string="Spend Money" action="payment" action_options='{"mode":"form","defaults":{"account_id":id,"type":"out"}}'/>
+            <item string="Receive Money" action="payment" action_options='{"mode":"form","defaults":{"account_id":id,"type":"in"}}'/>
+            <item string="Transfer Money" action="bank_transfer" action_options='{"mode":"form","defaults":{"account_from_id":id}}'/>
+            <divider/>
+            <item string="Reconcile Account" action="bank" action_options='{"mode":"page","active_id":id,"related_tab":0}'/>
+            <item string="Import a Statement" action="import_statement" action_options='{"defaults":{"account_id":id}}'/>
+        </button>
+    </head>
+    <group span="4" form_layout="stacked" columns="1">
+        <field name="balance_statement" strong="1"/>
+        <field name="balance_cur" strong="1"/>
+    </group>
+    <field name="balance_90d" span="8" view="field_chart" view_options='{"chart_type":"area","x_type":"datetime","height":150}' nolabel="1"/> 
+</list_details>

@@ -1,0 +1,17 @@
+<form model="sale.recurring">
+    <head>
+        <button string="New" icon="plus" action="sale_rec" action_options='{"mode":"form"}'/>
+    </head>
+    <field name="contact_id"/>
+    <field name="description"/>
+    <field name="product_id"/>
+    <field name="qty"/>
+    <field name="unit_price"/>
+    <field name="amount"/>
+    <separator/>
+    <field name="supplier_id"/>
+    <separator/>
+    <field name="interval_num"/>
+    <field name="interval_unit"/>
+    <field name="next_date"/>
+</form>

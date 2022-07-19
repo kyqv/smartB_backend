@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Pay Item Profiles</field>
+    <field name="view_cls">multi_view</field>
+    <field name="model">hr.payitem.profile</field>
+    <field name="menu">hr_menu</field>
+</action>

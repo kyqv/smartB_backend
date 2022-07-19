@@ -1,0 +1,8 @@
+<search model="hr.employee">
+    <field name="code"/>
+    <field name="first_name"/>
+    <field name="last_name"/>
+    <field name="position"/>
+    <field name="department_id"/>
+    <field name="work_status"/>
+</search>

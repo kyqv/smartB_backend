@@ -1,0 +1,8 @@
+<board>
+    <vpanel>
+        <widget string="Users" action="gen_user_widget"/>
+    </vpanel>
+    <vpanel>
+        <widget string="Languages" action="gen_lang_widget"/>
+    </vpanel>
+</board>

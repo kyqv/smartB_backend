@@ -1,0 +1,9 @@
+<list model="account.transfer">
+    <field name="number"/>
+    <field name="date"/>
+    <field name="account_from_id"/>
+    <field name="account_to_id"/>
+    <field name="amount"/>
+    <field name="ref"/>
+    <field name="state"/>
+</list>

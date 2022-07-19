@@ -1,0 +1,10 @@
+<action>
+    <field name="name">service_tree</field>
+    <field name="string">Services</field>
+    <field name="view">multi_view</field>
+    <field name="model">service</field>
+    <field name="condition">[["parent_id","=",null]]</field>
+    <field name="modes">tree,page,form</field>
+    <field name="form_layout">service_form_summary</field>
+    <field name="menu">service_menu</field>
+</action>

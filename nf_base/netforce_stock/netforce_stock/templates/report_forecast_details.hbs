@@ -1,0 +1,21 @@
+<center>
+    <h2>
+        Stock Forecast Details
+    </h2>
+    <h3>
+        {{data.company_name}}
+    </h3>
+    <h4>
+        Date: {{data.date}}
+    </h4>
+    <h4>
+        Product: [{{data.product_code}}] {{data.product_name}}
+    </h4>
+</center>
+<center>
+    {{#if svg_data}}
+        <img src='data:image/svg+xml;base64,{{svg_data_base64}}'>
+    {{else}}
+        <p>No forecast stock transactions found.</p>
+    {{/if}}
+</center>

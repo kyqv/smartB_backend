@@ -1,0 +1,7 @@
+<action>
+    <field name="string">Landed Costs</field>
+    <field name="view">multi_view</field>
+    <field name="model">land.cost</field>
+    <field name="tabs">[["All",[]],["Draft",[["state","=","draft"]]],["Posted",[["state","=","posted"]]]]</field>
+    <field name="menu">stock_menu</field>
+</action>

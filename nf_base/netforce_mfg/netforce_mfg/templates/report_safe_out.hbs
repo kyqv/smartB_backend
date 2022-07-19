@@ -1,0 +1,95 @@
+<center>
+    <h2>
+        Open Safe
+    </h2>
+</center>
+<table class="table table-striped">
+    <thead class="scroll-header">
+        <tr>
+            <th>
+                Order
+            </th>
+            <th>
+                Container no.
+            </th>
+            <th>
+                Barcode
+            </th>
+            <th>
+                Sales Number
+            </th>
+            <th>
+                Production Number
+            </th>
+            <th>
+                Product Code
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Weight
+            </th>
+            <th>
+                Unit
+            </th>
+            <th>
+                From
+            </th>
+            <th>
+                To
+            </th>
+            <th>
+                Store
+            </th>
+            <th>
+                State
+            </th>
+        </tr>
+    </thead>
+    {{#each lines context=context}}
+        <tbody>
+            <tr>
+                <td>
+                    {{order}}
+                </td>
+                <td>
+                    {{container_number}}
+                </td>
+                <td>
+                    {{barcode}}
+                </td>
+                <td>
+                    {{sales_number}}
+                </td>
+                <td>
+                    {{production_number}}
+                </td>
+                <td>
+                    {{product_code}}
+                </td>
+                <td>
+                    {{description}}
+                </td>
+                <td>
+                    {{qty}}
+                </td>
+                <td>
+                    {{uom}}
+                </td>
+                <td>
+                    {{location_from}}
+                </td>
+                <td>
+                    {{location_to}}
+                </td>
+                <td>
+                    {{location_store}}
+                </td>
+                <td>
+                    {{state}}
+                </td>
+            </tr>
+        </tbody>
+    {{/each}}
+</table>

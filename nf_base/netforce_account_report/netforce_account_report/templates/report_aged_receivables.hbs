@@ -1,0 +1,89 @@
+<center>
+    <h2>
+        Aged Receivables (Summary)
+    </h2>
+    <h3>
+        {{company_name}}
+        <br/>
+        As at {{fmt_date date}}
+    </h3>
+</center>
+<table class="table table-striped">
+    <thead class="scroll-header">
+        <tr>
+            <th>
+            </th>
+            <th style="text-align:right">
+                Total Receivable
+            </th>
+            <th style="text-align:right">
+                Current
+            </th>
+            {{#each periods}}
+                <th style="text-align:right">
+                    {{period_name}}
+                </th>
+            {{/each}}
+            <th style="text-align:right">
+                Older
+            </th>
+        </tr>
+        <tr>
+            <th colspan="7">
+                Receivables
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each lines context=context}}
+            <tr>
+                <td>
+                    {{contact_name}}
+                </td>
+                <td style="text-align:right">
+                    {{#link action="report_cust_invoice" defaults_contact_id=contact_id defaults_date_to=date_to_total}}
+                        {{currency amount_total}}
+                    {{/link}}
+                </td>
+                <td style="text-align:right">
+                    {{#link action="report_cust_invoice" defaults_contact_id=contact_id defaults_date_from=date_from_current}}
+                        {{currency amount_current}}
+                    {{/link}}
+                </td>
+                {{#each periods}}
+                    <td style="text-align:right">
+                        {{#link action="report_cust_invoice" defaults_contact_id=contact_id defaults_date_from=date_from defaults_date_to=date_to}}
+                            {{currency amount}}
+                        {{/link}}
+                    </td>
+                {{/each}}
+                <td style="text-align:right">
+                    {{#link action="report_cust_invoice" defaults_contact_id=contact_id defaults_date_to=date_to_older}}
+                        {{currency amount_older}}
+                    {{/link}}
+                </td>
+            </tr>
+        {{/each}}
+    </tbody>
+    <tfoot>
+        <tr style="font-weight:bold">
+            <td>
+                Total Receivables
+            </td>
+            <td style="text-align:right">
+                {{currency total}}
+            </td>
+            <td style="text-align:right">
+                {{currency total_current}}
+            </td>
+            {{#each periods}}
+                <td style="text-align:right">
+                    {{currency total}}
+                </td>
+            {{/each}}
+            <td style="text-align:right">
+                {{currency total_older}}
+            </td>
+        </tr>
+    </tfoot>
+</table>

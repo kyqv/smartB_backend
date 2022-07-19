@@ -1,0 +1,7 @@
+<action>
+    <field name="name">inline_help</field>
+    <field name="string">Inline Help</field>
+    <field name="view">multi_view</field>
+    <field name="model">inline.help</field>
+    <field name="menu">gen_menu</field>
+</action>

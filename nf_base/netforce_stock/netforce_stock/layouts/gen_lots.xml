@@ -1,0 +1,10 @@
+<form model="gen.lots">
+    <field name="product_id"/>
+    <field name="sequence_id" onchange="onchange_sequence"/>
+    <field name="prefix"/>
+    <field name="num_lots"/>
+    <field name="padding"/>
+    <foot>
+        <button string="Gen Lots" method="gen_lots" type="primary"/>
+    </foot>
+</form>

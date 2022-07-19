@@ -1,0 +1,9 @@
+<action>
+    <field name="name">contact</field>
+    <field name="string">Contacts</field>
+    <field name="view">multi_view</field>
+    <field name="model">contact</field>
+    <field name="tabs">[["All",[]],["Customers",[["customer","=",true]]],["Suppliers",[["supplier","=",true]]],["Agents",[["agent","=",true]]],["Archived",[["active","=",false]]]]</field>
+    <field name="import_sample">import_contacts.csv</field>
+    <field name="menu">contact_menu</field>
+</action>

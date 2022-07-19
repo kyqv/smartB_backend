@@ -1,0 +1,58 @@
+<menu string="HR">
+    <item string="Dashboard" action="hr_board"/>
+    <item string="Employees" action="employee" perm="hr_employee"/>
+    <item string="Leave">
+        <item string="New Leave" action="leave" action_options='{"mode":"form"}'/>
+        <item string="Leave Requests" action="leave"/>
+        <item string="Holidays" action="holiday"/>
+    </item>
+    <item string="Attendance">
+        <item string="Sign In/Out" action="attend"/>
+        <item string="Import Attendance" action="import_attend"/>
+        <item string="Machine Config" action="attend_config"/>
+    </item>
+    <item string="Payroll" perm="hr_admin">
+        <item string="Pay Runs" action="payrun"/>
+        <item string="Pay Slips" action="payslip"/>
+        <divider/>
+        <header string="Monthly Reports"/>
+        <item string="PND1: Personal Income Tax" action="report_pnd1"/>
+        <item string="Social Security" action="report_sso"/>
+        <item string="Providend Fund" action="report_provident"/>
+        <divider/>
+        <header string="Yearly Reports"/>
+        <item string="PND1 Kor: Personal Income Tax" action="report_pnd1_kor"/>
+        <item string="WHT50: Personal Income Tax" action="report_wht50"/>
+        <item string="PND91: Personal Income Tax" action="report_pnd91"/>
+    </item>
+    <item string="Reports">
+        <item string="Leave Analysis" action="report_leave"/>
+        <item string="Leave Summary" action="report_leave_summary"/>
+        <divider/>
+        <item string="Payroll Summary" action="report_payroll_summary"/>
+        <divider/>
+        <item string="Attendance Summary" action="report_attendance_summary"/>
+        <divider/>
+        <header string="Social Security Reports"/>
+        <item string="SSO Employee Registration" action="sso_regist"/>
+        <item string="SSO Employee Quits Job" action="sso_quits"/>
+    </item>
+    <!--
+    <item string="Other">
+        <item string="Room Reservations" action="room_reserve"/>
+    </item>
+    -->
+    <item string="Settings" perm="hr_admin">
+        <item string="Payroll Settings" action="payroll_settings"/>
+        <item string="Payslip Templates" action="payslip_template"/>
+        <item string="Departments" action="department"/>
+        <item string="Rooms" action="room"/>
+        <item string="Leave Types" action="leave_type"/>
+        <item string="Leave Periods" action="leave_period"/>
+        <item string="Work Schedules" action="hr_schedule"/>
+        <item string="Tax Year" action="tax_year"/>
+        <item string="Tax Profiles" action="tax_profile"/>
+        <item string="Pay Items" action="payitem"/>
+        <item string="Pay Item Profiles" action="payitem_profile"/>
+    </item>
+</menu>

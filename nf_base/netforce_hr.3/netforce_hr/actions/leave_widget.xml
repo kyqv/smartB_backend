@@ -1,0 +1,7 @@
+<action>
+    <field name="view_cls">list</field>
+    <field name="model">hr.leave</field>
+    <field name="view_xml">leave_widget</field>
+    <field name="limit">10</field>
+    <field name="domain">[["state", "=", "waiting_approval"]]</field>
+</action>

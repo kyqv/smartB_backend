@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Tax Year</field>
+    <field name="view_cls">multi_view</field>
+    <field name="model">hr.tax.year</field>
+    <field name="menu">hr_menu</field>
+</action>

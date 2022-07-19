@@ -1,0 +1,8 @@
+<board>
+    <vpanel>
+        <widget string="Products Per Category" action="product_categ_widget"/>
+    </vpanel>
+    <vpanel>
+        <widget string="Recent Products" action="product_recent_widget"/>
+    </vpanel>
+</board>

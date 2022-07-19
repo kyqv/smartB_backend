@@ -1,0 +1,6 @@
+<action>
+    <field name="view">form_view</field>
+    <field name="string">Barcode: Goods Transfer</field>
+    <field name="model">barcode.transfer</field>
+    <field name="menu">stock_menu</field>
+</action>

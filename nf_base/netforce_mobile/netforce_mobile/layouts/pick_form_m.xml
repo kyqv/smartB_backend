@@ -1,0 +1,79 @@
+<form_m model="stock.picking">
+    <field name="type" invisible="1"/>
+    <field name="journal_id" invisible="1"/>
+    <field name="date"/>
+    <field name="number"/>
+    <field name="related_id"/>
+    <field name="contact_id"/>
+    <field name="lines">
+        <list>
+            <field name="product_id"/>
+            <field name="lot_id"/>
+            <newline/>
+            <field name="qty"/>
+            <field name="uom_id"/>
+            <button title="QC Check" action="pick_qc_check" action_options='{"context":{"move_id":id}}' icon="ios-arrow-forward" parent_states='pending,approved'/>
+            <button title="Validate" action="pick_validate_line" action_options='{"context":{"move_id":id}}' icon="ios-arrow-forward" parent_states='qc_checked'/>
+        </list>
+        <form>
+            <field name="product_id"/>
+            <field name="lot_id"/>
+            <newline/>
+            <field name="qty"/>
+            <field name="uom_id"/>
+            <newline/>
+            <field name="location_from_id"/>
+            <field name="location_to_id"/>
+        </form>
+    </field>
+    <field name="state" invisible="1"/>
+    <foot>
+        <button string="Accept" method="qc_check" states="pending,approved" type="success" icon="ios-checkmark" size="large"/>
+        <button string="Reject" method="reject" states="pending,approved" type="danger" icon="ios-close" size="large"/>
+        <button string="Validate" method="do_validate" states="qc_checked" type="success" icon="ios-checkmark" size="large"/>
+        <button string="Return Products" method="copy_to_return" states="done" type="warning" size="large" icon="ios-refresh" confirm="Are you sure?"/>
+    </foot>
+    <related>
+        <field name="qc_results" states="pending,approved">
+            <list colors='{"#fcc":[["result","=","reject"]],"#cfc":[["result","=","accept"]]}'>
+                <field name="product_id"/>
+                <newline/>
+                <field name="total_qty"/>
+                <field name="sample_qty"/>
+                <newline/>
+                <field name="result"/>
+            </list>
+            <form>
+                <field name="product_id"/>
+                <field name="total_qty"/>
+                <newline/>
+                <field name="sample_qty"/>
+                <field name="result"/>
+                <newline/>
+                <field name="test1"/>
+                <field name="test2"/>
+                <field name="test3"/>
+                <field name="test4"/>
+                <newline/>
+                <field name="image"/>
+            </form>
+        </field>
+        <field name="validate_lines" states="qc_checked">
+            <list>
+                <field name="product_id"/>
+                <newline/>
+                <field name="qty"/>
+                <field name="uom_id"/>
+                <field name="lot"/>
+            </list>
+            <form>
+                <field name="product_id"/>
+                <newline/>
+                <field name="qty"/>
+                <field name="uom_id"/>
+                <newline/>
+                <field name="lot"/>
+            </form>
+        </field>
+    </related>
+</form_m>

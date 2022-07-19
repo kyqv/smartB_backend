@@ -1,0 +1,65 @@
+<form model="sale.voucher">
+    <head>
+        <field name="state"/>
+    </head>
+    <field name="code"/>
+    <field name="sequence"/>
+    <field name="state"/>
+    <field name="description"/>
+    <separator string="Benefits"/>
+    <field name="benefit_type"/>
+    <field name="refer_benefit_type"/>
+    <newline/>
+    <field name="discount_amount" attrs='{"invisible":[["benefit_type","!=","fixed_discount_order"]]}'/>
+    <newline/>
+    <field name="discount_percent" attrs='{"invisible":[["benefit_type","!=","percent_discount_product"]]}'/>
+    <newline/>
+    <field name="discount_product_groups" attrs='{"invisible":[["benefit_type","not in",["free_product","percent_discount_product"]]]}'/>
+    <field name="discount_product_id" attrs='{"invisible":[["benefit_type","not in",["free_product","percent_discount_product"]]]}'/>
+    <field name="discount_max_qty" attrs='{"invisible":[["benefit_type","not in",["free_product","percent_discount_product"]]]}'/>
+    <newline/>
+    <field name="credit_amount" attrs='{"invisible":[["benefit_type","!=","credit"]]}'/>
+    <newline/>
+    <field name="refer_credit_amount" attrs='{"invisible":[["refer_benefit_type","!=","credit"]]}'/>
+    <separator string="Criteria"/>
+    <field name="expire_date"/>
+    <field name="expire_date_msg"/>
+    <separator/>
+    <field name="new_customer"/>
+    <field name="new_customer_msg"/>
+    <separator/>
+    <field name="customer_id"/>
+    <field name="customer_msg"/>
+    <separator/>
+    <field name="contact_groups"/>
+    <field name="contact_groups_msg"/>
+    <newline/>
+    <field name="product_groups"/>
+    <field name="product_groups_msg"/>
+    <separator/>
+    <field name="cond_product_categ_id"/>
+    <field name="cond_product_categ_msg"/>
+    <separator/>
+    <field name="cond_product_id"/>
+    <field name="cond_product_msg"/>
+    <separator/>
+    <field name="min_qty"/>
+    <field name="min_qty_msg"/>
+    <separator/>
+    <field name="qty_multiple"/>
+    <field name="qty_multiple_msg"/>
+    <newline/>
+    <field name="min_order_amount"/>
+    <field name="min_order_amount_msg"/>
+    <newline/>
+    <field name="max_orders_per_customer"/>
+    <field name="max_orders_per_customer_msg"/>
+    <newline/>
+    <field name="max_orders"/>
+    <field name="max_orders_msg"/>
+    <separator string="Config"/>
+    <field name="product_id"/>
+    <related>
+        <field name="sale_orders"/>
+    </related>
+</form>

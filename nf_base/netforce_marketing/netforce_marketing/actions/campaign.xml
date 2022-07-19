@@ -1,0 +1,7 @@
+<action>
+    <field name="string">Campaigns</field>
+    <field name="view_cls">multi_view</field>
+    <field name="model">mkt.campaign</field>
+    <field name="tabs">[["All",[]],["Active",[["state","=","active"]]],["Inactive",[["state","=","inactive"]]]]</field>
+    <field name="menu">mkt_menu</field>
+</action>

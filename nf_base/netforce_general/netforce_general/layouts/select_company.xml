@@ -1,0 +1,6 @@
+<form model="select.company" title="Select Company">
+    <field name="company" selection_method="get_companies"/>
+    <foot>
+        <button string="Select" method="select" type="primary"/>
+    </foot>
+</form>

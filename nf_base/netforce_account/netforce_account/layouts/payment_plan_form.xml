@@ -1,0 +1,6 @@
+<form model="payment.plan">
+    <field name="amount"/>
+    <field name="invoice_id"/>
+    <field name="sequence"/>
+    <field name="description"/>
+</form>

@@ -1,0 +1,6 @@
+<action>
+    <field name="view_type">collection</field>
+    <field name="model">sale.order</field>
+    <field name="template">sale_to_pick</field>
+    <field name="target">_popup</field>
+</action>

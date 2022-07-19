@@ -1,0 +1,41 @@
+<center>
+    <h2>
+        Production QC Report
+    </h2>
+</center>
+<table class="table table-striped">
+    <thead class="scroll-header">
+        <tr>
+            <th>No</th>
+            <th>Order Date</th>
+            <th>Number</th>
+            <th>Product Code</th>
+            <th>Product Name</th>
+            <th>Sale Order Number</th>
+            <th>Test Name</th>
+            <th>Sample Qty</th>
+            <th>Min Value</th>
+            <th>Max Value</th>
+            <th>Value</th>
+            <th>Result</th>
+        </tr>
+    </thead>
+    {{#each lines context=context}}
+        <tbody>
+            <tr>
+                <td>{{_item_no}}</td>
+                <td>{{order_date}}</td>
+                <td>{{number}}</td>
+                <td>{{product_code}}</td>
+                <td>{{product_name}}</td>
+                <td>{{sale_order_number}}</td>
+                <td>{{test}}</td>
+                <td text-align="right">{{currency sample_qty}}</td>
+                <td text-align="right">{{currency min_value}}</td>
+                <td text-align="right">{{currency max_value}}</td>
+                <td text-align="right">{{value}}</td>
+                <td>{{result}}</td>
+            </tr>
+        </tbody>
+    {{/each}}
+</table>

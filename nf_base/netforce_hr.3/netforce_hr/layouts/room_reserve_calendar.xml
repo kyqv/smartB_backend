@@ -1,0 +1,7 @@
+<calendar model="room.reserve" date_field="date" colors='{"#090":[["state","in",["approved"]]],"#999":[["state","=","draft"]],"#c00":[["state","=","canceled"]]}'>
+    <field name="employee_id"/>
+    <field name="contact_id"/>
+    <field name="from_time"/>
+    <field name="to_time"/>
+    <field name="state"/>
+</calendar>

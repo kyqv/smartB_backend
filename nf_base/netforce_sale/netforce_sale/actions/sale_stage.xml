@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Sales Stages</field>
+    <field name="view">multi_view</field>
+    <field name="model">sale.stage</field>
+    <field name="menu">sale_menu</field>
+</action>

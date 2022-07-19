@@ -1,0 +1,6 @@
+<list model="email.account">
+    <field name="name"/>
+    <field name="type"/>
+    <field name="host"/>
+    <field name="port"/>
+</list>

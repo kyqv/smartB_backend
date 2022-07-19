@@ -1,0 +1,6 @@
+{
+    "type": "report_xls",
+    "model": "report.cash.sum",
+    "method": "get_data",
+    "template": "cash_sum"
+}

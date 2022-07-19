@@ -1,0 +1,7 @@
+<action>
+    <field name="name">service_board</field>
+    <field name="string">Service Dashboard</field>
+    <field name="view">board</field>
+    <field name="layout">service_board</field>
+    <field name="menu">service_menu</field>
+</action>

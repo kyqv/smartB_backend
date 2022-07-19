@@ -1,0 +1,7 @@
+<action>
+    <field name="string">Email Mailboxes</field>
+    <field name="view">multi_view</field>
+    <field name="model">email.mailbox</field>
+    <field name="tabs">[["All",[]],["Archived",[["active","=",false]]]]</field>
+    <field name="menu">msg_menu</field>
+</action>

@@ -1,0 +1,7 @@
+<action>
+    <field name="name">company</field>
+    <field name="string">Companies</field>
+    <field name="view">multi_view</field>
+    <field name="model">company</field>
+    <field name="menu">gen_menu</field>
+</action>

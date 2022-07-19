@@ -1,0 +1,9 @@
+<action>
+    <field name="string">Trial Balance Details</field>
+    <field name="view">report</field>
+    <field name="model">report.tb.details</field>
+    <field name="template">report_tb_details</field>
+    <field name="template_xls">tb_details</field>
+    <field name="template_xls_custom">tb_details_custom</field>
+    <field name="menu">account_menu</field>
+</action>

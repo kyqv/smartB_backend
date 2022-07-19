@@ -1,0 +1,55 @@
+<form model="service.item">
+    <head>
+        <field name="state"/>
+    </head>
+    <field name="number"/>
+    <field name="name"/>
+    <field name="product_id"/>
+    <field name="lot_id"/>
+    <field name="parent_id"/>
+    <field name="contact_id"/>
+    <field name="project_id"/>
+    <field name="description"/>
+    <field name="priority"/>
+    <separator/>
+    <field name="cost_price"/>
+    <field name="sale_price"/>
+    <field name="sale_date"/>
+    <field name="arrival_date"/>
+    <field name="arrival_inspection_date"/>
+    <field name="location"/>
+    <field name="commission_date"/>
+    <field name="warranty_exp_date"/>
+    <separator/>
+    <field name="last_counter"/>
+    <field name="last_counter_date"/>
+    <field name="est_counter_per_year"/>
+    <field name="est_counter"/>
+    <separator/>
+    <field name="industry_id"/>
+    <field name="application_id" condition='[["industry_id","=",industry_id]]'/>
+    <field name="notes"/>
+    <field name="state"/>
+    <related>
+        <field name="components"/>
+        <field name="addresses"/>
+        <field name="jobs" action="job"/>
+        <field name="documents">
+            <list>
+                <field name="file" target="_blank"/>
+                <field name="categ_id"/>
+                <field name="description"/>
+                <field name="date"/>
+                <field name="expiry_date"/>
+            </list>
+            <form>
+                <field name="categ_id"/>
+                <field name="file" target="_blank" onchange="onchange_file"/>
+                <field name="date"/>
+                <field name="description"/>
+                <field name="expiry_date"/>
+            </form>
+        </field>
+        <field name="comments"/>
+    </related>
+</form>

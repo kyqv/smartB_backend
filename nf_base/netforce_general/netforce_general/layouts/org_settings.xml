@@ -1,0 +1,16 @@
+<form model="settings" title="Organization Settings">
+    <field name="company_type_id"/>
+    <field name="logo" resize="320x200"/>
+    <field name="phone"/>
+    <field name="fax"/>
+    <field name="website"/>
+    <separator string="Data Formatting"/>
+    <field name="date_format"/>
+    <field name="use_buddhist_date"/>
+    <separator string="Website Config"/>
+    <field name="root_url"/>
+    <field name="anon_profile_id"/>
+    <field name="menu_icon"/>
+    <separator string="Google API"/>
+    <field name="google_api_key"/>
+</form>

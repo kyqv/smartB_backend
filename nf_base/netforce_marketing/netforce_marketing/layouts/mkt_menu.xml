@@ -1,0 +1,8 @@
+<menu string="Marketing">
+    <item string="Dashboard" action="mkt_board"/>
+    <item string="Marketing">
+        <item string="Target Lists" action="target_list"/>
+        <item string="Targets" action="target"/>
+        <item string="Campaigns" action="campaign"/>
+    </item>
+</menu>

@@ -1,0 +1,49 @@
+<div class="navbar navbar-inverse nf-navbar" style="margin-bottom:0">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                <img src="/static/img/menu_icon.png"/> Netforce
+            </a>
+        </div>
+    </div>
+</div>
+<div class="container">
+    {{#if context.data.company_logo}}
+        <div style="margin:18px 0">
+            <img src="{{context.data.company_logo}}" style="max-height:100px"/>
+        </div>
+    {{/if}}
+    <div class="page-header nf-page-header">
+        <h1>Welcome to Netforce</h1>
+    </div>
+    {{view "flash" context=context}}
+    {{#view "form" context=context}}
+        {{view "field" name="show_dbs" invisible="1" context=context}}
+        <div class="row" {{#unless context.data.show_dbs}}style="display:none"{{/unless}}>
+            <div class="col-sm-2">
+                {{view "field" name="db_name" size="medium" selection="get_databases" context=context}}
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label class="control-label"></label>
+                    <div>
+                        <a href="#name=manage_db" tabindex="-1"><i class="icon-arrow-right"></i> Manage databases</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            {{view "field" name="login" span="3" context=context}}
+            {{view "field" name="password" password="1" span="3" submit_form="1" context=context}}
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label class="control-label"></label>
+                    <div>
+                        <a href="#name=forgot_passwd" tabindex="-1">Forgot your password?</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{view "button" string="Login" type="primary" size="large" method="login" method_options="nosave=1" context=context}}
+    {{/view}}
+</div>

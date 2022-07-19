@@ -1,0 +1,63 @@
+<center>
+    <h2>
+        Attendance Summary
+    </h2>
+    <h3>
+        {{company_name}}
+        <br/>
+        From {{fmt_date date_from}} to {{fmt_date date_to}}
+    </h3>
+</center>
+<table class="table table-striped">
+    <thead class="scroll-header">
+        <tr>
+            <th>
+                Date
+            </th>
+            <th>
+                Employee
+            </th>
+            <th style="text-align:right">
+                In Time
+            </th>
+            <th style="text-align:right">
+                Out Time
+            </th>
+            <th style="text-align:right">
+                Total Hours
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each lines context=context}}
+            <tr>
+                <td>
+                    <strong>
+                        {{fmt_date date}}
+                    </strong>
+                </td>
+
+                <td style="text-align:left">
+                     <a href=
+"/ui#name=attend&amp;mode=list&amp;search_domain=[[&quot;employee_id&quot;,&quot;=&quot;,&quot;{{employee_id}}&quot;],[&quot;time&quot;,&quot;&gt;=&quot;,&quot;{{d}} 00:00:00&quot;],[&quot;time&quot;,&quot;&lt;=&quot;,&quot;{{d}} 23:59:59&quot;]]">
+
+                        {{name}}
+                    </a>
+                </td>
+
+                <td style="text-align:right">
+                    {{in_time}}
+                </td>
+
+                <td style="text-align:right">
+                    {{out_time}}
+                </td>
+
+                <td style="text-align:right">
+                    {{currency total_time}}
+                </td>
+
+            </tr>
+        {{/each}}
+    </tbody>
+</table>

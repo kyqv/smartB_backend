@@ -1,0 +1,12 @@
+<form model="import.statement" title="Import New Bank Statement">
+    <field name="account_id" condition='[["type","in",["bank","cash","cheque"]]]' onchange="onchange_account"/>
+    <newline/>
+    <field name="file"/>
+    <field name="encoding"/>
+    <newline/>
+    <field name="date_start"/>
+    <field name="date_end"/>
+    <foot replace="1">
+        <button string="Import" method="import_data" type="primary"/>
+    </foot>
+</form>

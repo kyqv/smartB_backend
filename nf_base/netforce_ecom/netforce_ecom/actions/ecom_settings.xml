@@ -1,0 +1,7 @@
+<action>
+    <field name="string">Ecommerce Settings</field>
+    <field name="view">form_view</field>
+    <field name="model">ecom.settings</field>
+    <field name="active_id">1</field>
+    <field name="menu">ecom_menu</field>
+</action>

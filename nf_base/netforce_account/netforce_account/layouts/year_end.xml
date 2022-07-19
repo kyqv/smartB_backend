@@ -1,0 +1,8 @@
+<form model="year.end" title="Year End Closing">
+    <field name="date"/>
+    <newline/>
+    <field name="journal_id" condition='[["type","=","close"]]'/>
+    <foot replace="1">
+        <button string="Create Closing Entry" method="create_entry" type="primary" icon="arrow-right"/>
+    </foot>
+</form>

@@ -1,0 +1,7 @@
+<action>
+    <field name="view">multi_view</field>
+    <field name="string">Reminders</field>
+    <field name="model">reminder</field>
+    <field name="tabs">[["All",[]],["Pending",[["state","=","pending"]]],["Sent",[["state","=","sent"]]]]</field>
+    <field name="menu">doc_menu</field>
+</action>

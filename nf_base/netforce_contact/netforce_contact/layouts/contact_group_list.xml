@@ -1,0 +1,6 @@
+<list model="contact.group">
+    <field name="name"/>
+    <field name="code"/>
+    <field name="parent_id"/>
+    <field name="sale_price_list_id"/>
+</list>

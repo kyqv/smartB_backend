@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Merge Contact</field>
+    <field name="view">form_popup</field>
+    <field name="model">merge.contact</field>
+    <field name="target">popup</field>
+</action>

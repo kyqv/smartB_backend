@@ -1,0 +1,8 @@
+<menu_m title="Sales">
+    <item title="Contacts" action="contact_m"/>
+    <item title="Leads" action="lead_m"/>
+    <item title="Opportunities" action="opport_m"/>
+    <item title="Quotations" action="quot_m"/>
+    <item title="Sales Orders" action="sale_order_m"/>
+    <item title="Activities" action="activity_m"/>
+</menu_m>

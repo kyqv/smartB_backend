@@ -1,0 +1,4 @@
+<list model="el.group">
+    <field name="name"/>
+    <field name="code"/>
+</list>

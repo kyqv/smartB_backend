@@ -1,0 +1,4 @@
+<list_m model="reason.code">
+    <field name="type"/>
+    <field name="name"/>
+</list_m>

@@ -1,0 +1,6 @@
+<action>
+    <field name="view">gantt</field>
+    <field name="string">Service Gantt Chart</field>
+    <field name="model">service.resource.alloc</field>
+    <field name="menu">service_menu</field>
+</action>

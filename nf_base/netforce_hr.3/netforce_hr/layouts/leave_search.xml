@@ -1,0 +1,10 @@
+<search model="hr.leave">
+    <field name="number"/>
+    <field name="employee_id"/>
+    <field name="employee_work_status"/>
+    <field name="date"/>
+    <field name="leave_type_id"/>
+    <newline/>
+    <field name="start_date"/>
+    <field name="state"/>
+</search>

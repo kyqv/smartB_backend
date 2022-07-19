@@ -1,0 +1,6 @@
+<form model="report.sale.profit">
+    <group form_layout="stacked">
+        <field name="date_from" span="2"/>
+        <field name="date_to" span="2"/>
+    </group>
+</form>

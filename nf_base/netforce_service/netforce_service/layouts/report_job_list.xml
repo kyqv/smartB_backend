@@ -1,0 +1,17 @@
+<list model="job" colors='{"#fcc":[["overdue","=",true]]}'>
+    <field name="number"/>
+    <field name="contact_id"/>
+    <field name="service_type_id"/>
+    <field name="date_open"/>
+    <field name="date_close"/>
+    <field name="labor_cost"/>
+    <field name="labor_sell"/>
+    <field name="part_cost"/>
+    <field name="part_sell"/>
+    <field name="other_cost"/>
+    <field name="other_sell"/>
+    <field name="total_cost"/>
+    <field name="amount_total"/>
+    <field name="state"/>
+    <field name="overdue" invisible="1"/>
+</list>

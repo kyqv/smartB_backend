@@ -1,0 +1,6 @@
+<form model="report.payroll.summary">
+    <field name="date" mode="month" onchange="onchange_date" span="3"/>
+    <field name="date_from" span="3"/>
+    <field name="date_to" span="3"/>
+    <field name="emp_type" span="3"/>
+</form>

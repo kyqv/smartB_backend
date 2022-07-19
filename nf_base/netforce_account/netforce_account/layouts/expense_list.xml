@@ -1,0 +1,12 @@
+<list model="expense">
+    <field name="date"/>
+    <field name="related_id"/>
+    <field name="merchant"/>
+    <field name="amount"/>
+    <field name="currency_id"/>
+    <field name="description"/>
+    <field name="employee_id"/>
+    <field name="claim_id"/>
+    <field name="currency_rate"/>
+    <field name="invoice_id"/>
+</list>

@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Periods</field>
+    <field name="view">multi_view</field>
+    <field name="model">service.period</field>
+    <field name="menu">service_menu</field>
+</action>

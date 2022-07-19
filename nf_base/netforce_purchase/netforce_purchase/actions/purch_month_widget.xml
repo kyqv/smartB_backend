@@ -1,0 +1,7 @@
+<action>
+    <field name="view">chart</field>
+    <field name="model">report.purchase</field>
+    <field name="method">purchases_per_month</field>
+    <field name="chart_type">bar</field>
+    <field name="height">150</field>
+</action>

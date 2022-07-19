@@ -1,0 +1,8 @@
+<list model="product.shopee.details">
+    <field name="account_id"/>
+    <field name="name"/>
+    <field name="description"/>
+    <field name="categ_id" condition='[["is_shopee","=","1"]]'/>
+    <field name="brand_id" condition='[["categs","=",categ_id]]'/>
+    <field name="ship_methods"/>
+</list>

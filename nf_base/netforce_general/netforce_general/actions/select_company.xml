@@ -1,0 +1,5 @@
+<action>
+    <field name="view">form_popup</field>
+    <field name="model">select.company</field>
+    <field name="target">popup</field>
+</action>

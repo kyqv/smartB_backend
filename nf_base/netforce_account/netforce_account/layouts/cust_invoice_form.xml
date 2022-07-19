@@ -1,0 +1,197 @@
+<form model="account.invoice" attrs='{"readonly":[["state","in",["waiting_payment","paid","voided"]]]}' show_company="1" show_save="1">
+    <top>
+        <button string="New" icon="plus" action="cust_invoice" action_options='{"mode":"form","form_layout":"cust_invoice_form","context":{"defaults":{"type":"out","inv_type":"invoice"}}}'/>
+        <!--<button string="Print" icon="print" action="report_cust_invoice_form"/>
+        <button string="Print (New)" icon="print" action="report_cust_invoice_form2" action_options='{"active_id":id}'/>-->
+        <!--button string="Approve" method="approve" size="large" type="success" perm="approve_invoice" states="draft,waiting_approval"/>-->
+        <button string="Print" icon="print" action="report_cust_invoice_form3" action_options='{"active_id":id}'/>
+        <!--button string="Send" icon="envelope" action="send_cust_invoice2" action_options='{"active_id":id}'/>-->
+        <!--button string="Send (old)" icon="envelope" action="send_cust_invoice"/>-->
+        <button string="Options" dropdown="1">
+            <item string="Copy" method="copy"/>
+            <item string="Copy To Credit Note" method="copy_to_credit_note" states="paid,waiting_payment"/>
+            <item string="Copy To Debit Note" method="copy_to_debit_note" states="paid,waiting_payment"/>
+            <item string="Copy To Customer Supplier Invoice" method="copy_to_cust_supp_invoice"/>
+            <item string="Copy To Goods Issue" method="copy_to_pick_out"/>
+            <item string="Copy To Sales Order" method="copy_to_sale"/>
+            <item string="Void" method="void" confirm="Are you sure you want to void this invoice?" states="draft,waiting_payment"/>
+            <item string="To Draft" method="to_draft" states="waiting_payment,voided,paid"/>
+            <divider/>
+            <item string="Online Payment" method="pay_online" states="waiting_payment"/>
+            <divider/>
+            <item string="View Journal Entry" method="view_journal_entry" states="waiting_payment,paid"/>
+        </button>
+        <button string="Approve" method="approve" size="large" type="success" perm="approve_invoice" states="draft,waiting_approval"/>
+    </top>
+    <head>
+        <field name="state"/>
+    </head>
+    <tabs>
+        <tab string="General">
+            <group form_layout="stacked">
+                <field name="contact_id" span="2" create="1" onchange="onchange_contact" condition='[["customer", "=", "True"]]'/>
+                <field name="bill_address_id" span="2" condition='[["contact_id","=",contact_id],["contact_id","!=",null]]'/>
+                <field name="date" span="2" onchange="onchange_date"/>
+                <field name="due_date" span="2" show_required="1"/>
+                <field name="number" required="1" span="2"/>
+                <field name="pay_term_id" onchange="onchange_pay_term" span="2"/>
+                <newline/>
+                <field name="currency_id" span="2"/>
+                <field name="tax_type" span="2" onchange="update_amounts"/>
+                <field name="related_id" span="2"/>
+                <field name="ref" span="2"/>
+                <field name="contact_categ_id" span="2"/>
+                <newline/>
+                <field name="memo" span="4"/>
+                <field name="ship_term_id" span="2"/>
+                <field name="ship_port_id" span="2"/>
+            </group>
+            <field name="lines" count="10" nolabel="1" reorder_field="sequence_no">
+                <list onchange="update_amounts">
+                    <field name="sequence_no"/>
+                    <field name="product_id" condition='[["can_sell","=","True"]]' onchange="onchange_product"/>
+                    <field name="description"/>
+                    <field name="qty" onchange="update_amounts"/>
+                    <field name="uom_id" onchange="update_amounts"/>
+                    <field name="qty2"/>
+                    <field name="uom2_id"/>
+                    <field name="unit_price" onchange="update_amounts"/>
+                    <field name="discount" onchange="update_amounts"/>
+                    <field name="discount_amount" onchange="update_amounts"/>
+                    <!--<field name="account_id" onchange="onchange_account" condition='[["type","!=","view"],["company_id","=",parent.company_id]]'/>-->
+                    <field name="account_id" onchange="onchange_account" show_required="1"/>
+                    <field name="tax_id" onchange="update_amounts"/>
+                    <field name="amount" attrs='{"readonly":[["unit_price","!=",null]]}' onchange="onchange_amount"/>
+                    <field name="net_weight"/>
+                    <field name="packaging_id" onchange="onchange_packaging"/>
+                    <field name="gross_weight"/>
+                    <field name="related_id"/>
+                    <field name="track_id"/>
+                    <field name="track2_id"/>
+                    <field name="track_distrib_id" new_action="new_track_distrib"/>
+                    <field name="notes"/>
+                    <field name="amount_tax"/>
+                </list>
+            </field>
+            <group span="8">
+                 <field name="remarks" readonly="0"/>
+            </group>
+            <group offset="8" span="4" columns="1">
+                <field name="amount_subtotal"/>
+                <field name="amount_tax"/>
+                <field name="amount_rounding" attrs='{"invisible":[["amount_rounding","=",0]]}'/>
+                <field name="amount_total"/>
+                <field name="payment_entries" nolabel="1">
+                    <template type="hbs">
+                        {{#each data}}
+                            <div class="form-group nf-field">
+                                <label class="control-label nf-field-label col-md-4">
+                                    Less <a href="/action?name=view_journal&amp;active_id={{lookup move_id 0}}">{{lookup move_id 1}}</a>
+                                </label>
+                                <div class="col-md-8" style="text-align:right">
+                                    {{currency credit}}
+                                </div>
+                            </div>
+                        {{/each}}
+                    </template>
+                    <fields>
+                        <field name="move_id"/>
+                        <field name="credit"/>
+                        <field name="amount_cur"/>
+                    </fields>
+                </field>
+                <field name="amount_due" states="waiting_payment,paid"/>
+                <field name="amount_wht"/>
+                <field name="amount_due_net"/>
+            </group>
+            <field name="type" invisible="1"/>
+            <field name="inv_type" invisible="1"/>
+            <field name="contact_credit" invisible="1"/>
+            <field name="company_id" invisible="1"/>
+        </tab>
+        <tab string="Taxes">
+            <field name="taxes">
+                <list>
+                    <field name="tax_comp_id"/>
+                    <field name="base_amount"/>
+                    <field name="tax_amount"/>
+                    <field name="tax_no"/>
+                    <field name="tax_date"/>
+                </list>
+            </field>
+            <button string="Calculate Taxes" method="calc_taxes" icon="pencil"/>
+            <separator string="Tax Filing"/>
+            <field name="tax_file_state" readonly="0"/>
+            <field name="tax_file_date" readonly="0"/>
+            <field name="tax_no"/>
+            <field name="tax_branch_no"/>
+        </tab>
+        <tab string="Other Info">
+            <field name="company_id"/>
+            <newline/>
+            <separator string="Transaction Information"/>
+            <field name="journal_id" onchange="onchange_journal"/>
+            <newline/>
+            <field name="sequence_id" condition='[["type","=","cust_invoice"]]' onchange="onchange_sequence"/>
+            <newline/>
+            <field name="approve_user_id"/>
+            <newline/>
+            <field name="create_time"/>
+            <newline/>
+            <separator string="Payment Information"/>
+            <field name="account_id"/>
+            <newline/>
+            <field name="pay_method_id"/>
+            <newline/>
+            <field name="currency_rate"/>
+            <newline/>
+            <field name="transaction_no"/>
+            <newline/>
+            <field name="bill_note_id"/>
+            <newline/>
+            <field name="user_id"/>
+            <newline/>
+            <separator string="Sales Information"/>
+            <field name="seller_id"/>
+            <newline/>
+            <field name="sale_categ_id"/>
+            <newline/>
+            <separator string="Shipping and Delivery Info"/>
+            <field name="ship_track_no" readonly="0"/>
+            <newline/>
+            <field name="delivery_term_id"/>
+            <newline/>
+            <field name="packaging_id"/>
+            <newline/>
+            <separator/>
+            <!--field name="remarks" readonly="0"/>-->
+            <newline/>
+            <field name="print_form_no" readonly="0"/>
+            <newline/>
+            <field name="template_id"/>
+            <newline/>
+            <field name="brand_id"/>
+        </tab>
+    </tabs>
+    <foot states="draft,waiting_approval" replace="1">
+        <button string="Save" split="1" method="_save" size="large" type="primary">
+            <item string="Save &amp; submit for approval" method="submit_for_approval" states="draft"/>
+        </button>
+        <button string="Approve" method="approve" size="large" type="success" perm="approve_invoice" states="draft,waiting_approval"/>
+    </foot>
+    <!--<related>
+        <template states="waiting_payment" type="hbs">
+            {{#if data.contact_credit}}
+                <div style="background-color:#eee;font-size:12px;margin-bottom:10px;padding:5px 10px">
+                    {{lookup contact_id 1}} has {{currency data.contact_credit}} {{lookup data.currency_id 1}} in outstanding credit.
+                    <a href='/action?name=credit_invoice&amp;context={"invoice_id": {{data.id}} }'>Credit this invoice</a>
+                </div>
+            {{/if}}
+        </template>
+        <action name="invoice_payment" states="waiting_payment"/>
+        <field name="documents" show_inline="1"/>
+        <field name="time_entries"/>
+        <field name="pickings"/>
+        <field name="comments"/>
+    </related>-->
+</form>

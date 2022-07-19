@@ -1,0 +1,10 @@
+<form model="print.select.template">
+    <field name="report_action" invisible="1"/>
+    <field name="refer_id" invisible="1"/>
+    <field name="template_type" invisible="1"/>
+    <field name="template_id" condition='[["type","=",template_type]]' onchange="onchange_template"/>
+    <field name="format"/>
+    <foot>
+        <button string="Print" method="print" type="primary" icon="print"/>
+    </foot>
+</form>

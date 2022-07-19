@@ -1,0 +1,15 @@
+<form model="queue">
+    <field name="name"/>
+    <field name="description"/>
+    <field name="type"/>
+    <field name="url"/>
+    <separator/>
+    <field name="model"/>
+    <field name="method"/>
+    <foot>
+    <button string="Process New Messages" method="process_new"/>
+    </foot>
+    <related>
+        <field name="messages"/>
+    </related>
+</form>

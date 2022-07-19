@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Import Attendance</field>
+    <field name="view_cls">form</field>
+    <field name="model">hr.import.attendance</field>
+    <field name="menu">hr_menu</field>
+</action>

@@ -1,0 +1,10 @@
+<form model="report.tb">
+    <group form_layout="stacked">
+        <field name="date" span="2"/>
+        <field name="track_id" span="2" condition='[["type","=","1"]]'/>
+        <field name="track2_id" span="2" condition='[["type","=","2"]]'/>
+        <field name="contact_id" span="2"/>
+        <newline/>
+        <field name="show_period_totals"/>
+    </group>
+</form>

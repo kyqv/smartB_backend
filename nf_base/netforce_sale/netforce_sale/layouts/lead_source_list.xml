@@ -1,0 +1,4 @@
+<list model="lead.source">
+    <field name="name"/>
+    <field name="description"/>
+</list>

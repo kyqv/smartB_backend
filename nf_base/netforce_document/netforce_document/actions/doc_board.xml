@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Document Dashboard</field>
+    <field name="view">board</field>
+    <field name="layout">doc_board</field>
+    <field name="menu">doc_menu</field>
+</action>

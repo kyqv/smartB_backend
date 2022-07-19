@@ -1,0 +1,7 @@
+<action>
+    <field name="view">list_m</field>
+    <field name="title">Quotations</field>
+    <field name="model">sale.quot</field>
+    <field name="tabs">[["Draft",[["state","=","draft"]]],["Await. Approv.",[["state","=","waiting_approval"]]],["Approved",[["state","=","approved"]]]]</field>
+    <field name="menu">main_menu_m</field>
+</action>

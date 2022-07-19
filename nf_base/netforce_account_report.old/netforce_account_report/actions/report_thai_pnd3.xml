@@ -1,0 +1,8 @@
+<action>
+    <field name="view">report</field>
+    <field name="string">Thailand PND3 Report</field>
+    <field name="model">report.thai.pnd3</field>
+    <field name="report_type">jasper</field>
+    <field name="template_method">get_template</field>
+    <field name="menu">account_menu</field>
+</action>

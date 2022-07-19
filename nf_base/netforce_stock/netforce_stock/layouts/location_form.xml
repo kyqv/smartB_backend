@@ -1,0 +1,16 @@
+<form model="stock.location">
+    <field name="name"/>
+    <field name="code"/>
+    <field name="type"/>
+    <field name="parent_id"/>
+    <field name="account_id" condition='[["company_id","=",company_id],["type","!=","view"]]'/>
+    <field name="track_id"/>
+    <field name="description"/>
+    <field name="company_id"/>
+    <field name="company2_id"/>
+    <field name="contact_id"/>
+    <field name="address_id" condition='[["contact_id","=",contact_id]]'/>
+    <related>
+        <field name="comments"/>
+    </related>
+</form>

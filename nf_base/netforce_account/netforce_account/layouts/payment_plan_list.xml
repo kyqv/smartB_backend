@@ -1,0 +1,8 @@
+<list model="payment.plan">
+    <head>
+        <button string="Create Invoice" method="create_invoice" type="primary" icon="arrow-right"/>
+    </head>
+    <field name="amount"/>
+    <field name="invoice_id"/>
+    <field name="state"/>
+</list>

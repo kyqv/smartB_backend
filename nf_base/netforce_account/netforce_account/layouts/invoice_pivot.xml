@@ -1,0 +1,13 @@
+<pivot model="account.invoice" rows="contact_id.name" cols="date_month" vals="amount_total" agg_name="sum" search="contact_id,date,due_date,type,number">
+    <field name="contact_id.name" string="Contact"/>
+    <field name="contact_id.categ_id.name" string="Contact Category"/>
+    <field name="state" string="Status"/>
+    <field name="date" string="Invoice Date"/>
+    <field name="date_week" string="Invoice Week"/>
+    <field name="date_month" string="Invoice Month"/>
+    <field name="due_date" string="Due Date"/>
+    <field name="number" string="Invoice Number"/>
+    <field name="type" string="Invoice Type"/>
+    <field name="amount_total" string="Total Amount"/>
+    <field name="seller_id.name" string="Seller"/>
+</pivot>

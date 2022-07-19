@@ -1,0 +1,41 @@
+<form model="settings" title="Financial Settings">
+    <separator string="Currency"/>
+    <field name="currency_id"/>
+    <separator string="Fiscal Year"/>
+    <field name="year_end_day"/>
+    <field name="year_end_month"/>
+    <field name="lock_date"/>
+    <separator string="Accounts"/>
+    <field name="account_receivable_id" condition='[["company_id","=",context.company_id]]'/>
+    <field name="tax_receivable_id"/>
+    <field name="account_payable_id" condition='[["company_id","=",context.company_id]]'/>
+    <field name="tax_payable_id"/>
+    <field name="currency_gain_id" condition='[["company_id","=",context.company_id]]'/>
+    <field name="currency_loss_id" condition='[["company_id","=",context.company_id]]'/>
+    <field name="unpaid_claim_id" condition='[["company_id","=",context.company_id]]'/>
+    <field name="retained_earnings_account_id" condition='[["company_id","=",context.company_id]]'/>
+    <field name="rounding_account_id" condition='[["company_id","=",context.company_id]]'/>
+    <separator string="Journals"/>
+    <field name="sale_journal_id"/>
+    <field name="purchase_journal_id"/>
+    <field name="pay_in_journal_id"/>
+    <field name="pay_out_journal_id"/>
+    <field name="general_journal_id"/>
+    <separator string="Tax"/>
+    <field name="tax_no"/>
+    <field name="branch_no"/>
+    <separator string="Reconciliation"/>
+    <field name="bank_reconcile_max_days"/>
+    <separator string="Permissions"/>
+    <field name="approve_invoice"/>
+    <field name="approve_payment"/>
+    <!-- Chin Edit-->
+    <separator string="Freight Charges Settings"/>
+    <field name="freight_charge_cust_id" condition='[["company_id","=",context.company_id]]'/>
+    <field name="freight_charge_cust_track_id"/>
+    <field name="freight_charge_cust_track2_id"/>
+    <field name="freight_charge_supp_id" condition='[["company_id","=",context.company_id]]'/>
+    <field name="freight_charge_supp_track_id"/>
+    <field name="freight_charge_supp_track2_id"/>
+    <!-- End edit-->
+</form>

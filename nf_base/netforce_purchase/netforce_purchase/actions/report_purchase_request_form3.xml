@@ -1,0 +1,5 @@
+<action>
+    <field name="view">print_wizard2</field>
+    <field name="model">purchase.request</field>
+    <field name="menu">purchase_menu</field>
+</action>

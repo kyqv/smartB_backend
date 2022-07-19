@@ -1,0 +1,8 @@
+<board>
+    <vpanel>
+        <widget string="Invoices Waiting Payment" action="portal_invoice_widget"/>
+    </vpanel>
+    <vpanel>
+        <widget string="Latest Documents" action="portal_doc_widget"/>
+    </vpanel>
+</board>

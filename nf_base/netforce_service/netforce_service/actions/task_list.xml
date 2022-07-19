@@ -1,0 +1,7 @@
+<action>
+    <field name="string">Task Lists</field>
+    <field name="view">multi_view</field>
+    <field name="model">task.list</field>
+    <field name="modes">list,form</field>
+    <field name="menu">service_menu</field>
+</action>

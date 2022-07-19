@@ -1,0 +1,6 @@
+<list model="hr.attendance.config">
+    <field name="name"/>
+    <field name="user"/>
+    <field name="ip_address"/>
+    <field name="port"/>
+</list>

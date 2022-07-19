@@ -1,0 +1,9 @@
+<form model="view.layout">
+    <field name="name"/>
+    <field name="type"/>
+    <field name="model_id"/>
+    <field name="inherit"/>
+    <field name="priority"/>
+    <newline/>
+    <field name="layout" width="800" height="500" view="field_code" mode="xml"/>
+</form>

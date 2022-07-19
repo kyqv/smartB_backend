@@ -1,0 +1,7 @@
+<list model="mkt.activity">
+    <field name="target_id"/>
+    <field name="type"/>
+    <field name="subject"/>
+    <field name="date"/>
+    <field name="state"/>
+</list>

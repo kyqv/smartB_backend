@@ -1,0 +1,12 @@
+<list model="ship.rate">
+    <field name="sequence"/>
+    <field name="method_id"/>
+    <field name="country_id"/>
+    <field name="province_id"/>
+    <field name="district_id"/>
+    <field name="postal_code"/>
+    <field name="min_amount"/>
+    <field name="min_weight"/>
+    <field name="address_name"/>
+    <field name="ship_price"/>
+</list>

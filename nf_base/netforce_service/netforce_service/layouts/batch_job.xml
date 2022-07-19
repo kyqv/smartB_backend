@@ -1,0 +1,6 @@
+<form model="batch.job" height="200">
+    <label string="This will create jobs for all your clients, using the job templates configured in each client."/>
+    <foot>
+        <button string="Create Jobs" method="create_jobs" type="primary" icon="arrow-right"/>
+    </foot>
+</form>

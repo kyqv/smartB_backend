@@ -1,0 +1,25 @@
+<list model="stock.picking" priority="20">
+    <head>
+        <button string="Print" icon="print" action="report_pick_out_form3" action_options='{"ids":ids}'/>
+        <button string="To Draft" method="to_draft"/>
+        <button string="Copy To Delivery Order" method="copy_to_delivery"/>
+        <button string="Repost Journal Entry" method="repost_journal_entry"/>
+        <button string="Expand Bundles" method="expand_bundles"/>
+        <button string="Validate" method="set_done"/>
+        <button string="Update Invoices" method="update_invoice"/>
+    </head>
+    <field name="journal_id"/>
+    <field name="number"/>
+    <field name="date"/>
+    <field name="delivery_slot_id"/>
+    <field name="contact_id"/>
+    <field name="related_id"/>
+    <field name="invoice_id"/>
+    <field name="ship_address_id"/>
+    <field name="ship_method_id"/>
+    <!--field name="delivery_id"/>
+    <field name="route_id"/>-->
+    <field name="ship_tracking"/>
+    <!--field name="ship_route"/>-->
+    <field name="state"/>
+</list>

@@ -1,0 +1,9 @@
+<form model="work.type">
+    <field name="name"/>
+    <field name="code"/>
+    <field name="product_id"/>
+    <field name="description"/>
+    <related>
+        <field name="comments"/>
+    </related>
+</form>

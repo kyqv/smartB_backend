@@ -1,0 +1,10 @@
+<action>
+    <field name="view">list_m</field>
+    <field name="title">Sell Products</field>
+    <field name="model">product</field>
+    <field name="mode">grid</field>
+    <field name="grid_layout">pos_product_m</field>
+    <field name="condition">[["publish_pos","=",true]]</field>
+    <field name="sub_action">pos_cart_m</field>
+    <field name="split_ratio">0.6</field>
+</action>

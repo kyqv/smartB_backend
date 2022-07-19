@@ -1,0 +1,6 @@
+<list model="base.user" priority="20" hide_select="1" hide_page="1">
+    <head replace="1"/>
+    <field name="name"/>
+    <field name="email"/>
+    <field name="lastlog"/>
+</list>

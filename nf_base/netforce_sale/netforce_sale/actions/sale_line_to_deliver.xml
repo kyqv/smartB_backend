@@ -1,0 +1,7 @@
+<action>
+    <field name="view_type">collection</field>
+    <field name="model">sale.order.line</field>
+    <field name="condition">[["qty_to_deliver", "!=", 0]]</field>
+    <field name="template">sale_line_list_to_deliver</field>
+    <field name="layout">sale_line_page</field>
+</action>

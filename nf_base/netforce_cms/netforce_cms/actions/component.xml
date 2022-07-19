@@ -1,0 +1,7 @@
+<action>
+    <field name="string">Components</field>
+    <field name="view">multi_view</field>
+    <field name="model">theme.component</field>
+    <field name="tabs">[["All",[]],["Server",[["type","=","server"]]],["Browser",[["type","=","browser"]]],["Mobile",[["type","=","mobile"]]]]</field>
+    <field name="menu">cms_menu</field>
+</action>

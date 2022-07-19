@@ -1,0 +1,10 @@
+<list model="visitor" colors='{"#ccc":[["is_bot","=",true]],"#cfc":[["is_paid","=",true]]}'>
+    <field name="create_time"/>
+    <field name="id_no"/>
+    <field name="name"/>
+    <field name="user_agent"/>
+    <field name="is_bot" invisible="1"/>
+    <field name="is_paid" invisible="1"/>
+    <field name="num_sessions"/>
+    <field name="num_actions"/>
+</list>

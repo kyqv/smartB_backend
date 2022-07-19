@@ -1,0 +1,9 @@
+<form model="import.inline.help" title="Import Inline Help">
+    <field name="folder_id"/>
+    <newline/>
+    <field name="auth_code"/>
+    <foot replace="1">
+        <button string="Import Content" method="do_import" type="primary"/>
+        <button string="Request Authorization" method="request_auth"/>
+    </foot>
+</form>

@@ -1,0 +1,9 @@
+<action>
+    <field name="string">Balance Sheet</field>
+    <field name="view">report</field>
+    <field name="model">report.balance.sheet</field>
+    <field name="template">report_balance_sheet</field>
+    <field name="template_xls">balance_sheet</field>
+    <field name="template_xls_custom">balance_sheet_custom</field>
+    <field name="menu">account_menu</field>
+</action>

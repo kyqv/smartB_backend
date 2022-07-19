@@ -1,0 +1,13 @@
+<list model="stock.picking" priority="20">
+    <head>
+        <button string="Print" icon="print" action="report_pick_internal_form" action_options="convert=pdf"/>
+        <button string="To Draft" method="to_draft"/>
+        <button string="Repost Journal Entry" method="repost_journal_entry"/>
+        <button string="Validate" method="set_done"/>
+    </head>
+    <field name="journal_id"/>
+    <field name="number"/>
+    <field name="date"/>
+    <field name="ref"/>
+    <field name="state"/>
+</list>

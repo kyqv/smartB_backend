@@ -1,0 +1,7 @@
+<action>
+    <field name="view">report</field>
+    <field name="string">Sales Profit Summary Report</field>
+    <field name="model">report.sale.profit</field>
+    <field name="template">report_sale_profit</field>
+    <field name="menu">sale_menu</field>
+</action>

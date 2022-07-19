@@ -1,0 +1,7 @@
+<list model="stock.container">
+    <head>
+        <button string="Print Labels" icon="print" action="container_label" action_options="convert=pdf"/>
+    </head>
+    <field name="number"/>
+    <field name="description"/>
+</list>

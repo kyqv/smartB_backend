@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Import Bank Transactions</field>
+    <field name="view">form_view</field>
+    <field name="model">import.statement</field>
+    <field name="menu">account_menu</field>
+</action>

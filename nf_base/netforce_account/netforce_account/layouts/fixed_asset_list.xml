@@ -1,0 +1,17 @@
+<list model="account.fixed.asset">
+    <top>
+        <button string="Depreciation" icon="play-circle" action="depreciation"/>
+    </top>
+    <head>
+        <button string="Register" type="success" method="do_register" show_progress="1"/>
+        <button string="To Pending" type="success" method="To Pending" show_progress="1"/>
+    </head>
+    <field name="number"/>
+    <field name="name"/>
+    <field name="type_id"/>
+    <field name="date_purchase"/>
+    <field name="price_purchase"/>
+    <field name="book_val"/>
+    <field name="last_dep"/>
+    <field name="state"/>
+</list>

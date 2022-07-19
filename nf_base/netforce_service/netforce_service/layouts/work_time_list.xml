@@ -1,0 +1,16 @@
+<list model="work.time" colors='{"#fcc":[["state","=","rejected"]],"#cfc":[["state","=","approved"]]}'>
+    <head>
+        <button string="Approve" method="approve" type="success" icon="ok"/>
+        <button string="Reject" method="reject" type="danger" icon="remove"/>
+        <button string="Copy To Invoice" method="copy_to_invoice"/>
+    </head>
+    <field name="date"/>
+    <field name="resource_id"/>
+    <field name="project_id"/>
+    <field name="related_id"/>
+    <field name="description"/>
+    <field name="actual_hours"/>
+    <field name="bill_hours"/>
+    <field name="state"/>
+    <field name="invoice_id"/>
+</list>

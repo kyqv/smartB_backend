@@ -1,0 +1,10 @@
+<action>
+    <field name="string">3PL Billing</field>
+    <field name="view">multi_view</field>
+    <field name="model">fulfillment.bill</field>
+    <field name="list_layout">fulfillment_bill_list</field>
+    <field name="form_layout">fulfillment_bill_form</field>
+    <field name="model_string">Fulfillment Billing</field>
+    <field name="modes">list,form,calendar</field>
+    <field name="menu">ecom2_menu</field>
+</action>

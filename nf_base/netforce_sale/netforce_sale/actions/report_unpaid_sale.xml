@@ -1,0 +1,8 @@
+<action>
+    <field name="view">report</field>
+    <field name="string">Unpaid Sales Report</field>
+    <field name="model">report.unpaid.sale</field>
+    <field name="template">report_unpaid_sale</field>
+    <field name="template_xls">unpaid_sale</field>
+    <field name="menu">sale_menu</field>
+</action>

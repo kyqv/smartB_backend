@@ -1,0 +1,3 @@
+<list model="hr.tax.year">
+    <field name="name"/>
+</list>

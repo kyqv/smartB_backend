@@ -1,0 +1,10 @@
+<list model="task" priority="20">
+    <head>
+        <button string="New Task" icon="plus-sign" noselect="1" action="task" action_options="mode=form"/>
+    </head>
+    <field name="project_id"/>
+    <field name="job_id"/>
+    <field name="subject"/>
+    <field name="user_id"/>
+    <field name="deadline"/>
+</list>

@@ -1,0 +1,7 @@
+<action>
+    <field name="string">Task Queue</field>
+    <field name="view">multi_view</field>
+    <field name="model">bg.task</field>
+    <field name="tabs">[["Waiting",[["state","=","waiting"]]],["All",[]]]</field>
+    <field name="menu">gen_menu</field>
+</action>

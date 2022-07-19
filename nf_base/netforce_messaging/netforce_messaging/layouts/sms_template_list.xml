@@ -1,0 +1,6 @@
+<list model="sms.template">
+    <field name="name"/>
+    <field name="phone"/>
+    <field name="body"/>
+    <field name="account_id"/>
+</list>

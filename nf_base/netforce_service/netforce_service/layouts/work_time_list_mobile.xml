@@ -1,0 +1,9 @@
+<list_mobile model="work.time">
+    <field name="date"/>
+    <field name="actual_hours"/>
+    <field name="bill_hours"/>
+    <newline/>
+    <field name="project_id"/>
+    <newline/>
+    <field name="description"/>
+</list_mobile>

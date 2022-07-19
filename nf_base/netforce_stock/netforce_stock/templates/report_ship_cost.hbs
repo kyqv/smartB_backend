@@ -1,0 +1,81 @@
+<center>
+    <h2>
+        Shipping Cost Report
+    </h2>
+    <h3>
+        {{company_name}}
+    </h3>
+    <h4>
+        From {{date_from}} to {{date_to}}
+    </h4>
+</center>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Date
+            </th>
+            <th>
+                Number
+            </th>
+            <th>
+                Contact
+            </th>
+            <th>
+                Related To
+            </th>
+            <th>
+                Shipping Method
+            </th>
+            <th>
+                Tracking Number
+            </th>
+            <th>
+                Shipping Cost
+            </th>
+            <th>
+                Shipping Paid By
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each lines context=context}}
+            <tr>
+                <td>
+                    {{date}}
+                </td>
+                <td>
+                    {{view "link" string=number action="view_picking" active_id=id context=context}}
+                </td>
+                <td>
+                    {{contact}}
+                </td>
+                <td>
+                    {{related}}
+                </td>
+                <td>
+                    {{ship_method}}
+                </td>
+                <td>
+                    {{ship_tracking}}
+                </td>
+                <td style="text-align:right">
+                    {{currency ship_cost}}
+                </td>
+                <td>
+                    {{ship_pay_by}}
+                </td>
+            </tr>
+        {{/each}}
+    </tbody>
+    <tfoot>
+        <th colspan="6">
+            Totals
+        </th>
+        <th style="text-align:right">
+            {{currency totals.ship_cost}}
+        </th>
+        <th>
+        </th>
+    </tfoot>
+</table>

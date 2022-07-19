@@ -1,0 +1,10 @@
+<list model="stock.orderpoint">
+    <field name="location_id"/>
+    <field name="product_id"/>
+    <field name="product_categ_id"/>
+    <field name="min_qty"/>
+    <field name="max_qty"/>
+    <field name="uom_id"/>
+    <field name="min_qty2"/>
+    <field name="max_qty2"/>
+</list>

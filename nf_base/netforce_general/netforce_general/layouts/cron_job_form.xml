@@ -1,0 +1,20 @@
+<form model="cron.job">
+    <top>
+        <button string="Copy" method="copy"/>
+    </top>
+    <field name="name"/>
+    <field name="date"/>
+    <field name="model"/>
+    <field name="method"/>
+    <field name="args"/>
+    <newline/>
+    <field name="interval_num"/>
+    <field name="interval_type"/>
+    <field name="call_num"/>
+    <field name="timeout"/>
+    <field name="state"/>
+    <related>
+        <field name="tasks"/>
+        <field name="comments"/>
+    </related>
+</form>

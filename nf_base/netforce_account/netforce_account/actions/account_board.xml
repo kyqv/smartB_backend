@@ -1,0 +1,6 @@
+<action>
+    <field name="view">board</field>
+    <field name="string">Accounting Dashboard</field>
+    <field name="layout">account_board</field>
+    <field name="menu">account_menu</field>
+</action>

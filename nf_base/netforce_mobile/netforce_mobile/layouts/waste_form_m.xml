@@ -1,0 +1,23 @@
+<form_m model="product.waste">
+    <field name="date"/>
+    <field name="number"/>
+    <newline/>
+    <field name="location_id"/>
+    <newline/>
+    <field name="product_id" onchange="onchange_product"/>
+    <newline/>
+    <field name="lot_id"/>
+    <newline/>
+    <field name="qty"/>
+    <field name="uom_id"/>
+    <newline/>
+    <field name="state"/>
+    <foot>
+        <button string="Validate" method="validate" type="success" states="draft" icon="ios-checkmark"/>
+        <button string="To Draft" method="to_draft" states="done,voided"/>
+        <button string="Void" method="void" states="done" type="danger" confirm="Are you sure?"/>
+    </foot>
+    <related>
+        <field name="stock_moves"/>
+    </related>
+</form_m>

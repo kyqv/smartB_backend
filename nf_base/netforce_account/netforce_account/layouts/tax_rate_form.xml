@@ -1,0 +1,26 @@
+<form model="account.tax.rate">
+    <field name="name"/>
+    <field name="code"/>
+    <separator string="Components"/>
+    <field name="components" nolabel="1">
+        <list>
+            <field name="name"/>
+            <field name="rate"/>
+            <field name="account_id" condition='[["type","!=","view"]]'/>
+            <field name="account_pending_id" condition='[["type","!=","view"]]'/>
+            <field name="type"/>
+            <field name="trans_type"/>
+            <field name="contact_type"/>
+            <field name="code"/>
+            <field name="description"/>
+        </list>
+    </field>
+    <group offset="8" span="4" columns="1">
+        <field name="rate"/>
+    </group>
+    <field name="instructions"/>
+    <related>
+        <field name="logs"/>
+        <field name="comments"/>
+    </related>
+</form>

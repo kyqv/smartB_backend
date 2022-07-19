@@ -1,0 +1,7 @@
+<action>
+    <field name="view">form_m</field>
+    <field name="title">Transfer Lot</field>
+    <field name="model">stock.transfer</field>
+    <field name="layout">stock_transfer_m</field>
+    <field name="target">sub_action</field>
+</action>

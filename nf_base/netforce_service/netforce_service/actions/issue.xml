@@ -1,0 +1,8 @@
+<action>
+    <field name="string">Issues</field>
+    <field name="view">multi_view</field>
+    <field name="model">issue</field>
+    <field name="tabs">[["All",[]],["New",[["state","=","new"]]],["Incomplete",[["state","=","incomplete"]]],["Planned",[["state","=","planned"]]],["Closed",[["state","=","closed"]]]]</field>
+    <field name="modes">list,form</field>
+    <field name="menu">service_menu</field>
+</action>

@@ -1,0 +1,7 @@
+<action>
+    <field name="view_type">collection</field>
+    <field name="model">sale.quot</field>
+    <field name="condition">[["state", "=", "approved"]]</field>
+    <field name="template">quot_to_sale</field>
+    <field name="target">_popup</field>
+</action>

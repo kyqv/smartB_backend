@@ -1,0 +1,10 @@
+<form model="service.categ">
+    <field name="name"/>
+    <field name="parent_id"/>
+    <field name="description"/>
+    <field name="job_sequence_id"/>
+    <field name="manager_group_id" help="Jobs of this service category will appear in the dashboard of manager users"/>
+    <related>
+        <field name="comments"/>
+    </related>
+</form>

@@ -1,0 +1,27 @@
+<form model="product.custom.option">
+    <field name="name"/>
+    <field name="seq"/>
+    <field name="code"/>
+    <field name="type"/>
+    <field name="price"/>
+    <field name="required"/>
+    <field name="description"/>
+    <related>
+        <field name="values">
+            <list>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="description"/>
+                <field name="image" preview="1" nofilename="1"/>
+                <field name="price"/>
+            </list>
+            <form>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="description"/>
+                <field name="image"/>
+                <field name="price"/>
+            </form>
+        </field>
+    </related>
+</form>

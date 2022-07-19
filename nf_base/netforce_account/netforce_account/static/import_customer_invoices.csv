@@ -1,0 +1,3 @@
+Type,Subtype,Contact / Name,Contact / Code,Date,Number,Lines / Description,Lines / Amount,Lines / Account / Account Code,Lines / Track-1
+Receivable,Invoice,Test Customer,C-0010,2017-04-01,INV-0001,Training,1000,410101,
+,,,,,,Coaching,2000,410102,

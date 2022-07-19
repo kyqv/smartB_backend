@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Message Templates</field>
+    <field name="view">multi_view</field>
+    <field name="model">message.tmpl</field>
+    <field name="menu">msg_menu</field>
+</action>

@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="sso_cover" language="groovy" printOrder="Horizontal" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="842" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="2.1435888100004252"/>
+	<property name="ireport.x" value="1154"/>
+	<property name="ireport.y" value="0"/>
+	<style name="default" isDefault="true" mode="Transparent" forecolor="#010101" backcolor="#FFFFFF" hAlign="Center" vAlign="Middle" fontName="Loma" fontSize="10" isBold="false" isItalic="false" isUnderline="false" pdfFontName="/usr/share/fonts/truetype/tlwg/Loma.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true">
+		<box leftPadding="2" rightPadding="2"/>
+		<paragraph lineSpacing="Single"/>
+	</style>
+	<style name="default-bold" forecolor="#000000" backcolor="#FFFFFF" hAlign="Center" vAlign="Middle" fontName="Loma" fontSize="10" isBold="true" isItalic="false" isUnderline="false" pdfFontName="/usr/share/fonts/truetype/tlwg/Loma-Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true">
+		<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2"/>
+	</style>
+	<queryString language="json">
+		<![CDATA[lines]]>
+	</queryString>
+	<field name="company_name" class="java.lang.String">
+		<fieldDescription><![CDATA[company_name]]></fieldDescription>
+	</field>
+	<field name="company_sso" class="java.lang.String"/>
+	<field name="document_date" class="java.lang.Object"/>
+	<field name="company_number" class="java.lang.String"/>
+	<field name="company_sub_number" class="java.lang.String"/>
+	<field name="company_soi" class="java.lang.String"/>
+	<field name="company_road" class="java.lang.String"/>
+	<field name="company_sub_district" class="java.lang.String"/>
+	<field name="company_district" class="java.lang.String"/>
+	<field name="company_province" class="java.lang.String"/>
+	<field name="company_phone" class="java.lang.String"/>
+	<field name="company_zip" class="java.lang.String"/>
+	<field name="no" class="java.lang.String"/>
+	<field name="line_name" class="java.lang.String"/>
+	<field name="line_pin" class="java.lang.String"/>
+	<field name="line_resign" class="java.lang.String"/>
+	<field name="reason" class="java.lang.String"/>
+	<background>
+		<band height="595" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="842" height="595"/>
+				<imageExpression><![CDATA["sso_quits.gif"]]></imageExpression>
+			</image>
+		</band>
+	</background>
+	<pageHeader>
+		<band height="236">
+			<textField isBlankWhenNull="true">
+				<reportElement x="120" y="90" width="373" height="22"/>
+				<box leftPadding="2" rightPadding="2">
+					<topPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{company_name}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="585" y="96" width="12" height="15" backcolor="#FFFFFF">
+					<printWhenExpression><![CDATA[$F{company_sso}.size() > 0]]></printWhenExpression>
+				</reportElement>
+				<textElement markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{company_sso}.charAt(0)]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="600" y="96" width="12" height="15" backcolor="#FFFFFF">
+					<printWhenExpression><![CDATA[$F{company_sso}.size() > 1]]></printWhenExpression>
+				</reportElement>
+				<textElement markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{company_sso}.charAt(1)]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="633" y="96" width="12" height="15" backcolor="#FFFFFF">
+					<printWhenExpression><![CDATA[$F{company_sso}.size() > 2]]></printWhenExpression>
+				</reportElement>
+				<textElement markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{company_sso}.charAt(2)]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="649" y="96" width="12" height="15" backcolor="#FFFFFF">
+					<printWhenExpression><![CDATA[$F{company_sso}.size() > 3]]></printWhenExpression>
+				</reportElement>
+				<textElement markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{company_sso}.charAt(3)]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="665" y="96" width="12" height="15" backcolor="#FFFFFF">
+					<printWhenExpression><![CDATA[$F{company_sso}.size() > 4]]></printWhenExpression>
+				</reportElement>
+				<textElement markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{company_sso}.charAt(4)]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="682" y="96" width="13" height="15" backcolor="#FFFFFF">
+					<printWhenExpression><![CDATA[$F{company_sso}.size() > 5]]></printWhenExpression>
+				</reportElement>
+				<textElement markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{company_sso}.charAt(5)]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="698" y="96" width="12" height="15" backcolor="#FFFFFF">
+					<printWhenExpression><![CDATA[$F{company_sso}.size() > 6]]></printWhenExpression>
+				</reportElement>
+				<textElement markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{company_sso}.charAt(6)]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="715" y="96" width="12" height="15" backcolor="#FFFFFF">
+					<printWhenExpression><![CDATA[$F{company_sso}.size() > 7]]></printWhenExpression>
+				</reportElement>
+				<textElement markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{company_sso}.charAt(7)]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="731" y="96" width="12" height="15" backcolor="#FFFFFF">
+					<printWhenExpression><![CDATA[$F{company_sso}.size() > 8]]></printWhenExpression>
+				</reportElement>
+				<textElement markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{company_sso}.charAt(8)]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="763" y="96" width="12" height="15" backcolor="#FFFFFF">
+					<printWhenExpression><![CDATA[$F{company_sso}.size() > 9]]></printWhenExpression>
+				</reportElement>
+				<textElement markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{company_sso}.charAt(9)]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="664" y="122" width="12" height="15" backcolor="#FFFFFF"/>
+				<textElement markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["0"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="680" y="122" width="12" height="15" backcolor="#FFFFFF"/>
+				<textElement markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["0"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="698" y="122" width="12" height="15" backcolor="#FFFFFF"/>
+				<textElement markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["0"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="713" y="122" width="12" height="15" backcolor="#FFFFFF"/>
+				<textElement markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["0"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="730" y="122" width="12" height="15" backcolor="#FFFFFF"/>
+				<textElement markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["0"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="746" y="122" width="12" height="15" backcolor="#FFFFFF"/>
+				<textElement markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["0"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="167" y="141" width="83" height="16"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{company_number}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="266" y="142" width="44" height="16"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{company_sub_number}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="360" y="142" width="109" height="16"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{company_soi}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="494" y="142" width="104" height="15"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{company_road}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="653" y="142" width="145" height="16"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{company_sub_district}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="73" y="162" width="168" height="16"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{company_district}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="284" y="162" width="122" height="16"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{company_province}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="634" y="162" width="168" height="16"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{company_phone}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="508" y="159" width="11" height="20">
+					<printWhenExpression><![CDATA[$F{company_zip}.size() > 0]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{company_zip}.charAt(0)]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="522" y="159" width="11" height="20">
+					<printWhenExpression><![CDATA[$F{company_zip}.size() > 1]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{company_zip}.charAt(1)]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="539" y="159" width="11" height="20">
+					<printWhenExpression><![CDATA[$F{company_zip}.size() > 2]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{company_zip}.charAt(2)]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="555" y="159" width="11" height="20">
+					<printWhenExpression><![CDATA[$F{company_zip}.size() > 3]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{company_zip}.charAt(3)]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="571" y="159" width="11" height="20">
+					<printWhenExpression><![CDATA[$F{company_zip}.size() > 4]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{company_zip}.charAt(4)]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="19">
+			<textField>
+				<reportElement x="17" y="0" width="31" height="17"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="110" y="1" width="12" height="15" backcolor="#F02C2C">
+					<printWhenExpression><![CDATA[$F{line_pin}.size() > 3]]></printWhenExpression>
+				</reportElement>
+				<textElement markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{line_pin}.charAt(3)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="147" y="1" width="13" height="15" backcolor="#F02C2C">
+					<printWhenExpression><![CDATA[$F{line_pin}.size() > 5]]></printWhenExpression>
+				</reportElement>
+				<textElement markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{line_pin}.charAt(5)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="237" y="1" width="12" height="15" backcolor="#F02C2C">
+					<printWhenExpression><![CDATA[$F{line_pin}.size() > 11]]></printWhenExpression>
+				</reportElement>
+				<textElement markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{line_pin}.charAt(11)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="174" y="1" width="12" height="15" backcolor="#F02C2C">
+					<printWhenExpression><![CDATA[$F{line_pin}.size() > 7]]></printWhenExpression>
+				</reportElement>
+				<textElement markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{line_pin}.charAt(7)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="123" y="1" width="12" height="15" backcolor="#F02C2C">
+					<printWhenExpression><![CDATA[$F{line_pin}.size() > 4]]></printWhenExpression>
+				</reportElement>
+				<textElement markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{line_pin}.charAt(4)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="201" y="1" width="12" height="15" backcolor="#F02C2C">
+					<printWhenExpression><![CDATA[$F{line_pin}.size() > 9]]></printWhenExpression>
+				</reportElement>
+				<textElement markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{line_pin}.charAt(9)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="161" y="1" width="12" height="15" backcolor="#F02C2C">
+					<printWhenExpression><![CDATA[$F{line_pin}.size() > 6]]></printWhenExpression>
+				</reportElement>
+				<textElement markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{line_pin}.charAt(6)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="259" y="1" width="12" height="15" backcolor="#F02C2C">
+					<printWhenExpression><![CDATA[$F{line_pin}.size() > 12]]></printWhenExpression>
+				</reportElement>
+				<textElement markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{line_pin}.charAt(12)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="97" y="1" width="12" height="15" backcolor="#F02C2C">
+					<printWhenExpression><![CDATA[$F{line_pin}.size() > 2]]></printWhenExpression>
+				</reportElement>
+				<textElement markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{line_pin}.charAt(2)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="223" y="1" width="12" height="15" backcolor="#F02C2C">
+					<printWhenExpression><![CDATA[$F{line_pin}.size() > 10]]></printWhenExpression>
+				</reportElement>
+				<textElement markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{line_pin}.charAt(10)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="60" y="1" width="12" height="15" backcolor="#F02C2C">
+					<printWhenExpression><![CDATA[$F{line_pin}.size() > 0]]></printWhenExpression>
+				</reportElement>
+				<textElement markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{line_pin}.charAt(0)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="84" y="1" width="12" height="15" backcolor="#F02C2C">
+					<printWhenExpression><![CDATA[$F{line_pin}.size() > 1]]></printWhenExpression>
+				</reportElement>
+				<textElement markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{line_pin}.charAt(1)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="188" y="1" width="12" height="15" backcolor="#F02C2C">
+					<printWhenExpression><![CDATA[$F{line_pin}.size() > 8]]></printWhenExpression>
+				</reportElement>
+				<textElement markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{line_pin}.charAt(8)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="294" y="0" width="214" height="17"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{line_name}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="508" y="1" width="94" height="17"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{line_resign}]]></textFieldExpression>
+			</textField>
+			<line direction="BottomUp">
+				<reportElement x="612" y="3" width="12" height="12">
+					<printWhenExpression><![CDATA[$F{reason} == "1"]]></printWhenExpression>
+				</reportElement>
+			</line>
+			<line direction="BottomUp">
+				<reportElement x="645" y="3" width="12" height="12">
+					<printWhenExpression><![CDATA[$F{reason} == "2"]]></printWhenExpression>
+				</reportElement>
+			</line>
+			<line direction="BottomUp">
+				<reportElement x="676" y="3" width="12" height="12">
+					<printWhenExpression><![CDATA[$F{reason} == "3"]]></printWhenExpression>
+				</reportElement>
+			</line>
+			<line direction="BottomUp">
+				<reportElement x="704" y="3" width="12" height="12">
+					<printWhenExpression><![CDATA[$F{reason} == "4"]]></printWhenExpression>
+				</reportElement>
+			</line>
+			<line direction="BottomUp">
+				<reportElement x="768" y="3" width="12" height="12">
+					<printWhenExpression><![CDATA[$F{reason} == "6"]]></printWhenExpression>
+				</reportElement>
+			</line>
+			<line direction="BottomUp">
+				<reportElement x="802" y="3" width="12" height="12">
+					<printWhenExpression><![CDATA[$F{reason} == "7"]]></printWhenExpression>
+				</reportElement>
+			</line>
+			<line direction="BottomUp">
+				<reportElement x="737" y="3" width="12" height="12">
+					<printWhenExpression><![CDATA[$F{reason} == "5"]]></printWhenExpression>
+				</reportElement>
+			</line>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="215">
+			<textField>
+				<reportElement x="502" y="132" width="25" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{document_date}[2]]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="377" y="132" width="20" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{document_date}[0]]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="419" y="132" width="59" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{document_date}[1]]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

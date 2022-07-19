@@ -1,0 +1,10 @@
+<list model="field.value">
+    <top>
+        <button string="Set Fields" method="set_fields"/>
+    </top>
+    <field name="model_id"/>
+    <field name="inst_id"/>
+    <field name="field_id"/>
+    <field name="value"/>
+    <field name="history_id"/>
+</list>

@@ -1,0 +1,8 @@
+<list model="sale.coupon.master">
+    <field name="name"/>
+    <field name="image"/>
+    <field name="description"/>
+    <field name="expiry_date"/>
+    <field name="use_duration"/>
+    <field name="hide_date"/>
+</list> 

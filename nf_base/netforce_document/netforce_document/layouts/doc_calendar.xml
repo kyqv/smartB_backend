@@ -1,0 +1,7 @@
+<calendar model="document" date_field="expiry_date" colors='{"#c00":[["expired","=",true]]}'>
+    <field name="file"/>
+    <field name="contact_id"/>
+    <field name="categ_id"/>
+    <field name="related_id"/>
+    <field name="expired" invisible="1"/>
+</calendar>

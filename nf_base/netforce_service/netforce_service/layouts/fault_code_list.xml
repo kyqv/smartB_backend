@@ -1,0 +1,4 @@
+<list model="fault.code">
+    <field name="code"/>
+    <field name="description"/>
+</list>

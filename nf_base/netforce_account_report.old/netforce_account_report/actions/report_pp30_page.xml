@@ -1,0 +1,6 @@
+<action>
+    <field name="view_type">model</field>
+    <field name="model">report.pp30</field>
+    <field name="template">report_pp30_page</field>
+    <field name="menu">account_menu</field>
+</action>

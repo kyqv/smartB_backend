@@ -1,0 +1,11 @@
+<list model="account.cheque">
+    <field name="date"/>
+    <field name="amount"/>
+    <field name="number"/>
+    <field name="bank_id"/>
+    <field name="branch"/>
+    <field name="contact_id"/>
+    <field name="related_id"/>
+    <field name="state"/>
+    <field name="image"/>
+</list>

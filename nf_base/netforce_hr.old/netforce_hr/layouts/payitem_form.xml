@@ -1,0 +1,43 @@
+<form model="hr.payitem">
+    <field name="name"/>
+    <newline/>
+    <field name="description"/>
+    <newline/>
+    <field name="type"/>
+    <separator string="Accounting"/>
+    <field name="account_id" domain='[["type","!=","view"]]'/>
+    <field name="acc_type"/>
+    <group attrs='{"invisible":[["type","!=","wage"]]}'>
+        <separator string="Wage Type"/>
+        <field name="wage_type"/>
+        <group attrs='{"invisible":[["wage_type","!=","overtime"]]}'>
+            <field name="times"/>
+        </group>
+        <group attrs='{"invisible":[["wage_type","!=","bonus"]]}'>
+            <field name="months"/>
+        </group>
+    </group>
+    <group attrs='{"invisible":[["type","!=","tax"]]}'>
+        <separator string="Tax Computation"/>
+        <field name="tax_type"/>
+    </group>
+    <group attrs='{"invisible":[["type","!=","deduct"]]}'>
+        <separator string="Deduction Type"/>
+        <field name="deduct_type"/>
+    </group>
+    <group attrs='{"invisible":[["type","!=","contrib"]]}'>
+        <separator string="Contrib Type"/>
+        <field name="contrib_type"/>
+    </group>
+    <separator string="Preferences"/>
+    <field name="show_default"/>
+    <group span="4" attrs='{"invisible":[["type","in",["tax","contrib"]]]}'>
+        <field name="include_tax" attrs='{"invisible":[["type","=","tax"]]}'/>
+        <field name="include_sso" attrs='{"invisible":[["contrib_type","in",["sso","tax"]]]}'/>
+        <field name="include_pnd1" attrs='{"invisible":[["type","=","tax"]]}'/>
+        <field name="fix_income" attrs='{"invisible":[["type","in",["tax","deduct","contrib"]]]}'/>
+    </group>
+    <related>
+        <field name="comments"/>
+    </related>
+</form>

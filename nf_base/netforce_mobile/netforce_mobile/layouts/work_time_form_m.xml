@@ -1,0 +1,7 @@
+<form_m model="work.time">
+    <field name="date"/>
+    <field name="resource_id"/>
+    <newline/>
+    <field name="project_id"/>
+    <field name="actual_hours"/>
+</form_m>

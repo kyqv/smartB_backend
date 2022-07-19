@@ -1,0 +1,11 @@
+<list model="translation">
+    <top>
+        <button string="Add Missing Translations" action="miss_translation"/>
+    </top>
+    <head>
+        <button string="Google Translate" method="translate_google"/>
+    </head>
+    <field name="lang_id"/>
+    <field name="original"/>
+    <field name="translation"/>
+</list>

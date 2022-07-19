@@ -1,0 +1,8 @@
+<list model="theme.file">
+    <head>
+        <button string="Export Files" method="export_files"/>
+    </head>
+    <field name="theme_id"/>
+    <field name="name"/>
+    <field name="size"/>
+</list>

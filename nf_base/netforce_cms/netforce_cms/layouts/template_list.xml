@@ -1,0 +1,5 @@
+<list model="template">
+    <field name="name"/>
+    <field name="theme_id"/>
+    <field name="module_id"/>
+</list>

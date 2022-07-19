@@ -1,0 +1,18 @@
+<export model="sale.quot">
+    <field name="number"/>
+    <field name="ref"/>
+    <field name="contact_id"/>
+    <field name="date"/>
+    <field name="user_id"/>
+    <field name="amount_total"/>
+    <field name="payment_terms"/>
+    <field name="state"/>
+    <field name="lines.product_id"/>
+    <field name="lines.description"/>
+    <field name="lines.qty"/>
+    <field name="lines.uom_id"/>
+    <field name="lines.unit_price"/>
+    <field name="lines.discount"/>
+    <field name="lines.tax_id"/>
+    <field name="lines.amount"/>
+</export>

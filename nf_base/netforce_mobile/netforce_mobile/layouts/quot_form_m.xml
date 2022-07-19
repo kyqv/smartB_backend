@@ -1,0 +1,37 @@
+<form_m model="sale.quot">
+    <field name="date"/>
+    <field name="number"/>
+    <field name="contact_id"/>
+    <field name="lines">
+        <list>
+            <field name="description"/>
+            <newline/>
+            <field name="qty"/>
+            <field name="uom_id"/>
+            <field name="unit_price"/>
+            <field name="amount"/>
+        </list>
+        <form>
+            <field name="description"/>
+            <newline/>
+            <field name="qty"/>
+            <field name="uom_id"/>
+            <field name="unit_price"/>
+            <field name="amount"/>
+        </form>
+    </field>
+    <field name="amount_subtotal"/>
+    <field name="amount_tax"/>
+    <field name="amount_total"/>
+    <field name="state"/>
+    <newline/>
+    <button title="Approve" method="approve" type="success" states="draft,waiting_approval" confirm="Are you sure?" icon="ios-checkmark"/>
+    <button title="Won" method="do_won" type="success" states="approved" icon="ios-checkmark"/>
+    <button title="Lost" method="do_lost" type="danger" states="approved" icon="ios-close"/>
+    <button title="Reopen" method="do_reopen" states="won,lost" icon="ios-return-left"/>
+    <button title="To Draft" method="to_draft" states="approved,won,lost" icon="ios-return-left"/>
+    <related>
+        <field name="documents"/>
+        <field name="emails"/>
+    </related>
+</form_m>

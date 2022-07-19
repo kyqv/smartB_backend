@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Contact Groups</field>
+    <field name="view">multi_view</field>
+    <field name="model">contact.group</field>
+    <field name="menu">contact_menu</field>
+</action>

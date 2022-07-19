@@ -1,0 +1,12 @@
+<list model="module">
+    <top>
+        <button string="Import Zip" action="import_module" icon="download"/>
+    </top>
+    <head>
+        <button string="Export Zip" method="export_zip"/>
+    </head>
+    <field name="name"/>
+    <field name="description"/>
+    <field name="version"/>
+    <field name="author"/>
+</list>

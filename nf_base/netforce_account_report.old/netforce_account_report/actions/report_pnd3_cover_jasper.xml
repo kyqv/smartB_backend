@@ -1,0 +1,6 @@
+<action>
+    <field name="type">report</field>
+    <field name="model">report.pnd3</field>
+    <field name="method">get_data_cover</field>
+    <field name="template">pnd3_cover</field>
+</action>

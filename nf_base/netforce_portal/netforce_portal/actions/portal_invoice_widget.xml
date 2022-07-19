@@ -1,0 +1,6 @@
+<action>
+    <field name="view_cls">list_view</field>
+    <field name="model">account.invoice</field>
+    <field name="condition">[["type","=","out"],["state","=","waiting_payment"]]</field>
+    <field name="view_xml">portal_invoice_widget</field>
+</action>

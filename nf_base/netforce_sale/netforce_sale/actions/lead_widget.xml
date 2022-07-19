@@ -1,0 +1,6 @@
+<action>
+    <field name="view">list</field>
+    <field name="model">sale.lead</field>
+    <field name="condition">[["state", "=", "new"]]</field>
+    <field name="layout">lead_widget</field>
+</action>

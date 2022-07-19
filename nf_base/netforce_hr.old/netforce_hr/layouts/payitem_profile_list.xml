@@ -1,0 +1,3 @@
+<list model="hr.payitem.profile">
+    <field name="name"/>
+</list>

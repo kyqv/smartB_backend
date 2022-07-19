@@ -1,0 +1,16 @@
+<list model="purchase.request">
+    <head>
+        <button string="Print" icon="print" action="report_purchase_request_form"/>
+        <button string="Print (New)" icon="print" action="report_purchase_request_form2" action_options='{"ids":ids}'/>
+        <button string="Copy To Purchase Order" method="copy_to_purchase"/>
+        <button string="Completeted" method="btn_done" icon="ok"/>
+    </head>
+    <field name="number"/>
+    <field name="ref"/>
+    <field name="employee_id"/>
+    <field name="date"/>
+    <field name="date_required"/>
+    <field name="other_info"/>
+    <field name="department_id"/>
+    <field name="state"/>
+</list>

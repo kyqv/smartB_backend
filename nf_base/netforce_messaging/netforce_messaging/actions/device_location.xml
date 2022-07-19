@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Device Locations</field>
+    <field name="view">multi_view</field>
+    <field name="model">device.location</field>
+    <field name="menu">msg_menu</field>
+</action>

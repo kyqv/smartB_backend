@@ -1,0 +1,109 @@
+<center>
+    <h2>
+        General Ledger Details
+    </h2>
+    <h3>
+        {{company_name}}
+        <br/>
+        From {{fmt_date date_from}} to {{fmt_date date_to}}
+    </h3>
+</center>
+<table class="table">
+    <thead class="scroll-header">
+        <tr>
+            <th>
+                Account Code
+            </th>
+            <th>
+                Account Name
+            </th>
+            <th>
+                Date
+            </th>
+            <th>
+                Number
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Contact
+            </th>
+            <th>
+                Track
+            </th>
+            <th>
+                Track-2
+            </th>
+            <th style="text-align:right">
+                Debit
+            </th>
+            <th style="text-align:right">
+                Credit
+            </th>
+            <th style="text-align:right">
+                Balance
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each accounts context=context}}
+            <tr>
+                <td style="font-weight:bold">
+                    {{code}}
+                </td>
+                <td style="font-weight:bold">
+                    {{name}}
+                </td>
+                <td colspan="8"></td>
+                <td style="text-align:right;font-weight:bold">
+                    {{currency bg_bal paren=1}}
+                </td>
+            </tr>
+            {{#each lines context=context}}
+                <tr>
+                    <td colspan="2"></td>
+                    <td>
+                        {{fmt_date date}}
+                    </td>
+                    <td>
+                        {{#link action="view_transaction" active_id=id}}
+                            {{number}}
+                        {{/link}}
+                    </td>
+                    <td>
+                        {{description}}
+                    </td>
+                    <td>
+                        {{contact_name}}
+                    </td>
+                    <td>
+                        {{track_code}}
+                    </td>
+                    <td>
+                        {{track2_code}}
+                    </td>
+                    <td style="text-align:right">
+                        {{currency debit zero=""}}
+                    </td>
+                    <td style="text-align:right">
+                        {{currency credit zero=""}}
+                    </td>
+                    <td style="text-align:right">
+                        {{currency balance paren=1}}
+                    </td>
+                </tr>
+            {{/each}}
+            <tr>
+                <td colspan="8"></td>
+                <td style="text-align:right;font-weight:bold">
+                    {{currency debit_total zero=""}}
+                </td>
+                <td style="text-align:right;font-weight:bold">
+                    {{currency credit_total zero=""}}
+                </td>
+                <td></td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>

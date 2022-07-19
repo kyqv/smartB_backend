@@ -1,0 +1,12 @@
+<list model="account.statement" colors='{"#cfc":[["state","=","reconciled"]]}'>
+    <top replace="1">
+        <button string="New Statement" action="statement" action_options='{"mode":"form"}' icon="plus-sign"/>
+        <button string="Import" action="import_statement" icon="download"/>
+    </top>
+    <field name="account_id"/>
+    <field name="state"/>
+    <field name="date_start"/>
+    <field name="date_end"/>
+    <field name="balance_start"/>
+    <field name="balance_end"/>
+</list>

@@ -1,0 +1,7 @@
+<action>
+    <field name="string">Supplier Invoice Lines</field>
+    <field name="view">multi_view</field>
+    <field name="model">account.invoice.line</field>
+    <field name="condition">[["invoice_id.type","=","in"],["invoice_id.state","in",["waiting_payment","paid"]]]</field>
+    <field name="menu">account_menu</field>
+</action>

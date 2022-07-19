@@ -1,0 +1,19 @@
+<list model="account.move" show_company="1" colors='{"difference,#f00":[["difference","!=",0]]}'>
+    <head>
+        <button string="Print" icon="print" action="report_journal_entry"/>
+        <button string="Print (New)" icon="print" action="report_journal_entry2" action_options='{"ids":ids}'/>
+        <button string="Post" method="post" show_progress="1"/>
+        <button string="To Draft" method="to_draft"/>
+    </head>
+    <field name="journal_id"/>
+    <field name="number"/>
+    <field name="date"/>
+    <field name="date_posted"/>
+    <field name="ref"/>
+    <field name="related_id"/>
+    <field name="narration"/>
+    <field name="total_debit"/>
+    <field name="total_credit"/>
+    <field name="difference"/>
+    <field name="state"/>
+</list>

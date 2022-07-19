@@ -1,0 +1,56 @@
+<form model="sale.lead" show_company="1">
+    <head>
+        <field name="state"/>
+        <button string="Options" dropdown="1">
+            <item string="Convert To Opportunity" method="copy_to_opport"/>
+        </button>
+    </head>
+    <separator string="Compulsory Information"/>
+    <group span="6" columns="1">
+        <field name="number"/>
+        <field name="date"/>
+        <field name="title"/>
+        <field name="contact_name"/>
+    </group>
+    <group span="6" columns="1">
+        <field name="state"/>
+    </group>
+    <separator string="Lead Information"/>
+    <group span="6" columns="1">
+        <field name="email"/>
+        <field name="phone"/>
+    </group>
+    <group span="6" columns="1">
+        <field name="company_id"/>
+        <field name="user_id"/>
+        <field name="refer_contact_id"/>
+    </group>
+    <!--separator string="Address Information"/>
+    <field name="addresses" view="form_list"/>-->
+    <separator string="Additional Information"/>
+    <group span="6" columns="1">
+        <field name="company"/>
+        <field name="revenue"/>
+        <field name="website"/>
+        <field name="age_days"/>
+    </group>
+    <group span="6" columns="1">
+        <field name="employees"/>
+        <field name="source_id"/>
+        <field name="industry"/>
+    </group>
+    <separator string="Description Information"/>
+    <field name="description" view="field_html" width="800" height="500"/>
+    <field name="company_id" invisible="1"/>
+    <foot>
+        <button string="Convert To Opportunity" method="copy_to_opport" states="new" type="success" icon="ok"/>
+        <button string="Void" method="void" states="new" icon="remove"/>
+    </foot>
+    <related>
+        <field name="sale_opports"/>
+        <field name="emails" action="email"/>
+        <field name="documents" show_inline="1"/>
+        <field name="activities"/>
+        <field name="comments"/>
+    </related>
+</form>

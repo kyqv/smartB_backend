@@ -1,0 +1,5 @@
+<action>
+    <field name="string">Import Missing Translations</field>
+    <field name="view">miss_translation</field>
+    <field name="menu">gen_menu</field>
+</action>

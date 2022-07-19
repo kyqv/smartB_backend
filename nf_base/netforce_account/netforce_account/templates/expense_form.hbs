@@ -1,0 +1,35 @@
+<v:bread>
+    <v:bread_item string="Expense Claims" action="expense_draft"/>
+    {{#ifeq context.data.state "draft"}}
+        <v:bread_item string="Draft Receipts" action="expense_draft"/>
+    {{/ifeq}}
+</v:bread>
+<v:page title="{{#if context.data.id}}Edit{{else}}New{{/if}} Receipt">
+    <v:flash/>
+    <v:form>
+        <v:form_body background="1">
+            <v:row>
+                <v:field name="partner_id" span="2" create="1"/>
+                <v:field name="date" span="2"/>
+                <v:field name="ref" span="2"/>
+                <v:field name="attach" span="2"/>
+            </v:row>
+            <v:row>
+                <v:field name="tax_type" span="2" onchange="update_amounts"/>
+                <v:field name="user_id" span="2"/>
+            </v:row>
+            <v:field name="lines" template="expense_line_sheet" count="5" nolabel="1"/>
+            <div class="offset8 form-horizontal">
+                <v:field name="amount_subtotal" size="medium"/>
+                <v:field name="amount_tax" size="medium"/>
+                <v:field name="amount_total" size="medium"/>
+            </div>
+            <v:field name="uuid" invisible="1"/>
+            <v:field name="state" invisible="1"/>
+        </v:form_body>
+        <v:form_foot>
+            <v:button string="Save" method="_save" size="large" type="primary" next="expense_draft"/>
+        </v:form_foot>
+    </v:form>
+    <v:history uuid="{{context.data.uuid}}"/>
+</v:page>

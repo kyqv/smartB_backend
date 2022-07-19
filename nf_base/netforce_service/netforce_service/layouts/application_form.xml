@@ -1,0 +1,6 @@
+<form model="service.application">
+    <field name="name"/>
+    <field name="code"/>
+    <field name="industry_id"/>
+    <field name="description"/>
+</form>

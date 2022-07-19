@@ -1,0 +1,7 @@
+<form model="cms.blog">
+    <field name="name"/>
+    <field name="code"/>
+    <related>
+        <field name="posts"/>
+    </related>
+</form>

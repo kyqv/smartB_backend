@@ -1,0 +1,6 @@
+<action>
+    <field name="type">report_odt</field>
+    <field name="model">account.payment</field>
+    <field name="method">get_report_data</field>
+    <field name="multi_page">1</field>
+</action>

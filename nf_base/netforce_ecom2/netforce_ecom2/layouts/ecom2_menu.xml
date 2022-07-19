@@ -1,0 +1,8 @@
+<menu string="Ecommerce">
+    <item string="Dashboard" action="ecom2_board"/>
+    <item string="Carts" action="ecom2_cart"/>
+    <item string="3PL Billing" action="fulfillment_bill"/>
+    <item string="Settings" action="ecom2_settings"/>
+<!--     <item string="3PL Service Pricing" action="service_price"/>  DEPRECATED
+    <item string="3PL Packaging Pricing" action="package_price"/> -->
+</menu>

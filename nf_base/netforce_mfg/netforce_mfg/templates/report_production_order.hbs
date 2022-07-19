@@ -1,0 +1,45 @@
+<center>
+    <h2>
+        Production Order Report
+    </h2>
+</center>
+<table class="table table-striped">
+    <thead class="scroll-header">
+        <tr>
+            <th>No</th>
+            <th>Number</th>
+            <th>Order Date</th>
+            <th>Sale Order Number</th>
+            <th>Product Code</th>
+            <th>Product Name</th>
+            <th>Production Location</th>
+            <th>Planned Qty</th>
+            <th>Received Qty</th>
+            <th>UoM</th>
+            <th>Time Start</th>
+            <th>Time Stop</th>
+            <th>Duration (Minutes)</th>
+            <th>Statue</th>
+        </tr>
+    </thead>
+    {{#each lines context=context}}
+        <tbody>
+            <tr>
+                <td>{{_item_no}}</td>
+                <td>{{number}}</td>
+                <td>{{order_date}}</td>
+                <td>{{sale_order_number}}</td>
+                <td>{{product_code}}</td>
+                <td>{{product_name}}</td>
+                <td>{{production_location}}</td>
+                <td text-align="right">{{currency qty_planned}}</td>
+                <td text-align="right">{{currency qty_received}}</td>
+                <td>{{uom}}</td>
+                <td>{{time_start}}</td>
+                <td>{{time_stop}}</td>
+                <td>{{currency duration}}</td>
+                <td>{{state}}</td>
+            </tr>
+        </tbody>
+    {{/each}}
+</table>

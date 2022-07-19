@@ -1,0 +1,7 @@
+<action>
+    <field name="view">form_popup</field>
+    <field name="string">Print Payslip</field>
+    <field name="model">print.wizard</field>
+    <field name="target">popup</field>
+    <field name="context">{"model":"hr.payslip","template_type":"pay_slip","method":"get_data"}</field>
+</action>

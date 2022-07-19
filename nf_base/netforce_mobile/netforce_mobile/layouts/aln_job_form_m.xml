@@ -1,0 +1,11 @@
+<form_m model="aln.job">
+    <field name="date"/>
+    <field name="number"/>
+    <newline/>
+    <field name="client_id"/>
+    <field name="job_type_id"/>
+    <related>
+        <field name="meetings"/>
+        <field name="documents"/>
+    </related>
+</form_m>

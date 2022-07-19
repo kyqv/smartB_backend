@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Generate Sales Report</field>
+    <field name="view">form_popup</field>
+    <field name="model">gen.sale.report</field>
+    <field name="target">popup</field>
+</action>

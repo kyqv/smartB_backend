@@ -1,0 +1,15 @@
+<form model="hr.payslip.template">
+    <field name="payitem_profile_id" onchange="onchange_profile"/>
+    <field name="employee_id" onchange="onchange_employee"/>
+    <field name="lines" nolabel="1">
+        <list>
+            <field name="payitem_id" onchange="onchange_item_line"/>
+            <field name="currency_id" onchange="onchange_line"/>
+            <field name="qty" onchange="onchange_line"/>
+            <field name="rate" onchange="onchange_line"/>
+            <field name="currency_rate"/>
+            <field name="amount"/>
+        </list>
+    </field>
+    <field name="description"/>
+</form>

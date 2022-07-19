@@ -1,0 +1,8 @@
+<action>
+    <field name="string">Approve Safe To DC</field>
+    <field name="view">form_popup</field>
+    <field name="model">approve.wizard</field>
+    <field name="approve_model">barcode.safe.out</field>
+    <field name="approve_method">approve</field>
+    <field name="target">_popup</field>
+</action>

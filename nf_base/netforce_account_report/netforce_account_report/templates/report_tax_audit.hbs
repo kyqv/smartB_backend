@@ -1,0 +1,55 @@
+<center>
+    <h2>
+        Tax Audit Report
+    </h2>
+    <h3>
+        {{company_name}}
+        <br/>
+        {{#if rate_name}}
+            {{rate_name}} - {{comp_name}}
+        {{/if}}
+        {{#if tax_type}}
+            Tax Type: {{tax_type}}
+        {{/if}}
+        <br/>
+        From {{fmt_date date_from}} to {{fmt_date date_to}}
+    </h3>
+</center>
+
+<table class="table">
+    <thead class="scroll-header">
+        <tr>
+            <th>Date</th>
+            <th>Account</th>
+            <th>Contact</th>
+            <th>Number</th>
+            <th>Reference</th>
+            <th>Details</th>
+            <th>Base</th>
+            <th>Tax</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each lines}}
+            <tr>
+                <td>
+                    {{#link action="view_journal" active_id=move_id}}
+                        {{fmt_date date}}
+                    {{/link}}
+                </td>
+                <td>{{account_name}} ({{account_code}})</td>
+                <td>{{contact_name}}</td>
+                <td>{{number}}</td>
+                <td>{{ref}}</td>
+                <td>{{description}}</td>
+                <td>{{currency base_amount}}</td>
+                <td>{{currency tax_amount}}</td>
+            </tr>
+        {{/each}}
+        <tr>
+            <td colspan="6"></td>
+            <th>{{currency base_total}}</th>
+            <th>{{currency tax_total}}</th>
+        </tr>
+    </tbody>
+</table>

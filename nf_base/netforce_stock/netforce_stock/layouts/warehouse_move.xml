@@ -1,0 +1,21 @@
+<list model="stock.move" action="view_stock_transaction">
+    <search>
+        <field name="product_id"/>
+        <field name="lot_id"/>
+        <field name="container_from_id"/>
+        <field name="container_to_id"/>
+        <field name="ref"/>
+        <field name="state"/>
+    </search>
+    <field name="product_id"/>
+    <field name="lot_id"/>
+    <field name="date"/>
+    <field name="ref"/>
+    <field name="qty"/>
+    <field name="uom_id"/>
+    <field name="cost_price"/>
+    <field name="cost_amount"/>
+    <field name="location_from_id"/>
+    <field name="location_to_id"/>
+    <field name="state"/>
+</list>

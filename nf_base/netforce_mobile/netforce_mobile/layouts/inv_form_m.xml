@@ -1,0 +1,30 @@
+<form_m model="account.invoice">
+    <field name="date"/>
+    <field name="number"/>
+    <field name="contact_id"/>
+    <field name="lines">
+        <list>
+            <field name="description"/>
+            <newline/>
+            <field name="qty"/>
+            <field name="uom_id"/>
+            <field name="unit_price"/>
+            <field name="amount"/>
+        </list>
+        <form>
+            <field name="description"/>
+            <newline/>
+            <field name="qty"/>
+            <field name="uom_id"/>
+            <field name="unit_price"/>
+            <field name="amount"/>
+        </form>
+    </field>
+    <field name="amount_subtotal"/>
+    <field name="amount_tax"/>
+    <field name="amount_total"/>
+    <field name="state"/>
+    <newline/>
+    <button title="Approve" method="approve" type="success" states="draft,waiting_approval" confirm="Are you sure?" icon="ios-checkmark"/>
+    <button title="To Draft" method="to_draft" states="waiting_payment,voided" icon="ios-return-left"/>
+</form_m>

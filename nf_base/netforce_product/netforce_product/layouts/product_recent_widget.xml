@@ -1,0 +1,8 @@
+<list model="product" hide_page="1" hide_select="1">
+    <head replace="1">
+        <button string="Add Product" icon="plus" noselect="1" action="product" action_options='{"mode":"form"}'/>
+    </head>
+    <field name="name"/>
+    <field name="code"/>
+    <field name="categ_id"/>
+</list>

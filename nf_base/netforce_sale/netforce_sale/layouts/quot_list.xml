@@ -1,0 +1,17 @@
+<list model="sale.quot" priority="1">
+    <head>
+        <!--<button string="Print" icon="print" action="report_quot_form"/>
+        <button string="Print (New)" icon="print" action="report_quot_form2" action_options='{"ids":ids}'/>-->
+        <button string="Print" icon="print" action="report_quot_form3" action_options='{"ids":ids}'/>
+        <button string="Merge Quotations" method="merge_quotations"/>
+        <button string="Copy" method="copy"/>
+    </head>
+    <field name="number"/>
+    <field name="contact_id"/>
+    <field name="sale_categ_id"/>
+    <field name="date"/>
+    <field name="user_id"/>
+    <field name="amount_total"/>
+    <field name="payment_terms"/>
+    <field name="state"/>
+</list>

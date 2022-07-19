@@ -1,0 +1,14 @@
+<list model="sale.coupon">
+    <head>
+        <button string="Print" icon="print" action="report_coupon_form" action_options='{"convert":"pdf"}'/>
+    </head>
+    <field name="master_id"/>
+    <field name="contact_id"/>
+    <field name="code"/>
+    <field name="create_time"/>
+    <field name="expiry_date"/>
+    <field name="use_date"/>
+    <field name="use_duration"/>
+    <field name="hide_date"/>
+    <field name="state"/>
+</list> 

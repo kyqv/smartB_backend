@@ -1,0 +1,8 @@
+<form model="visitor.session">
+    <field name="create_time"/>
+    <field name="id_no"/>
+    <field name="visitor_id"/>
+    <related>
+        <field name="actions"/>
+    </related>
+</form>

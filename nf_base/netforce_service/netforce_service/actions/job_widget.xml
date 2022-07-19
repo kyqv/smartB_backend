@@ -1,0 +1,8 @@
+<action>
+    <field name="view">list</field>
+    <field name="model">job</field>
+    <field name="condition">[["state","in",["allocated","in_progress"]]]</field>
+    <field name="order">due_date</field>
+    <field name="layout">job_widget</field>
+    <field name="noselect">1</field>
+</action>

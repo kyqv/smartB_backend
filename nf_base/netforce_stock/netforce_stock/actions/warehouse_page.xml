@@ -1,0 +1,7 @@
+<action>
+    <field name="view_type">model</field>
+    <field name="model">stock.location</field>
+    <field name="template">warehouse_page</field>
+    <field name="menu">stock_menu</field>
+    <field name="options">{"active_id":warehouse_id}</field>
+</action>

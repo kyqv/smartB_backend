@@ -1,0 +1,6 @@
+<action>
+    <field name="view_type">collection</field>
+    <field name="model">sale.lead</field>
+    <field name="template">lead_to_contact</field>
+    <field name="target">_popup</field>
+</action>

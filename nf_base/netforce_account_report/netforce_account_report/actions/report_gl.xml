@@ -1,0 +1,8 @@
+<action>
+    <field name="string">General Ledger Summary</field>
+    <field name="view">report</field>
+    <field name="model">report.gl</field>
+    <field name="template">report_gl</field>
+    <field name="template_xls">account_gl_summary</field>
+    <field name="menu">account_menu</field>
+</action>

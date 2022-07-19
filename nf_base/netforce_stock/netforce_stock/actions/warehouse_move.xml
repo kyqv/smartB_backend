@@ -1,0 +1,5 @@
+<action>
+    <field name="view">list</field>
+    <field name="model">stock.move</field>
+    <field name="layout">warehouse_move</field>
+</action>

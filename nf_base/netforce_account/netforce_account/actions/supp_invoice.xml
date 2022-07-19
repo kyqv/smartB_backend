@@ -1,0 +1,9 @@
+<action>
+    <field name="string">Accounts Payable</field>
+    <field name="view">multi_view</field>
+    <field name="model">account.invoice</field>
+    <field name="condition">[["type","=","in"]]</field>
+    <field name="tabs">[["Summary","payable_summary"],["All",[]],["Draft",[["state","=","draft"]]],["Awaiting Approval",[["state","=","waiting_approval"]]],["Awaiting Payment",[["state","=","waiting_payment"]]],["Paid",[["state","=","paid"]]],["Repeating",[["state","=","repeat"]]],["Awaiting Tax Date",[["tax_date","=",null]]]]</field>
+    <field name="list_layout">supp_invoice_list</field>
+    <field name="menu">account_menu</field>
+</action>

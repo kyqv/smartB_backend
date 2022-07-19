@@ -1,0 +1,4 @@
+<form model="share.record">
+    <field name="user_id"/>
+    <field name="access"/>
+</form>

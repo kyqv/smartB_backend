@@ -1,0 +1,3 @@
+<list_m model="hr.expense.categ">
+    <field name="name"/>
+</list_m>

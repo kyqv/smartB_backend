@@ -1,0 +1,11 @@
+<form model="shopee.product.variation">
+    <field name="index"/>
+    <field name="name"/>
+    <field name="option_list">
+        <list>
+            <field name="index"/>
+            <field name="value"/>
+        </list>
+    </field>
+    <field name="options"/>
+</form>

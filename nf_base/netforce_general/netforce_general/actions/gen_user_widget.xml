@@ -1,0 +1,6 @@
+<action>
+    <field name="view">list</field>
+    <field name="model">base.user</field>
+    <field name="order">lastlog desc</field>
+    <field name="layout">gen_user_widget</field>
+</action>

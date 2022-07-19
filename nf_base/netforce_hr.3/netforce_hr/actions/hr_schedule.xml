@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Work Schedules</field>
+    <field name="view_cls">multi_view</field>
+    <field name="model">hr.schedule</field>
+    <field name="menu">hr_menu</field>
+</action>

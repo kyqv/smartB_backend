@@ -1,0 +1,6 @@
+<list model="hr.leave">
+    <field name="name"/>
+    <field name="start_date"/>
+    <field name="leave_type_id"/>
+    <field name="state"/>
+</list>

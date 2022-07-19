@@ -1,0 +1,69 @@
+<form model="hr.payrun" attrs='{"readonly":[["state","in",["approved","paid","posted"]]]}' show_company="1">
+    <top>
+        <button string="Options">
+            <item string="Copy" method="copy"/>
+            <item string="To Draft" states="approved,paid,posted" method="to_draft" confirm="Are you sure?"/>
+            <divider/>
+            <item string="Generate Payslips" states="draft" method="gen_payslips"/>
+            <divider/>
+            <item string="Copy To Payment" states="approved" method="copy_to_payment"/>
+        </button>
+    </top>
+    <head>
+        <field name="state"/>
+    </head>
+    <group form_layout="stacked">
+        <field name="number" span="2"/>
+        <field name="date_from" span="2"/>
+        <field name="date_to" span="2"/>
+        <field name="date_pay"  span="2"/>
+        <field name="company_id" span="2"/>
+    </group>
+    <foot>
+        <button string="Approve" method="approve" states="draft" icon="ok" type="success"/>
+    </foot>
+    <related>
+        <field name="payslips">
+            <form>
+                <group span="8">
+                    <field name="employee_id"/>
+                    <field name="lines" nolabel="1" reorder_field="sequence">
+                        <list>
+                            <field name="sequence"/>
+                            <field name="payitem_id" onchange="onchange_item"/>
+                            <field name="qty" onchange="update_amounts"/>
+                            <field name="rate" onchange="update_amounts"/>
+                            <field name="amount"/>
+                        </list>
+                    </field>
+                </group>
+                <group span="4" columns="1">
+                    <field name="amount_total_income"/>
+                    <field name="amount_total_expense"/>
+                    <field name="amount_net"/>
+                </group>
+            </form>
+            <list>
+                <head>
+                    <button string="Print" icon="print" action="print_payslip" action_options='{"ids":ids}'/>
+                </head>
+                <field name="employee_id"/>
+                <field name="amount_salary"/>
+                <field name="amount_overtime"/>
+                <field name="amount_mobile"/>
+                <field name="amount_travel"/>
+                <field name="amount_commission"/>
+                <field name="amount_other_income"/>
+                <field name="amount_total_income" show_total="1"/>
+                <field name="amount_tax"/>
+                <field name="amount_sso"/>
+                <field name="amount_pvd"/>
+                <field name="amount_other_expense"/>
+                <field name="amount_total_expense" show_total="1"/>
+                <field name="amount_net" show_total="1"/>
+            </list>
+        </field>
+        <field name="journal_entries"/>
+        <field name="payments"/>
+    </related>
+</form>

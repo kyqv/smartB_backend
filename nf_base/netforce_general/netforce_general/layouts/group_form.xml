@@ -1,0 +1,8 @@
+<form model="user.group">
+    <field name="name"/>
+    <field name="user_id"/>
+    <field name="users"/>
+    <related>
+        <field name="comments"/>
+    </related>
+</form>

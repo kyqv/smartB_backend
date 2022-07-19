@@ -1,0 +1,10 @@
+<action>
+    <field name="view">list</field>
+    <field name="string">Notifications</field>
+    <field name="model">notif</field>
+    <field name="condition">[["show_board","=",true]]</field>
+    <field name="hide_buttons">1</field>
+    <field name="hide_page">1</field>
+    <field name="layout">notif_pending</field>
+    <field name="order">time desc</field>
+</action>

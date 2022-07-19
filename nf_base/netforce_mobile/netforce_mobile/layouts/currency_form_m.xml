@@ -1,0 +1,4 @@
+<form_m model="currency">
+    <field name="name"/>
+    <field name="code"/>
+</form_m>

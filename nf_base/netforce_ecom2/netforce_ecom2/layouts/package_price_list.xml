@@ -1,0 +1,5 @@
+<list model="package.price">
+    <field name="code"/>
+    <field name="description"/>
+    <field name="unit_price"/>
+</list>

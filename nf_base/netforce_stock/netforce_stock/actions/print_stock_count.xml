@@ -1,0 +1,5 @@
+<action>
+    <field name="view">print_wizard</field>
+    <field name="model">stock.count</field>
+    <field name="menu">stock_menu</field>
+</action>

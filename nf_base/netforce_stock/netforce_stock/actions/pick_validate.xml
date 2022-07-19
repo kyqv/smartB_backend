@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Validate Picking</field>
+    <field name="view">form_popup</field>
+    <field name="model">pick.validate</field>
+    <field name="target">popup</field>
+</action>

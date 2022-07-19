@@ -1,0 +1,92 @@
+<form model="purchase.return" attrs='{"readonly":[["state","in",["confirmed","done","voided"]]]}' show_company="1" show_save="1">
+    <head>
+        <field name="state"/>
+        <button string="Print" icon="print" action="report_purchase_return_form"/>
+        <button string="Options" dropdown="1" align="right">
+            <item string="Copy To Goods Issue" method="copy_to_picking" states="confirmed"/>
+            <item string="Copy To Credit Note" method="copy_to_credit_note" states="confirmed"/>
+            <item string="Copy" method="copy"/>
+            <divider/>
+            <item string="To Draft" method="to_draft" states="confirmed,done"/>
+            <item string="Void" method="void" confirm="Are you sure you want to void this purchase return?" states="confirmed,done"/>
+        </button>
+    </head>
+    <tabs>
+        <tab string="General">
+            <group form_layout="stacked">
+                <field name="contact_id" span="2" create="1" onchange="onchange_contact"/>
+                <field name="date" span="2"/>
+                <field name="number" span="2"/>
+                <field name="ref" span="2"/>
+                <field name="is_delivered" span="1"/>
+                <field name="is_paid" span="1"/>
+                <newline/>
+                <field name="currency_id" span="2"/>
+                <field name="tax_type" span="2"/>
+                <field name="price_list_id" span="2"/>
+                <newline/>
+                <field name="bill_address_id" span="2" condition='[["settings_id","=",1]]'/>
+                <field name="ship_address_id" span="2" condition='[["settings_id","=",1]]'/>
+                <field name="orig_purchase_id" span="2"/>
+            </group>
+            <field name="lines" nolabel="1">
+                <list onchange="update_amounts">
+                    <field name="product_id" onchange="onchange_product"/>
+                    <field name="description"/>
+                    <field name="qty" onchange="onchange_qty"/>
+                    <field name="uom_id" onchange="update_amounts"/>
+                    <field name="unit_price" onchange="update_amounts"/>
+                    <field name="tax_id" onchange="update_amounts"/>
+                    <field name="discount_amount" onchange="update_amounts"/>
+                    <field name="amount"/>
+                    <field name="location_id"/>
+                    <field name="ship_method_id"/>
+                    <field name="qty_issued"/>
+                </list>
+            </field>
+            <group offset="8" span="4" columns="1">
+                <field name="amount_subtotal"/>
+                <field name="amount_tax"/>
+                <field name="amount_total"/>
+            </group>
+            <newline/>
+            <field name="payment_terms"/>
+            <newline/>
+            <field name="other_info"/>
+        </tab>
+        <tab string="Other Info">
+            <field name="user_id"/>
+            <newline/>
+            <field name="sequence_id" condition='[["type","=","purchase_return"]]' onchange="onchange_sequence"/>
+            <newline/>
+            <field name="ship_term_id"/>
+        </tab>
+    </tabs>
+    <field name="company_id" invisible="1"/>
+    <foot>
+        <button string="Confirm" method="confirm" type="success" states="draft" perm="approve_purchase"/>
+        <button string="Completed" method="done" type="success" states="confirmed"/>
+        <button string="Reopen" method="reopen" icon="refresh" states="done"/>
+    </foot>
+    <related>
+        <field name="invoices" click_action="view_invoice"/>
+        <field name="pickings"/>
+        <field name="documents">
+            <list>
+                <field name="file" target="_blank" preview="1"/>
+                <field name="categ_id"/>
+                <field name="description"/>
+                <field name="date"/>
+            </list>
+            <form>
+                <field name="categ_id"/>
+                <field name="file" target="_blank" onchange="onchange_file"/>
+                <field name="date"/>
+                <field name="description"/>
+                <field name="contact_id" invisible="1"/>
+            </form>
+        </field>
+        <field name="emails"/>
+        <field name="comments"/>
+    </related>
+</form>

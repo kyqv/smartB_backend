@@ -1,0 +1,14 @@
+<form model="invoice.overpay" title="Overpayment">
+    <template>
+        <p>
+            The payment you entered exceeds the amount owed by <b>{{currency context.data.amount_overpay}}</b>.
+            Would you like to create an overpayment?
+        </p>
+    </template>
+    <field name="description" required="1"/>
+    <field name="amount_overpay" invisible="1"/>
+    <field name="payment_id" invisible="1"/>
+    <foot>
+        <button string="OK" type="primary" method="do_overpay"/>
+    </foot>
+</form>

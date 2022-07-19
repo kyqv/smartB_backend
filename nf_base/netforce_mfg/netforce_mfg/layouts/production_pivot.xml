@@ -1,0 +1,13 @@
+<pivot model="production.order" rows="product_id.name,uom_id.name" cols="due_date_week" agg_name="sum" vals="qty_planned">
+    <field name="number" string="Order Number"/>
+    <field name="product_id.code" string="Product Code"/>
+    <field name="product_id.name" string="Product Name"/>
+    <field name="product_id.categ_id.name" string="Product Category"/>
+    <field name="state"/>
+    <field name="due_date"/>
+    <field name="due_date_week"/>
+    <field name="due_date_month"/>
+    <field name="order_date"/>
+    <field name="qty_planned"/>
+    <field name="uom_id.name" string="UoM"/>
+</pivot>

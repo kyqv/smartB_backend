@@ -1,0 +1,4 @@
+<action>
+    <field name="view">template</field>
+    <field name="template">receivable_summary</field>
+</action>

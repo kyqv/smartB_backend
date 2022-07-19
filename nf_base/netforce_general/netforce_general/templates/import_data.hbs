@@ -1,0 +1,11 @@
+{{#view "page" title=context.data.title context=context}}
+    {{view "flash" context=context}}
+    {{#view "form_body" background="1" context=context}}
+        {{view "field" name="file" context=context}}
+        {{view "field" name="model" invisible="1" context=context}}
+        {{view "field" name="next" invisible="1" context=context}}
+    {{/view}}
+    {{#view "form_foot" context=context}}
+        {{view "button" string="Import" type="primary" size="large" method="do_import" next=context.next context=context}}
+    {{/view}}
+{{/view}}

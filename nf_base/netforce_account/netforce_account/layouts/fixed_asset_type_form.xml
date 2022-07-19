@@ -1,0 +1,12 @@
+<form model="account.fixed.asset.type">
+    <group>
+        <field name="name"/>
+        <field name="code"/>
+        <field name="fixed_asset_account_id" condition='[["type","!=","view"]]'/>
+        <field name="dep_rate"/>
+        <field name="dep_method"/>
+        <field name="accum_dep_account_id" condition='[["type","!=","view"]]'/>
+        <field name="dep_exp_account_id" condition='[["type","!=","view"]]'/>
+        <field name="description"/>
+    </group>
+</form>

@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Websites</field>
+    <field name="view">multi_view</field>
+    <field name="model">website</field>
+    <field name="menu">cms_menu</field>
+</action>

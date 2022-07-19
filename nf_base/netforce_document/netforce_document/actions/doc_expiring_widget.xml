@@ -1,0 +1,8 @@
+<action>
+    <field name="name">doc_expiring_widget</field>
+    <field name="view">list</field>
+    <field name="model">document</field>
+    <field name="condition">[["expiring_soon","=",true]]</field>
+    <field name="layout">doc_expiring_list</field>
+    <field name="order">expiry_date</field>
+</action>

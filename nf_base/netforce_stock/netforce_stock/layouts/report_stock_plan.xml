@@ -1,0 +1,7 @@
+<form model="report.stock.plan">
+    <group form_layout="stacked">
+        <field name="product_categ_id" span="2"/>
+        <field name="supplier_id" span="2"/>
+        <field name="plan_horizon" span="2"/>
+    </group>
+</form>

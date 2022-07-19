@@ -1,0 +1,17 @@
+<action>
+    <field name="string">Goods Transfers</field>
+    <field name="view">multi_view</field>
+    <field name="model">stock.picking</field>
+    <field name="condition">[["type","=","internal"]]</field>
+    <field name="tabs">[["All",[]],["Draft",[["state","=","draft"]]],["Planned",[["state","=","pending"]]],["Approved",[["state","=","approved"]]],["Completed",[["state","=","done"]]]]</field>
+    <!--
+    <field name="group_field">journal_id</field>
+    <field name="group_field_path">journal_id.name</field>
+    -->
+    <field name="list_layout">pick_internal_list</field>
+    <field name="form_layout">pick_internal_form</field>
+    <field name="model_string">Goods Transfer</field>
+    <field name="context">{"pick_type":"internal"}</field>
+    <field name="modes">list,form,calendar</field>
+    <field name="menu">stock_menu</field>
+</action>

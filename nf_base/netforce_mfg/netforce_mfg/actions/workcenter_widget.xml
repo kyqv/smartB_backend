@@ -1,0 +1,5 @@
+<action>
+    <field name="view_type">collection</field>
+    <field name="model">workcenter</field>
+    <field name="template">workcenter_widget</field>
+</action>

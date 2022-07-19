@@ -1,0 +1,5 @@
+<list model="hr.payitem">
+    <field name="name"/>
+    <field name="type"/>
+    <field name="account_id"/>
+</list>

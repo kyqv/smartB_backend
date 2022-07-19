@@ -1,0 +1,6 @@
+<list_m model="sms.message">
+    <field name="date"/>
+    <field name="state"/>
+    <newline/>
+    <field name="phone"/>
+</list_m>

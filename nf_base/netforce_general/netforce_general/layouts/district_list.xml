@@ -1,0 +1,5 @@
+<list model="district">
+    <field name="province_id"/>
+    <field name="name"/>
+    <field name="code"/>
+</list>

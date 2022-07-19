@@ -1,0 +1,7 @@
+<action>
+    <field name="name">sequence</field>
+    <field name="string">Sequences</field>
+    <field name="view">multi_view</field>
+    <field name="model">sequence</field>
+    <field name="menu">gen_menu</field>
+</action>

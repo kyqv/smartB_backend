@@ -1,0 +1,46 @@
+<form model="sale.promotion" show_company="1">
+    <head>
+        <field name="state"/>
+    </head>
+    <field name="name"/>
+    <field name="code"/>
+    <field name="product_id"/>
+    <field name="state"/>
+    <field name="company_id"/>
+    <field name="description"/>
+    <separator string="Conditions"/>
+    <field name="date_from"/>
+    <field name="date_to"/>
+    <newline/>
+    <field name="buy_products"/>
+    <field name="buy_prod_groups"/>
+    <newline/>
+    <field name="related_products"/>
+    <field name="related_prod_groups"/>
+    <newline/>
+    <field name="contact_groups"/>
+    <newline/>
+    <field name="buy_min_amount"/>
+    <field name="buy_min_qty"/>
+    <field name="coupon_master_id"/>
+    <field name="apply_multi"/>
+    <field name="max_uses_per_customer"/>
+    <field name="max_total_uses"/>
+    <separator string="Discount"/>
+    <field name="discount_products"/>
+    <field name="discount_prod_groups"/>
+    <newline/>
+    <field name="discount_percent_item"/>
+    <field name="discount_amount_item"/>
+    <field name="discount_percent_order"/>
+    <field name="discount_amount_order"/>
+    <field name="discount_max_qty"/>
+    <field name="auto_apply"/>
+    <separator string="Cart upsell messaging"/>
+    <field name="cart_offer_message"/>
+    <field name="cart_confirm_message"/>
+    <foot>
+        <button string="Activate" type="success" method="activate" states="inactive"/>
+        <button string="Deactivate" method="deactivate" states="active"/>
+    </foot>
+</form> 

@@ -1,0 +1,5 @@
+<list model="service.categ">
+    <field name="full_name"/>
+    <field name="job_sequence_id"/>
+    <field name="manager_group_id"/>
+</list>

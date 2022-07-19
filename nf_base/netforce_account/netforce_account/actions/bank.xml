@@ -1,0 +1,11 @@
+<action>
+    <field name="view">list_container</field>
+    <field name="string">Bank Accounts</field>
+    <field name="model">account.account</field>
+    <field name="condition">[["type","in",["bank","cash","cheque"]]]</field>
+    <field name="order">name</field>
+    <field name="modes">list_details,page</field>
+    <field name="list_details_layout">bank_list_details</field>
+    <field name="page_layout">bank_page</field>
+    <field name="menu">account_menu</field>
+</action>

@@ -1,0 +1,12 @@
+<form_m model="sale.lead">
+    <field name="date" bold="1"/>
+    <field name="age_days" bold="1" label="Age"/>
+    <newline/>
+    <field name="title" label="Subject"/>
+    <newline/>
+    <field name="contact_name" label="From"/>
+    <newline/>
+    <field name="description" view="field_html"/>
+    <newline/>
+    <field name="state" label="Status"/>
+</form_m>

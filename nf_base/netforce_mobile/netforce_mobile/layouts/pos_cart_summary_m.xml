@@ -1,0 +1,16 @@
+<form_m model="ecom2.cart">
+    <field name="lines">
+        <list>
+            <field name="product_id"/>
+            <field name="qty"/>
+            <field name="amount"/>
+        </list>
+        <form>
+            <field name="product_id"/>
+            <field name="qty"/>
+            <field name="amount"/>
+        </form>
+    </field>
+    <newline/>
+    <field name="amount_total"/>
+</form_m>

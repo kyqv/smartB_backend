@@ -1,0 +1,10 @@
+<action>
+    <field name="string">Email Outbox</field>
+    <field name="view">list</field>
+    <field name="model">email.message</field>
+    <field name="condition">[["mailbox_id.type","=","out"]]</field>
+    <field name="layout">email_outbox_list</field>
+    <field name="show_search">1</field>
+    <field name="show_default_buttons">1</field> <!-- XXX -->
+    <field name="show_pagination">1</field>
+</action>

@@ -1,0 +1,24 @@
+<menu string="Purchasing">
+    <item string="Dashboard" action="purchase_board"/>
+    <item string="Purchasing">
+        <item string="Purchase Orders" action="purchase"/>
+        <item string="Purchase Requests" action="purchase_request"/>
+        <item string="Purchase Returns" action="purchase_return"/>
+    </item>
+    <item string="Reports">
+        <item string="Purchase Order Generator" action="report_purchase_gen3"/>
+        <item string="Purchase Order Generator (TNP1)" action="report_purchase_gen2"/>
+        <item string="Purchase Order Generator (TNP2)" action="report_purchase_gen"/>
+        <divider/>
+        <item string="Purchase Order Analysis" action="purch_analysis"/>
+        <item string="Purchase Line Analysis" action="purch_line_analysis"/>
+        <divider/>
+        <item string="Commission Purchase Report" action="report_commission_po"/>
+        <divider/>
+        <item string="Purchase Goods Receipt Report" action="report_purchase_picking"/>
+    </item>
+    <item string="Settings">
+        <item string="Purchase Settings" action="purchase_settings"/>
+        <item string="Purchase Types" action="purch_type"/>
+    </item>
+</menu>

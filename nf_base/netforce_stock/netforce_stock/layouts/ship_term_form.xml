@@ -1,0 +1,6 @@
+<form model="ship.term">
+    <field name="name"/>
+    <field name="description"/>
+    <field name="unit_price_diff"/>
+    <field name="unit_price_diff_percent"/>
+</form>

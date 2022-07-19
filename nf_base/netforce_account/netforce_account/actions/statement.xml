@@ -1,0 +1,7 @@
+<action>
+    <field name="string">Bank Statements</field>
+    <field name="view">multi_view</field>
+    <field name="model">account.statement</field>
+    <field name="modes">list,page,form</field>
+    <field name="menu">account_menu</field>
+</action>

@@ -1,0 +1,5 @@
+<list model="product.addon">
+    <field name="name"/>
+    <field name="code"/>
+    <field name="sale_price"/>
+</list>

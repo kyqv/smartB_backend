@@ -1,0 +1,8 @@
+<action>
+    <field name="string">Account Summary</field>
+    <field name="view">report</field>
+    <field name="model">report.account.sum</field>
+    <field name="template">report_account_sum</field>
+    <field name="template_xls">account_sum</field>
+    <field name="menu">account_menu</field>
+</action>

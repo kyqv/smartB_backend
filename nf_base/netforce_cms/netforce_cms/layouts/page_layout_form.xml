@@ -1,0 +1,24 @@
+<form model="page.layout">
+    <top>
+        <button string="Options">
+            <item string="Copy" method="copy"/>
+            <divider/>
+            <item string="Transpile" method="transpile"/>
+        </button>
+    </top>
+    <field name="name"/>
+    <field name="path"/>
+    <field name="group_id"/>
+    <field name="type"/>
+    <field name="website_id"/>
+    <field name="show_menu"/>
+    <field name="sequence"/>
+    <field name="model_id"/>
+    <field name="state"/>
+    <newline/>
+    <field name="layout" width="800" height="500"/>
+    <newline/>
+    <field name="code" width="800" height="500"/>
+    <newline/>
+    <field name="code_trans" width="800" height="500"/>
+</form>

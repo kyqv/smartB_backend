@@ -1,0 +1,58 @@
+<form model="stock.count" attrs='{"readonly":[["state","in",["done","voided"]]]}' show_company="1" on_barcode="on_barcode">
+    <top>
+        <button string="Print PDF" icon="print" action="report_inventory_form"/>
+        <button string="Options" dropdown="1">
+            <item string="Add Lines" action="stock_count_add" action_context='{"refer_id":id}' states="draft"/>
+            <item string="Update Lines" method="update_prev_qtys" states="draft"/>
+            <item string="Delete Lines" method="delete_lines" states="draft"/>
+            <item string="Remove Duplicate Lines" method="remove_dup" states="draft"/>
+            <item string="Copy" method="copy"/>
+            <item string="To Draft" method="to_draft" states="done"/>
+            <item string="Void" method="void" confirm="Are you sure you want to void this stock count?" states="done"/>
+        </button>
+    </top>
+    <head>
+        <field name="state"/>
+    </head>
+    <tabs>
+        <tab string="General">
+            <group form_layout="stacked">
+                <field name="location_id" span="2" condition='[["type","=","internal"]]'/>
+                <field name="date" span="2" onchange="onchange_date"/>
+                <field name="number" span="2"/>
+                <field name="memo" span="2"/>
+            </group>
+            <field name="lines" nolabel="1">
+                <list>
+                    <field name="product_id" onchange="onchange_product"/>
+                    <field name="lot_id" create="1"/>
+                    <field name="bin_location"/>
+                    <field name="prev_qty"/>
+                    <field name="prev_cost_price"/>
+                    <field name="prev_cost_amount"/>
+                    <field name="new_qty"/>
+                    <field name="unit_price"/>
+                    <field name="new_cost_amount"/>
+                    <field name="uom_id"/>
+                    <field name="lot_weight"/>
+                    <field name="cyclecount_id"/> <!--Max 20 Jul 2021-->
+                </list>
+            </field>
+            <field name="total_cost_amount"/>
+            <newline/>
+            <field name="total_prev_qty"/>
+            <field name="total_new_qty"/>
+        </tab>
+        <tab string="Other">
+            <field name="journal_id"/>
+        </tab>
+    </tabs>
+    <field name="company_id" invisible="1"/>
+    <foot>
+        <button string="Validate" method="validate" type="success" states="draft" show_progress="1"/>
+    </foot>
+    <related>
+        <field name="moves"/>
+        <field name="comments"/>
+    </related>
+</form>

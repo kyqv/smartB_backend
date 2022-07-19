@@ -1,0 +1,10 @@
+<action>
+    <field name="view">list_m</field>
+    <field name="title">Pack For Customer</field>
+    <field name="model">stock.picking</field>
+    <field name="condition">[["journal_id.type","=","out"]]</field>
+    <field name="tabs">[["Planned",[["state","in",["pending","approved"]]]],["QC Checked",[["state","=","qc_checked"]]],["Completed",[["state","=","done"]]]]</field>
+    <field name="form_layout">pick_out_form_m</field>
+    <field name="context">{"pick_type":"out"}</field>
+    <field name="menu">main_menu_m</field>
+</action>

@@ -1,0 +1,12 @@
+<list model="price.list.item">
+    <field name="list_id"/>
+    <field name="type"/>
+    <field name="product_id"/>
+    <field name="min_qty"/>
+    <field name="max_qty"/>
+    <field name="discount_percent"/>
+    <field name="price"/>
+    <field name="uom_id"/>
+    <field name="currency_id"/>
+    <field name="discount_text"/>
+</list>

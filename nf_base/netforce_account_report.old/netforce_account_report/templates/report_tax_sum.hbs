@@ -1,0 +1,79 @@
+<center>
+    <h2>
+        Tax Summary Report
+    </h2>
+    <h3>
+        {{company_name}}
+        <br/>
+        From {{fmt_date date_from}} to {{fmt_date date_to}}
+    </h3>
+</center>
+
+<table class="table">
+    <thead class="scroll-header">
+        <tr>
+            <th>Tax</th>
+            <th>Rate</th>
+            <th>Base</th>
+            <th>Tax</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#if by_rate}}
+            <tr>
+                <td colspan="4">
+                    <h4>Taxes by Tax Rate</h4>
+                </td>
+            </tr>
+            {{#each_group rate_taxes "rate_name" sum="base_total,tax_total"}}
+                <tr>
+                    <td colspan="4">
+                        <b>{{rate_name}}</b>
+                    </td>
+                </tr>
+                {{#each group_items}}
+                    <tr>
+                        <td>{{comp_name}}</td>
+                        <td>{{comp_rate}}%</td>
+                        <td>{{currency base_total}}</td>
+                        <td>{{currency tax_total}}</td>
+                    </tr>
+                {{/each}}
+                <tr>
+                    <td>Total {{rate_name}}</td>
+                    <td></td>
+                    <td>{{currency sum.base_total}}</td>
+                    <td>{{currency sum.tax_total}}</td>
+                </tr>
+            {{/each_group}}
+        {{/if}}
+        {{#if by_comp}}
+            <tr>
+                <td colspan="4">
+                    <h4>Taxes by Tax Component</h4>
+                </td>
+            </tr>
+            {{#each_group comp_taxes "comp_name" sum="base_total,tax_total" context=context}}
+                <tr>
+                    <td colspan="4">
+                        <b>{{comp_name}}</b>
+                    </td>
+                </tr>
+                {{#each group_items context=context}}
+                    <tr>
+                        <td>{{rate_name}}</td>
+                        <td>{{comp_rate}}%</td>
+                        <td><a href="ui#name=report_tax_audit&defaults.tax_comp_id={{comp_id}}&defaults.date_from={{../../date_from}}&defaults.date_to={{../../date_to}}">{{currency base_total}}</a></td>
+                        <td><a href="ui#name=report_tax_audit&defaults.tax_comp_id={{comp_id}}&defaults.date_from={{../../date_from}}&defaults.date_to={{../../date_to}}">{{currency tax_total}}</a></td>
+                    </tr>
+                {{/each}}
+                <tr>
+                    <td>Total {{comp_name}}</td>
+                    <td></td>
+                    <td>{{currency sum.base_total}}</td>
+                    <td>{{currency sum.tax_total}}</td>
+                </tr>
+            {{/each_group}}
+        {{/if}}
+    </tbody>
+</table>

@@ -1,0 +1,19 @@
+<form model="ecom2.settings">
+    <field name="delivery_slot_discount"/>
+    <newline/>
+    <field name="delivery_max_days"/>
+    <newline/>
+    <field name="delivery_min_hours"/>
+    <newline/>
+    <field name="ecom_num_lots"/>
+    <newline/>
+    <field name="sale_lead_time_nostock"/>
+    <newline/>
+    <field name="work_time_start"/>
+    <field name="work_time_end"/>
+    <newline/>
+    <field name="ecom_return_url"/>
+    <related>
+        <field name="extra_ship_addresses"/>
+    </related>
+</form>

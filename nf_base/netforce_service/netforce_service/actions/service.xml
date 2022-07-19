@@ -1,0 +1,8 @@
+<action>
+    <field name="name">service</field>
+    <field name="string">Services</field>
+    <field name="view">multi_view</field>
+    <field name="model">service</field>
+    <field name="tabs">[["All",[]],["Archived",[["active","=",false]]]]</field>
+    <field name="menu">service_menu</field>
+</action>

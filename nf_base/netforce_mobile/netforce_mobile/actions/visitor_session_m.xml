@@ -1,0 +1,6 @@
+<action>
+    <field name="view">list_m</field>
+    <field name="title">Sessions</field>
+    <field name="model">visitor.session</field>
+    <field name="menu">main_menu_m</field>
+</action>

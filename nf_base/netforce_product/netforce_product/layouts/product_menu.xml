@@ -1,0 +1,21 @@
+<menu string="Products">
+    <item string="Dashboard" action="product_board"/>
+    <item string="Products">
+        <item string="Products" action="product"/>
+    </item>
+    <item string="Reports">
+        <item string="Product Analysis" action="product_analysis"/>
+    </item>
+    <item string="Settings">
+        <item string="Product Categories" action="prod_categ"/>
+        <item string="Product Groups" action="prod_group"/>
+        <item string="Product Attributes" action="prod_attrib"/>
+        <item string="Product Addons" action="product_addon"/>
+        <item string="Pricelists" action="pricelist"/>
+        <item string="Pricelist Items" action="pricelist_item"/>
+        <item string="Price Types" action="price_type"/>
+        <item string="Brands" action="brand"/>
+        <item string="Brands Group" action="prod_brand_group"/>
+        <item string="Cost Types" action="cost_type"/>
+    </item>
+</menu>

@@ -1,0 +1,5 @@
+<list model="uom">
+    <field name="name"/>
+    <field name="type"/>
+    <field name="ratio"/>
+</list>

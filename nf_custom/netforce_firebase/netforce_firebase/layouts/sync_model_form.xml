@@ -1,0 +1,12 @@
+<form model="sync.model">
+    <field name="firebase_account_id"/>
+    <field name="model_id"/>
+    <newline/>
+    <field name="path"/>
+    <field name="fields"/>
+    <newline/>
+    <field name="filter"/>
+    <field name="enable_realtime"/>
+    <newline/>
+    <field name="last_sync_time"/>
+</form>

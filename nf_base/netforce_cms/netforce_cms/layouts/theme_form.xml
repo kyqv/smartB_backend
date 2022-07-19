@@ -1,0 +1,11 @@
+<form model="theme">
+    <head>
+        <field name="state"/>
+    </head>
+    <field name="name"/>
+    <related>
+        <field name="websites"/>
+        <field name="components"/>
+        <field name="files"/>
+    </related>
+</form>

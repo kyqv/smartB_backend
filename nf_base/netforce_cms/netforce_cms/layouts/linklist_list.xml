@@ -1,0 +1,4 @@
+<list model="cms.linklist">
+    <field name="name"/>
+    <field name="code"/>
+</list>

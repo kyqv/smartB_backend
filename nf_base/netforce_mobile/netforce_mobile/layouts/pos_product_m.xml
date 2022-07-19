@@ -1,0 +1,3 @@
+<grid_m model="product" image_field="image" method="pos_add_to_cart">
+    <field name="name"/>
+</grid_m>

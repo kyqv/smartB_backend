@@ -1,0 +1,15 @@
+<list model="mkt.campaign">
+    <field name="name"/>
+    <field name="date"/>
+    <field name="target_lists"/>
+    <field name="min_target_life"/>
+    <field name="num_targets"/>
+    <field name="num_create"/>
+    <field name="percent_sent"/>
+    <field name="percent_delivered"/>
+    <field name="percent_bounced"/>
+    <field name="percent_rejected"/>
+    <field name="percent_opened"/>
+    <field name="percent_clicked"/>
+    <field name="state"/>
+</list>

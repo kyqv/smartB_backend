@@ -1,0 +1,7 @@
+<action>
+    <field name="string">Pages</field>
+    <field name="view">multi_view</field>
+    <field name="model">cms.page</field>
+    <field name="tabs">[["All",[]],["Active",[["state","=","active"]]],["Inactive",[["state","=","inactive"]]]]</field>
+    <field name="menu">cms_menu</field>
+</action>

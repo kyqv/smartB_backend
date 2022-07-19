@@ -1,0 +1,3 @@
+<form_m model="aln.job.type">
+    <field name="name"/>
+</form_m>

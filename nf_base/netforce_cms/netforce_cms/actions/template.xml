@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Templates</field>
+    <field name="view">multi_view</field>
+    <field name="model">template</field>
+    <field name="menu">cms_menu</field>
+</action>

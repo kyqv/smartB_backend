@@ -1,0 +1,59 @@
+<center>
+    <h2>
+        Account Summary
+    </h2>
+    <h3>
+        {{data.company_name}}
+        <br/>
+        {{data.account_name}}
+        <br/>
+        From {{fmt_date data.date_from}} to {{fmt_date data.date_to}}
+    </h3>
+</center>
+<table class="table">
+    <thead class="scroll-header">
+        <tr>
+            <th>
+                Month
+            </th>
+            <th style="text-align:right">
+                Balance {{data.company_currency_code}} (Company Cur.)
+            </th>
+            <th style="text-align:right">
+                Balance {{data.account_currency_code}} (Account Cur.)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each data.lines}}
+            <tr>
+                <td>
+                    {{month}}
+                </td>
+                <td style="text-align:right">
+                    {{#link action="report_account_trans" defaults_account_id=account_id defaults_date_from=date_from defaults_date_to=date_to defaults_contact_id=../data.contact_id defaults_track_id=../data.track_id defaults_track2_id=../data.track2_id}}
+                        {{currency balance}}
+                    {{/link}}
+                </td>
+                <td style="text-align:right">
+                    {{#link action="report_account_trans" defaults_account_id=account_id defaults_date_from=date_from defaults_date_to=date_to defaults_contact_id=../data.contact_id defaults_track_id=../data.track_id defaults_track2_id=../data.track2_id}}
+                        {{currency balance_cur}}
+                    {{/link}}
+                </td>
+            </tr>
+        {{/each}}
+    </tbody>
+    <tfoot>
+        <tr style="font-weight:bold">
+            <td>
+                Total
+            </td>
+            <td style="text-align:right">
+                {{currency data.total}}
+            </td>
+            <td style="text-align:right">
+                {{currency data.total_cur}}
+            </td>
+        </tr>
+    </tfoot>
+</table>

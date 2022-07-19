@@ -1,0 +1,7 @@
+<record model="action">
+    <field name="string">Coupons</field>
+    <field name="view">multi_view</field>
+    <field name="model">sale.coupon</field>
+    <field name="tabs">[["All",[]],["Available",[["state","=","available"]]],["In Use",[["state","=","in_use"]]],["Used",[["state","=","used"]]],["Expired",[["state","=","expired"]]],["Inactive",[["active","=",false]]]]</field>
+    <field name="menu">sale_menu</field>
+</record>

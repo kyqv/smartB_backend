@@ -1,0 +1,7 @@
+<list model="sale.lead" hide_select="1" hide_page="1" priority="20"> 
+    <head replace="1"/>
+    <field name="date"/>
+    <field name="title"/>
+    <field name="contact_name"/>
+    <field name="age_days"/>
+</list>

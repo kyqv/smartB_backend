@@ -1,0 +1,39 @@
+<center>
+    <h2>
+        Stock Expiry Report
+    </h2>
+    <h3>
+        {{data.company_name}}
+    </h3>
+    <h4>
+        Date: {{data.date}}
+    </h4>
+</center>
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th style="width:20px"><input type="checkbox" class="nf-select-all"/></th>
+            <th>Product Code</th>
+            <th>Product Name</th>
+            {{#each months}}
+                <th>{{month_name}}</th>
+            {{/each}}
+        </tr>
+    </thead>
+    <tbody>
+        {{#each lines}}
+            <tr {{#if show_alert}}style="background-color:#f99"{{/if}}>
+                <td><input type="checkbox" class="nf-prod-select" data-product-id="{{prod_id}}" data-qty="{{order_qty}}"/></td>
+                <td>
+                    {{#link action="report_forecast_details" defaults_product_id=prod_id}}
+                        {{prod_code}}
+                    {{/link}}
+                </td>
+                <td>{{prod_name}}</td>
+                {{#each months}}
+                    <td>{{exp_qty}}</td>
+                {{/each}}
+            </tr>
+        {{/each}}
+    </tbody>
+</table>

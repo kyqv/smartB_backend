@@ -1,0 +1,21 @@
+<form model="hr.import.attendance" title="Import New Attendance">
+
+    <field name="import_type"/>
+
+    <group attrs='{"invisible": [["import_type","=","csv"]]}'>
+        <field name="date"/>
+        <field name="machine_id" />
+    </group>
+
+    <group attrs='{"invisible": [["import_type","=","auto"]]}'>
+
+        <field name="file" attrs='{"required":[["import_type","=","csv"]]}' />
+        <field name="encoding" />
+
+    </group>
+
+    <foot replace="1">
+        <button string="Import" method="import_data" type="primary"/>
+
+    </foot>
+</form>

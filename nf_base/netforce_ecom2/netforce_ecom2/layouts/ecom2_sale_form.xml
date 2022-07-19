@@ -1,0 +1,6 @@
+<inherit inherit="sale_form">
+    <field name="ship_tracking" position="after">
+        <newline/>
+        <field name="ecom_state"/>
+    </field>
+</inherit>

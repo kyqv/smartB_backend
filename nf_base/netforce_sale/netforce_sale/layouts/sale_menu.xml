@@ -1,0 +1,52 @@
+<menu string="Sales">
+    <item string="Dashboard" action="sale_board"/>
+    <item string="Sales">
+        <item string="Leads" action="lead"/>
+        <item string="Opportunities" action="opport"/>
+        <item string="Quotations" action="quot"/>
+        <item string="Sales Orders" action="sale"/>
+        <item string="Sales Returns" action="sale_return"/>
+        <item string="Sales Forecast" action="sale_forecast"/>
+        <item string="Sales Forecast Details" action="sale_forecast_line"/>
+        <item string="Sales Activities" action="sale_activ"/>
+        <item string="Recurring Sales" action="sale_rec"/>
+    </item>
+    <item string="Promotions">
+        <item string="Promotions" action="promotion"/>
+        <item string="Coupon Masters" action="coupon_master"/>
+        <item string="Coupons" action="coupon"/>
+        <item string="Events" action="sale_event"/>
+        <item string="Vouchers" action="sale_voucher"/>
+    </item>
+    <item string="Reports">
+        <item string="Leads Analysis" action="lead_analysis"/>
+        <divider/>
+        <item string="Opportunity Analysis" action="opport_analysis"/>
+        <divider/>
+        <item string="Quotation Analysis" action="quot_analysis"/>
+        <item string="Quotation Line Analysis" action="quot_line_analysis"/>
+        <divider/>
+        <item string="Sales Order Analysis" action="sale_analysis"/>
+        <item string="Sales Line Analysis" action="sale_line_analysis"/>
+        <divider/>
+        <item string="Sales Profit Summary Report" action="report_sale_profit"/>
+        <item string="Sales Profit Details Report" action="report_sale_profit_details"/>
+        <item string="Unpaid Sales Report" action="report_unpaid_sale"/>
+        <item string="Sales Payments Report" action="report_sale_payment"/>
+        <divider/>
+        <item string="Demand Forecast Analysis" action="demand_analysis"/>
+        <divider/>
+        <item string="Commission Report" action="report_sale_commission"/>
+    </item>
+    <item string="Settings">
+        <item string="Sales Settings" action="sale_settings"/>
+        <item string="Lead Sources" action="lead_source"/>
+        <item string="Sales Channels" action="sale_channel"/>
+        <item string="Sales Stages" action="sale_stage"/>
+        <item string="Sales Categories" action="sale_categ"/>
+        <item string="Sellers" action="seller"/>
+        <item string="Sales Targets" action="sale_target"/>
+        <item string="Competitors" action="competitor"/>
+        <item string="Delivery Terms" action="delivery_term"/>
+    </item>
+</menu>

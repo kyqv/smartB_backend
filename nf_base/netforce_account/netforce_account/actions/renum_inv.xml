@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Renumber Invoices</field>
+    <field name="view">form_popup</field>
+    <field name="model">renum.inv</field>
+    <field name="target">popup</field>
+</action>

@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Send</field>
+    <field name="view">form_popup</field>
+    <field name="model">send.wizard</field>
+    <field name="target">_popup</field>
+</action>

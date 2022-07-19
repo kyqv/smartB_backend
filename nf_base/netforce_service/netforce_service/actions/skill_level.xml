@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Skill Levels</field>
+    <field name="view">multi_view</field>
+    <field name="model">skill.level</field>
+    <field name="menu">service_menu</field>
+</action>

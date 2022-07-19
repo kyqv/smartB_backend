@@ -1,0 +1,143 @@
+<center>
+    <h2>
+        Trial Balance Details
+    </h2>
+    <h3>
+        {{company_name}}
+        <br/>
+        As at {{fmt_date date}}
+    </h3>
+</center>
+<table class="table">
+    <thead class="scroll-header">
+        <tr>
+            <th>
+                Account
+            </th>
+            <th>
+                Contact
+            </th>
+            <th>
+                Tracking
+            </th>
+            <th>
+                Tracking-2
+            </th>
+            <th style="text-align:right">
+                Begin Debit
+            </th>
+            <th style="text-align:right">
+                Begin Credit
+            </th>
+            <th style="text-align:right">
+                Period Debit
+            </th>
+            <th style="text-align:right">
+                Period Credit
+            </th>
+            <th style="text-align:right">
+                YTD Debit
+            </th>
+            <th style="text-align:right">
+                YTD Credit
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each lines context=context}}
+            <tr>
+                <td>
+                    {{account_code}} - {{account_name}}
+                </td>
+                <td>
+                    {{contact_name}}
+                </td>
+                <td>
+                    {{track_code}}
+                </td>
+                <td>
+                    {{track2_code}}
+                </td>
+                <td style="text-align:right">
+                    {{#if no_link}}
+                        {{currency begin_debit zero=""}}
+                    {{else}}
+                        <a href="#name=report_account_sum&defaults.account_id={{account_id}}&defaults.date_to={{../../month_begin_date_to}}&defaults.contact_id={{contact_id}}&defaults.track_id={{track_id}}&defaults.track2_id={{track2_id}}">
+                            {{currency begin_debit zero=""}}
+                        </a>
+                    {{/if}}
+                </td>
+                <td style="text-align:right">
+                    {{#if no_link}}
+                        {{currency begin_credit zero=""}}
+                    {{else}}
+                        <a href="#name=report_account_sum&defaults.account_id={{account_id}}&defaults.date_to={{../../month_begin_date_to}}&defaults.contact_id={{contact_id}}&defaults.track_id={{track_id}}&defaults.track2_id={{track2_id}}">
+                            {{currency begin_credit zero=""}}
+                        </a>
+                    {{/if}}
+                </td>
+                <td style="text-align:right">
+                    {{#if no_link}}
+                        {{currency period_debit zero=""}}
+                    {{else}}
+                        <a href="#name=report_account_sum&defaults.account_id={{account_id}}&defaults.date_from={{../../month_date_from}}&defaults.date_to={{../../date}}&defaults.contact_id={{contact_id}}&defaults.track_id={{track_id}}&defaults.track2_id={{track2_id}}">
+                            {{currency period_debit zero=""}}
+                        </a>
+                    {{/if}}
+                </td>
+                <td style="text-align:right">
+                    {{#if no_link}}
+                        {{currency period_credit zero=""}}
+                    {{else}}
+                        <a href="#name=report_account_sum&defaults.account_id={{account_id}}&defaults.date_from={{../../month_date_from}}&defaults.date_to={{../../date}}&defaults.contact_id={{contact_id}}&defaults.track_id={{track_id}}&defaults.track2_id={{track2_id}}">
+                            {{currency period_credit zero=""}}
+                        </a>
+                    {{/if}}
+                </td>
+                <td style="text-align:right">
+                    {{#if no_link}}
+                        {{currency ytd_debit zero=""}}
+                    {{else}}
+                        <a href="#name=report_account_sum&defaults.account_id={{account_id}}&defaults.date_to={{../../date}}&defaults.contact_id={{contact_id}}&defaults.track_id={{track_id}}&defaults.track2_id={{track2_id}}">
+                            {{currency ytd_debit zero=""}}
+                        </a>
+                    {{/if}}
+                </td>
+                <td style="text-align:right">
+                    {{#if no_link}}
+                        {{currency ytd_credit zero=""}}
+                    {{else}}
+                        <a href="#name=report_account_sum&defaults.account_id={{account_id}}&defaults.date_to={{../../date}}&defaults.contact_id={{contact_id}}&defaults.track_id={{track_id}}&defaults.track2_id={{track2_id}}">
+                            {{currency ytd_credit zero=""}}
+                        </a>
+                    {{/if}}
+                </td>
+            </tr>
+        {{/each}}
+    </tbody>
+    <tfoot>
+        <tr>
+            <th colspan="4">
+                Totals
+            </th>
+            <th style="text-align:right">
+                {{currency totals.begin_debit}}
+            </th>
+            <th style="text-align:right">
+                {{currency totals.begin_credit}}
+            </th>
+            <th style="text-align:right">
+                {{currency totals.period_debit}}
+            </th>
+            <th style="text-align:right">
+                {{currency totals.period_credit}}
+            </th>
+            <th style="text-align:right">
+                {{currency totals.ytd_debit}}
+            </th>
+            <th style="text-align:right">
+                {{currency totals.ytd_credit}}
+            </th>
+        </tr>
+    </tfoot>
+</table>

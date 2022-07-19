@@ -1,0 +1,13 @@
+<pivot model="account.payment" rows="contact_id.name" cols="date_month" vals="amount_total" agg_name="sum" search="contact_id,date,type,number">
+    <field name="contact_id.name" string="Contact"/>
+    <field name="contact_id.categ_id.name" string="Contact Category"/>
+    <field name="state" string="Status"/>
+    <field name="date" string="Payment Date"/>
+    <field name="date_week" string="Payment Week"/>
+    <field name="date_month" string="Payment Month"/>
+    <field name="number" string="Payment Number"/>
+    <field name="type" string="Payment Type"/>
+    <field name="amount_total" string="Total Amount"/>
+    <field name="account_id.name" string="Payment Account"/>
+    <field name="pay_method_id.name" string="Payment Method"/>
+</pivot>

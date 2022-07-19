@@ -1,0 +1,5 @@
+<action>
+    <field name="view">form_popup</field>
+    <field name="model">reconcile.adjust</field>
+    <field name="target">popup</field>
+</action>

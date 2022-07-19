@@ -1,0 +1,6 @@
+<list model="document.tmpl">
+    <field name="file"/>
+    <field name="categ_id"/>
+    <field name="description"/>
+    <field name="date"/>
+</list>

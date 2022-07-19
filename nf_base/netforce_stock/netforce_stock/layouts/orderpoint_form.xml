@@ -1,0 +1,15 @@
+<form model="stock.orderpoint">
+    <field name="location_id"/>
+    <separator/>
+    <field name="product_id"/>
+    <field name="product_categ_id"/>
+    <separator/>
+    <field name="min_qty"/>
+    <field name="min_qty_months"/>
+    <separator/>
+    <field name="max_qty"/>
+    <field name="max_qty_months"/>
+    <related>
+        <field name="comments"/>
+    </related>
+</form>

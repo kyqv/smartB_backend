@@ -1,0 +1,5 @@
+<action>
+    <field name="view">model_view</field>
+    <field name="model">create_db</field>
+    <field name="template">create_db</field>
+</action>

@@ -1,0 +1,38 @@
+<form model="hr.payroll.settings" title="Payroll Settings">
+    <separator string="Social Security"/>
+        <field name="social_rate"/>
+        <field name="social_number"/>
+        <newline/>
+        <field name="social_min_wage" help="No need to pay SSO, if Wage or Salary is less than Min Wage."/>
+        <field name="social_max_wage" help="Get the maximux on base this wage, if your salary is more than this."/>
+    <separator string="Provident Fund"/>
+        <field name="prov_no"/>
+        <field name="prov_name"/>
+    <separator string="Accounting"/>
+        <field name="journal_id"/>
+        <field name="payroll_payable_id"/>
+        <field name="bank_account_id"/>
+    <separator string="Company Address"/>
+    <group>
+        <field name="company" span="4"/>
+        <newline/>
+        <field name="depart_name" span="4"/>
+        <field name="depart_room_number" span="4"/>
+        <field name="depart_stage" span="4"/>
+        <field name="depart_village" span="4"/>
+        <field name="depart_number" span="4"/>
+        <field name="depart_sub_number" span="4"/>
+        <field name="depart_soi" span="4"/>
+        <field name="depart_road" span="4"/>
+        <field name="depart_sub_district" span="4"/>
+        <field name="depart_district" span="4"/>
+        <field name="depart_province" span="4"/>
+        <newline/>
+        <field name="depart_zip" span="4"/>
+        <field name="depart_tel" span="4"/>
+        <field name="depart_fax" span="4"/>
+    </group>
+    <related>
+        <field name="comments"/>
+    </related>
+</form>

@@ -1,0 +1,8 @@
+<action>
+    <field name="view_type">collection</field>
+    <field name="model">stock.move</field>
+    <field name="condition">[["state", "=", "done"]]</field>
+    <field name="order">date desc,id desc</field>
+    <field name="template">stock_move_list</field>
+    <field name="layout">stock_move_page</field>
+</action>

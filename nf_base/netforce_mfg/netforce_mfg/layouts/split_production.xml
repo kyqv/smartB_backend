@@ -1,0 +1,47 @@
+<form model="split.production" title="Split Production Order">
+    <field name="order_id" onchange="onchange_order"/>
+    <field name="order_to_id" condition='[["id","in",order_to_list]]'/>
+    <newline/>
+    <field name="product_id" onchange="onchange_product" condition='[["id","in",product_list]]'/>
+    <field name="journal_id"/>
+    <newline/>
+    <field name="ratio_method" />
+    <field name="container_id" readonly="1"/>
+    <group attrs='{"invisible":[["ratio_method","!=","planned"]]}'>
+        <field name="planned_qty"/>
+        <newline/>
+        <field name="remain_planned_qty"/>
+    </group>
+    <group attrs='{"invisible":[["ratio_method","!=","actual"]]}'>
+        <field name="actual_qty"/>
+        <newline/>
+        <field name="remain_actual_qty"/>
+    </group>
+    <newline/>
+    <field name="product_list" invisible="1" view="field_code"/>
+    <field name="order_to_list" invisible="1" view="field_code"/>
+    <separator string="Split Into"/>
+    <group form_layout="stacked">
+        <field name="split_qty" span="2"/>
+        <field name="split_qty2" span="2"/>
+        <field name="team_id" span="2"/>
+        <field name="remark" span="2"/>
+        <button string="Split" method="add_lines"/>
+        <button string="Clear" method="clear_lines"/>
+    </group>
+    <field name="lines" nolabel="1" readonly="1">
+        <list>
+            <field name="product_id" readonly="1"/>
+            <field name="team_id" readonly="1"/>
+            <field name="qty" readonly="1"/>
+            <field name="qty2" readonly="1"/>
+            <field name="remark" readonly="1"/>
+        </list>
+    </field>
+    <separator string="Approval"/>
+    <field name="approved_by_id"/>
+    <button string="Approve" icon="ok" action="production_approve_split"/>
+    <foot replace="1">
+        <button string="Split Order" method="do_split" type="success"/>
+    </foot>
+</form>

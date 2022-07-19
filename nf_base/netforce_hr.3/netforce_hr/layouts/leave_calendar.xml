@@ -1,0 +1,6 @@
+<calendar model="hr.leave" date_field="start_date" colors='{"#090":[["state","in",["approved"]]],"#999":[["state","=","draft"]],"#c00":[["state","=","rejected"]]}'>
+    <field name="name"/>
+    <field name="leave_type_id"/>
+    <field name="days_requested"/>
+    <field name="state"/>
+</calendar>

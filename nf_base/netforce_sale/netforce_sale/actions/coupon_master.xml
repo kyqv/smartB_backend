@@ -1,0 +1,7 @@
+<record model="action">
+    <field name="string">Coupon Masters</field>
+    <field name="view">multi_view</field>
+    <field name="model">sale.coupon.master</field>
+    <field name="tabs">[["Active",[["active","=",true]]],["Inactive",[["active","=",false]]]]</field>
+    <field name="menu">sale_menu</field>
+</record>

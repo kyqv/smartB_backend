@@ -1,0 +1,7 @@
+<action>
+    <field name="view">list</field>
+    <field name="model">stock.picking</field>
+    <field name="condition">[["type", "=", "in"], ["state", "=", "pending"]]</field>
+    <field name="layout">pick_in_widget</field>
+    <field name="limit">10</field>
+</action>

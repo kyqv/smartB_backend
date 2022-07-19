@@ -1,0 +1,18 @@
+<form model="sale.coupon">
+    <head>
+        <field name="state"/>
+        <button string="Print" dropdown="1">
+            <item string="PDF" action="report_coupon_form" action_options="convert=pdf"/>
+            <item string="ODT" action="report_coupon_form"/>
+        </button>
+    </head>
+    <field name="master_id"/>
+    <field name="contact_id"/>
+    <field name="code"/>
+    <field name="create_time"/>
+    <field name="expiry_date"/>
+    <field name="use_date"/>
+    <field name="use_duration"/>
+    <field name="hide_date"/>
+    <field name="state"/>
+</form> 

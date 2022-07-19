@@ -1,0 +1,6 @@
+<action>
+    <field name="view">form_popup</field>
+    <field name="string">Gen Lots</field>
+    <field name="model">gen.lots</field>
+    <field name="target">popup</field>
+</action>

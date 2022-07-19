@@ -1,0 +1,7 @@
+<action>
+    <field name="view">form_m</field>
+    <field name="title">QC Check</field>
+    <field name="model">qc.result</field>
+    <field name="layout">pick_qc_check_m</field>
+    <field name="target">sub_action</field>
+</action>

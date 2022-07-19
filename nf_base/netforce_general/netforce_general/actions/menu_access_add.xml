@@ -1,0 +1,4 @@
+<action>
+    <field name="view">form_popup</field>
+    <field name="string">Menu Access Add</field><field name="model">menu.access.add</field><field name="target">popup</field>
+</action>

@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Link Lists</field>
+    <field name="view">multi_view</field>
+    <field name="model">cms.linklist</field>
+    <field name="menu">cms_menu</field>
+</action>

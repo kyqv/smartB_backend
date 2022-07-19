@@ -1,0 +1,4 @@
+<action>
+    <field name="view">template_view</field>
+    <field name="template">manage_db</field>
+</action>

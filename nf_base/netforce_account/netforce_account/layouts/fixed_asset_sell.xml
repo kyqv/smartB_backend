@@ -1,0 +1,13 @@
+<form model="account.fixed.asset.sell" title="Sell Fixed Asset">
+    <separator string="Details"/>
+    <group form_layout="stacked">
+        <field name="date" span="2"/>
+        <field name="sale_acc_id" span="2" condition='[["type","!=","view"]]'/>
+        <field name="price" span="2"/>
+        <field name="gain_loss_acc_id" span="2" condition='[["type","!=","view"]]'/>
+        <field name="journal_id" span="2"/>
+    </group>
+    <foot replace="1">
+        <button string="Sell" type="success" method="sell"/>
+    </foot>
+</form>

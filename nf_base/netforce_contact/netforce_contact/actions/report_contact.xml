@@ -1,0 +1,5 @@
+<action>
+    <field name="view">print_wizard2</field>
+    <field name="model">contact</field>
+    <field name="menu">contact_menu</field>
+</action>

@@ -1,0 +1,6 @@
+<list model="hr.holiday">
+    <field name="date"/>
+    <field name="name"/>
+    <field name="description"/>
+    <field name="generic"/>
+</list>

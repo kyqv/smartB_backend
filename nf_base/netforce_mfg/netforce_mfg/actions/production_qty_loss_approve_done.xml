@@ -1,0 +1,8 @@
+<action>
+    <field name="string">Approve Production Order Qty Loss Completion</field>
+    <field name="view">form_popup</field>
+    <field name="model">approve.wizard</field>
+    <field name="approve_model">production.order</field>
+    <field name="approve_method">qty_loss_approve_done</field>
+    <field name="target">_popup</field>
+</action>

@@ -1,0 +1,5 @@
+<inherit inherit="product_form">
+    <tab string="Other" position="append">
+        <field name="shopee_sync_stock"/>
+    </tab>
+</inherit>

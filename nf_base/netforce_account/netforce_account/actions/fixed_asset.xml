@@ -1,0 +1,8 @@
+<action>
+    <field name="string">Fixed Assets</field>
+    <field name="view">multi_view</field>
+    <field name="model">account.fixed.asset</field>
+    <field name="tabs">[["All",[]],["Pending",[["state","=","pending"]]],["Registered",[["state","=","registered"]]],["Sold and Disposed",[["state","in",["disposed","sold"]]]]]</field>
+    <field name="menu">account_menu</field>
+    <field name="import_sample">import_fixed_asset.csv</field>
+</action>

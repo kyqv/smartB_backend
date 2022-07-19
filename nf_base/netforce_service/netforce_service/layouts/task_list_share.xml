@@ -1,0 +1,20 @@
+<list model="task">
+    <search>
+        <field name="project_id"/>
+        <field name="title"/>
+        <field name="resource_id"/>
+        <field name="state"/>
+    </search>
+    <field name="date_created"/>
+    <field name="project_id"/>
+    <field name="title"/>
+    <field name="resource_id"/>
+    <field name="plan_hours"/>
+    <field name="actual_hours" view="field_duration" view_options='{"no_input":1}'/>
+    <field name="timer_start" invisible="1"/>
+    <field name="state"/>
+    <field name="priority"/>
+    <button string="Close" method="set_done" icon="arrow-right" states="open"/>
+    <button string="Reopen" method="reopen" icon="arrow-left" states="closed"/>
+    <button string="Reviewed" method="set_reviewed" icon="ok" states="closed" type="success"/>
+</list>

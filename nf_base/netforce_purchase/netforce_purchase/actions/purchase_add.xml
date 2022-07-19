@@ -1,0 +1,6 @@
+<action>
+    <field name="view">form_popup</field>
+    <field name="string">Add Products</field>
+    <field name="model">purchase.add</field>
+    <field name="target">popup</field>
+</action>

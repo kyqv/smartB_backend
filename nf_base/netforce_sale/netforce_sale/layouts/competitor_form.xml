@@ -1,0 +1,20 @@
+<form model="competitor">
+    <field name="name"/>
+    <field name="contact_id"/>
+    <related>
+        <field name="opports">
+            <list>
+                <field name="opport_id"/>
+                <field name="strengths"/>
+                <field name="weaknesses"/>
+            </list>
+            <form>
+                <field name="opport_id"/>
+                <newline/>
+                <field name="strengths"/>
+                <field name="weaknesses"/>
+            </form>
+        </field>
+        <field name="comments"/>
+    </related>
+</form>

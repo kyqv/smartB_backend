@@ -1,0 +1,11 @@
+<form_m model="stock.move">
+    <field name="date"/>
+    <field name="product_id"/>
+    <newline/>
+    <field name="lot_id"/>
+    <field name="qty"/>
+    <field name="uom_id"/>
+    <newline/>
+    <field name="location_from_id"/>
+    <field name="location_to_id"/>
+</form_m>

@@ -1,0 +1,30 @@
+<form model="conv.bal" title="Enter Unpaid Sales Invoices (step 2/3)">
+    <head>
+        <button string="Options" dropdown="1">
+            <item string="Import from file" method="import_sale"/>
+        </button>
+    </head>
+    <field name="date" readonly="1"/>
+    <separator string="Unpaid Sales Invoices"/>
+    <field name="sale_invoices" nolabel="1">
+        <list>
+            <field name="number"/>
+            <field name="ref"/>
+            <field name="contact_id"/>
+            <field name="date"/>
+            <field name="due_date"/>
+            <field name="amount_due"/>
+            <field name="account_id"/>
+            <field name="amount_cur"/>
+        </list>
+    </field>
+    <group offset="8" span="2">
+        <field name="total_sale" span="2"/>
+        <newline/>
+        <field name="total_ar" span="2"/>
+    </group>
+    <foot replace="1">
+        <button string="Back" method="back2" icon="arrow-left"/>
+        <button string="Continue" method="next2" type="primary" icon="arrow-right"/>
+    </foot>
+</form>

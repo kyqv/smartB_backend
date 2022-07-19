@@ -1,0 +1,25 @@
+<form model="product.waste" attrs='{"readonly":[["state","!=","draft"]]}'>
+    <head>
+        <field name="state"/>
+        <button string="Options">
+            <item string="To Draft" method="to_draft" states="done,voided"/>
+            <item string="Void" method="void" confirm="Are you sure?" states="done"/>
+        </button>
+    </head>
+    <field name="date"/>
+    <field name="number"/>
+    <field name="location_id"/>
+    <newline/>
+    <field name="product_id" onchange="onchange_product"/>
+    <field name="lot_id"/>
+    <field name="qty"/>
+    <field name="uom_id"/>
+    <separator/>
+    <field name="notes"/>
+    <foot>
+        <button string="Validate" method="validate" type="success" states="draft" icon="arrow-right"/>
+    </foot>
+    <related>
+        <field name="stock_moves"/>
+    </related>
+</form>

@@ -1,0 +1,8 @@
+<action>
+    <field name="string">Opportunities</field>
+    <field name="view">multi_view</field>
+    <field name="model">sale.opportunity</field>
+    <field name="tabs">[["Open",[["state","=","open"]]],["Won",[["state","=","won"]]],["Paused",[["state","=","paused"]]],["Canceled",[["state","=","canceled"]]],["Lost",[["state","=","lost"]]],["All",[]]]</field>
+    <field name="menu">sale_menu</field>
+    <field name="ui_sort">last_email_days desc</field>
+</action>

@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Task Stages</field>
+    <field name="view">multi_view</field>
+    <field name="model">task.stage</field>
+    <field name="menu">service_menu</field>
+</action>

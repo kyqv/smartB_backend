@@ -1,0 +1,6 @@
+<form model="import.module" title="Import Modules">
+    <field name="file"/>
+    <foot replace="1">
+        <button string="Import" method="do_import" type="primary" icon="arrow-right"/>
+    </foot>
+</form>

@@ -1,0 +1,51 @@
+<center>
+    <h2>
+        {{title}}
+    </h2>
+</center>
+<table class="table table-striped">
+    <thead class="scroll-header">
+        <tr>
+            <th>No</th>
+            <th>Date</th>
+            <th>Number</th>
+            <th>Related To</th>
+            <th>Product Code</th>
+            <th>Product Name</th>
+            <th>From Location</th>
+            <th>Qty</th>
+            <th>UoM</th>
+            <th>To Location</th>
+            <th>Secondary Qty</th>
+            <th>From Container</th>
+            <th>To Container</th>
+            <th>Lot/Seiral</th>
+            <th>Loss Qty</th>
+            <th>Statue</th>
+            <th>Ref</th>
+        </tr>
+    </thead>
+    {{#each lines context=context}}
+        <tbody>
+            <tr>
+                <td>{{_item_no}}</td>
+                <td>{{date}}</td>
+                <td>{{number}}</td>
+                <td>{{related}}</td>
+                <td>{{product_code}}</td>
+                <td>{{product_name}}</td>
+                <td>{{location_from}}</td>
+                <td text-align="right">{{currency qty}}</td>
+                <td>{{uom}}</td>
+                <td>{{location_to}}</td>
+                <td>{{qty2}}</td>
+                <td>{{container_from}}</td>
+                <td>{{container_to}}</td>
+                <td>{{lot}}</td>
+                <td text-align="right">{{qty_loss}}</td>
+                <td>{{state}}</td>
+                <td>{{ref}}</td>
+            </tr>
+        </tbody>
+    {{/each}}
+</table>

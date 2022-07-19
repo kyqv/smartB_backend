@@ -1,0 +1,6 @@
+<action>
+    <field name="view">form_view</field>
+    <field name="string">Split Order</field>
+    <field name="model">split.production</field>
+    <field name="menu">mfg_menu</field>
+</action>

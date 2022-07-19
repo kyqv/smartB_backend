@@ -1,0 +1,21 @@
+<grid model="stock.location">
+    <head>
+        <field name="name"/>
+        <button string="Manage Warehouse" dropdown="1" align="right">
+            <item string="Product Stock" action="warehouse" action_options="mode=page&amp;tab=0"/>
+            <item string="Stock Transactions" action="warehouse_transactions" action_options="mode=page&amp;tab=1"/>
+            <divider/>
+            <item string="Goods Receipt" action="pick_in" action_options="mode=form"/>
+            <item string="Goods Transfer" action="pick_internal" action_options="mode=form"/>
+            <item string="Goods Issue" action="pick_out" action_options="mode=form"/>
+        </button>
+    </head>
+    <field name="products" nolabel="1" view_cls="form_list_view">
+        <list>
+            <field name="product_id"/>
+            <field name="qty_phys"/>
+            <field name="uom_id"/>
+            <field name="last_change"/>
+        </list>
+    </field>
+</grid>

@@ -1,0 +1,8 @@
+<pivot model="job" rows="project_id.name" agg_name="count" vals="amount_total">
+    <field name="contact_id.name" string="Contact"/>
+    <field name="contact_id.categ_id.name" string="Contact Category"/>
+    <field name="service_type_id.name" string="Service Type"/>
+    <field name="project_id.name" string="Project"/>
+    <field name="amount_total"/>
+    <field name="state"/>
+</pivot>

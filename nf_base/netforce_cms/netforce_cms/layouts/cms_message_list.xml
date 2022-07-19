@@ -1,0 +1,5 @@
+<list model="cms.customer.message">
+    <field name="name"/>
+    <field name="email"/>
+    <field name="description"/>
+</list>

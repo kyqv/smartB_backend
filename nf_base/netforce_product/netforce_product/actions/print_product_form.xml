@@ -1,0 +1,7 @@
+<action>
+    <field name="view">form_popup</field>
+    <field name="string">Print Product</field>
+    <field name="model">print.wizard2</field>
+    <field name="target">popup</field>
+    <field name="context">{"model":"product"}</field>
+</action>

@@ -1,0 +1,8 @@
+<pivot model="sale.quot" rows="contact_id.name" cols="state" agg_name="count" vals="amount_total">
+    <field name="contact_id.name" string="Contact"/>
+    <field name="contact_id.categ_id.name" string="Contact Category"/>
+    <field name="state"/>
+    <field name="user_id.name" string="Responsible User"/>
+    <field name="date"/>
+    <field name="amount_total"/>
+</pivot>

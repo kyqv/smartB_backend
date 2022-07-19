@@ -1,0 +1,7 @@
+<form model="permission">
+    <field name="name"/>
+    <field name="code"/>
+    <related>
+        <field name="comments"/>
+    </related>
+</form>

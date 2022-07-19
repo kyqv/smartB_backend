@@ -1,0 +1,10 @@
+<list model="shopee.account">
+    <head>
+        <button string="Get Products" method="get_products" show_progress="1"/>
+    </head>
+    <field name="name"/>
+    <field name="shop_idno"/>
+    <!--<field name="pricelist_id"/>-->
+    <field name="stock_journal_id"/>
+    <field name="contact_id"/>
+</list>

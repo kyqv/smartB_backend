@@ -1,0 +1,14 @@
+<form model="demand">
+    <field name="name"/>
+    <field name="product_id"/>
+    <field name="customer_id"/>
+    <field name="due_date"/>
+    <field name="qty"/>
+    <field name="uom_id"/>
+    <field name="priority"/>
+    <field name="state"/>
+    <field name="description"/>
+    <related>
+        <field name="comments"/>
+    </related>
+</form>

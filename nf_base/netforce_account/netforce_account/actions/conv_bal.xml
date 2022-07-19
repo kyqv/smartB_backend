@@ -1,0 +1,7 @@
+<action>
+    <field name="string">Conversion Balances</field>
+    <field name="view">form_view</field>
+    <field name="model">conv.bal</field>
+    <field name="layout">conv_bal1</field>
+    <field name="menu">account_menu</field>
+</action>

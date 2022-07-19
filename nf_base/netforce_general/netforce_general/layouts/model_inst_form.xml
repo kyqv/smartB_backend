@@ -1,0 +1,16 @@
+<form model="model.inst">
+    <field name="model_id" required="1"/>
+    <field name="record_id" readonly="1"/>
+    <related>
+        <field name="field_values">
+            <list>
+                <field name="field_id"/>
+                <field name="value"/>
+            </list>
+            <form>
+                <field name="field_id" condition='[["model_id","=",parent.model_id]]'/>
+                <field name="value"/>
+            </form>
+        </field>
+    </related>
+</form>

@@ -1,0 +1,4 @@
+<action>
+    <field name="view">search_all</field>
+    <field name="menu">search_menu</field>
+</action>

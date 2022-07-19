@@ -1,0 +1,6 @@
+<action>
+    <field name="type">report</field>
+    <field name="model">report.wht50</field>
+    <field name="method">get_data</field>
+    <field name="template">wht50</field>
+</action>

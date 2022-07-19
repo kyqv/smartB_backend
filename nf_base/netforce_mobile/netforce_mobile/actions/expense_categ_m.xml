@@ -1,0 +1,6 @@
+<action>
+    <field name="view">list_m</field>
+    <field name="title">Expense Categories</field>
+    <field name="model">hr.expense.categ</field>
+    <field name="menu">main_menu_m</field>
+</action>

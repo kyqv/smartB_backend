@@ -1,0 +1,6 @@
+<action>
+    <field name="view">template</field>
+    <field name="model">report.payable</field>
+    <field name="method">money_out</field>
+    <field name="template">money_out2</field>
+</action>

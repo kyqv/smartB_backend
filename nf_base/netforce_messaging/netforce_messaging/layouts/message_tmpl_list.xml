@@ -1,0 +1,7 @@
+<list model="message.tmpl">
+    <field name="name"/>
+    <field name="from_user"/>
+    <field name="to_user"/>
+    <field name="subject"/>
+    <field name="body"/>
+</list>

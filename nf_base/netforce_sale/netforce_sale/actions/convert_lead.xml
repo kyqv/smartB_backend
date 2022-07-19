@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Convert Lead</field>
+    <field name="view">form_popup</field>
+    <field name="model">convert.lead</field>
+    <field name="target">popup</field>
+</action>

@@ -1,0 +1,9 @@
+<list model="email.rule">
+    <field name="sequence"/>
+    <field name="mailbox_id"/>
+    <field name="from_addr"/>
+    <field name="to_addr"/>
+    <field name="subject"/>
+    <field name="body"/>
+    <field name="action"/>
+</list>

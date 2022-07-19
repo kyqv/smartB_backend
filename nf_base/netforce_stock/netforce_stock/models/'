@@ -1,0 +1,131 @@
+from netforce.model import Model, fields, get_model
+from netforce import access
+from netforce import tasks
+from netforce import database
+from netforce import utils
+from datetime import *
+import time
+import json
+import random
+from ortools.algorithms import pywrapknapsack_solver
+
+
+class Cut(Model):
+    _name = "stock.cut"
+    _string = "Stock Cutting"
+    _fields = {
+        "date": fields.Date("Date"),
+        "orders": fields.One2Many("stock.cut.order","cut_id","Orders"),
+        "stock": fields.One2Many("stock.cut.stock","cut_id","Stock"),
+        "patterns": fields.One2Many("stock.cut.pattern","cut_id","Patterns"),
+        "total_waste": fields.Decimal("Total Waste",function="get_total_waste"),
+    }
+    _defaults={
+        "date": lambda *a: time.strftime("%Y-%m-%d"),
+    }
+
+    def get_total_waste(self,ids,context={}):
+        vals={}
+        for obj in self.browse(ids):
+            tot=0
+            for line in obj.patterns:
+                tot+=line.total_waste or 0
+            vals[obj.id]=tot
+        return vals
+
+    def solve_test(self,ids,context={}):
+        print("S"*80)
+        print("S"*80)
+        print("S"*80)
+        obj=self.browse(ids[0])
+        orders=[]
+        for o in obj.orders:
+            orders+=[o.width]*o.qty
+        stock=[]
+        for s in obj.stock:
+            for _ in range(s.qty):
+                stock.append([s.width,[],s.width])
+        #random.shuffle(orders)
+        #for ow in orders:
+        for ow in sorted(orders,reverse=True):
+            found=False
+            #for s in sorted(stock,key=lambda s: s[2]):
+            for s in stock:
+                if s[2]<ow:
+                    continue
+                s[1].append(ow)
+                s[2]-=ow
+                found=True
+                break
+            if not found:
+                raise Exception("Insufficient qty (order %s)"%ow)
+        pats={}
+        for sw,cuts,rw in stock:
+            if not cuts:
+                continue
+            print("cut %s %s %s"%(sw,cuts,rw))
+            d={}
+            for w in cuts:
+                d.setdefault(w,0)
+                d[w]+=1
+            k=(float(sw),utils.json_dumps(list(sorted([[w,n] for w,n in d.items()],reverse=True))))
+            pats.setdefault(k,0)
+            pats[k]+=1
+        obj.patterns.delete()
+        for k,n in pats.items():
+            print("pat %s %s"%(k,n))
+            vals={
+                "cut_id": obj.id,
+                "stock_width": k[0],
+                "num": n,
+            }
+            cuts=json.loads(k[1])
+            i=0
+            for cw,cq in cuts:
+                i+=1
+                vals["width%s"%i]=cw
+                vals["qty%s"%i]=cq
+            get_model("stock.cut.pattern").create(vals)
+
+    def solve(self,ids,context={}):
+        obj=self.browse(ids[0])
+        solver = pywrapknapsack_solver.KnapsackSolver(
+            #pywrapknapsack_solver.KnapsackSolver.KNAPSACK_MULTIDIMENSION_BRANCH_AND_BOUND_SOLVER,
+            pywrapknapsack_solver.KnapsackSolver.KNAPSACK_DYNAMIC_PROGRAMMING_SOLVER,
+            'KnapsackExample')
+        order_remain={}
+        stock_remain={}
+        for o in obj.orders:
+            order_remain.setdefault(o.width,0)
+            order_remain[o.width]+=o.qty
+        for s in obj.stock:
+            stock_remain.setdefault(s.width,0)
+            stock_remain[s.width]+=s.qty
+        while True:
+            min_waste=None
+            for sw,sq in stock_remain.items():
+                values=[]
+                weights=[[]]
+                for ow,oq in order_remain.items():
+                    n=min(oq,int(s.width/ow))
+                    values+=[ow]*n
+                    weights[0]+=[ow]*n
+                capacities=[s.width]
+                print("values",values)
+                print("caps",capacities)
+                solver.Init(values, weights, capacities)
+                best_val = solver.Solve()
+                waste=s.width-best_val
+                if min_waste is None or waste<min_waste:
+                cuts={}
+                for i,w in enumerate(values):
+                    if solver.BestSolutionContains(i):
+                        cuts.setdefault(w,0)
+                        cuts[w]+=1
+                print("stock width=%s, best_val=%s"%(s.width,best_val))
+            while True:
+                for i,w in enumerate(values):
+                    if solver.BestSolutionContains(i):
+                        order_remain[w]-=1
+                stock_remain[sw]-=1
+Cut.register()

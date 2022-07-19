@@ -1,0 +1,13 @@
+<list model="field">
+    <field name="model_id"/>
+    <field name="name"/>
+    <field name="string"/>
+    <field name="type"/>
+    <field name="relation_id"/>
+    <field name="relfield_id"/>
+    <field name="required"/>
+    <field name="delete_cascade"/>
+    <field name="unique"/>
+    <field name="readonly"/>
+    <field name="store"/>
+</list>

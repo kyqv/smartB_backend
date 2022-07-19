@@ -1,0 +1,6 @@
+<form_m model="project">
+    <field name="name"/>
+    <field name="state"/>
+    <newline/>
+    <field name="contact_id"/>
+</form_m>

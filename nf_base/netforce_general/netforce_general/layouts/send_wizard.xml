@@ -1,0 +1,10 @@
+<form model="send.wizard">
+    <field name="model" invisible="1"/>
+    <field name="ids" invisible="1"/>
+    <field name="template_type" invisible="1"/>
+    <field name="template_id" condition='[["type","=",template_type]]'/>
+    <field name="email_template_id"/>
+    <foot>
+        <button string="Create Email" method="create_email" type="primary"/>
+    </foot>
+</form>

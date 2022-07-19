@@ -1,0 +1,5 @@
+<list model="reason.code">
+    <field name="type"/>
+    <field name="code"/>
+    <field name="name"/>
+</list>

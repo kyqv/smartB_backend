@@ -1,0 +1,10 @@
+<action>
+    <field name="string">Profit &amp; Loss</field>
+    <field name="view">report</field>
+    <field name="model">report.profit.loss</field>
+    <field name="template">report_profit_loss</field>
+    <field name="template_xls">profit_loss</field>
+    <field name="template_xls_custom">profit_loss_custom</field>
+    <field name="export_pdf">1</field>
+    <field name="menu">account_menu</field>
+</action>

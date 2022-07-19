@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Choose Location</field>
+    <field name="view">form_popup</field>
+    <field name="model">select.location</field>
+    <field name="target">popup</field>
+</action>

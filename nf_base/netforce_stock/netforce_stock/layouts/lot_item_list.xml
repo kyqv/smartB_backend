@@ -1,0 +1,5 @@
+<list model="stock.lot.item">
+    <field name="number"/>
+    <!--<field name="received_date"/>-->
+    <field name="lot_id"/>
+</list>

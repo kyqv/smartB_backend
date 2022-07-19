@@ -1,0 +1,60 @@
+<form model="model">
+    <top>
+        <button string="Options">
+            <item string="Transpile" method="transpile"/>
+        </button>
+    </top>
+    <head>
+        <field name="state"/>
+    </head>
+    <tabs>
+        <tab string="General">
+            <field name="name"/>
+            <field name="string"/>
+            <field name="custom"/>
+            <field name="order"/>
+            <field name="name_field"/>
+            <field name="audit_log"/>
+            <field name="state"/>
+            <separator string="Code"/>
+            <field name="code_js" width="800" height="500" view="field_code" view_options='{"mode":"javascript"}'/>
+        </tab>
+        <tab string="Other">
+            <field name="next_record_id"/>
+            <newline/>
+            <field name="code_trans" width="800" height="500" view="field_code" view_options='{"mode":"javascript"}'/>
+        </tab>
+    </tabs>
+    <related>
+        <field name="fields">
+            <list>
+                <field name="name"/>
+                <field name="string"/>
+                <field name="type"/>
+                <field name="relation_id"/>
+                <field name="relfield_id"/>
+                <field name="function"/>
+                <field name="required"/>
+                <field name="delete_cascade"/>
+                <field name="readonly"/>
+                <field name="unique"/>
+                <field name="store"/>
+            </list>
+            <form>
+                <field name="name"/>
+                <field name="string"/>
+                <field name="type"/>
+                <field name="selection"/>
+                <field name="relation_id"/>
+                <field name="relfield_id" condition='[["model_id","=",relation_id]]'/>
+                <field name="function"/>
+                <field name="required"/>
+                <field name="delete_cascade"/>
+                <field name="readonly"/>
+                <field name="unique"/>
+                <field name="store"/>
+            </form>
+        </field>
+        <field name="layouts"/>
+    </related>
+</form>

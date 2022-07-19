@@ -1,0 +1,21 @@
+<form_m model="sale.opportunity">
+    <field name="date" bold="1"/>
+    <field name="last_email_days" label="Age" bold="1"/>
+    <newline/>
+    <field name="name" label="Title"/>
+    <newline/>
+    <field name="contact_id" label="Contact"/>
+    <newline/>
+    <field name="user_id" label="Assigned To"/>
+    <field name="stage_id"/>
+    <newline/>
+    <field name="source_id"/>
+    <newline/>
+    <field name="email_body" view="field_html"/>
+    <newline/>
+    <field name="state" label="Status"/>
+    <related>
+        <field name="quotations"/>
+        <field name="emails"/>
+    </related>
+</form_m>

@@ -1,0 +1,6 @@
+<action>
+    <field name="view">model_view</field>
+    <field name="model">report.issue</field>
+    <field name="method">get_issue_chart</field>
+    <field name="template">issue_chart</field>
+</action>

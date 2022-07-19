@@ -1,0 +1,18 @@
+<form model="share.access">
+    <field name="model_id"/>
+    <field name="default_access"/>
+    <group attrs='{"invisible":[["default_access","=","custom"]]}'>
+        <field name="grant_parent"/>
+    </group>
+    <group attrs='{"invisible":[["default_access","!=","custom"]]}'>
+        <field name="condition"/>
+        <field name="filter_type"/>
+    </group>
+    <field name="select_profile"/>
+    <field name="profiles" attrs='{"invisible":[["select_profile","!=","include"]]}'/>
+    <field name="excl_profiles" attrs='{"invisible":[["select_profile","!=","exclude"]]}'/>
+    <field name="description"/>
+    <related>
+        <field name="comments"/>
+    </related>
+</form>

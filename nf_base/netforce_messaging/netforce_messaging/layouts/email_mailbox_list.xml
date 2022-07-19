@@ -1,0 +1,6 @@
+<list model="email.mailbox">
+    <field name="name"/>
+    <field name="user_id"/>
+    <field name="type"/>
+    <field name="account_id"/>
+</list>

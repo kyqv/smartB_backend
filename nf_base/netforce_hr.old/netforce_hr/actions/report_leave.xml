@@ -1,0 +1,11 @@
+<action>
+    <field name="string">Leave Analysis</field>
+    <field name="view_cls">report</field>
+    <field name="model">hr.leave</field>
+    <field name="group_fields">employee_id</field>
+    <field name="group_select">employee_id,leave_type_id,period_id,state</field>
+    <field name="menu">hr_menu</field>
+    <field name="sum_fields">days_requested</field>
+    <field name="view_search_xml">leave_search</field>
+    <field name="view_xml">leave_list_report</field>
+</action>

@@ -1,0 +1,5 @@
+<form model="voice.account">
+    <field name="name"/>
+    <field name="type"/>
+    <field name="sequence"/>
+</form>

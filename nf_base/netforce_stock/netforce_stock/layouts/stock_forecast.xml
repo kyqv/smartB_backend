@@ -1,0 +1,5 @@
+<form model="stock.forecast" title="Stock Forecast">
+    <foot replace="1">
+        <button string="Update Forecast" icon="refresh" type="primary" method="update_forecast" show_progress="1"/>
+    </foot>
+</form>

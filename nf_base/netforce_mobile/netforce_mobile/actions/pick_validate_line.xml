@@ -1,0 +1,7 @@
+<action>
+    <field name="view">form_m</field>
+    <field name="title">Validate Item</field>
+    <field name="model">pick.validate.line</field>
+    <field name="layout">pick_validate_line_m</field>
+    <field name="target">sub_action</field>
+</action>

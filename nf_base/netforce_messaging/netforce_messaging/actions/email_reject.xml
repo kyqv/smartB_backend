@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Email Rejection Blacklist</field>
+    <field name="view">multi_view</field>
+    <field name="model">email.reject</field>
+    <field name="menu">msg_menu</field>
+</action>

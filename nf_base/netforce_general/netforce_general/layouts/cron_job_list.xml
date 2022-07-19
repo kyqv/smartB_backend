@@ -1,0 +1,12 @@
+<list model="cron.job" colors='{"#fcc":[["state","=","error"]]}'>
+    <head>
+        <button string="Update Scheduled Dates" method="update_dates"/>
+        <button string="Create Tasks" method="create_tasks"/>
+    </head>
+    <field name="name"/>
+    <field name="date"/>
+    <field name="interval_num"/>
+    <field name="interval_type"/>
+    <field name="timeout"/>
+    <field name="state"/>
+</list>

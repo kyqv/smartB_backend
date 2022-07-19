@@ -1,0 +1,176 @@
+<center>
+    <h2>
+        Stock Card
+    </h2>
+    <h3>
+        {{data.company_name}}
+    </h3>
+    <h4>
+        From {{data.date_from}} to {{data.date_to}}
+    </h4>
+</center>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th rowspan="2">Date</th>
+            <th rowspan="2">Ref</th>
+            <th rowspan="2">Lot / Serial Number</th>
+            <th rowspan="2">Invoice</th>
+            <th colspan="{{#if data.show_qty2}}4{{else}}3{{/if}}" style="text-align:center">In</th>
+            <th colspan="{{#if data.show_qty2}}4{{else}}3{{/if}}" style="text-align:center">Out</th>
+            <th colspan="{{#if data.show_qty2}}4{{else}}3{{/if}}" style="text-align:center">Balance</th>
+        </tr>
+        <tr>
+            <th>
+                Qty
+            </th>
+            <th>
+                Unit Price
+            </th>
+            <th>
+                Amount
+            </th>
+            {{#if data.show_qty2}}
+                <th>
+                    Secondary Qty
+                </th>
+            {{/if}}
+            <th>
+                Qty
+            </th>
+            <th>
+                Unit Price
+            </th>
+            <th>
+                Amount
+            </th>
+            {{#if data.show_qty2}}
+                <th>
+                    Secondary Qty
+                </th>
+            {{/if}}
+            <th>
+                Qty
+            </th>
+            <th>
+                Cost Price
+            </th>
+            <th>
+                Cost Amount
+            </th>
+            {{#if data.show_qty2}}
+                <th>
+                    Secondary Qty
+                </th>
+            {{/if}}
+        </tr>
+    </thead>
+    <tbody>
+        {{#each groups}}
+            <tr>
+                <th colspan="20">
+                    {{product_name}}
+                    @ {{location_name}}
+                </th>
+            </tr>
+            {{#each lines}}
+                <tr>
+                    <td>
+                        {{date}}
+                    </td>
+                    <td>
+                        {{link string=ref action="view_stock_transaction" active_id=id}}
+                    </td>
+                    <td>
+                        {{link string=lot_num action="stock_lot" action_options='{"mode":"form"}' active_id=lot_id}}
+                    </td>
+                    <td>
+                        {{link string=invoice_num action="view_invoice" active_id=invoice_id}}
+                    </td>
+                    <td>
+                        {{currency in_qty}}
+                    </td>
+                    <td>
+                        {{currency in_cost_price}}
+                    </td>
+                    <td>
+                        {{currency in_amount}}
+                    </td>
+                    {{#if ../../show_qty2}}
+                        <td>
+                            {{currency in_qty2}}
+                        </td>
+                    {{/if}}
+                    <td>
+                        {{currency out_qty}}
+                    </td>
+                    <td>
+                        {{currency out_cost_price}}
+                    </td>
+                    <td>
+                        {{currency out_amount}}
+                    </td>
+                    {{#if ../../show_qty2}}
+                        <td>
+                            {{currency out_qty2}}
+                        </td>
+                    {{/if}}
+                    <td>
+                        {{currency bal_qty}}
+                    </td>
+                    <td>
+                        {{currency bal_cost_price}}
+                    </td>
+                    <td>
+                        {{currency bal_cost_amount}}
+                    </td>
+                    {{#if ../../show_qty2}}
+                        <td>
+                            {{currency bal_qty2}}
+                        </td>
+                    {{/if}}
+                </tr>
+            {{/each}}
+            <tr>
+                <td>
+                </td>
+                <th>
+                    Total
+                </th>
+                <td>
+                </td>
+                <td>
+                </td>
+                <th>
+                    {{currency total_in_qty}}
+                </th>
+                <td>
+                </td>
+                <th>
+                    {{currency total_in_amount}}
+                </th>
+                {{#if ../show_qty2}}
+                    <th>
+                        {{currency total_in_qty2}}
+                    </th>
+                {{/if}}
+                <th>
+                    {{currency total_out_qty}}
+                </th>
+                <td>
+                </td>
+                <th>
+                    {{currency total_out_amount}}
+                </th>
+                {{#if ../show_qty2}}
+                    <th>
+                        {{currency total_out_qty2}}
+                    </th>
+                {{/if}}
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>

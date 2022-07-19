@@ -1,0 +1,9 @@
+<action>
+    <field name="string">My Messages</field>
+    <field name="view">multi_view</field>
+    <field name="model">message</field>
+    <field name="condition">["or",["to_id","=",user_id],["from_id","=",user_id]]</field>
+    <field name="menu">msg_menu</field>
+    <field name="list_layout">my_message_list</field>
+    <field name="form_layout">my_message_form</field>
+</action>

@@ -1,0 +1,6 @@
+<action>
+    <field name="view">list_m</field>
+    <field name="title">Expenses</field>
+    <field name="model">hr.expense</field>
+    <field name="menu">main_menu_m</field>
+</action>

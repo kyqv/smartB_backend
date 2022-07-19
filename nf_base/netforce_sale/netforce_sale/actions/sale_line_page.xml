@@ -1,0 +1,4 @@
+<action>
+    <field name="template">sale_line_page</field>
+    <field name="menu">sale_menu</field>
+</action>

@@ -1,0 +1,9 @@
+<form model="report.ship.cost">
+    <group form_layout="stacked">
+        <field name="date_from" span="2"/>
+        <field name="date_to" span="2"/>
+        <field name="contact_id" span="2"/>
+        <field name="ship_pay_by" span="2"/>
+        <field name="ship_method_id" span="2"/>
+    </group>
+</form>

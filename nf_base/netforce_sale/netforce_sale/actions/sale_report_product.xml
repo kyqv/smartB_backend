@@ -1,0 +1,11 @@
+<action>
+    <field name="string">Sales by Product Category</field>
+    <field name="view">report_view</field>
+    <field name="model">sale.order.line</field>
+    <field name="condition">[["order_id.state","in",["confirmed","done"]]]</field>
+    <field name="group_select">order_id.year,order_id.quarter,order_id.month,order_id.week,product_id,product_id.categ_id,order_id.contact_id,order_id.contact_id.categ_id,order_id.user_id,order_id,order_id.state</field>
+    <field name="function_select">agg_amount</field>
+    <field name="group_fields">product_id.categ_id</field>
+    <field name="agg_fields">agg_amount</field>
+    <field name="menu">sale_menu</field>
+</action>

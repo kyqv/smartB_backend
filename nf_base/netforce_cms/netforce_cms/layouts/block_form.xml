@@ -1,0 +1,8 @@
+<form model="cms.block">
+    <field name="name"/>
+    <field name="related_id"/>
+    <field name="html" width="900" height="500" view="field_html"/>
+    <related>
+        <field name="comments"/>
+    </related>
+</form>

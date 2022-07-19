@@ -1,0 +1,11 @@
+<list model="account.account">
+    <field name="code"/>
+    <field name="name"/>
+    <field name="type"/>
+    <field name="parent_id"/>
+    <field name="tax_id"/>
+    <field name="balance"/>
+    <field name="company_currency_id"/>
+    <field name="balance_cur"/>
+    <field name="currency_id"/>
+</list>

@@ -1,0 +1,13 @@
+<action>
+    <field name="string">Goods Issue</field>
+    <field name="view">multi_view</field>
+    <field name="model">stock.picking</field>
+    <field name="condition">[["type","=","out"]]</field>
+    <field name="tabs">[["All",[]],["Draft",[["state","=","draft"]]],["Planned",[["state","=","pending"]]],["Approved",[["state","=","approved"]]],["Completed",[["state","=","done"]]],["Rejected",[["state","=","rejected"]]]]</field>
+    <field name="list_layout">pick_out_list</field>
+    <field name="form_layout">pick_out_form</field>
+    <field name="model_string">Goods Issue</field>
+    <field name="context">{"pick_type":"out"}</field>
+    <field name="modes">list,form,calendar</field>
+    <field name="menu">stock_menu</field>
+</action>

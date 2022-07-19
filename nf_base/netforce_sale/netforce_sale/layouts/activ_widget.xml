@@ -1,0 +1,9 @@
+<list model="activity" action="view_activity" colors='{"due_date,#f00":[["overdue","=",true]],"#9f9":[["state","=","done"]]}' hide_select="1" hide_page="1">
+    <head replace="1"/>
+    <field name="type"/>
+    <field name="subject"/>
+    <field name="user_id"/>
+    <field name="due_date"/>
+    <field name="related_id"/>
+    <field name="overdue" invisible="1"/>
+</list>

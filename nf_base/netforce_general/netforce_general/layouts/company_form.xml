@@ -1,0 +1,10 @@
+<form model="company">
+    <field name="name"/>
+    <field name="parent_id"/>
+    <field name="code"/>
+    <field name="description"/>
+    <field name="contact_id"/>
+    <related>
+        <field name="comments"/>
+    </related>
+</form>

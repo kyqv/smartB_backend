@@ -1,0 +1,110 @@
+<center>
+    <h2>
+        Stock Forecast
+    </h2>
+    <h3>
+        {{company_name}}
+    </h3>
+    <h4>
+        {{#if product_name}}
+            Product: {{product_name}}
+            <br/>
+        {{/if}}
+        {{#if location_name}}
+            Location: {{location_name}}
+            <br/>
+        {{/if}}
+        As at {{fmt_date date}}
+    </h4>
+</center>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th></th>
+            <th></th>
+            {{#if show_location}}
+                <th></th>
+            {{/if}}
+            {{#if show_lot}}
+                <th></th>
+            {{/if}}
+            <th colspan="100" style="text-align:center">Forecast Qty</th>
+        </tr>
+        <tr>
+            <th style="width:20px"><input type="checkbox" class="nf-select-all"/></th>
+            <th>Product</th>
+            {{#if show_location}}
+                <th>Location</th>
+            {{/if}}
+            {{#if show_lot}}
+                <th>Lot / Serial Number</th>
+            {{/if}}
+            {{#each periods}}
+                <th>
+                    {{#ifeq ../period_days 1}}
+                        <span style="font-size:8px">{{fmt_date date_from fmt="ddd"}},</span>
+                        <span>{{fmt_date date_from fmt="DD"}}</span>
+                        <span style="font-size:10px">{{fmt_date date_from fmt="MMM"}}</span>
+                    {{else}}
+                        {{period_name}}
+                    {{/ifeq}}
+                </th>
+            {{/each}}
+        </tr>
+    <tbody>
+        {{#each lines context=context}}
+            <tr>
+                <td><input type="checkbox" class="nf-prod-select" data-product-id="{{product_id}}"/></td>
+                <td>
+                    [{{code}}]
+                    {{product_name}}
+                </td>
+                {{#if ../show_location}}
+                    <td>
+                        {{location_name}}
+                    </td>
+                {{/if}}
+                {{#if ../show_lot}}
+                    <td>
+                        {{lot_num}}
+                    </td>
+                {{/if}}
+                {{#each periods}}
+                    <td align="right">
+                        <a href="/ui#name=report_stock_card&defaults.product_id={{../product_id}}&defaults.location_id={{../location_id}}&defaults.date_from={{date_from}}&defaults.date_to={{date_to}}&defaults.show_pending=1" {{#if warning}}style="color:red;font-weight:bold"{{/if}}>{{qty}}</a>
+                    </td>
+                {{/each}}
+            </tr>
+        {{/each}}
+    </tbody>
+</table>
+<button class="btn btn-success btn-lg nf-btn-order"><span class="glyphicon glyphicon-arrow-right"></span> Order Products</button>
+<script>
+$(function() {
+    $(".nf-btn-order").click(function() {
+        var prod_ids=[];
+        $("input.nf-prod-select:checked").each(function() {
+            var prod_id=$(this).data("product-id");
+            prod_ids.push(prod_id);
+        });
+        console.log("prod_ids",prod_ids);
+        if (_.isEmpty(prod_ids)) {
+            alert("No items selected");
+            return;
+        }
+        var action={
+            name: "stock_order",
+            context: {
+                product_ids: prod_ids,
+                location_id: {{#if location_id}}{{location_id}}{{else}}null{{/if}},
+            },
+        };
+        NF.actions.execute(action);
+    });
+
+    $(".nf-select-all").click(function() {
+        var val=$(this).is(":checked");
+        $("input.nf-prod-select").prop("checked",val);
+    });
+});
+</script>

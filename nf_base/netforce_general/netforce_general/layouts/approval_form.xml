@@ -1,0 +1,6 @@
+<form model="approval">
+    <field name="date"/>
+    <field name="user_id"/>
+    <field name="related_id"/>
+    <field name="state"/>
+</form>

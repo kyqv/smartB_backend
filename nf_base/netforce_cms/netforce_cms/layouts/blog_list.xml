@@ -1,0 +1,4 @@
+<list model="cms.blog">
+    <field name="name"/>
+    <field name="code"/>
+</list>

@@ -1,0 +1,6 @@
+<form model="import.theme.zip">
+    <field name="file"/>
+    <foot>
+        <button string="Import" method="import_zip" type="primary" show_progress="1"/>
+    </foot>
+</form>

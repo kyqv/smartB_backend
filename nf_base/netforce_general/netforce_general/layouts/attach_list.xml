@@ -1,0 +1,5 @@
+<list model="attach">
+    <field name="file"/>
+    <field name="date"/>
+    <field name="user_id"/>
+</list>

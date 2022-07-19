@@ -1,0 +1,4 @@
+<search model="product.categ">
+    <field name="name"/>
+    <field name="parent_id"/>
+</search>

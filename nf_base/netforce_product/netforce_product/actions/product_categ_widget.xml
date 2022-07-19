@@ -1,0 +1,7 @@
+<action>
+    <field name="view">chart</field>
+    <field name="model">report.product</field>
+    <field name="method">products_per_categ</field>
+    <field name="chart_type">pie</field>
+    <field name="height">250</field>
+</action>

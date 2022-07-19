@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Create Service Quotation</field>
+    <field name="view">form_popup</field>
+    <field name="model">service.create.quot</field>
+    <field name="target">_popup</field>
+</action>

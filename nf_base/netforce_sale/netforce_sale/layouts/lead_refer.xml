@@ -1,0 +1,6 @@
+<form model="sale.lead" priority="20">
+    <field name="refer_reason_id" string="Refer To"/>
+    <foot>
+        <button string="Refer" method="refer" type="primary"/>
+    </foot>
+</form>

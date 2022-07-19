@@ -1,0 +1,11 @@
+<list model="document" colors='{"expiry_date,#f00":[["expired","=",true]]}' priority="1">
+    <field name="files" format="files"/>
+    <field name="date"/>
+    <field name="expiry_date"/>
+    <field name="contact_id"/>
+    <field name="related_id"/>
+    <field name="description"/>
+    <field name="folder_id"/>
+    <field name="categ_id"/>
+    <field name="next_notif_date"/>
+</list>

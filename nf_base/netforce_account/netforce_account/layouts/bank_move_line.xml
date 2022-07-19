@@ -1,0 +1,20 @@
+<list action="view_transaction" colors='{"#cfc":[["state","=","reconciled"]]}'>
+    <head>
+        <button string="Unreconcile" method="unreconcile" type="primary"/>
+    </head>
+    <search>
+        <field name="state"/>
+        <field name="move_date"/>
+        <field name="move_number"/>
+        <field name="description"/>
+        <newline/>
+        <field name="debit"/>
+        <field name="credit"/>
+    </search>
+    <field name="state"/>
+    <field name="move_date"/>
+    <field name="move_number"/>
+    <field name="description"/>
+    <field name="debit"/>
+    <field name="credit"/>
+</list>

@@ -1,0 +1,7 @@
+<action>
+    <field name="string">Project Budget Report</field>
+    <field name="view">report</field>
+    <field name="model">report.track.budget</field>
+    <field name="template">report_track_budget</field>
+    <field name="menu">account_menu</field>
+</action>

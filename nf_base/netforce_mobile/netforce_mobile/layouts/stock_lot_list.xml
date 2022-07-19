@@ -1,0 +1,3 @@
+<list_m model="stock.lot">
+    <field name="number"/>
+</list_m>

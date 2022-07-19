@@ -1,0 +1,32 @@
+<form model="email.template">
+    <top>
+        <button string="Copy" method="copy"/>
+    </top>
+    <tabs>
+        <tab string="General">
+            <field name="name"/>
+            <newline/>
+            <field name="from_addr"/>
+            <newline/>
+            <field name="reply_to"/>
+            <newline/>
+            <field name="to_addrs"/>
+            <newline/>
+            <field name="cc_addrs"/>
+            <newline/>
+            <field name="subject"/>
+            <newline/>
+            <field name="body" width="800" height="400" view="field_html"/>
+            <newline/>
+            <field name="attachments"/>
+        </tab>
+        <tab string="Links">
+            <field name="contact"/>
+            <newline/>
+            <field name="related"/>
+        </tab>
+    </tabs>
+    <related>
+        <field name="comments"/>
+    </related>
+</form>

@@ -1,0 +1,7 @@
+<action>
+    <field name="view">form_popup</field>
+    <field name="string">Refer Lead</field>
+    <field name="model">sale.lead</field>
+    <field name="layout">lead_refer</field>
+    <field name="target">popup</field>
+</action>

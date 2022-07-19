@@ -1,0 +1,8 @@
+<board>
+    <vpanel>
+        <widget string="Documents expiring within 35 days" action="doc_expiring_widget"/>
+    </vpanel>
+    <vpanel>
+        <widget string="Documents per category" action="doc_categ_widget"/>
+    </vpanel>
+</board>

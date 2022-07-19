@@ -1,0 +1,7 @@
+<list_m model="contact">
+    <field name="name"/>
+    <field name="code"/>
+    <newline/>
+    <field name="email"/>
+    <field name="mobile"/>
+</list_m>

@@ -1,0 +1,12 @@
+<form model="report.journal">
+    <group form_layout="stacked">
+        <field name="date_from" span="2"/>
+        <field name="date_to" span="2"/>
+        <field name="journal_id" span="2"/>
+        <field name="ref" span="2"/>
+        <newline/>
+        <field name="filter_by" span="2"/>
+        <field name="order_by" span="2"/>
+        <field name="hide_zero" span="2"/>
+    </group>
+</form>

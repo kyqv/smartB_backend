@@ -1,0 +1,10 @@
+<list model="sale.activ" priority="1">
+    <field name="type"/>
+    <field name="user_id"/>
+    <field name="subject"/>
+    <field name="date"/>
+    <field name="contact_id"/>
+    <field name="related_id"/>
+    <field name="priority"/>
+    <field name="state"/>
+</list>

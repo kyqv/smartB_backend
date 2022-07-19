@@ -1,0 +1,28 @@
+<list model="production.order" priority="1" colors='{"#ccc":[["state","=","done"]],"#fc9":[["state","=","waiting_confirm"]],"#dbe":[["state","=","waiting_suborder"]],"#ff9":[["state","=","waiting_material"]],"#9f9":[["state","=","ready"]],"#99f":[["state","=","in_progress"]],"#999":[["state","=","split"]],"due_date,#f00":[["overdue","=",true]],"#9f9":[["qc_checked","=",true]]}'>
+    <head>
+        <button string="Print" icon="print" action="report_production_form"/>
+        <button string="Print (New)" icon="print" action="report_production_form2" action_options='{"ids":ids}'/>
+        <button string="To Draft" method="to_draft" confirm="Are you sure?"/>
+        <button string="Void" method="void" confirm="Are you sure?"/>
+        <button string="Copy To Purchase Orders" method="copy_to_purchase"/>
+        <button string="Void" method="void"/>
+        <button string="Void MO and Related" method="void_related"/>
+        <button string="Update Stock Dates" method="update_stock_dates"/>
+    </head>
+    <field name="number"/>
+    <field name="date_created"/>
+    <field name="due_date"/>
+    <field name="product_id"/>
+    <field name="ref"/>
+    <field name="related_id"/>
+    <field name="customer_id"/>
+    <field name="qty_planned"/>
+    <field name="qty_received"/>
+    <field name="received_date"/>
+    <field name="production_location_id"/>
+    <field name="state"/>
+    <button string="Receive FG" action="receive_fg" icon="arrow-right" attrs='{"invisible":[["qc_checked","=",true]]}'/>
+    <button string="QC Checked" method="qc_check" icon="ok" type="success" attrs='{"invisible":[["qc_checked","=",true]]}'/>
+    <field name="overdue" invisible="1"/>
+    <field name="qc_checked" invisible="1"/>
+</list>

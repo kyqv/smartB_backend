@@ -1,0 +1,5 @@
+<action>
+    <field name="view_cls">board</field>
+    <field name="view_xml">mkt_board</field>
+    <field name="menu">mkt_menu</field>
+</action>

@@ -1,0 +1,145 @@
+<form model="account.invoice" attrs='{"readonly":[["state","in",["waiting_payment","paid","voided"]]]}' show_company="1" show_save="1" model_string="Repeating Invoice">
+    <head>
+        <field name="state"/>
+        <button string="Print" icon="print" action="report_cust_invoice_form"/>
+        <button string="Print (New)" icon="print" action="report_cust_invoice_form2" action_options='{"active_id":id}'/>
+        <button string="Options" dropdown="1">
+            <item string="Copy" method="copy"/>
+            <divider/>
+            <item string="Create Next Invoice" method="create_next_invoice"/>
+        </button>
+    </head>
+    <group form_layout="stacked">
+        <field name="interval_num" span="2" required="1"/>
+        <field name="interval_unit" span="2" required="1"/>
+        <field name="next_date" span="2" required="1"/>
+        <field name="next_due_date" span="2"/>
+    </group>
+    <tabs>
+        <tab string="General">
+            <group form_layout="stacked">
+                <field name="contact_id" span="2" create="1" onchange="onchange_contact" condition='[["customer", "=", "True"]]'/>
+                <field name="bill_address_id" span="2" condition='[["contact_id","=",contact_id],["contact_id","!=",null]]'/>
+                <field name="date" span="2" onchange="onchange_date"/>
+                <field name="due_date" span="2"/>
+                <field name="number" required="1" span="2"/>
+                <field name="pay_term_id" onchange="onchange_pay_term" span="2"/>
+                <newline/>
+                <field name="currency_id" span="2"/>
+                <field name="tax_type" span="2" onchange="update_amounts"/>
+                <field name="tax_no" span="2"/>
+                <field name="tax_branch_no" span="2"/>
+                <field name="related_id" span="2"/>
+                <field name="ref" span="2"/>
+                <newline/>
+                <field name="memo" span="4"/>
+                <field name="ship_term_id" span="2"/>
+            </group>
+            <field name="lines" count="10" nolabel="1">
+                <list onchange="update_amounts">
+                    <field name="product_id" onchange="onchange_product"/>
+                    <field name="description"/>
+                    <field name="qty" onchange="update_amounts"/>
+                    <field name="uom_id" onchange="update_amounts"/>
+                    <field name="unit_price" onchange="update_amounts"/>
+                    <field name="discount" onchange="update_amounts"/>
+                    <field name="discount_amount" onchange="update_amounts"/>
+                    <!--<field name="account_id" onchange="onchange_account" condition='[["type","!=","view"],["company_id","=",parent.company_id]]'/>-->
+                    <field name="account_id" onchange="onchange_account"/>
+                    <field name="tax_id" onchange="update_amounts"/>
+                    <field name="amount" attrs='{"readonly":[["unit_price","!=",null]]}' onchange="update_amounts"/>
+                    <field name="related_id"/>
+                    <field name="track_id"/>
+                    <field name="track2_id"/>
+                    <field name="track_distrib_id" new_action="new_track_distrib"/>
+                </list>
+            </field>
+            <group offset="8" span="4" columns="1">
+                <field name="amount_subtotal"/>
+                <field name="amount_tax"/>
+                <field name="amount_rounding" attrs='{"invisible":[["amount_rounding","=",0]]}'/>
+                <field name="amount_total"/>
+                <field name="payment_entries" nolabel="1">
+                    <template type="hbs">
+                        {{#each data}}
+                            <div class="form-group nf-field">
+                                <label class="control-label nf-field-label col-md-4">
+                                    Less <a href="/action?name=journal_entry&amp;mode=form&amp;active_id={{lookup move_id 0}}">{{lookup move_id 1}}</a>
+                                </label>
+                                <div class="col-md-8" style="text-align:right">
+                                    {{currency credit}}
+                                </div>
+                            </div>
+                        {{/each}}
+                    </template>
+                    <fields>
+                        <field name="move_id"/>
+                        <field name="credit"/>
+                        <field name="amount_cur"/>
+                    </fields>
+                </field>
+                <field name="amount_due" states="waiting_payment,paid"/>
+            </group>
+            <field name="type" invisible="1"/>
+            <field name="inv_type" invisible="1"/>
+            <field name="contact_credit" invisible="1"/>
+            <field name="company_id" invisible="1"/>
+        </tab>
+        <tab string="Taxes">
+            <field name="taxes">
+                <list>
+                    <field name="tax_comp_id"/>
+                    <field name="base_amount"/>
+                    <field name="tax_amount"/>
+                    <field name="tax_no"/>
+                    <field name="tax_date"/>
+                </list>
+            </field>
+            <button string="Calculate Taxes" method="calc_taxes" icon="pencil"/>
+        </tab>
+        <tab string="Other Info">
+            <field name="journal_id" onchange="onchange_journal"/>
+            <newline/>
+            <field name="sequence_id" condition='[["type","=","cust_invoice"]]' onchange="onchange_sequence"/>
+            <newline/>
+            <field name="account_id"/>
+            <newline/>
+            <field name="pay_method_id"/>
+            <newline/>
+            <field name="bill_note_id"/>
+            <newline/>
+            <field name="user_id"/>
+            <newline/>
+            <field name="create_time"/>
+            <newline/>
+            <field name="currency_rate"/>
+            <newline/>
+            <field name="transaction_no"/>
+            <newline/>
+            <field name="print_form_no" readonly="0"/>
+            <newline/>
+            <field name="ship_track_no" readonly="0"/>
+            <newline/>
+            <field name="remarks" readonly="0"/>
+        </tab>
+    </tabs>
+    <related>
+        <field name="invoices"/>
+        <field name="documents">
+            <list>
+                <field name="file" target="_blank" preview="1"/>
+                <field name="categ_id"/>
+                <field name="description"/>
+                <field name="date"/>
+            </list>
+            <form>
+                <field name="categ_id"/>
+                <field name="file" target="_blank" onchange="onchange_file"/>
+                <field name="date"/>
+                <field name="description"/>
+                <field name="contact_id" invisible="1"/>
+            </form>
+        </field>
+        <field name="comments"/>
+    </related>
+</form>

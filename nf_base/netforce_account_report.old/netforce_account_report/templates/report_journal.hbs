@@ -1,0 +1,78 @@
+<center>
+    <h2>
+        Journal Report
+    </h2>
+    <h3>
+        {{company_name}}
+        <br/>
+        {{#if journal_name}}
+            {{journal_name}}
+            <br/>
+        {{/if}}
+        From {{fmt_date date_from}} to {{fmt_date date_to}}
+    </h3>
+</center>
+{{#if moves}}
+    <table class="table" style="margin-top:20px">
+        {{#each moves context=context}}
+            <tr style="background-color:#def">
+                <td colspan="10">
+                    <div style="float:right">{{fmt_date date "DD MMM YYYY"}}</div>
+                    {{#link action="view_journal" active_id=id context=context}}
+                        {{number}}
+                    {{/link}} <b>{{narration}}</b> (Posted on {{fmt_date date_posted "DD MMM YYYY"}})
+                </td>
+            </tr>
+            <tr style="background-color:#eee">
+                <th>
+                    Account
+                </th>
+                <th>
+                    Tracking
+                </th>
+                <th style="text-align:right">
+                    Debit
+                </th>
+                <th style="text-align:right">
+                    Credit
+                </th>
+            </tr>
+            {{#each lines}}
+                <tr>
+                    <td>
+                        {{#link action="report_account_sum" defaults_account_id=account_id}}
+                            {{account_code}} - {{account_name}}
+                        {{/link}}
+                    </td>
+                    <td>
+                        {{track_name}}
+                    </td>
+                    <td style="text-align:right">
+                        {{currency debit zero=""}}
+                    </td>
+                    <td style="text-align:right">
+                        {{currency credit zero=""}}
+                    </td>
+                </tr>
+            {{/each}}
+            <tr>
+                <th style="border-top:1px solid #999">
+                </th>
+                <th style="border-top:1px solid #999">
+                </th>
+                <th style="border-top:1px solid #999;text-align:right">
+                    {{currency total_debit zero=""}}
+                </th>
+                <th style="border-top:1px solid #999;text-align:right">
+                    {{currency total_credit zero=""}}
+                </th>
+            </tr>
+            <tr>
+                <td colspan="10">
+                </td>
+            </tr>
+        {{/each}}
+    </table>
+{{else}}
+There are no items to display.
+{{/if}}

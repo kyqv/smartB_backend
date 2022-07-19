@@ -1,0 +1,7 @@
+<action>
+    <field name="view">list_m</field>
+    <field name="title">Delivery Routes</field>
+    <field name="model">nd.route</field>
+    <field name="tabs">[["Today",[["today","=","true"]]],["Tomorrow",[["today_p1","=",true]]],["All",[[]]]]</field>
+    <field name="menu">main_menu_m</field>
+</action>

@@ -1,0 +1,8 @@
+<action>
+    <field name="string">Demand Analysis</field>
+    <field name="view">report_view</field>
+    <field name="model">demand</field>
+    <field name="group_select">year,quarter,month,week,customer_id,customer_id.categ_id,product_id,product_id.categ_id,state</field>
+    <field name="function_select">agg_qty</field>
+    <field name="menu">sale_menu</field>
+</action>

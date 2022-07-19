@@ -1,0 +1,6 @@
+<action>
+    <field name="view">list</field>
+    <field name="model">sale.opportunity</field>
+    <field name="condition">[["state", "=", "open"]]</field>
+    <field name="layout">opport_widget</field>
+</action>

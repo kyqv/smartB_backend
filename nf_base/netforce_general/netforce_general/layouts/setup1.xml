@@ -1,0 +1,9 @@
+<steps step="1" num_steps="5" title="STEP 1 - Welcome to Netforce!" sub="Setting up takes just about 2 minutes for you to start invoicing.">
+    <field name="company_type" sub="Please choose the type of business you operate"/>
+    <field name="company_name" sub="Plase enter the registered name of your legal entity"/>
+    <field name="phone" sub="Please enter a contact number"/>
+    <foot>
+        <button string="Next" type="primary" method="next1" icon="arrow-right"/>
+        <button string="Skip" method="start" icon="remove"/>
+    </foot>
+</steps>

@@ -1,0 +1,6 @@
+<action>
+    <field name="view">print_wizard</field>
+    <field name="model">production.order</field>
+    <field name="template_type">prod_order</field>
+    <field name="menu">mfg_menu</field>
+</action>

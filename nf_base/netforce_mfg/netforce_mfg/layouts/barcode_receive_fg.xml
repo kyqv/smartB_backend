@@ -1,0 +1,46 @@
+<form model="barcode.receive.fg" title="Barcode: Receive Finished Goods">
+    <group form_layout="stacked">
+        <field name="location_to_id" span="2" required="1"/>
+        <field name="journal_id" span="2"/>
+        <field name="employee_id" span="2"/>
+        <newline/>
+        <field name="production_id" span="2" required="1" onchange="onchange_production"/>
+        <field name="location_from_id" span="2" required="1"/>
+        <button string="Fill Products" icon="align-justify" method="fill_products"/>
+    </group>
+    <separator string="Received Finished Goods"/>
+    <field name="lines" nolabel="1">
+        <list>
+            <field name="product_id"/>
+            <field name="qty"/>
+            <field name="uom_id"/>
+            <field name="lot_id"/>
+        </list>
+    </field>
+    <separator string="Issued Raw Materials"/>
+    <field name="issued_lines" nolabel="1" readonly="1">
+        <list>
+            <field name="product_id"/>
+            <field name="qty"/>
+            <field name="uom_id"/>
+            <field name="lot_id"/>
+        </list>
+    </field>
+    <separator/>
+    <group span="7">
+        <field name="state"/>
+        <newline/>
+        <field name="approved_by_id"/>
+        <button string="Approve" icon="ok" action="approve_barcode_receive_fg"/>
+    </group>
+    <group span="4">
+        <field name="total_qty_issued" span="4"/>
+        <field name="total_qty_received" span="4"/>
+        <field name="total_qty_diff" span="4"/>
+        <field name="max_qty_loss" span="4"/>
+    </group>
+    <foot replace="1">
+        <button string="Create" method="validate" type="success" icon="ok"/>
+        <button string="Clear" method="clear"/>
+    </foot>
+</form>

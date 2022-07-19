@@ -1,0 +1,8 @@
+<list model="model.inst">
+    <top>
+        <button string="Set Models" method="set_models"/>
+    </top>
+    <field name="model_id"/>
+    <field name="record_id"/>
+    <field name="field_values_str"/>
+</list>

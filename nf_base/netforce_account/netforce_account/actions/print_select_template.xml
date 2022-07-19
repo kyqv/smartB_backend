@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Select Template</field>
+    <field name="view">form_popup</field>
+    <field name="model">print.select.template</field>
+    <field name="target">_popup</field>
+</action>

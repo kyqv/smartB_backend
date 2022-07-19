@@ -1,0 +1,29 @@
+<pivot model="stock.move" agg_name="sum" vals="qty">
+    <field name="product_id.name" string="Product Name"/>
+    <field name="product_id.code" string="Product Code"/>
+    <field name="product_id.categ_id.name" string="Product Category"/>
+    <field name="product_id.parent_id.code" string="Master Product Code"/>
+    <field name="product_id.parent_id.name" string="Master Product Name"/>
+    <field name="uom_id.name" string="UoM"/>
+    <field name="picking_id.number" string="Picking Number"/>
+    <field name="picking_id.type" string="Picking Type"/>
+    <field name="picking_id.contact_id.name" string="Contact Name"/>
+    <field name="picking_id.contact_id.code" string="Contact Code"/>
+    <field name="picking_id.contact_id.categ_id.name" string="Contact Category"/>
+    <field name="location_from_id.name" string="From Location Name"/>
+    <field name="location_from_id.code" string="From Location Code"/>
+    <field name="location_to_id.name" string="To Location Name"/>
+    <field name="location_to_id.code" string="To Location Code"/>
+    <field name="state"/>
+    <field name="date" string="Time"/>
+    <field name="date_day"/>
+    <field name="date_week"/>
+    <field name="date_month"/>
+    <field name="qty"/>
+    <field name="qty2"/>
+    <field name="cost_price"/>
+    <field name="cost_amount"/>
+    <field name="notes"/>
+    <field name="ref"/>
+    <field name="sale_id.number" string="SO Number"/>
+</pivot>

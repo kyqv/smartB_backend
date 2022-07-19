@@ -1,0 +1,8 @@
+<list_m model="hr.expense.claim">
+    <field name="name"/>
+    <newline/>
+    <field name="employee_id"/>
+    <newline/>
+    <field name="num_expenses"/>
+    <field name="amount_total"/>
+</list_m>

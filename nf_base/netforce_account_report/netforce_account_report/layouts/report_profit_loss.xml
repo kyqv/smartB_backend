@@ -1,0 +1,17 @@
+<form model="report.profit.loss">
+    <group form_layout="stacked">
+        <field name="date_from" span="2"/>
+        <field name="date_to" span="2"/>
+        <field name="compare_with" span="2"/>
+        <field name="compare_periods" span="2"/>
+        <newline/>
+        <field name="track_id" span="2"/>
+        <field name="track2_id" span="2"/>
+        <field name="contact_id" span="2"/>
+        <field name="currency_id" span="2"/>
+        <newline/>
+        <field name="show_ytd" span="2"/>
+        <field name="convert_currency" span="2"/>
+        <field name="account_id" span="2"/>
+    </group>
+</form>

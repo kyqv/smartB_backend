@@ -1,0 +1,6 @@
+<form model="payment.term">
+    <field name="name"/>
+    <field name="description"/>
+    <field name="sequence"/>
+    <field name="days"/>
+</form>

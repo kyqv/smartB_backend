@@ -1,0 +1,10 @@
+<action>
+    <field name="string">Packaging Pricing</field>
+    <field name="view">multi_view</field>
+    <field name="model">package.price</field>
+    <field name="list_layout">package_price_list</field>
+    <field name="form_layout">package_price_form</field>
+    <field name="model_string">Packaging Pricing</field>
+    <field name="modes">list,form,calendar</field>
+    <field name="menu">ecom2_menu</field>
+</action>

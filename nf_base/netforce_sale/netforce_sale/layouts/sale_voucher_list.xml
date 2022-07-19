@@ -1,0 +1,10 @@
+<list model="sale.voucher">
+    <field name="sequence"/>
+    <field name="code"/>
+    <field name="description"/>
+    <field name="benefit_type"/>
+    <field name="new_customer"/>
+    <field name="max_orders_per_customer"/>
+    <field name="expire_date"/>
+    <field name="state"/>
+</list>

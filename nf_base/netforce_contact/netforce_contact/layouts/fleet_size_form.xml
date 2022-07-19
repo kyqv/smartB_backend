@@ -1,0 +1,8 @@
+<form model="fleet.size">
+    <field name="name"/>
+    <field name="code"/>
+    <field name="description"/>
+    <related>
+        <field name="comments"/>
+    </related>
+</form>

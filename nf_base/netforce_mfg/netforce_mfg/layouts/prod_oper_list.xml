@@ -1,0 +1,5 @@
+<list model="production.operation">
+    <field name="order_id"/>
+    <field name="workcenter_id"/>
+    <field name="hours"/>
+</list>

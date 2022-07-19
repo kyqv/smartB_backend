@@ -1,0 +1,6 @@
+<form model="report.track.budget">
+    <group form_layout="stacked">
+        <field name="track_id" span="2"/>
+        <field name="contact_id" span="2"/>
+    </group>
+</form>

@@ -1,0 +1,3 @@
+<list model="issue.type">
+    <field name="name"/>
+</list>

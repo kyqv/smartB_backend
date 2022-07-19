@@ -1,0 +1,606 @@
+from netforce.model import fields,get_model
+from netforce import utils
+import json
+import urllib.request
+import re
+from datetime import *
+import time
+import random
+from pprint import pprint
+try:
+    from reportlab.pdfgen import canvas
+    from reportlab.lib.styles import ParagraphStyle,ListStyle
+    from reportlab.lib.pagesizes import A4,cm
+    from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, PageBreak, Table, TableStyle, Frame, Image, ListFlowable, ListItem
+    from reportlab.lib.utils import ImageReader
+    from reportlab.lib import colors
+    from reportlab.lib.enums import TA_LEFT,TA_RIGHT,TA_CENTER,TA_JUSTIFY
+    from reportlab.pdfbase.pdfmetrics import stringWidth
+    from reportlab.pdfbase.ttfonts import TTFont
+    from reportlab.pdfbase import pdfmetrics
+except:
+    print("Failed to import reportlab")
+try:
+    from PyPDF2 import PdfFileMerger
+except:
+    print("Failed to import PyPDF2")
+
+
+class NFCanvas(canvas.Canvas):
+    def __init__(self, *args, **kwargs):
+        canvas.Canvas.__init__(self, *args, **kwargs)
+        self.pages = []
+
+    def showPage(self):
+        self.pages.append(dict(self.__dict__))
+        self._startPage()
+
+    def save(self):
+        page_count = len(self.pages)
+        for page in self.pages:
+            self.__dict__.update(page)
+            self.draw_page_number(page_count)
+            canvas.Canvas.showPage(self)
+        canvas.Canvas.save(self)
+
+    def draw_page_number(self, page_count):
+        text = "Page %s of %s" % (self._pageNumber, page_count)
+        self.setFont("Helvetica", 9)
+        self.drawRightString(11.2*cm, 1*cm, text)
+
+def render_data(doc,el,context):
+    print("render_data")
+    model=el.get("model")
+    if not model:
+        raise Exception("Missing model")
+    read_type=el.get("read_type")
+    if not read_type:
+        raise Exception("Missing read_type")
+    fields_str=el.get("fields")
+    if not fields_str:
+        raise Exception("Missing fields")
+    fields=json.loads(fields_str)
+    cond=[]
+    res=get_model(model).search_read_path(cond,fields)
+    if read_type=="one":
+        data=res[0]
+    else:
+        data=res
+    print("=> data",data)
+    ctx=context.copy()
+    ctx["data"]=data
+    ctx["model"]=model
+    items=[]
+    for el2 in el["children"]:
+        items+=render_element(doc,el2,context)
+    if not items:
+        return []
+    style=[
+        ("LEFTPADDING",(0,0),(-1,-1),0),
+        ("RIGHTPADDING",(0,0),(-1,-1),0),
+        ("TOPPADDING",(0,0),(-1,-1),0),
+        ("BOTTOMPADDING",(0,0),(-1,-1),0),
+        ]
+    if context.get("show_grid"):
+        style.append(("GRID",(0,0),(-1,-1),1,colors.black))
+    return [Table([[i] for i in items],colWidths=["100%"],style=style,ident="data")]
+
+def render_box(doc,el,context):
+    print("render_box")
+    items=[]
+    for el2 in el["children"]:
+        items+=render_element(doc,el2,context)
+    return items
+
+def render_columns(doc,el,context):
+    print("render_columns")
+    if el.get("visibility"):
+        vis_name=el["visibility"]
+        data=context.get("data") or {}
+        visibility=utils.get_data_path(data,vis_name)
+        if not visibility:
+            return ""
+    cols=[]
+    for col in el["columns"]:
+        if col.get("children"):
+            items=[]
+            for el2 in col["children"]:
+                items+=render_element(doc,el2,context)
+            if not items:
+                cols.append("")
+                continue
+            style=[
+                ("LEFTPADDING",(0,0),(-1,-1),0),
+                ("RIGHTPADDING",(0,0),(-1,-1),0),
+                ("TOPPADDING",(0,0),(-1,-1),0),
+                ("BOTTOMPADDING",(0,0),(-1,-1),0),
+                ]
+            if context.get("show_grid"):
+                style.append(("GRID",(0,0),(-1,-1),1,colors.black))
+            cols.append(Table([[i] for i in items],colWidths=["100%"],style=style,ident="col"))
+        else: 
+            cols.append("")
+    style=[
+        ("LEFTPADDING",(0,0),(-1,-1),0),
+        ("RIGHTPADDING",(0,0),(-1,-1),0),
+        ("TOPPADDING",(0,0),(-1,-1),0),
+        ("BOTTOMPADDING",(0,0),(-1,-1),0),
+        ]
+    if el.get("border_width") or context.get("show_grid"):
+        w=float(el.get("border_width",1))
+        style.append(("GRID",(0,0),(-1,-1),w,colors.black))
+    if el.get("background_color"):
+        color=el["background_color"]
+        style.append(("BACKGROUND",(0,0),(-1,-1),color))
+    if el.get("vertical_align"):
+        align=el["vertical_align"].upper()
+        style.append(("VALIGN",(0,0),(-1,-1),align))
+    col_widths=None
+    if el.get("col_widths") and len(el["col_widths"])==len(el["columns"]):
+        res=el["col_widths"]
+        tot=sum(res)
+        col_widths=[str(w*100/tot)+"%" for w in res]
+    content=Table([cols],style=style,colWidths=col_widths,ident="columns")
+    pad_left=(el.get("margin_left") or 0)/60*cm
+    pad_right=(el.get("margin_right") or 0)/60*cm
+    pad_top=(el.get("margin_top") or 0)/60*cm
+    pad_bottom=(el.get("margin_bottom") or 0)/60*cm
+    style=[
+        ("LEFTPADDING",(0,0),(-1,-1),pad_left),
+        ("RIGHTPADDING",(0,0),(-1,-1),pad_right),
+        ("TOPPADDING",(0,0),(-1,-1),pad_top),
+        ("BOTTOMPADDING",(0,0),(-1,-1),pad_bottom),
+        ]
+    return [Table([[content]],style=style,ident="columns_cont")]
+
+def render_table(doc,el,context):
+    print("render_table")
+    num_cols=el.get("num_cols") or 1
+    num_rows=el.get("num_rows") or 1
+    items=[]
+    for i in range(num_rows):
+        row_items=[]
+        for j in range(num_cols):
+            if i<len(el["elements"]) and j<len(el["elements"][i]):
+                el2=el["elements"][i][j]
+            else:
+                continue
+            if not el2:
+                continue
+            row_items.append(render_element(doc,el2,context))
+        if row_items:
+            items.append(row_items)
+    if not items:
+        return []
+    style=[
+        ("LEFTPADDING",(0,0),(-1,-1),0),
+        ("RIGHTPADDING",(0,0),(-1,-1),0),
+        ("TOPPADDING",(0,0),(-1,-1),0),
+        ("BOTTOMPADDING",(0,0),(-1,-1),0),
+        ]
+    if el.get("table_bordered") or context.get("show_grid"):
+        w=1
+        style.append(("GRID",(0,0),(-1,-1),w,colors.black))
+    col_widths=None
+    if el.get("col_widths") and len(el["col_widths"])==num_cols:
+        res=el["col_widths"]
+        tot=sum(res)
+        col_widths=[str(int(w*100/tot))+"%" for w in res]
+    print("col_widths",col_widths)
+    content=Table(items,style=style,colWidths=col_widths,ident="table")
+    pad_left=(el.get("margin_left") or 0)/60*cm
+    pad_right=(el.get("margin_right") or 0)/60*cm
+    pad_top=(el.get("margin_top") or 0)/60*cm
+    pad_bottom=(el.get("margin_bottom") or 0)/60*cm
+    style=[
+        ("LEFTPADDING",(0,0),(-1,-1),pad_left),
+        ("RIGHTPADDING",(0,0),(-1,-1),pad_right),
+        ("TOPPADDING",(0,0),(-1,-1),pad_top),
+        ("BOTTOMPADDING",(0,0),(-1,-1),pad_bottom),
+        ]
+    return [Table([[content]],style=style,ident="table_cont")]
+
+def replace_fields(s,data,model=None):
+    #print("replace_fields",s,model)
+    def _replace_expr(m):
+        path=m.group(1)
+        #print("replace path",path)
+        val=utils.get_data_path(data,path)
+        if val is None:
+            val=""
+        if model: 
+            try:
+                field_model,field_name=utils.get_field_path(model,path)
+                m=get_model(field_model)
+                f=m.get_field(field_name)
+                if isinstance(f,fields.Date):
+                    try:
+                        d=datetime.strptime(val,"%Y-%m-%d")
+                        val=d.strftime("%d/%m/%Y")
+                    except Exception as e:
+                        print("ERROR: %s"%e)
+                elif isinstance(f,fields.Decimal):
+                    try:
+                        val=utils.format_money(val)
+                    except Exception as e:
+                        print("ERROR: %s"%e)
+                elif isinstance(f,fields.DateTime):
+                    try:
+                        d=datetime.strptime(val,"%Y-%m-%d %H:%M:%S")
+                        val=d.strftime("%I:%m %p")
+                    except Exception as e:
+                        print("ERROR: %s"%e)
+            except Exception as e:
+                print("Failed to format field %s %s"%(model,path))
+        return str(val)
+    res=re.sub("\{(.*?)\}",_replace_expr,s)
+    #print("replace_fields => %s"%res)
+    return res
+
+def render_text(doc,el,context):
+    print("render_text",el.get("name"),el)
+    name=el.get("name")
+    contents=el.get("contents")
+    form_data=context.get("form_data") or {}
+    if name and form_data.get(name):
+        contents=form_data[name]
+    align=el.get("align") or "left"
+    font_size=int(context.get("font_size") or 8)
+    if el.get("font_size"):
+        font_size=int(el["font_size"])
+    style = ParagraphStyle(
+        name="Normal",
+        fontSize=font_size,
+        alignment={"left":TA_LEFT,"center":TA_CENTER,"right":TA_RIGHT,"justify":TA_JUSTIFY}[align],
+    )
+    if el.get("visibility"):
+        vis_name=el["visibility"]
+        data=context.get("data") or {}
+        visibility=utils.get_data_path(data,vis_name)
+        if not visibility:
+            return ""
+    if False:#name: XXX
+        print("name",name)
+        data=context.get("data") or {}
+        val=utils.get_data_path(data,name)
+        if val is None:
+            val=""
+        if name.find("date")!=-1: # FIXME
+            try:
+                d=datetime.strptime(val,"%Y-%m-%d")
+                val=d.strftime("%d/%m/%Y")
+            except Exception as e:
+                print("ERROR: %s"%e)
+        text=str(val)
+        p=Paragraph(text,style)
+        lines=[p]
+    elif contents:
+        data=context.get("data") or {}
+        model=context.get("model")
+        ops=contents.get("ops",[])
+        print("ops",ops)
+        indent_lines={}
+        list_types={}
+        def _finish_lists(indent_level):
+            print("_finish_lists",indent_level)
+            #print("BEFORE",indent_lines)
+            if not indent_lines:
+                return
+            max_level=max(indent_lines.keys())
+            for i in range(max_level,indent_level-1,-1):
+                lines=indent_lines.setdefault(i,[])
+                up_lines=indent_lines.get(i+1)
+                if up_lines:
+                    kw={}
+                    indent_lines[i+1]=[]
+                    list_type=list_types.get(i+1)
+                    if list_type=="bullet":
+                        bullet_type="bullet"
+                        kw["start"]=u"\u2022"
+                    elif list_type=="ordered":
+                        bullet_type="1"
+                    else:
+                        bullet_type=None
+                    print("  create list level %s (%s lines, list_type=%s)"%(i+1,len(up_lines),list_type))
+                    if bullet_type:
+                        kw["bulletType"]=bullet_type
+                    if el.get("bullet_text"):
+                        kw["start"]=el["bullet_text"]
+                    list_flow=ListFlowable(up_lines,bulletFontSize=10,**kw)
+                    lines.append(list_flow)
+            #print("AFTER",indent_lines)
+        def _add_line(html,style,list_type=None,indent=0):
+            print("_add_line list_type=%s indent=%s '%s'"%(list_type,indent,html))
+            if html.strip()=="":
+                html="&nbsp;"
+            _finish_lists(indent)
+            p=Paragraph(html,style)
+            lines=indent_lines.setdefault(indent,[])
+            lines.append(p)
+            list_types[indent]=list_type
+        def _add_content(content,style,list_type=None,indent=0):
+            print("_add_content list_type=%s indent=%s '%s'"%(list_type,indent,content))
+            if list_type:
+                indent+=1
+            content=content.replace("<b></b>","") # XXX
+            lines=content.split("\n")
+            for line in lines[:-1]:
+                _add_line(line,style)
+            if lines[-1].strip(): # XXX
+                _add_line(lines[-1],style,list_type,indent)
+        html=""
+        for op in ops:
+            print("-"*80)
+            print("op",op)
+            insert=op.get("insert")
+            attrs=op.get("attributes",{})
+            if insert:
+                if insert=="\n":
+                    align=attrs.get("align","left")
+                    style = ParagraphStyle(
+                        name="Normal",
+                        fontSize=font_size,
+                        alignment={"left":TA_LEFT,"center":TA_CENTER,"right":TA_RIGHT,"justify":TA_JUSTIFY}[align],
+                    )
+                    html=replace_fields(html,data,model)
+                    html=html.replace("<b></b>","") # XXX
+                    if html:
+                        list_type=attrs.get("list")
+                        indent=attrs.get("indent") or 0
+                        _add_content(html,style,list_type,indent)
+                    html=""
+                elif insert:
+                    if attrs.get("bold"):
+                        insert="<b>"+insert+"</b>"
+                    html+=insert
+        _finish_lists(0)
+        style = ParagraphStyle(
+            name="Normal",
+            fontSize=font_size,
+        )
+        html=replace_fields(html,data,model)
+        if html:
+            _add_content(html,style)
+        lines=indent_lines.get(0,[])
+    else:
+        text="N/A"
+        p=Paragraph(text,style)
+        lines=[p]
+    if not lines:
+        return []
+    #return lines # XXX
+    align=el.get("align","left").upper()
+    pad_top=(el.get("margin_top") or 0)/60*cm
+    pad_right=(el.get("margin_right") or 0)/60*cm
+    pad_bottom=(el.get("margin_bottom") or 0)/60*cm
+    pad_left=(el.get("margin_left") or 0)/60*cm
+    style=[
+        ("ALIGN",(0,0),(-1,-1),align),
+        ("LEFTPADDING",(0,0),(-1,-1),pad_left),
+        ("RIGHTPADDING",(0,0),(-1,-1),pad_right),
+        ("TOPPADDING",(0,0),(-1,-1),pad_top),
+        ("BOTTOMPADDING",(0,0),(-1,-1),pad_bottom),
+        ]
+    if context.get("show_grid"):
+        style.append(("GRID",(0,0),(-1,-1),1,colors.black))
+    return [Table([[lines]],colWidths=["100%"],style=style,ident="text")]
+
+def render_image(doc,el,context):
+    print("render_image")
+    image_file=el.get("image_file")
+    if not image_file:
+        raise Exception("Missing image file")
+    url=image_file
+    r=random.randint(0,100)
+    path="/tmp/image-%s.png"%r # XXX
+    try:
+        urllib.request.urlretrieve(url,path)
+    except:
+        raise Exception("Failed to retrieve image: %s"%url)
+    rd = ImageReader(path)
+    iw,ih=rd.getSize()
+    ratio=iw/ih
+    if el.get("height"):
+        height=int(el.get("height"))
+    else:
+        height=60
+    w=height*ratio/60
+    h=height/60
+    img=Image(path,width=w*cm,height=h*cm)
+    align=el.get("align","left").upper()
+    style=[
+        ("ALIGN",(0,0),(-1,-1),align),
+        ("LEFTPADDING",(0,0),(-1,-1),0),
+        ("RIGHTPADDING",(0,0),(-1,-1),0),
+        ("TOPPADDING",(0,0),(-1,-1),0),
+        ("BOTTOMPADDING",(0,0),(-1,-1),0),
+        ]
+    if context.get("show_grid"):
+        style.append(("GRID",(0,0),(-1,-1),1,colors.black))
+    content=Table([[img]],colWidths=["100%"],style=style,ident="image")
+    pad_left=(el.get("margin_left") or 0)/60*cm
+    pad_right=(el.get("margin_right") or 0)/60*cm
+    pad_top=(el.get("margin_top") or 0)/60*cm
+    pad_bottom=(el.get("margin_bottom") or 0)/60*cm
+    style=[
+        ("LEFTPADDING",(0,0),(-1,-1),pad_left),
+        ("RIGHTPADDING",(0,0),(-1,-1),pad_right),
+        ("TOPPADDING",(0,0),(-1,-1),pad_top),
+        ("BOTTOMPADDING",(0,0),(-1,-1),pad_bottom),
+        ]
+    return [Table([[content]],style=style,ident="image_cont")]
+
+def render_field(doc,el,context):
+    print("render_field")
+    name=el.get("name")
+    if not name:
+        raise Exception("Missing field name")
+    form_data=context.get("form_data") or {}
+    val=utils.get_data_path(form_data,name)
+    if val is None:
+        val_str=""
+    else:
+        val_str=str(val)
+    align=el.get("align") or "left"
+    font_size=int(context.get("font_size") or 8)
+    if el.get("font_size"):
+        font_size=int(el["font_size"])
+    style = ParagraphStyle(
+        name="Normal",
+        fontSize=font_size,
+        alignment={"left":TA_LEFT,"center":TA_CENTER,"right":TA_RIGHT,"justify":TA_JUSTIFY}[align],
+    )
+    content=Paragraph(val_str,style)
+    pad_left=(el.get("margin_left") or 0)/60*cm
+    pad_right=(el.get("margin_right") or 0)/60*cm
+    pad_top=(el.get("margin_top") or 0)/60*cm
+    pad_bottom=(el.get("margin_bottom") or 0)/60*cm
+    style=[
+        ("LEFTPADDING",(0,0),(-1,-1),pad_left),
+        ("RIGHTPADDING",(0,0),(-1,-1),pad_right),
+        ("TOPPADDING",(0,0),(-1,-1),pad_top),
+        ("BOTTOMPADDING",(0,0),(-1,-1),pad_bottom),
+        ]
+    return [Table([[content]],style=style,ident="field_cont")]
+
+def render_list(doc,el,context):
+    print("render_list")
+    name=el.get("name")
+    if not name:
+        pprint(el)
+        raise Exception("Missing field name in list")
+    child=el.get("child")
+    if not child:
+        raise Exception("Missing child")
+    data=context.get("data",{})
+    list_data=utils.get_data_path(data,name) or []
+    print("L"*80)
+    print("list_data",list_data)
+    model=context.get("model")
+    if model:
+        field_model,field_name=utils.get_field_path(model,name)
+        m=get_model(field_model)
+        f=m._fields[field_name]
+        list_model=f.relation
+    else:
+        list_model=None
+    print("list_model",list_model)
+    items=[]
+    for item_data in list_data:
+        ctx=context.copy()
+        ctx["data"]=item_data
+        ctx["model"]=list_model
+        items+=render_element(doc,child,ctx)
+    if not items:
+        return []
+    style=[
+        ("LEFTPADDING",(0,0),(-1,-1),0),
+        ("RIGHTPADDING",(0,0),(-1,-1),0),
+        ("TOPPADDING",(0,0),(-1,-1),0),
+        ("BOTTOMPADDING",(0,0),(-1,-1),0),
+        ]
+    if context.get("show_grid"):
+        style.append(("GRID",(0,0),(-1,-1),1,colors.black))
+    return [Table([[i] for i in items],colWidths=["100%"],style=style,ident="list_%s"%name)]
+
+def render_element(doc,el,context):
+    if el["type"]=="data":
+        return render_data(doc,el,context)
+    elif el["type"]=="box":
+        return render_box(doc,el,context)
+    elif el["type"]=="columns":
+        return render_columns(doc,el,context)
+    elif el["type"]=="table":
+        return render_table(doc,el,context)
+    elif el["type"]=="text":
+        return render_text(doc,el,context)
+    elif el["type"]=="image":
+        return render_image(doc,el,context)
+    elif el["type"]=="field":
+        return render_field(doc,el,context)
+    elif el["type"]=="list":
+        return render_list(doc,el,context)
+    else:
+        raise Exception("Unsupported element type: %s"%el["type"])
+
+def render_page_pdf(layout,props):
+    context={}
+    #context["show_grid"]=True # XXX
+    if layout.get("date_format"):
+        context["date_format"]=layout["date_format"]
+    if layout.get("font_size"):
+        context["font_size"]=layout["font_size"]
+    if props.get("form_data"):
+        context["form_data"]=json.loads(props["form_data"])
+    model=props.get("model")
+    page_contexts=[]
+    other_data={
+        "print_date": time.strftime("%Y-%m-%d"),
+    }
+    if model:
+        active_id=props.get("active_id")
+        if active_id:
+            active_id=int(active_id)
+        ids=props.get("ids")
+        if ids and isinstance(ids,str):
+            ids=json.loads(ids)
+        if not active_id and not ids:
+            raise Exception("Missing active_id or ids")
+        if not ids:
+            ids=[active_id]
+        if layout.get("fields"):
+            fields=json.loads(layout["fields"])
+        else:
+            fields=[]
+        res=get_model(model).read_path(ids,fields)
+        context["data"]=res[0]
+        context["data"].update(other_data)
+        context["model"]=model
+        for data in res:
+            ctx=context.copy()
+            ctx["data"]=data
+            ctx["data"].update(other_data)
+            page_contexts.append(ctx)
+    else:
+        page_contexts=[context]
+    pdfmetrics.registerFont(TTFont('Noto','/home/aln/fonts/NotoSansCJKtc-Regular.ttf'))
+    pdfmetrics.registerFont(TTFont('Noto-Bold','/home/aln/fonts/NotoSansCJKtc-Bold.ttf'))
+    pdf_merger = PdfFileMerger()
+    for (i,page_context) in enumerate(page_contexts):
+        print("render page %s"%i)
+        print("context",page_context)
+        out_path="/tmp/report_%s.pdf"%i
+        margin_top=layout.get("page_margin_top",10)
+        margin_right=layout.get("page_margin_right",10)
+        margin_bottom=layout.get("page_margin_bottom",10)
+        margin_left=layout.get("page_margin_left",10)
+        doc = SimpleDocTemplate(out_path,page_size=A4,topMargin=margin_top/10.0*cm,rightMargin=margin_right/10.0*cm,leftMargin=margin_left/10.0*cm,bottomMargin=margin_bottom/10.0*cm)
+        items=[]
+        for el in layout["elements"]:
+            if el.get("footer"):
+                continue
+            items+=render_element(doc,el,page_context)
+
+        def draw_page(canvas,doc):
+            items=[]
+            for el in layout["elements"]:
+                if not el.get("footer"):
+                    continue
+                items+=render_element(doc,el,page_context)
+            Frame(0, 0, doc.width+doc.leftMargin+doc.rightMargin, 2.5*cm, leftPadding=0, rightPadding=0, topPadding=0, bottomPadding=0, showBoundary=0).addFromList(items, canvas)
+
+        doc.build(items,canvasmaker=NFCanvas,onFirstPage=draw_page,onLaterPages=draw_page)
+        pdf_merger.append(out_path)
+    report_path="/tmp/report.pdf"
+    pdf_merger.write(report_path)
+    out=open(report_path,"rb").read()
+    filename="report.pdf"
+    print("XXX filename",layout.get("filename"))
+    if layout.get("filename"):
+        data=context.get("data") or {}
+        model=context.get("model")
+        filename=replace_fields(layout["filename"],data,model)
+    return {
+        "data": out,
+        "filename": filename,
+    }

@@ -1,0 +1,6 @@
+<action>
+    <field name="view_type">collection</field>
+    <field name="model">product</field>
+    <field name="template">stock_product_list</field>
+    <field name="layout">stock_product_page</field>
+</action>

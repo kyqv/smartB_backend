@@ -1,0 +1,6 @@
+<action>
+    <field name="view">list</field>
+    <field name="model">stock.balance</field>
+    <field name="condition">[["below_min", "=", "True"]]</field>
+    <field name="layout">stock_below_widget</field>
+</action>

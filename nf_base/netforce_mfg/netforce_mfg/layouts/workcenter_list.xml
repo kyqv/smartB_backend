@@ -1,0 +1,6 @@
+<list model="workcenter">
+    <field name="code"/>
+    <field name="name"/>
+    <field name="location_id"/>
+    <field name="asset_id"/>
+</list>

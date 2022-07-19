@@ -1,0 +1,13 @@
+<list model="expense.claim">
+    <head>
+        <button string="Print" icon="print" action="print_expense_claim"/>
+    </head>
+    <field name="number"/>
+    <field name="employee_id"/>
+    <field name="date_from"/>
+    <field name="date_to"/>
+    <field name="description"/>
+    <field name="num_expenses"/>
+    <field name="amount_total"/>
+    <field name="state"/>
+</list>

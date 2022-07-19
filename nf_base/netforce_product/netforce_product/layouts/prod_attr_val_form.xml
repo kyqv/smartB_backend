@@ -1,0 +1,4 @@
+<form model="product.variant.values">
+    <field name="attribute_id"/>
+    <field name="values" condition='[["attribute_id","=",attribute_id]]'/>
+</form>

@@ -1,0 +1,10 @@
+<list model="menu.access">
+    <field name="profile_id"/>
+    <field name="user_id"/>
+    <field name="action"/>
+    <field name="menu"/>
+    <field name="parent_menu"/>
+    <field name="button"/>
+    <field name="label"/>
+    <field name="access"/>
+</list>

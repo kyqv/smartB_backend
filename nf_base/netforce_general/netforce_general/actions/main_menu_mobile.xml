@@ -1,0 +1,4 @@
+<action>
+    <field name="view">menu_mobile</field>
+    <field name="layout">main_menu_mobile</field>
+</action>

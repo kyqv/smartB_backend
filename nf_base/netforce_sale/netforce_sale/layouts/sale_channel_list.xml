@@ -1,0 +1,5 @@
+<list model="sale.channel">
+    <field name="name"/>
+    <field name="code"/>
+    <field name="pricelist_id"/>
+</list>

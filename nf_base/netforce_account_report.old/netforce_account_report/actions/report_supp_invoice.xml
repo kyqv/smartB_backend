@@ -1,0 +1,8 @@
+<action>
+    <field name="string">Payable Transactions</field>
+    <field name="view">report</field>
+    <field name="model">report.supp.invoice</field>
+    <field name="template">report_supp_invoice</field>
+    <field name="template_xls">supp_invoice</field>
+    <field name="menu">account_menu</field>
+</action>

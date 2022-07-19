@@ -1,0 +1,6 @@
+<list model="hr.payslip.tax">
+    <field name="payslip_id"/>
+    <field name="code"/>
+    <field name="name"/>
+    <field name="amount" onchange="onchange_amount"/>
+</list>

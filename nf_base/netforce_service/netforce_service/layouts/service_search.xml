@@ -1,0 +1,4 @@
+<search model="service">
+    <field name="categ_id" select="1"/>
+    <field name="contact_id" select="1"/>
+</search>

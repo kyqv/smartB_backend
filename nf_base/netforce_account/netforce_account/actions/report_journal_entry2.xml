@@ -1,0 +1,6 @@
+<action>
+    <field name="view">print_wizard</field>
+    <field name="model">account.move</field>
+    <field name="template_type">account_move</field>
+    <field name="menu">account_menu</field>
+</action>

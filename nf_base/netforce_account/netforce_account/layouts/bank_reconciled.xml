@@ -1,0 +1,29 @@
+<list_details model="account.statement.line">
+    <group form_layout="stacked" span="5">
+        <separator string="Bank Statement Item"/>
+        <field name="date" span="4"/>
+        <field name="received" span="4"/>
+        <field name="spent" span="4"/>
+        <newline/>
+        <field name="description" span="12"/>
+    </group>
+    <group span="2">
+        <button string="Unreconcile" method="unreconcile" icon="arrow-left" margin_top="20" span="12"/>
+    </group>
+    <group span="5" form_layout="stacked">
+        <separator string="Account Entries"/>
+        <field name="move_lines" span="12" nolabel="1" readonly="0" select_layout="reconcile_select" condition='[["account_id","=",account_id],["state","=","not_reconciled"]]' onchange="onchange_move_lines" show_buttons="1" auto_save="1">
+            <list>
+                <head>
+                    <button string="Remove from all" method="reconcile_remove_from_all"/>
+                </head>
+                <field name="move_date"/>
+                <field name="description"/>
+                <field name="debit"/>
+                <field name="credit"/>
+            </list>
+        </field>
+        <!--<field name="account_balance" span="6" offset="6"/>-->
+    </group>
+    <field name="account_id" invisible="1"/>
+</list_details>

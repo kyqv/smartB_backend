@@ -1,0 +1,4 @@
+<action>
+    <field name="view">show_progress</field>
+    <field name="target">popup</field>
+</action>

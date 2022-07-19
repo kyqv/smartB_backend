@@ -1,0 +1,22 @@
+<div class="navbar navbar-inverse nf-navbar" style="margin-bottom:0">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                <img src="/static/img/menu_icon.png"/> Netforce
+            </a>
+        </div>
+    </div>
+</div>
+<div class="container">
+    {{#view "page" title="Forgot password" context=context}}
+        {{view "flash" context=context}}
+        {{view "field" name="email" context=context}}
+        {{#view "form_actions" context=context}}
+            {{view "button" string="Reset password" type="primary" method="send_email" context=context}}
+            {{view "button" string="Cancel" action="login" context=context}}
+        {{/view}}
+    {{/view}}
+    <div style="margin-top:30px">
+        <a href="#name=login"><i class="icon-arrow-left"></i> Back to login</a>
+    </div>
+</div>

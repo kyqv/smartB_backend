@@ -1,0 +1,24 @@
+<form model="sale.activ">
+    <field name="type"/>
+    <field name="user_id"/>
+    <field name="subject"/>
+    <field name="date"/>
+    <field name="contact_id"/>
+    <field name="related_id"/>
+    <separator/>
+    <field name="description"/>
+    <field name="notes"/>
+    <separator/>
+    <field name="start_time"/>
+    <field name="end_time"/>
+    <field name="location"/>
+    <separator/>
+    <field name="state"/>
+    <field name="priority"/>
+    <separator/>
+    <field name="other_users" view="field_multi_select"/>
+    <field name="send_reminder"/>
+    <related>
+        <field name="notifs"/>
+    </related>
+</form>

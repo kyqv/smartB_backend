@@ -1,0 +1,16 @@
+<search model="stock.move">
+    <field name="number"/>
+    <field name="date"/>
+    <field name="picking_number"/>
+    <field name="picking_type"/>
+    <field name="location_from_id" select="1"/>
+    <field name="location_to_id" select="1"/>
+    <newline/>
+    <field name="product_id" select="1"/>
+    <field name="master_product_id" select="1"/>
+    <field name="ref"/>
+    <field name="lot_id"/>
+    <field name="container_id"/>
+    <field name="journal_id"/>
+    <!--<field name="location_from_type" select="1"/>-->
+</search>

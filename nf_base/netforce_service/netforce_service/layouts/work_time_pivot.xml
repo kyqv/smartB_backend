@@ -1,0 +1,6 @@
+<pivot model="work.time" rows="resource_id.name" cols="project_id.name" agg_name="sum" vals="actual_hours,bill_hours">
+    <field name="resource_id.name" string="Resource"/>
+    <field name="project_id.name" string="Project"/>
+    <field name="actual_hours"/>
+    <field name="bill_hours"/>
+</pivot>

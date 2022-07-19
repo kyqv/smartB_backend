@@ -1,0 +1,7 @@
+<list model="account.balance">
+    <field name="account_id"/>
+    <field name="track_id"/>
+    <field name="debit"/>
+    <field name="credit"/>
+    <field name="amount_cur"/>
+</list>

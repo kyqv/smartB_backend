@@ -1,0 +1,17 @@
+<form_m model="product">
+    <field name="name"/>
+    <newline/>
+    <field name="code"/>
+    <newline/>
+    <field name="barcode" view="field_qrcode"/>
+    <newline/>
+    <field name="categ_id"/>
+    <newline/>
+    <field name="uom_id"/>
+    <newline/>
+    <field name="type"/>
+    <newline/>
+    <field name="sale_price"/>
+    <newline/>
+    <field name="description"/>
+</form_m>

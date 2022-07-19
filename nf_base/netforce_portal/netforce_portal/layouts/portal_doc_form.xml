@@ -1,0 +1,33 @@
+<form model="document">
+    <field name="partner_id"/>
+    <field name="categ_id"/>
+    <field name="file"/>
+    <field name="date"/>
+    <field name="expiry_date"/>
+    <field name="related_id"/>
+    <field name="description"/>
+    <related>
+        <field name="reminders">
+            <list colors='{"#9f9":[["state","=","sent"]]}'>
+                <field name="scheduled_date"/>
+                <field name="user_id"/>
+                <field name="subject"/>
+                <field name="body"/>
+                <field name="state"/>
+            </list>
+        </field>
+        <field name="attachments">
+            <list>
+                <field name="file"/>
+                <field name="date"/>
+                <field name="user_id"/>
+                <field name="description"/>
+            </list>
+            <form>
+                <field name="file"/>
+                <field name="description"/>
+            </form>
+        </field>
+        <field name="comments"/>
+    </related>
+</form>

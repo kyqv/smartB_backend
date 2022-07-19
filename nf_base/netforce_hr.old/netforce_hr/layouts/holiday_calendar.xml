@@ -1,0 +1,3 @@
+<calendar model="hr.holiday" date_field="date">
+    <field name="name"/>
+</calendar>

@@ -1,0 +1,8 @@
+<action>
+    <field name="view">form_m</field>
+    <field name="no_save">1</field>
+    <field name="title">Refer Lead</field>
+    <field name="model">sale.lead</field>
+    <field name="layout">lead_refer_m</field>
+    <field name="target">sub_action</field>
+</action>

@@ -1,0 +1,7 @@
+<list_m model="task">
+    <field name="date_created"/>
+    <field name="state"/>
+    <newline/>
+    <field name="resource_id"/>
+    <field name="project_id"/>
+</list_m>

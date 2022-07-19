@@ -1,0 +1,39 @@
+<form model="hr.schedule">
+    <head>
+        <button string="Options" dropdown="1">
+            <item string="Generate DayOfWeek" method="gen_dow"/>
+        </button>
+    </head>
+    <field name="name"/>
+    <field name="working_hour"/>
+    <tabs>
+        <tab string="General">
+            <field name="lines" nolabel="1">
+                <list>
+                <field name="dow"/>
+                <field name="time_start"/>
+                <field name="time_stop"/>
+                </list>
+            </field>
+        </tab>
+        <tab string="Planning">
+            <field name="mon"/>
+            <field name="tue"/>
+            <field name="wed"/>
+            <field name="thu"/>
+            <field name="fri"/>
+            <field name="sat"/>
+            <field name="sun"/>
+            <field name="working_times" nolabel="1">
+                <list>
+                    <field name="time_start"/>
+                    <field name="time_stop"/>
+                    <field name="time_total"/>
+                </list>
+            </field>
+        </tab>
+    </tabs>
+    <related>
+        <field name="employees"/>
+    </related>
+</form>

@@ -1,0 +1,15 @@
+<action>
+    <field name="string">Expense Claims</field>
+    <field name="view_cls">multi_view</field>
+    <field name="model">expense.claim</field>
+    <field name="tabs">
+        [
+            ["All",[]],
+            ["Draft",[["state","=","draft"]]],
+            ["Waiting Approval",[["state","=","waiting_approval"]]],
+            ["Approved",[["state","=","approved"]]],
+            ["Declined",[["state","=","declined"]]]
+        ]
+    </field>
+    <field name="menu">account_menu</field>
+</action>

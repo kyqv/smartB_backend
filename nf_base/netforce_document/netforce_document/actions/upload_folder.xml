@@ -1,0 +1,5 @@
+<action>
+    <field name="string">Upload Folder</field>
+    <field name="view">upload_folder</field>
+    <field name="menu">doc_menu</field>
+</action>

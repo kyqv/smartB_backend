@@ -1,0 +1,6 @@
+<action>
+    <field name="view_type">collection</field>
+    <field name="model">sale.order.line</field>
+    <field name="template">sale_line_list</field>
+    <field name="layout">sale_line_page</field>
+</action>

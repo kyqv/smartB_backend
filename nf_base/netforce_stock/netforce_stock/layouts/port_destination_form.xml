@@ -1,0 +1,6 @@
+<form model="port.destination" title="Port Destination">
+    <field name="code"/>
+    <field name="name"/>
+    <field name="country_id"/>
+    <field name="description"/>
+</form>

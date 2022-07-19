@@ -1,0 +1,7 @@
+<action>
+    <field name="name">service_categ</field>
+    <field name="string">Service Categories</field>
+    <field name="view">multi_view</field>
+    <field name="model">service.categ</field>
+    <field name="menu">service_menu</field>
+</action>

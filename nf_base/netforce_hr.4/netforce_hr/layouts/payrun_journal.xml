@@ -1,0 +1,21 @@
+<form model="hr.payrun.journal">
+    <group form_layout="stacked">
+        <field name="lines" nolabel="1">
+            <list>
+                <field name="description"/>
+                <field name="account_id"/>
+                <field name="debit" onchange="onchange_line"/>
+                <field name="credit" onchange="onchange_line"/>
+            </list>
+        </field>
+        <field name="payrun_id" invisible="1"/>
+    </group>
+    <group span="6" columns="1"></group>
+    <group span="6" columns="1">
+        <field name="total_debit"/>
+        <field name="total_credit"/>
+    </group>
+    <foot>
+        <button string="Validate" type="success" method="post"/>
+    </foot>
+</form>

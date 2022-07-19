@@ -1,0 +1,5 @@
+<inherit inherit="main_menu">
+    <item string="Ecommerce" position="after">
+        <item string="Shopee" action="shopee_account"/>
+    </item>
+</inherit>

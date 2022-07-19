@@ -1,0 +1,10 @@
+<form model="bug.report">
+    <field name="description"/>
+    <newline/>
+    <field name="email"/>
+    <newline/>
+    <field name="url"/>
+    <separator/>
+    <field name="state"/>
+    <field name="create_time"/>
+</form>

@@ -1,0 +1,7 @@
+<action>
+    <field name="view">multi_view</field>
+    <field name="string">Budgets</field>
+    <field name="model">account.budget</field>
+    <field name="modes">list,page,form</field>
+    <field name="menu">account_menu</field>
+</action>

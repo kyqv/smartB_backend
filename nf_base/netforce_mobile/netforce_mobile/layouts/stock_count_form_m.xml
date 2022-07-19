@@ -1,0 +1,13 @@
+<form_m model="stock.count">
+    <field name="date"/>
+    <field name="number"/>
+    <field name="location_id"/>
+    <field name="lines">
+        <list>
+            <field name="product_id"/>
+            <field name="lot_id"/>
+            <field name="new_qty"/>
+            <field name="new_cost_amount"/>
+        </list>
+    </field>
+</form_m>

@@ -1,0 +1,16 @@
+<list model="sale.return">
+    <head>
+        <button string="Print" icon="print" action="report_sale_form" action_options='{"convert":"pdf"}'/>
+    </head>
+    <field name="number"/>
+    <field name="ref"/>
+    <field name="contact_id"/>
+    <field name="date"/>
+    <field name="due_date"/>
+    <field name="amount_total"/>
+    <field name="currency_id"/>
+    <field name="is_delivered"/>
+    <field name="is_paid"/>
+    <field name="pay_method_id"/>
+    <field name="state"/>
+</list>

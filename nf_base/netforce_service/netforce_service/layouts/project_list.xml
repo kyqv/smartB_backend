@@ -1,0 +1,14 @@
+<list model="project" priority="1">
+    <field name="start_date"/>
+    <field name="end_date"/>
+    <field name="end_date_actual"/>
+    <field name="name"/>
+    <field name="sale_categ_id"/>
+    <field name="sale_price"/>
+    <field name="total_area"/>
+    <field name="sale_price_area"/>
+    <field name="profit_amount"/>
+    <field name="margin_percent"/>
+    <field name="amount_paid"/>
+    <field name="amount_unpaid"/>
+</list>

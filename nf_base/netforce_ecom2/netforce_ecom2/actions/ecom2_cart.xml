@@ -1,0 +1,7 @@
+<action>
+    <field name="string">Carts</field>
+    <field name="view">list_container</field>
+    <field name="model">ecom2.cart</field>
+    <field name="tabs">[["All",[]],["Draft",[["state","=","draft"]]],["Confirmed",[["state","=","confirmed"]]],["Canceled",[["state","=","canceled"]]]]</field>
+    <field name="menu">ecom2_menu</field>
+</action>

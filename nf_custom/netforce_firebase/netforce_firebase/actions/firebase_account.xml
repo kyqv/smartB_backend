@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Firebase Accounts</field>
+    <field name="view">multi_view</field>
+    <field name="model">firebase.account</field>
+    <field name="menu">firebase_menu</field>
+</action>

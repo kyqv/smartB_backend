@@ -1,0 +1,8 @@
+<action>
+    <field name="view">report</field>
+    <field name="string">Customer Invoice Report</field>
+    <field name="model">report.cust.inv</field>
+    <field name="template">report_cust_inv</field>
+    <field name="template_xls">cust_inv</field>
+    <field name="menu">account_menu</field>
+</action>

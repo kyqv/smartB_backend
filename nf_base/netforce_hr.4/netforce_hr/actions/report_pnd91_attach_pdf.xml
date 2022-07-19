@@ -1,0 +1,6 @@
+<action>
+    <field name="type">report</field>
+    <field name="model">report.pnd91</field>
+    <field name="method">get_data_attach</field>
+    <field name="template">pnd91_attach</field>
+</action>

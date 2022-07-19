@@ -1,0 +1,8 @@
+<form_m model="stock.transfer">
+    <field name="journal_id"/>
+    <newline/>
+    <field name="lot_no" view="field_qrcode"/>
+    <foot>
+        <button string="Validate" method="validate" type="success" icon="ios-checkmark"/>
+    </foot>
+</form_m>

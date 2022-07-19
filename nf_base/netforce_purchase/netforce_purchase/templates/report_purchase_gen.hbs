@@ -1,0 +1,153 @@
+<center>
+    <h2>
+        Purchase Order Generator
+    </h2>
+    <h3>
+        {{company_name}}
+    </h3>
+</center>
+<table class="table table-bordered table-hover table-striped">
+    <thead class="scroll-header">
+        <tr>
+            <th colspan="4"></th>
+            <th colspan="3" style="text-align:center">{{date}}</th>
+            {{#each periods}}
+                <th colspan="10" style="text-align:center">{{name}}</th>
+            {{/each}}
+            <th colspan="4"></th>
+        </tr>
+            <th colspan="4"></th>
+            <th colspan="3" style="text-align:center">Available Qty</th>
+            {{#each periods}}
+                <th colspan="1" style="text-align:center">Incoming</th>
+                <th colspan="3" style="text-align:center">Sales Forecast</th>
+                <th colspan="3" style="text-align:center">Expiry</th>
+                <th colspan="3" style="text-align:center">Remaining Qty</th>
+            {{/each}}
+            <th colspan="4" style="text-align:center">Purchasing</th>
+        <tr>
+            <th style="width:20px"><input type="checkbox" class="nf-select-all"/></th>
+            <th>
+                Product Code
+            </th>
+            <th>
+                Product Name
+            </th>
+            <th>
+                Supplier Name
+            </th>
+            <th>
+                Life 75%+
+            </th>
+            <th>
+                Life 50-75%
+            </th>
+            <th>
+                Life 0-50%
+            </th>
+            {{#each periods}}
+                <th>
+                    Total
+                </th>
+                <th>
+                    Min Life 75%
+                </th>
+                <th>
+                    Min Life 50%
+                </th>
+                <th>
+                    No Min Life
+                </th>
+                <th>
+                    Life 75%+
+                </th>
+                <th>
+                    Life 50-75%
+                </th>
+                <th>
+                    Life 0-50%
+                </th>
+                <th>
+                    Life 75%+
+                </th>
+                <th>
+                    Life 50-75%
+                </th>
+                <th>
+                    Life 0-50%
+                </th>
+            {{/each}}
+            <th>
+                Months Remaining    
+            </th>
+            <th>
+                Min Months
+            </th>
+            <th>
+                Qty To Order
+            </th>
+            <th>
+                Lead Time (Days)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each lines}}
+            <tr {{#if below_min}}style="background-color:#fcc"{{/if}}>
+                <td><input type="checkbox" class="nf-prod-select" data-product-id="{{prod_id}}" data-qty="{{qty_order}}"/></td>
+                <td>{{link string=prod_code action="product" active_id=prod_id mode="form"}}</td>
+                <td>{{prod_name}}</td>
+                <td>{{supplier_name}}</td>
+                <td>{{qty_75}}</td>
+                <td>{{qty_50}}</td>
+                <td>{{qty_other}}</td>
+                {{#each periods}}
+                    <td>{{qty_in}}</td>
+                    <td>{{qty_out_75}}</td>
+                    <td>{{qty_out_50}}</td>
+                    <td>{{qty_out_other}}</td>
+                    <td>{{exp_75}}</td>
+                    <td>{{exp_50}}</td>
+                    <td>{{exp_other}}</td>
+                    <td>{{bal_qty_75}}</td>
+                    <td>{{bal_qty_50}}</td>
+                    <td>{{bal_qty_other}}</td>
+                {{/each}}
+                <td>{{qty_months}}</td>
+                <td>{{min_months}}</td>
+                <td>{{qty_order}}</td>
+                <td>{{lead_days}}</td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>
+<button class="btn btn-success btn-lg nf-btn-order"><span class="glyphicon glyphicon-arrow-right"></span> Order Products</button>
+<script>
+$(function() {
+    $(".nf-btn-order").click(function() {
+        var prod_qtys={};
+        $("input.nf-prod-select:checked").each(function() {
+            var prod_id=$(this).data("product-id");
+            var qty=$(this).data("qty");
+            prod_qtys[prod_id]=qty;
+        });
+        console.log("prod_qtys",prod_qtys);
+        if (_.isEmpty(prod_qtys)) {
+            alert("No items selected");
+            return;
+        }
+        var action={
+            name: "stock_order",
+            context: {
+                product_qtys: prod_qtys,
+            },
+        };
+        NF.actions.execute(action);
+    });
+
+    $(".nf-select-all").click(function() {
+        var val=$(this).is(":checked");
+        $("input.nf-prod-select").prop("checked",val);
+    });
+});
+</script>

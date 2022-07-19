@@ -1,0 +1,33 @@
+<menu string="Messaging">
+    <item string="Dashboard" action="msg_board"/>
+    <item string="Notifications" action="notif"/>
+    <item string="Chat" dropdown="1">
+        <item string="Chat Window" action="chat"/>
+        <item string="Chat Messages" action="chat_message"/>
+        <item string="Chat Channels" action="chat_channel"/>
+    </item>
+    <item string="Email" dropdown="1">
+        <item string="Email Messages" action="email"/>
+        <item string="Email Templates" action="email_tmpl"/>
+        <item string="Email Blacklist" action="email_reject"/>
+    </item>
+    <item string="SMS" dropdown="1">
+        <item string="SMS Messages" action="sms_message"/>
+        <item string="SMS Templates" action="sms_template"/>
+    </item>
+    <item string="Mobile" dropdown="1">
+        <item string="Device Tokens" action="device_token"/>
+        <item string="Push Notifications" action="push_notif"/>
+        <item string="Device Locations" action="device_location"/>
+    </item>
+    <item string="Voice" dropdown="1">
+        <item string="Voice Calls" action="voice_call"/>
+    </item>
+    <item string="Verification" action="verif_request"/>
+    <item string="Settings" dropdown="1">
+        <item string="Email Accounts" action="email_account"/>
+        <item string="Email Mailboxes" action="email_mailbox"/>
+        <item string="SMS Accounts" action="sms_account"/>
+        <item string="Voice Accounts" action="voice_account"/>
+    </item>
+</menu>

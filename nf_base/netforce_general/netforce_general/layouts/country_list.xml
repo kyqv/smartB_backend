@@ -1,0 +1,7 @@
+<list model="country">
+    <field name="name"/>
+    <field name="code"/>
+    <field name="phone_prefix"/>
+    <field name="flag"/>
+    <field name="timezone"/>
+</list>

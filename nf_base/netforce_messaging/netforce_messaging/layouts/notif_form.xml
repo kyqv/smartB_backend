@@ -1,0 +1,11 @@
+<form model="notif">
+    <head>
+        <field name="state"/>
+    </head>
+    <field name="time"/>
+    <field name="user_id"/>
+    <field name="title"/>
+    <field name="type"/>
+    <field name="related_id"/>
+    <field name="state"/>
+</form>

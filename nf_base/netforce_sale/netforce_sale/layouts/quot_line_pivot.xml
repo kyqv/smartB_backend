@@ -1,0 +1,12 @@
+<pivot model="sale.quot.line" rows="product_id.name" cols="quot_id.state" vals="amount,qty" agg_name="sum">
+    <field name="product_id.name" string="Product Name"/>
+    <field name="product_id.code" string="Product Code"/>
+    <field name="product_id.categ_id.name" string="Product Category"/>
+    <field name="quot_id.contact_id.name" string="Contact"/>
+    <field name="quot_id.contact_id.categ_id.name" string="Contact Category"/>
+    <field name="quot_id.state"/>
+    <field name="quot_id.user_id.name" string="Responsible User"/>
+    <field name="quot_id.date"/>
+    <field name="amount"/>
+    <field name="qty"/>
+</pivot>

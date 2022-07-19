@@ -1,0 +1,12 @@
+<list model="ecom.cart">
+    <field name="number"/>
+    <field name="date_created"/>
+    <field name="date_confirmed"/>
+    <field name="website_id"/>
+    <field name="user_id"/>
+    <field name="contact_id"/>
+    <field name="amount_total"/>
+    <field name="pay_method_id"/>
+    <field name="is_paid"/>
+    <field name="state"/>
+</list> 

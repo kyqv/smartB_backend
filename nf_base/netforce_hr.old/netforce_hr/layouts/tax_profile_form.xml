@@ -1,0 +1,52 @@
+<form model="hr.tax.profile" show_company="1">
+    <head>
+        <button string="Options" dropdown="1">
+            <item string="Copy" method="copy"/>
+        </button>
+    </head>
+        <field name="employee_id"/>
+        <field name="tax_year_id"/>
+        <field name="income_accum"/>
+        <field name="deduction_accum"/>
+        <field name="sso_accum"/>
+        <field name="provident_accum"/>
+    <!--<field name="tax_accum"/>-->
+        <separator string="Spouse Details"/>
+        <field name="spouse_first_name"/>
+        <field name="spouse_last_name"/>
+        <field name="spouse_title"/>
+        <field name="spouse_birth_date"/>
+        <field name="spouse_tax_no"/>
+        <field name="spouse_status"/>
+        <field name="spouse_filing_status"/>
+        <separator string="Tax Computation (A)"/>
+        <field name="education_donation"/>
+        <field name="other_donation"/>
+        <field name="wht_amount"/>
+        <separator string="Exempted Income (B)"/>
+        <field name="gov_pension_fund"/>
+        <field name="teacher_fund"/>
+        <field name="old_disabled"/>
+        <field name="old_disabled_spouse"/>
+        <field name="severance_pay"/>
+        <separator string="Allowances and Exemptions after Deduction of Expenses (C)"/>
+        <field name="num_child1" help="Non-study, study foreign" onchange="onchange_num_child"/>
+        <field name="num_child2" help="Study in Thailand" onchange="onchange_num_child"/>
+        <separator/>
+        <field name="father_id_no"/>
+        <field name="mother_id_no"/>
+        <field name="spouse_father_id_no"/>
+        <field name="spouse_mother_id_no"/>
+        <separator/>
+        <field name="disabled_support"/>
+        <field name="parent_health_insurance"/>
+        <field name="life_insurance"/>
+        <field name="retirement_mutual_fund"/>
+        <field name="long_term_equity_fund"/>
+        <field name="interest_residence"/>
+        <field name="other_deduct"/>
+        <field name="company_id" invisible="1"/>
+    <related>
+        <field name="comments"/>
+    </related>
+</form>

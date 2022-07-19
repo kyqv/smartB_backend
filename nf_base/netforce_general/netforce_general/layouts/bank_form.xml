@@ -1,0 +1,5 @@
+<form model="bank">
+    <field name="name"/>
+    <field name="swift_code"/>
+    <field name="description"/>
+</form>

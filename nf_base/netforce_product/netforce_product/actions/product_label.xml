@@ -1,0 +1,5 @@
+<action>
+    <field name="type">report_odt2</field>
+    <field name="model">product</field>
+    <field name="template">product_label</field>
+</action>

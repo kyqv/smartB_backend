@@ -1,0 +1,38 @@
+<center>
+    <h2>
+        Leave Details
+    </h2>
+    <h3>
+        {{company_name}}
+    </h3>
+</center>
+<table class="table table-striped">
+    <thead class="scroll-header">
+        <tr>
+            <th>
+                Employee
+            </th>
+            <th>
+                Leave Type
+            </th>
+            <th>
+                Total Leave
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each lines context=context}}
+            <tr>
+                <td>
+                    {{name}}
+                </td>
+                <td>
+                    {{leave_type_id}}
+                </td>
+                <td>
+                    {{days_requested}}
+                </td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>

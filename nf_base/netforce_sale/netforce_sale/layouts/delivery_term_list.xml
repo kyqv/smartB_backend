@@ -1,0 +1,4 @@
+<list model="delivery.term">
+    <field name="name"/>
+    <field name="code"/>
+</list>

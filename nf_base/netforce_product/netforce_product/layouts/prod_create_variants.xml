@@ -1,0 +1,7 @@
+<form model="prod.create.variants" title="Create Variants Wizard">
+    <field name="related_id" readonly="1"/>
+    <field name="variant_value" view="form_list"/>
+    <foot replace="1">
+        <button string="Create" method="create_variants" type="primary"/>
+    </foot>
+</form>

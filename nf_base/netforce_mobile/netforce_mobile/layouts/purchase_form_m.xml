@@ -1,0 +1,32 @@
+<form_m model="purchase.order">
+    <field name="date"/>
+    <field name="number"/>
+    <field name="contact_id"/>
+    <field name="lines">
+        <list>
+            <field name="description"/>
+            <newline/>
+            <field name="qty"/>
+            <field name="uom_id"/>
+            <field name="unit_price"/>
+            <field name="amount"/>
+        </list>
+        <form>
+            <field name="description"/>
+            <newline/>
+            <field name="qty"/>
+            <field name="uom_id"/>
+            <field name="unit_price"/>
+            <field name="amount"/>
+        </form>
+    </field>
+    <field name="amount_subtotal"/>
+    <field name="amount_tax"/>
+    <field name="amount_total"/>
+    <field name="state"/>
+    <newline/>
+    <button title="Confirm" method="confirm" type="success" states="draft" icon="ios-checkmark" confirm="Are you sure?"/>
+    <button title="Completed" method="done" type="success" states="confirmed" icon="ios-checkmark"/>
+    <button title="Reopen" method="reopen" states="done"/>
+    <button title="To Draft" method="to_draft" states="confirmed,done" icon="ios-return-left"/>
+</form_m>

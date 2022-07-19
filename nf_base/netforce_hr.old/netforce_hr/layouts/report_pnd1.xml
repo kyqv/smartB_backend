@@ -1,0 +1,13 @@
+<form model="report.pnd1" title="PND1: Personal Income Tax Report">
+    <field name="month" span="3" mode="month"/>
+    <field name="doc_date" span="4" />
+    <field name="show_doc_date" span="3"/>
+    <field name="name_pay" span="3"/>
+    <field name="position" span="3"/>
+    <field name="show_name" span="3"/>
+    <foot replace="1">
+        <button string="Print Cover" method="print_cover" icon="print"/>
+        <button string="Print Attachment" method="print_attach" icon="print"/>
+        <button string="Print Excel" method="print_xls" icon="print"/>
+    </foot>
+</form>

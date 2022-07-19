@@ -1,0 +1,8 @@
+<form model="report.pnd91" title="PND91: Personal Income Tax Report">
+    <field name="year" mode="year"/>
+    <field name="employee_id"/>
+    <foot replace="1">
+        <button string="Print Cover" method="print_pnd91_cover" icon="print"/>
+        <button string="Print Attachment" method="print_pnd91_attach" icon="print"/>
+    </foot>
+</form>

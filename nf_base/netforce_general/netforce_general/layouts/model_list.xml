@@ -1,0 +1,16 @@
+<list model="model">
+    <top>
+        <button string="Generate" method="gen_models" show_progress="1"/>
+    </top>
+    <head>
+        <button string="Set Completed" method="set_done"/>
+    </head>
+    <field name="name"/>
+    <field name="string"/>
+    <field name="custom"/>
+    <field name="order"/>
+    <field name="name_field"/>
+    <field name="audit_log"/>
+    <field name="next_record_id"/>
+    <field name="state"/>
+</list>

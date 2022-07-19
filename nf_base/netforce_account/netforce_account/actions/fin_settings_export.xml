@@ -1,0 +1,6 @@
+<action>
+    <field name="type">export</field>
+    <field name="model">settings</field>
+    <field name="filename">financial_settings.csv</field>
+    <field name="export_fields">["currency_id", "year_end_day", "year_end_month", "lock_date", "account_receivable_id", "tax_receivable_id", "account_payable_id", "tax_payable_id", "currency_gain_id", "currency_loss_id", "unpaid_claim_id"]</field>
+</action>

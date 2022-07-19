@@ -1,0 +1,7 @@
+<action>
+    <field name="view">list_m</field>
+    <field name="title">Sales Activities</field>
+    <field name="model">activity</field>
+    <field name="tabs">[["Planned",[["state","!=","done"]]],["Completed",[["state","=","done"]]]]</field>
+    <field name="menu">main_menu_m</field>
+</action>

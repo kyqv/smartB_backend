@@ -1,0 +1,5 @@
+<action>
+    <field name="view_cls">form_view</field>
+    <field name="model">report.sso</field>
+    <field name="menu">hr_menu</field>
+</action>

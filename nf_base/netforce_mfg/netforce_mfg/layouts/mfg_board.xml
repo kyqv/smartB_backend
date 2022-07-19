@@ -1,0 +1,8 @@
+<board>
+    <vpanel>
+        <widget string="Released Production Orders" action="production_widget"/>
+    </vpanel>
+    <vpanel>
+        <widget string="Overdue Production Orders" action="production_overdue_widget"/>
+    </vpanel>
+</board>

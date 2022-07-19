@@ -1,0 +1,6 @@
+<list model="sms.account">
+    <field name="name"/>
+    <field name="type"/>
+    <field name="username"/>
+    <field name="sequence"/>
+</list>

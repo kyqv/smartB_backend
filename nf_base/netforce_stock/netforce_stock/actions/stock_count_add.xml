@@ -1,0 +1,6 @@
+<action>
+    <field name="view">form_popup</field>
+    <field name="string">Stock Count Add</field>
+    <field name="model">stock.count.add</field>
+    <field name="target">popup</field>
+</action>

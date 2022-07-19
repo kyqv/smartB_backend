@@ -1,0 +1,13 @@
+<form model="product.group">
+    <field name="name"/>
+    <field name="code"/>
+    <field name="parent_id"/>
+    <field name="sequence"/>
+    <field name="image"/>
+    <field name="color"/>
+    <field name="company_id"/>
+    <field name="description"/>
+    <group span="12" form_layout="stacked">
+        <field name="products" span="12"/>
+    </group>
+</form>

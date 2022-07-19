@@ -1,0 +1,7 @@
+<action>
+    <field name="string">Employees</field>
+    <field name="view_cls">multi_view</field>
+    <field name="model">hr.employee</field>
+    <field name="tabs">[["All",[[]]],["Archived",[["active","=",false]]],["Working",[["work_status","=","working"]]],["Dismissed",[["work_status","=","dismissed"]]],["Resigned",[["work_status","=","resigned"]]],["Other",[["work_status","=","died"]]]]</field>
+    <field name="menu">hr_menu</field>
+</action>

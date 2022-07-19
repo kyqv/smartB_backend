@@ -1,0 +1,8 @@
+<action>
+    <field name="string">Sales by Product</field>
+    <field name="view">report</field>
+    <field name="model">report.product.sales</field>
+    <field name="template">report_product_sales</field>
+    <field name="template_xls">product_sales</field>
+    <field name="menu">account_menu</field>
+</action>

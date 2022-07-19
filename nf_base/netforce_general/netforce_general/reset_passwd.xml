@@ -1,0 +1,9 @@
+<form model="reset.passwd" title="Reset Password">
+    <field name="user_id" invisible="1"/>
+    <field name="new_password" password="1"/>
+    <field name="new_password_repeat" password="1"/>
+    <field name="notif"/>
+    <foot>
+        <button string="Change Password" method="change_passwd" type="primary"/>
+    </foot>
+</form>

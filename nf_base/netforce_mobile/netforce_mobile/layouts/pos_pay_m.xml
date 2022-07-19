@@ -1,0 +1,9 @@
+<form_m model="ecom2.cart">
+    <field name="pay_method_id"/>
+    <field name="pay_amount"/>
+    <newline/>
+    <field name="change_amount"/>
+    <newline/>
+    <button title="Back" action="pos_product_m"/>
+    <button title="Mark As Paid" method="pos_payment_received"/>
+</form_m>

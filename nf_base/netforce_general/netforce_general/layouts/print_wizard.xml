@@ -1,0 +1,12 @@
+<form model="print.wizard">
+    <field name="model" invisible="1"/>
+    <field name="ids" invisible="1"/>
+    <field name="method" invisible="1"/>
+    <field name="template_type" invisible="1"/>
+    <field name="template_id" condition='[["type","=",template_type]]'/>
+    <foot>
+        <button string="Download" method="print" type="primary" icon="download"/>
+        <button string="Open" method="open_new_tab" icon="arrow-right"/>
+        <button string="Cloud Print" method="cloud_print" icon="print"/>
+    </foot>
+</form>

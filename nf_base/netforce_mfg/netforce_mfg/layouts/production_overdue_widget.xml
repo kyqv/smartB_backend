@@ -1,0 +1,8 @@
+<list model="production.order">
+    <field name="number"/>
+    <field name="ref"/>
+    <field name="order_date"/>
+    <field name="due_date"/>
+    <field name="product_id"/>
+    <field name="qty_planned"/>
+</list>

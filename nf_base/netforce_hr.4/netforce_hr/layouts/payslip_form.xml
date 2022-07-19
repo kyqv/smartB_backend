@@ -1,0 +1,24 @@
+<form model="hr.payslip" show_company="1">
+    <top>
+        <button string="Print" icon="print" action="print_payslip" action_options='{"active_id":id}'/>
+    </top>
+    <group span="8">
+        <field name="run_id"/>
+        <field name="employee_id"/>
+        <field name="lines" nolabel="1" reorder_field="sequence">
+            <list>
+                <field name="sequence"/>
+                <field name="payitem_id" onchange="onchange_item"/>
+                <field name="qty" onchange="update_amounts"/>
+                <field name="rate" onchange="update_amounts"/>
+                <field name="amount"/>
+            </list>
+        </field>
+    </group>
+    <group span="4" columns="1">
+        <field name="amount_total_income"/>
+        <field name="amount_total_expense"/>
+        <field name="amount_net"/>
+    </group>
+    <field name="company_id" invisible="1"/>
+</form>

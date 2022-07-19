@@ -1,0 +1,15 @@
+<list model="device.token">
+    <field name="date"/>
+    <field name="user_id"/>
+    <field name="app_name"/>
+    <field name="model"/>
+    <field name="brand"/>
+    <field name="is_tablet"/>
+    <field name="system_name"/>
+    <field name="system_version"/>
+    <field name="locale"/>
+    <field name="timezone"/>
+    <field name="carrier"/>
+    <field name="unique_id"/>
+    <field name="token"/>
+</list>

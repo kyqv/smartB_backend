@@ -1,0 +1,11 @@
+<list model="production.plan">
+    <top>
+        <button string="Update Production Plan" method="update_plan" icon="refresh" show_progress="1"/>
+    </top>
+    <field name="date"/>
+    <field name="product_id"/>
+    <field name="plan_qty"/>
+    <field name="actual_qty"/>
+    <field name="uom_id"/>
+    <field name="location_id"/>
+</list>

@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Issue Types</field>
+    <field name="view_cls">multi_view</field>
+    <field name="model">issue.type</field>
+    <field name="menu">support_menu</field>
+</action>

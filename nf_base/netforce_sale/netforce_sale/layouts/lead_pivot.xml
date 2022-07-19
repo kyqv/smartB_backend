@@ -1,0 +1,6 @@
+<pivot model="sale.lead" cols="lead_source" rows="user_id.name" agg_name="count">
+    <field name="lead_source"/>
+    <field name="industry"/>
+    <field name="user_id.name" string="Responsible User"/>
+    <field name="date"/>
+</pivot>

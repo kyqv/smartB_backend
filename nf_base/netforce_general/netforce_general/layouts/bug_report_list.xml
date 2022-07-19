@@ -1,0 +1,7 @@
+<list model="bug.report">
+    <field name="create_time"/>
+    <field name="description"/>
+    <field name="email"/>
+    <field name="url"/>
+    <field name="state"/>
+</list>

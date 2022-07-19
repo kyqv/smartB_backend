@@ -1,0 +1,6 @@
+<form model="stock.compute.cost" title="Compute Cost">
+    <label string="This will compute the cost for all stock transactions that are not yet posted."/>
+    <foot replace="1">
+        <button string="Compute" method="compute_cost" type="primary"/>
+    </foot>
+</form>

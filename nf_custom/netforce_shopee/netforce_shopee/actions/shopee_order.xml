@@ -1,0 +1,8 @@
+<action>
+    <field name="string">Shopee Orders</field>
+    <field name="view">multi_view</field>
+    <field name="model">shopee.order</field>
+    <field name="tabs">[["UNPAID",[["order_status","=","UNPAID"]]],["PROCESSED",[["order_status","=","PROCESSED"]]],["READY_TO_SHIP",[["order_status","=","READY_TO_SHIP"]]],["SHIPPED",[["order_status","=","SHIPPED"]]],["TO_CONFIRM_RECEIVE",[["order_status","=","TO_CONFIRM_RECEIVE"]]],["COMPLETED",[["order_status","=","COMPLETED"]]],["IN_CANCEL",[["order_status","=","IN_CANCEL"]]],["CANCELLED",[["order_status","=","CANCELLED"]]],["TO_RETURN",[["order_status","=","TO_RETURN"]]],["ALL",[]],["NOT CAPTURED",[["order_status","not in",["UNPAID","PROCESSED","READY_TO_SHIP","SHIPPED","TO_CONFIRM_RECEIVE","COMPLETED","IN_CANCEL","CANCELLED","TO_RETURN"]]]]]</field>
+    <field name="menu">shopee_menu</field>
+    <field name="theme">orange</field>
+</action>

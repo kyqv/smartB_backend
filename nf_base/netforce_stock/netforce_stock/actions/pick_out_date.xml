@@ -1,0 +1,10 @@
+<action>
+    <field name="string">Goods Issue</field>
+    <field name="view">list</field>
+    <field name="model">stock.picking</field>
+    <field name="condition">[["type","=","out"]]</field>
+    <field name="layout">pick_out_list</field>
+    <field name="context">{"pick_type":"out"}</field>
+    <field name="show_date_filter">1</field>
+    <field name="modes">list,form,calendar</field>
+</action>

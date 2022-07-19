@@ -1,0 +1,8 @@
+<action>
+    <field name="view">form_m</field>
+    <field name="title">Cancel Sales Opportunity</field>
+    <field name="model">sale.opportunity</field>
+    <field name="layout">opport_cancel_m</field>
+    <field name="target">sub_action</field>
+    <field name="no_save">1</field>
+</action>

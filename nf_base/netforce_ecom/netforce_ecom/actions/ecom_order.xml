@@ -1,0 +1,7 @@
+<record model="action">
+    <field name="string">Ecommerce Orders</field>
+    <field name="view">multi_view</field>
+    <field name="model">ecom.order</field>
+    <field name="tabs">[["Confirmed",[["state","=","confirmed"]]],["Completed",[["state","=","done"]]],["Canceled",[["state","=","canceled"]]]]</field>
+    <field name="menu">ecom_menu</field>
+</record>

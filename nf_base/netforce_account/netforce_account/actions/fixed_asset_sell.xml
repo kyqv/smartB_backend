@@ -1,0 +1,8 @@
+<action>
+    <field name="name">fixed_asset_sell</field>
+    <field name="string">Sell</field>
+    <field name="view">form_view</field>
+    <field name="model">account.fixed.asset.sell</field>
+    <field name="menu">account_menu</field>
+</action>
+

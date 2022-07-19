@@ -1,0 +1,6 @@
+<action>
+    <field name="view_type">collection</field>
+    <field name="model">contact</field>
+    <field name="template">sale_contact_list</field>
+    <field name="layout">sale_contact_page</field>
+</action>

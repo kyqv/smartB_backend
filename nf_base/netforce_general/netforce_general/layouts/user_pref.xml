@@ -1,0 +1,11 @@
+<form model="base.user" title="User Profile" priority="20">
+    <field name="name"/>
+    <newline/>
+    <field name="login"/>
+    <newline/>
+    <field name="password" password="1"/>
+    <newline/>
+    <field name="email"/>
+    <newline/>
+    <field name="mobile"/>
+</form>

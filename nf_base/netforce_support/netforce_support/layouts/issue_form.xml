@@ -1,0 +1,33 @@
+<form model="issue">
+    <head>
+        <field name="state"/>
+        <button string="Options" dropdown="1">
+            <item string="Copy issue to service order" method="copy_to_service_order"/>
+        </button>
+    </head>
+    <field name="number"/>
+    <field name="date_created"/>
+    <field name="contact_id"/>
+    <field name="project_id"/>
+    <field name="related_id"/>
+    <newline/>
+    <field name="title"/>
+    <field name="type_id"/>
+    <newline/>
+    <field name="description" width="600" height="200"/>
+    <newline/>
+    <field name="comments" width="600" height="200"/>
+    <newline/>
+    <field name="priority"/>
+    <field name="resource_id"/>
+    <field name="state"/>
+    <field name="planned_hours"/>
+    <field name="date_estimate"/>
+    <field name="date_closed"/>
+    <field name="days_open"/>
+    <related>
+        <field name="messages"/>
+        <field name="documents"/>
+        <field name="emails"/>
+    </related>
+</form>

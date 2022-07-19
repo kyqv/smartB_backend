@@ -1,0 +1,6 @@
+<form model="port.loading" title="Port Loading">
+    <field name="code"/>
+    <field name="name"/>
+    <field name="country_id"/>
+    <field name="description"/>
+</form>

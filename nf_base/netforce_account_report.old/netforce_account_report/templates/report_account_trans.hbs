@@ -1,0 +1,110 @@
+<center>
+    <h2>
+        Account Transactions
+    </h2>
+    <h3>
+        {{data.company_name}}
+        <br/>
+        {{data.account_name}}
+        <br/>
+        From {{fmt_date data.date_from}} to {{fmt_date data.date_to}}
+    </h3>
+</center>
+<table class="table">
+    <thead class="scroll-header">
+        <tr>
+            <th>
+                Date
+            </th>
+            <th>
+                Number
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Contact
+            </th>
+            <th style="text-align:right">
+                Debit
+            </th>
+            <th style="text-align:right">
+                Credit
+            </th>
+            <th style="text-align:right">
+                Currency Amount
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each data.objs context=context}}
+            <tr>
+                <td>
+                    {{fmt_date move_date}}
+                </td>
+                <td>
+                    {{#link action="view_transaction" active_id=id}}
+                        {{move_number}}
+                    {{/link}}
+                </td>
+                <td>
+                    {{description}}
+                </td>
+                <td>
+                    {{lookup contact_id 1}}
+                </td>
+                <td style="text-align:right">
+                    {{currency debit zero=""}}
+                </td>
+                <td style="text-align:right">
+                    {{currency credit zero=""}}
+                </td>
+                <td style="text-align:right">
+                    {{currency amount_cur zero=""}}
+                </td>
+            </tr>
+        {{/each}}
+    </tbody>
+    <tfoot>
+        <tr style="font-weight:bold">
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+                Total
+            </td>
+            <td>
+            </td>
+            <td style="text-align:right">
+                {{currency totals.debit}}
+            </td>
+            <td style="text-align:right">
+                {{currency totals.credit}}
+            </td>
+            <td style="text-align:right">
+                {{currency totals.amount_cur}}
+            </td>
+        </tr>
+        <tr style="font-weight:bold">
+            <td>
+                {{fmt_date date_to}}
+            </td>
+            <td>
+            </td>
+            <td>
+                Balance
+            </td>
+            <td>
+            </td>
+            <td style="text-align:right">
+                {{currency balance_debit}}
+            </td>
+            <td style="text-align:right">
+                {{currency balance_credit}}
+            </td>
+            <td>
+            </td>
+        </tr>
+    </tfoot>
+</table>

@@ -1,0 +1,5 @@
+<inherit inherit="main_menu">
+    <item string="General" position="before">
+        <item string="Customer Portal" action="portal_board" perm="portal_menu"/>
+    </item>
+</inherit>

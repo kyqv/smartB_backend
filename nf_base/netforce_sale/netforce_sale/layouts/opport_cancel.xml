@@ -1,0 +1,6 @@
+<form model="sale.opportunity" priority="20">
+    <field name="cancel_reason_id"/>
+    <foot>
+        <button string="Cancel Sales Opportunity" method="cancel" type="primary"/>
+    </foot>
+</form>

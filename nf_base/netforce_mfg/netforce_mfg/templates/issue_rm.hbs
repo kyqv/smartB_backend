@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/static/barcode/bootstrap.css"/>
+<link rel="stylesheet" href="/static/barcode/bootstrap-theme.css"/>
+</head>
+<body>
+{{#if error}}
+<div class="alert alert-danger">
+{{error}}
+</div>
+{{/if}}
+<form action="/issue_rm" method="post">
+    <div class="form-group">
+        <label>Barcode</label>
+        <input type="text" class="form-control" name="barcode" value="{{barcode}}"/>
+    </div>
+    <div class="form-group">
+        <label>Qty</label>
+        <input type="number" class="form-control" name="qty" value="{{qty}}"/>
+    </div>
+    <button class="btn btn-primary">Create Goods Issue</button>
+</form>
+</body>
+</html>

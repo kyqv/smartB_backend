@@ -1,0 +1,14 @@
+<list model="shopee.product" colors='{"#f66":[["show_warning","=",true]]}'>
+    <head>
+        <button string="Update Variants" method="get_model_list"/>
+        <button string="Map System Product" method="map_product"/>
+        <button string="Update Shopee Stock" method="update_stock"/>
+        <button string="Refresh" method="function_store"/>
+    </head>
+    <field name="account_id"/>
+    <field name="item_sku"/>
+    <field name="item_name"/>
+    <field name="has_model"/>
+    <field name="item_status"/>
+    <field name="show_warning" invisible="1"/>
+</list>

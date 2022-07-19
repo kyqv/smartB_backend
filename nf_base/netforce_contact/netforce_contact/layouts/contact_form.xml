@@ -1,0 +1,217 @@
+<form model="contact" show_company="1">
+    <top>
+        <button string="Print" icon="print" action="report_contact" action_options='{"active_id":id}'/>
+        <button string="Merge" action="merge_contact" action_options='{"context":{"defaults":{"from_contact_id":id}}}'/>
+    </top>
+    <head>
+        <field name="state"/>
+    </head>
+    <tabs>
+        <tab string="General">
+            <separator string="Compulory Information"/>
+            <group attrs='{"invisible": [["type","!=","org"]]}'>
+                <field name="type"/>
+                <field name="code"/>
+                <field name="name" attrs='{"required":[["type","=","org"]]}'/>
+            </group>
+            <group attrs='{"invisible": [["type","!=","person"]]}'>
+                <field name="type"/>
+                <field name="code"/>
+                <field name="last_name" attrs='{"required":[["type","=","person"]]}'/>
+            </group>
+            <separator string="Contact Information"/>
+            <group attrs='{"invisible": [["type","!=","org"]]}'>
+                <field name="title"/>
+                <field name="fax"/>
+                <field name="website"/>
+                <field name="phone"/>
+                <field name="email" email="1"/>
+                <field name="branch"/>
+                <field name="picture"/>
+                <field name="user_id"/>
+                <field name="contact_person_id" condition='[["org_id","=",id],["type","=","person"]]'/>
+            </group>
+            <group attrs='{"invisible": [["type","!=","person"]]}'>
+                <field name="mobile"/>
+                <field name="first_name"/>
+                <field name="email"/>
+                <field name="first_name2"/>
+                <field name="first_name3"/>
+                <field name="position"/>
+                <field name="title"/>
+                <field name="report_to_id"/>
+                <field name="phone"/>
+                <field name="org_id"/>
+                <field name="picture"/>
+                <field name="gender"/>
+                <field name="id_card_no"/>
+                <field name="refer_id"/>
+            </group>
+            <field name="state"/>
+            <separator string="Business Relationship"/>
+            <field name="customer"/>
+            <field name="supplier"/>
+            <field name="agent"/>
+            <separator/>
+            <field name="contact_person_emails"/>
+            <separator string="Business Information"/>
+            <field name="industry_id"/>
+            <field name="revenue"/>
+            <field name="business_area_id"/>
+            <field name="fleet_size_id"/>
+            <field name="line_account"/>
+            <field name="facebook_account"/>
+            <newline/>
+            <field name="groups"/>
+            <separator string="Additional Information"/>
+            <group attrs='{"invisible": [["type","!=","org"]]}'>
+                <field name="categ_id" onchange="onchange_categ"/>
+                <!--field name="groups"/>-->
+                <!--field name="industry_id"/>-->
+                <field name="country_id"/>
+                <field name="region_id"/>
+                <!--field name="revenue"/>-->
+                <field name="employees"/>
+                <!--field name="business_area_id"/>-->
+                <!--field name="fleet_size_id"/>-->
+                <field name="description"/>
+                <field name="refer_id"/>
+            </group>
+            <group attrs='{"invisible": [["type","!=","person"]]}'>
+                <field name="categ_id"/>
+                <field name="groups"/>
+                <field name="fax"/>
+                <field name="birth_date"/>
+                <field name="home_phone"/>
+                <field name="department"/>
+                <field name="other_phone"/>
+                <field name="assistant"/>
+                <field name="assistant_phone"/>
+                <field name="description"/>
+            </group>
+        </tab>
+        <tab string="Accounting">
+            <field name="currency_id"/>
+            <separator string="Accounts"/>
+            <field name="account_receivable_id"/>
+            <field name="account_payable_id"/>
+            <field name="sale_tax_id"/>
+            <field name="purchase_tax_id"/>
+            <separator string="Taxes"/>
+            <field name="tax_no"/>
+            <field name="tax_branch_no"/>
+            <separator string="Journals"/>
+            <field name="sale_journal_id"/>
+            <field name="purchase_journal_id"/>
+            <field name="pay_in_journal_id"/>
+            <field name="pay_out_journal_id"/>
+            <separator string="Credit Balance"/>
+            <field name="receivable_balance"/>
+            <field name="payable_balance"/>
+            <field name="receivable_credit"/>
+            <field name="payable_credit"/>
+        </tab>
+        <tab string="Inventory">
+            <field name="pick_in_journal_id"/>
+            <field name="pick_out_journal_id"/>
+            <separator/>
+            <field name="min_shelf_life"/>
+            <field name="max_lots_per_sale"/>
+            <separator/>
+            <field name="ship_free"/>
+            <field name="ship_method_id"/>
+        </tab>
+        <tab string="Sales">
+            <separator string="Configuration"/>
+            <field name="sale_price_list_id"/>
+            <field name="sale_discount"/>
+            <field name="seller_contact_id"/>
+            <separator string="Payment"/>
+            <field name="sale_pay_term_id"/>
+            <field name="sale_max_credit"/>
+            <field name="sale_pay_method_id"/>
+            <separator string="Product Groups"/>
+            <field name="request_product_groups"/>
+            <field name="exclude_product_groups"/>
+            <separator string="Commission"/>
+            <field name="commission_parent_id"/>
+            <field name="commission_amount"/>
+        </tab>
+        <tab string="Purchasing">
+            <field name="purchase_price_list_id"/>
+            <newline/>
+            <field name="purchase_pay_term_id"/>
+            <newline/>
+            <field name="commission_po_percent"/>
+        </tab>
+        <tab string="Other">
+            <field name="company_id"/>
+            <field name="lead_source_id"/>
+            <field name="inquiry_type"/>
+            <newline/>
+        </tab>
+    </tabs>
+    <related>
+        <field name="contact_persons"/>
+        <field name="relations">
+            <list>
+                <field name="from_contact_id"/>
+                <field name="to_contact_id"/>
+                <field name="rel_type_id"/>
+                <field name="details"/>
+            </list>
+            <form>
+                <field name="from_contact_id"/>
+                <field name="to_contact_id"/>
+                <field name="rel_type_id"/>
+                <field name="details"/>
+            </form>
+        </field>
+        <field name="addresses"/>
+        <field name="bank_accounts">
+            <list>
+                <field name="bank_id"/>
+                <field name="branch"/>
+                <field name="number"/>
+                <field name="signatory"/>
+                <field name="online"/>
+            </list>
+            <form>
+                <field name="bank_id"/>
+                <field name="branch"/>
+                <field name="number"/>
+                <field name="signatory"/>
+                <field name="online"/>
+            </form>
+        </field>
+        <field name="users"/>
+        <field name="invoices"/>
+        <field name="purchase_orders"/>
+        <field name="sale_orders"/>
+        <field name="coupons"/>
+        <field name="documents">
+            <list>
+                <head>
+                    <button string="Archive" method="archive"/>
+                </head>
+                <field name="file" target="_blank"/>
+                <field name="categ_id"/>
+                <field name="description"/>
+                <field name="related_id"/>
+                <field name="date"/>
+                <field name="expiry_date"/>
+            </list>
+            <form>
+                <field name="categ_id"/>
+                <field name="file" onchange="onchange_file" target="_blank"/>
+                <field name="description"/>
+                <field name="related_id"/>
+                <field name="date" onchange="onchange_file"/>
+                <field name="expiry_date"/>
+                <field name="create_job"/>
+            </form>
+        </field>
+        <field name="emails"/>
+        <field name="comments"/>
+    </related>
+</form>

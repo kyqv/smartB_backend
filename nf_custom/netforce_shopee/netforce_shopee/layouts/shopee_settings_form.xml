@@ -1,0 +1,16 @@
+<form model="shopee.settings" title="Shopee Settings">
+    <!--<field name="include_contact"/>
+    <field name="include_account"/>
+    <field name="include_inventory"/>
+    <field name="include_sale"/>-->
+    <field name="enable_webhook"/>
+    <separator string="Inventory"/>
+    <field name="order_auto_copy_to_picking"/>
+    <field name="default_uom_id"/>
+    <field name="use_order_num_for_picking"/>
+    <field name="order_auto_complete_picking"/>
+    <field name="check_stock"/>
+    <separator string="Sale"/>
+    <field name="order_auto_copy_to_sale"/>
+    <separator/>
+</form>

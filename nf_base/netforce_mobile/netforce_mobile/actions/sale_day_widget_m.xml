@@ -1,0 +1,7 @@
+<action>
+    <field name="view">chart_m</field>
+    <field name="model">report.sale</field>
+    <field name="method">get_sales_per_day</field>
+    <field name="chart_type">multi_line</field>
+    <field name="height">150</field>
+</action>

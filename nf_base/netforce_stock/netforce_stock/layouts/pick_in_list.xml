@@ -1,0 +1,23 @@
+<list model="stock.picking" priority="20">
+    <head>
+        <button string="Print" icon="print" action="report_pick_in_form" action_options="convert=pdf"/>
+        <button string="To Draft" method="to_draft"/>
+        <button string="Copy To Landed Costs" method="copy_to_landed"/>
+        <button string="Copy To Product Transform" method="copy_to_transform"/>
+        <button string="Repost Journal Entry" method="repost_journal_entry"/>
+        <button string="Validate" method="set_done"/>
+        <button string="Copy To Supplier Invoice" method="copy_to_invoice"/>
+    </head>
+    <field name="journal_id"/>
+    <field name="number"/>
+    <field name="date"/>
+    <field name="contact_id"/>
+    <field name="related_id"/>
+    <field name="invoice_id"/>
+    <field name="ship_method_id"/>
+    <field name="ship_tracking"/>
+    <field name="ship_cost"/>
+    <field name="ship_pay_by"/>
+    <field name="done_by_id"/>
+    <field name="state"/>
+</list>

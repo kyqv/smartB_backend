@@ -1,0 +1,38 @@
+<form model="stock.grade">
+    <head>
+        <field name="state"/>
+        <button string="Options" dropdown="1">
+            <item string="To Draft" method="to_draft" states="done,voided"/>
+            <item string="Void" method="void" states="done" confirm="Are you sure?"/>
+        </button>
+    </head>
+    <field name="number"/>
+    <field name="date"/>
+    <field name="product_id"/>
+    <field name="qty"/>
+    <field name="location_id"/>
+    <field name="related_id"/>
+    <separator string="Grading Results"/>
+    <field name="lines">
+        <list>
+            <field name="product_id"/>
+            <field name="qty" onchange="update_amount"/>
+            <field name="location_id"/>
+            <field name="unit_price" onchange="update_amount"/>
+            <field name="amount" onchange="onchange_amount"/>
+        </list>
+    </field>
+    <!--<separator string="Waste"/>
+    <field name="qty_waste"/>
+    <field name="location_waste_id"/>
+    <newline/>-->
+    <field name="qty_loss"/>
+    <separator/>
+    <field name="notes"/>
+    <foot>
+        <button string="Validate" method="validate" states="draft" type="success"/>
+    </foot>
+    <related>
+        <field name="stock_moves"/>
+    </related>
+</form>

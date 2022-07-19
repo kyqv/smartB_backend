@@ -1,0 +1,19 @@
+<list model="service.item">
+    <head>
+        <button string="Copy old serial" method="copy_old_serial"/>
+    </head>
+    <field name="number"/>
+    <field name="name"/>
+    <field name="product_id"/>
+    <field name="lot_id"/>
+    <field name="parent_id"/>
+    <field name="contact_id"/>
+    <field name="commission_date"/>
+    <field name="warranty_exp_date"/>
+    <field name="last_service_date"/>
+    <field name="est_counter"/>
+    <field name="industry_id"/>
+    <field name="application_id"/>
+    <field name="last_job_id"/>
+    <field name="state"/>
+</list>

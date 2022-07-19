@@ -1,0 +1,56 @@
+<center>
+    <h2>
+        Stock Invoice Report
+    </h2>
+    <h4>
+        From {{data.date_from}} to {{data.date_to}}
+    </h4>
+</center>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                Product
+            </th>
+            <th>
+                Received Qty 
+            </th>
+            <th>
+                Returned Qty 
+            </th>
+            <th>
+                Invoiced Qty 
+            </th>
+            <th>
+                Remaining Qty To Invoice
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each data.lines}}
+            <tr>
+                <td>
+                    [{{prod_code}}] {{prod_name}}
+                </td>
+                <td>
+                    <a href='/action?name=pick_in&search_condition=[["product_id","=",{{prod_id}}]]' target="_blank">
+                        {{qty_received}}
+                    </a>
+                </td>
+                <td>
+                    <a href='/action?name=pick_out&search_condition=[["product_id","=",{{prod_id}}]]' target="_blank">
+                        {{qty_returned}}
+                    </a>
+                </td>
+                <td>
+                    <a href='/action?name=supp_invoice_line&search_condition=[["product_id","=",{{prod_id}}],["invoice_date","between",["{{../data.date_from}}","{{../data.date_to}}"]]]' target="_blank">
+                        {{qty_invoiced}}
+                    </a>
+                </td>
+                <td>
+                    {{qty_remain}}
+                </td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>

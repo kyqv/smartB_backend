@@ -1,0 +1,144 @@
+<form model="sale.quot" attrs='{"readonly":[["state","in",["approved","won","lost","canceled"]]]}' show_company="1" show_save="1">
+    <top>
+        <button string="New" icon="plus" action="quot" action_options='{"mode":"form"}'/>
+        <!--<button string="Print" icon="print" action="report_quot_form"/>
+        <button string="Print (New)" icon="print" action="report_quot_form2" action_options='{"active_id":id}'/>-->
+        <button string="Print" icon="print" action="report_quot_form3" action_options='{"active_id":id}'/>
+        <button string="Send" icon="envelope" action="send_quot"/>
+        <button string="Options" dropdown="1">
+            <item string="Copy To Sales Order" method="copy_to_sale_order"/>
+            <item string="Copy" method="copy"/>
+            <item string="Revise" method="revise" confirm="Are you sure you want to revise this quotation?"/>
+            <item string="To Draft" method="to_draft"/>
+            <item string="Void" method="void" confirm="Are your sure?"/>
+        </button>
+    </top>
+    <head>
+        <field name="state"/>
+    </head>
+    <tabs>
+        <tab string="General">
+            <group form_layout="stacked">
+                <field name="contact_id" span="2" onchange="onchange_contact" create="1"/>
+                <field name="contact_person_id" span="2" condition='[["type", "=", "person"],["org_id","=",contact_id]]'/>
+                <field name="date" span="2"/>
+                <field name="number" span="2"/>
+                <field name="ref" span="2"/>
+                <field name="exp_date" span="2"/>
+                <newline/>
+                <field name="currency_id" span="2"/>
+                <field name="tax_type" span="2" onchange="update_amounts"/>
+                <field name="user_id" span="2"/>
+                <field name="opport_id" span="2" condition='[["contact_id","=",contact_id]]'/>
+                <field name="sale_categ_id" span="2"/>
+                <field name="project_id" span="2"/>
+                <newline/>
+                <field name="bill_address_id" span="2" condition='[["contact_id","!=",null],["contact_id","=",contact_id]]'/>
+                <field name="ship_address_id" span="2" condition='[["contact_id","!=",null],["contact_id","=",contact_id]]'/>
+                <field name="price_list_id" span="2"/>
+                <field name="ship_term_id" span="2"/>
+                <field name="pay_term_id" span="2"/>
+                <field name="related_id" span="2"/>
+            </group>
+            <field name="lines" nolabel="1">
+                <list onremove="update_amounts" reorder_field="sequence_no">
+                    <field name="sequence_no"/>
+                    <field name="type"/>
+                    <field name="product_id" onchange="onchange_product" condition='[["can_sell","=",true]]'/>
+                    <field name="description"/>
+                    <field name="qty" onchange="onchange_qty"/>
+                    <field name="uom_id" onchange="onchange_uom"/>
+                    <field name="unit_price" onchange="update_amounts_line"/>
+                    <field name="discount" onchange="update_amounts_line"/>
+                    <field name="tax_id" onchange="update_amounts_line"/>
+                    <field name="amount"/>
+                    <field name="cost_price"/>
+                    <field name="cost_amount"/>
+                    <field name="profit_amount"/>
+                    <field name="margin_percent"/>
+                    <field name="amount_tax"/>
+                    <field name="notes"/>
+                </list>
+            </field>
+            <group span="8">
+                <field name="other_info"/>
+                <field name="company_id" invisible="1"/>
+            </group>
+            <group span="4" columns="1">
+                <field name="amount_before_discount"/>
+                <field name="amount_discount"/>
+                <field name="extra_discount" readonly="1"/>
+                <field name="amount_after_discount2"/>
+                <field name="extra_amount" readonly="1"/>
+                <field name="amount_subtotal"/>
+                <field name="amount_tax"/>
+                <field name="amount_total"/>
+            </group>
+        </tab>
+        <tab string="Taxes">
+            <!--<field name="tax_details"/>-->
+        </tab>
+        <tab string="Promotions">
+            <group span="6">
+                <field name="discount"/>
+                <button string="Apply Discount" method="apply_discount"/>
+                <newline/>
+                <field name="amount_after_discount"/>
+                <button string="Calculate Discount" method="calc_discount"/>
+            </group>
+        </tab>
+        <tab string="Costing">
+            <separator string="Estimate Costs"/>
+            <group form_layout="stacked">
+                <field name="cost_amount" span="3"/>
+                <field name="profit_amount" span="3"/>
+                <field name="margin_percent" span="3"/>
+            </group>
+            <newline/>
+            <field name="extra_amount"/>
+            <field name="extra_product_id"/>
+            <newline/>
+            <field name="extra_discount"/>
+            <field name="extra_discount_product_id"/>
+        </tab>
+        <tab string="Currencies">
+            <field name="currency_rates" nolabel="1">
+                <list>
+                    <field name="currency_id"/>
+                    <field name="rate"/>
+                </list>
+            </field>
+        </tab>
+        <tab string="Other Info">
+            <field name="sequence_id" condition='[["type","=","sale_quot"]]' onchange="onchange_sequence"/>
+            <newline/>
+            <field name="seller_id"/>
+            <newline/>
+            <field name="seller_contact_id"/>
+            <newline/>
+            <field name="job_template_id"/>
+            <newline/>
+            <field name="lost_sale_code_id" readonly="0"/>
+            <newline/>
+            <field name="is_template"/>
+            <newline/>
+            <field name="opport_email_id"/>
+            <newline/>
+            <field name="inquiry_date"/>
+        </tab>
+    </tabs>
+    <foot>
+        <button string="Submit for approval" method="submit_for_approval" size="large" states="draft"/>
+        <button string="Approve" method="approve" size="large" type="success" states="draft,waiting_approval" perm="approve_quotation"/>
+        <button string="Won" method="do_won" size="large" type="success" states="approved"/>
+        <button string="Lost" method="do_lost" size="large" type="danger" states="approved"/>
+        <button string="Reopen" method="do_reopen" size="large" icon="repeat" states="won,lost"/>
+    </foot>
+    <related>
+        <field name="documents" show_inline="1"/>
+        <field name="emails"/>
+        <field name="activities" show_inline="1"/>
+        <field name="sales"/>
+        <field name="comments"/>
+    </related>
+</form>

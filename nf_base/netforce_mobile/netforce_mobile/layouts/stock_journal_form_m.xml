@@ -1,0 +1,3 @@
+<form_m model="stock.journal">
+    <field name="name"/>
+</form_m>

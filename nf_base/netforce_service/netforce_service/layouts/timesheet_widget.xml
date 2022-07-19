@@ -1,0 +1,5 @@
+<list model="time.sheet">
+    <field name="date"/>
+    <field name="employee_id"/>
+    <field name="state"/>
+</list>

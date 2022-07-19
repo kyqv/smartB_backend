@@ -1,0 +1,3 @@
+<list model="company.type">
+    <field name="name"/>
+</list>

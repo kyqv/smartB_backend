@@ -1,0 +1,7 @@
+<list model="job" colors='{"due_date,#f00":[["overdue","=",true]],"days_late,#f00":[["overdue","=",true]],"#9f9":[["state","=","done"]]}' noselect="1">
+    <field name="contact_id"/>
+    <field name="name"/>
+    <field name="request_by_id"/>
+    <field name="due_date"/>
+    <field name="overdue" invisible="1"/>
+</list>

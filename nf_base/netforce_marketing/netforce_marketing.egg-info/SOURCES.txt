@@ -1,0 +1,13 @@
+setup.py
+netforce_marketing/__init__.py
+netforce_marketing.egg-info/PKG-INFO
+netforce_marketing.egg-info/SOURCES.txt
+netforce_marketing.egg-info/dependency_links.txt
+netforce_marketing.egg-info/top_level.txt
+netforce_marketing/migrations/__init__.py
+netforce_marketing/migrations/mkt_clean.py
+netforce_marketing/models/__init__.py
+netforce_marketing/models/campaign.py
+netforce_marketing/models/report_mkt.py
+netforce_marketing/models/target.py
+netforce_marketing/models/target_list.py

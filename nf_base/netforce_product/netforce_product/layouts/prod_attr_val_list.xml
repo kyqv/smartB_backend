@@ -1,0 +1,7 @@
+<list model="product.attribute.option">
+    <field name="name"/>
+    <field name="code"/>
+    <field name="description"/>
+    <field name="image" preview="1" nofilename="1"/>
+    <field name="price"/>
+</list>

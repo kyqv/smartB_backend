@@ -1,0 +1,9 @@
+<form model="access.token">
+    <field name="time"/>
+    <field name="ip_addr"/>
+    <field name="client_name"/>
+    <field name="user_id"/>
+    <field name="token"/>
+    <field name="expire_time"/>
+    <field name="state"/>
+</form>

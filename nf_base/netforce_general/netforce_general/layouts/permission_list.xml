@@ -1,0 +1,4 @@
+<list model="permission">
+    <field name="name"/>
+    <field name="code"/>
+</list>

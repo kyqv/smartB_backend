@@ -1,0 +1,21 @@
+<form model="bill.note" show_company="1">
+    <head>
+        <button string="Print" icon="print" action="report_bill_note_form" action_options='{"active_id":id}'/>
+        <button string="Options">
+            <item string="Copy To Payment" method="copy_to_payment"/>
+        </button>
+    </head>
+    <field name="number"/>
+    <field name="date"/>
+    <field name="customer_id"/>
+    <separator/>
+    <field name="amount_total"/>
+    <field name="amount_due"/>
+    <separator/>
+    <field name="remarks"/>
+    <field name="company_id"/>
+    <related>
+        <field name="invoices"/>
+        <field name="payments"/>
+    </related>
+</form>

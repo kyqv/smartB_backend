@@ -1,0 +1,5 @@
+<action>
+    <field name="view">form_view</field>
+    <field name="model">account.credit.wizard</field>
+    <field name="menu">account_menu</field>
+</action>

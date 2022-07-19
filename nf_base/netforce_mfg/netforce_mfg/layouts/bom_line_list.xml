@@ -1,0 +1,14 @@
+<list model="bom.line">
+    <field name="bom_id"/>
+    <field name="product_id" onchange="onchange_product"/>
+    <field name="weight"/>
+    <field name="qty"/>
+    <field name="uom_id"/>
+    <field name="location_id"/>
+    <field name="container"/>
+    <field name="lot"/>
+    <field name="issue_method"/>
+    <field name="qty2" onchange="onchange_qty2"/>
+    <field name="cost_amount"/>
+    <field name="notes"/>
+</list>

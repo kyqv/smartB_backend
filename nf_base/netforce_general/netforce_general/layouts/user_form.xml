@@ -1,0 +1,39 @@
+<form model="base.user">
+    <head>
+        <button string="Options">
+            <item string="Reset Password" action="reset_passwd" action_options='{"context":{"user_id":id}}'/>
+        </button>
+    </head>
+    <field name="name"/>
+    <field name="login"/>
+    <field name="code"/>
+    <separator/>
+    <field name="first_name"/>
+    <field name="last_name"/>
+    <separator/>
+    <field name="email"/>
+    <field name="mobile"/>
+    <field name="profile_id"/>
+    <field name="role_id"/>
+    <field name="contact_id"/>
+    <field name="pin_code" password="1"/>
+    <field name="company_id"/>
+    <field name="company2_id"/>
+    <field name="image"/>
+    <field name="state"/>
+    <separator/>
+    <field name="show_timer"/>
+    <field name="hourly_rate"/>
+    <separator/>
+    <field name="otp_secret"/>
+    <separator/>
+    <field name="product_id"/>
+    <field name="products" view="field_multi_select"/>
+    <separator/>
+    <field name="sig_image"/>
+    <field name="regions" view="field_multi_select"/>
+    <field name="prevent_multi_login"/>
+    <related>
+        <field name="comments"/>
+    </related>
+</form>

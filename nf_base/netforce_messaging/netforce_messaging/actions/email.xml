@@ -1,0 +1,12 @@
+<action>
+    <field name="string">Email Messages</field>
+    <field name="view">multi_view</field>
+    <field name="model">email.message</field>
+    <field name="tabs">
+        [
+            ["Inbox","email_inbox"],
+            ["Outbox","email_outbox"]
+        ]
+    </field>
+    <field name="menu">msg_menu</field>
+</action>

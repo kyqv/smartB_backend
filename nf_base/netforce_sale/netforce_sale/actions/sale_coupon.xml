@@ -1,0 +1,7 @@
+<action>
+    <field name="string">Coupons</field>
+    <field name="view">multi_view</field>
+    <field name="model">sale.coupon</field>
+    <field name="tabs">[["Enabled",[["state","=","enabled"]]],["Disabled",[["state","=","disabled"]]]]</field>
+    <field name="menu">sale_menu</field>
+</action>

@@ -1,0 +1,6 @@
+<form model="update.db" title="Update DB">
+    <label string="Click the button below to update the database."/>
+    <foot replace="1">
+        <button string="Update" method="do_update" type="primary"/>
+    </foot>
+</form>

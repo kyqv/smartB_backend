@@ -1,0 +1,6 @@
+<list model="ship.method">
+    <field name="name"/>
+    <field name="code"/>
+    <field name="description"/>
+    <field name="sequence"/>
+</list>

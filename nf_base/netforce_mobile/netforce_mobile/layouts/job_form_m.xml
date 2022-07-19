@@ -1,0 +1,8 @@
+<form_m model="job">
+    <field name="due_date"/>
+    <field name="number"/>
+    <newline/>
+    <field name="contact_id"/>
+    <newline/>
+    <field name="project_id"/>
+</form_m>

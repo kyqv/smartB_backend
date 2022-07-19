@@ -1,0 +1,5 @@
+<inherit inherit="main_menu">
+    <item string="Website" position="after">
+        <item string="Firebase" action="firebase_account"/>
+    </item>
+</inherit>

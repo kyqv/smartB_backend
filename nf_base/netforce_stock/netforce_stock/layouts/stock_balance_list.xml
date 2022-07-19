@@ -1,0 +1,23 @@
+<list model="stock.balance" colors='{"#f66":[["below_min","=",true]]}' priority="1">
+    <top replace="1">
+        <button string="Update All Balances" method="update_all_balances" show_progress="1"/>
+    </top>
+    <head>
+        <button string="New Purchase Order" method="make_po" icon="plus-sign"/>
+        <button string="New Goods Transfer" method="make_transfer" icon="plus-sign"/>
+        <button string="New Goods Issue" method="make_issue" icon="plus-sign"/>
+        <button string="New Product Transform" method="copy_to_transform" icon="plus-sign"/>
+    </head>
+    <field name="product_id"/>
+    <field name="lot_id"/>
+    <field name="container_id"/>
+    <field name="location_id"/>
+    <field name="qty_phys"/>
+    <field name="amount"/>
+    <field name="qty_virt"/>
+    <field name="uom_id"/>
+    <field name="qty2"/>
+    <field name="min_qty"/>
+    <field name="below_min" invisible="1"/>
+    <field name="last_change"/>
+</list>

@@ -1,0 +1,6 @@
+<list model="account.journal">
+    <field name="name"/>
+    <field name="code"/>
+    <field name="type"/>
+    <field name="sequence_id"/>
+</list>

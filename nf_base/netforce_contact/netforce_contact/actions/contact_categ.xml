@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Contact Categories</field>
+    <field name="view">multi_view</field>
+    <field name="model">contact.categ</field>
+    <field name="menu">contact_menu</field>
+</action>

@@ -1,0 +1,8 @@
+<form model="report.account.sale">
+    <group form_layout="stacked">
+        <field name="date_from" span="2"/>
+        <field name="date_to" span="2"/>
+        <field name="contact_id" span="2"/>
+        <field name="account_id" span="2"/>
+    </group>
+</form>

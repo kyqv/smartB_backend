@@ -1,0 +1,21 @@
+<list model="hr.payslip" colors='{"#cfc":[["state","=","approved"]],"#9f9":[["state","=","paid"]]}'>
+    <head>
+        <button string="Print" icon="print" action="print_payslip" action_options='{"ids":ids}'/>
+    </head>
+    <field name="run_id"/>
+    <field name="employee_id"/>
+    <field name="amount_salary"/>
+    <field name="amount_overtime"/>
+    <field name="amount_other_income"/>
+    <field name="amount_mobile"/>
+    <field name="amount_travel"/>
+    <field name="amount_commission"/>
+    <field name="amount_total_income"/>
+    <field name="amount_other_expense"/>
+    <field name="amount_tax"/>
+    <field name="amount_sso"/>
+    <field name="amount_pvd"/>
+    <field name="amount_total_expense"/>
+    <field name="amount_net"/>
+    <field name="state"/>
+</list>

@@ -1,0 +1,10 @@
+<form model="report.provident" title="Provident Fund Report">
+    <field name="month" span="3" mode="month"/>
+    <field name="doc_date" span="4" />
+    <field name="show_doc_date" span="3"/>
+    <foot replace="1">
+        <button string="Print" method="print_provident" icon="print"/>
+        <button string="Print Excel" method="print_xls" icon="print"/>
+        <!-- <button string="Export TXT" method="print_attach" icon="arrow-right"/> -->
+    </foot>
+</form>

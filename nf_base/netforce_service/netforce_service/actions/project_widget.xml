@@ -1,0 +1,7 @@
+<action>
+    <field name="view">list</field>
+    <field name="model">project</field>
+    <field name="condition">[["state","=","in_progress"]]</field>
+    <field name="layout">project_widget</field>
+    <field name="order">start_date</field>
+</action>

@@ -1,0 +1,53 @@
+<center>
+    <h2>
+        Customer Invoice Report
+    </h2>
+    <h3>
+        {{company_name}}
+        <br/>
+        From {{fmt_date date_from}} to {{fmt_date date_to}}
+    </h3>
+</center>
+<table class="table table-condensed">
+    <thead class="scroll-header">
+        <tr>
+            <th>Number</th>
+            <th>Reference</th>
+            <th>Contact</th>
+            <th>Date</th>
+            <th>Due Date</th>
+            <th style="text-align:right">Invoice Total</th>
+            <th style="text-align:right">Paid</th>
+            <th style="text-align:right">Due</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each lines context=context}}
+            <tr>
+                <td>
+                    {{#view "link" action="view_invoice" active_id=id context=context}}
+                        {{../number}}
+                    {{/view}}
+                </td>
+                <td>{{ref}}</td>
+                <td>{{contact_name}}</td>
+                <td>{{fmt_date date}}</td>
+                <td>{{fmt_date due_date}}</td>
+                <td style="text-align:right">{{currency amount_total}}</td>
+                <td style="text-align:right">{{currency amount_paid}}</td>
+                <td style="text-align:right">{{currency amount_due}}</td>
+                <td>{{state}}</td>
+            </tr>
+        {{/each}}
+    </tbody>
+    <tfoot>
+        <tr>
+            <th colspan="5">Totals</th>
+            <th style="text-align:right">{{currency total_invoice}}</th>
+            <th style="text-align:right">{{currency total_paid}}</th>
+            <th style="text-align:right">{{currency total_due}}</th>
+            <th></th>
+        </tr>
+    </tfoot>
+</table>

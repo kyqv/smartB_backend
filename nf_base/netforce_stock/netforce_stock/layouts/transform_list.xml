@@ -1,0 +1,7 @@
+<list model="stock.transform">
+    <field name="date"/>
+    <field name="number"/>
+    <field name="journal_id"/>
+    <field name="state"/>
+    <field name="notes"/>
+</list>

@@ -1,0 +1,33 @@
+<list model="account.invoice" method="view_invoice" colors='{"#9f9":[["bill_note_id","!=",null]]}'>
+    <top replace="1">
+        <button string="New Invoice" action="cust_invoice" action_options='{"mode":"form","form_layout":"cust_invoice_form","context":{"defaults":{"type":"out","inv_type":"invoice"}}}' icon="plus-sign"/>
+        <button string="New Credit Note" action="cust_invoice" action_options='{"mode":"form","form_layout":"cust_credit_form","context":{"defaults":{"type":"out","inv_type":"credit"}}}' icon="plus-sign"/>
+        <button string="New Debit Note" action="cust_invoice" action_options='{"mode":"form","form_layout":"cust_debit_form","context":{"defaults":{"type":"out","inv_type":"debit"}}}' icon="plus-sign"/>
+        <button string="New Repeating Invoice" action="cust_invoice" action_options='{"mode":"form","form_layout":"cust_repeat_form","context":{"defaults":{"type":"out","inv_type":"invoice","state":"repeat"}}}' icon="plus-sign"/>
+        <button string="Import" action_options='{"view":"import","string":"Import Invoices","model":"account.invoice","menu":"account_menu","import_sample":"import_customer_invoices.csv"}' icon="download"/>
+        <button string="Renumber Invoices" action="renum_inv"/>
+    </top>
+    <head>
+        <!--<button string="Print" icon="print" action="report_cust_invoice_form"/>
+        <button string="Print (New)" icon="print" action="report_cust_invoice_form2" action_options='{"ids":ids}'/>-->
+        <button string="Print" icon="print" action="report_cust_invoice_form3" action_options='{"ids":ids}'/>
+        <button string="Approve" method="post"/>
+        <button string="To Draft" method="to_draft"/>
+        <button string="Void" method="void"/>
+        <!--<button string="Add Missing Accounts" method="add_missing_accounts"/>-->
+        <button string="Copy To Billing Note" method="copy_to_bill_note"/>
+    </head>
+    <field name="number"/>
+    <field name="ref"/>
+    <field name="inv_type"/>
+    <field name="contact_id"/>
+    <field name="date"/>
+    <field name="due_date"/>
+    <field name="amount_paid"/>
+    <field name="amount_due"/>
+    <field name="currency_id"/>
+    <field name="memo"/>
+    <field name="bill_note_id"/>
+    <field name="state"/>
+    <field name="company_id"/>
+</list>

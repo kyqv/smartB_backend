@@ -1,0 +1,39 @@
+<form model="report.template">
+    <head>
+        <button string="Print" icon="print" action="print_wizard" action_options='{"template_id":id}'/>
+        <button string="Options">
+            <item string="Copy" method="copy"/>
+        </button>
+    </head>
+    <tabs>
+        <tab string="General">
+            <field name="name"/>
+            <field name="type"/>
+            <field name="format"/>
+            <field name="orientation"/>
+            <field name="model_id"/>
+            <field name="file"/>
+            <field name="printer_name"/>
+            <newline/>
+            <field name="body" width="800" height="500" view="field_code" mode="xml"/>
+            <newline/>
+            <field name="field_names" width="800" height="100"/>
+            <newline/>
+            <field name="multi_render"/>
+            <field name="convert_pdf"/>
+            <newline/>
+            <field name="sequence"/>
+            <field name="company_id"/>
+            <newline/>
+            <field name="out_filename"/>
+        </tab>
+        <tab string="Other Info">
+            <field name="header" width="800" height="300" view="field_code"/>
+            <newline/>
+            <field name="footer" width="800" height="300" view="field_code"/>
+        </tab>
+    </tabs>
+    <related>
+        <field name="logs"/>
+    </related>
+</form>

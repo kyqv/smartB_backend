@@ -1,0 +1,4 @@
+<form model="page.group">
+    <field name="name"/>
+    <field name="code"/>
+</form>

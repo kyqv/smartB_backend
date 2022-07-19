@@ -1,0 +1,5 @@
+<list_m model="product">
+    <field name="code"/>
+    <newline/>
+    <field name="name"/>
+</list_m>

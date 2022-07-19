@@ -1,0 +1,7 @@
+<form_m model="account.payment">
+    <field name="date"/>
+    <field name="number"/>
+    <newline/>
+    <field name="contact_id"/>
+    <field name="amount_total"/>
+</form_m>

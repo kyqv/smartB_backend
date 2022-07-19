@@ -1,0 +1,7 @@
+<action>
+    <field name="string">Quotations</field>
+    <field name="view">multi_view</field>
+    <field name="model">sale.quot</field>
+    <field name="tabs">[["All",[]],["Draft",[["state","=","draft"]]],["Awaiting Approval",[["state","=","waiting_approval"]]],["Approved",[["state","=","approved"]]],["Won",[["state","=","won"]]],["Lost",[["state","=","lost"]]],["Templates",[["is_template","=",true]]]]</field>
+    <field name="menu">sale_menu</field>
+</action>

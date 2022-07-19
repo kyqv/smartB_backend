@@ -1,0 +1,20 @@
+<list_m model="sale.opportunity">
+    <field name="date" bold="1"/>
+    <field name="last_email_days" label="Age" bold="1"/>
+    <newline/>
+    <field name="name" label="Title"/>
+    <newline/>
+    <field name="contact_id" label="Contact"/>
+    <newline/>
+    <field name="user_id" label="Assigned To"/>
+    <field name="stage_id"/>
+    <newline/>
+    <field name="source_id" label="Lead Source"/>
+    <newline/>
+    <button title="Won" method="won" states="open" type="success" icon="ios-checkmark"/>
+    <button title="Pause" method="pause" states="open" icon="ios-pause"/>
+    <button title="Cancel" action="opport_cancel_m" action_options='{"active_id":id,"mode":"edit"}' states="open" type="warning" icon="ios-close"/>
+    <button title="Lost" action="opport_lost_m" action_options='{"active_id":id,"mode":"edit"}' states="open" type="danger" icon="ios-close"/>
+    <button title="Re-open" method="reopen" states="won,lost,canceled,paused" icon="ios-arrow-back"/>
+    <field name="state" invisible="1"/>
+</list_m>

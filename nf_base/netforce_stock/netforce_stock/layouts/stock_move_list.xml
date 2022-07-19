@@ -1,0 +1,22 @@
+<list model="stock.move" priority="1">
+    <head>
+        <button string="Print" icon="print" action="print_stock_move" action_options='{"ids":ids}'/>
+    </head>
+    <field name="journal_id"/>
+    <field name="number"/>
+    <field name="date"/>
+    <field name="product_id"/>
+    <field name="lot_id"/>
+    <field name="container_id"/>
+    <field name="location_from_id"/>
+    <field name="location_to_id"/>
+    <field name="qty"/>
+    <field name="uom_id"/>
+    <field name="cost_price"/>
+    <field name="cost_amount"/>
+    <field name="qty2"/>
+    <field name="state"/>
+    <field name="picking_id"/>
+    <field name="related_id"/>
+    <field name="move_id"/>
+</list>

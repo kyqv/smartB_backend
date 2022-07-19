@@ -1,0 +1,5 @@
+<action>
+    <field name="type">report_odt2</field>
+    <field name="model">sale.coupon</field>
+    <field name="template">coupon_form</field>
+</action>

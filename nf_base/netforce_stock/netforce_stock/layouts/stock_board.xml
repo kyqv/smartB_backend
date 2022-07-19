@@ -1,0 +1,10 @@
+<board>
+    <vpanel>
+        <widget action="warehouse_widget" string="Warehouses"/>
+    </vpanel>
+    <vpanel>
+        <widget action="stock_below_widget" string="Products Below Min Stock"/>
+        <widget action="pick_in_widget" string="Incoming Goods"/>
+        <widget action="pick_out_widget" string="Outgoing Goods"/>
+    </vpanel>
+</board>

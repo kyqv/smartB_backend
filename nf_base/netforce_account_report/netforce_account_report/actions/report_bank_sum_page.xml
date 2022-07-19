@@ -1,0 +1,6 @@
+<action>
+    <field name="view_type">model</field>
+    <field name="model">report.bank.sum</field>
+    <field name="template">report_bank_sum_page</field>
+    <field name="menu">account_menu</field>
+</action>

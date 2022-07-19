@@ -1,0 +1,8 @@
+tornado>=2.2
+psycopg2>=2.4
+lxml>=2.3
+requests>=0.13.2
+python-dateutil>=2.1
+psutil>=1.2.1
+pyinotify>=0.9.4
+pillow>=2.3.0

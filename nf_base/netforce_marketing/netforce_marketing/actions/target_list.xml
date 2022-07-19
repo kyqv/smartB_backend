@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Target Lists</field>
+    <field name="view_cls">multi_view</field>
+    <field name="model">mkt.target.list</field>
+    <field name="menu">mkt_menu</field>
+</action>

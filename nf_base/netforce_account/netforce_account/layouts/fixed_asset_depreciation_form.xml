@@ -1,0 +1,12 @@
+<form model="account.fixed.asset.depreciation" title="Depreciate Fixed Assets">
+    <template>
+        <![CDATA[
+        <p>This will depreciate all registered fixed assets until the given date.</p>
+        ]]>
+    </template>
+    <newline/>
+    <field name='date_to'/>
+    <foot replace="1">
+        <button string='Depreciate' type='success' method='update'/>
+    </foot>
+</form>

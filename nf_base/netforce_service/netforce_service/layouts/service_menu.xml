@@ -1,0 +1,32 @@
+<menu string="Services">
+    <item string="Dashboard" action="service_board"/>
+    <item string="Services">
+        <item string="Projects" action="project"/>
+        <item string="Service Items" action="service_item"/>
+        <item string="Service Orders" action="job"/>
+        <item string="Tasks" action="task"/>
+    </item>
+    <item string="Planning">
+        <item string="Resources" action="service_resource"/>
+        <item string="Resource Allocations" action="service_resource_alloc"/>
+        <item string="Gantt Chart" action="service_gantt"/>
+    </item>
+    <item string="Time Keeping">
+        <item string="Time Sheets" action="work_time"/>
+    </item>
+    <item string="Support">
+        <item string="Issues" action="issue"/>
+    </item>
+    <item string="Reports">
+        <item string="Service Item Analysis" action="service_item_analysis"/>
+        <item string="Service Order Analysis" action="job_analysis"/>
+        <item string="Task Analysis" action="task_analysis"/>
+        <item string="Work Time Analysis" action="work_time_analysis"/>
+    </item>
+    <item string="Settings">
+        <item string="Service Types" action="service_type"/>
+        <item string="Applications" action="service_application"/>
+        <item string="Skill Levels" action="skill_level"/>
+        <item string="Service Order Templates" action="job_template"/>
+    </item>
+</menu>

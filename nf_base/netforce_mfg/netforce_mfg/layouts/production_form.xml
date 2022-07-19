@@ -1,0 +1,164 @@
+<form model="production.order" attrs='{"readonly":[["state","in",["done","voided","split"]]]}' show_company="1">
+    <top>
+        <button string="Print" icon="print" action="report_production_form"/>
+        <button string="Print (New)" icon="print" action="report_production_form2" action_options='{"active_id":id}'/>
+        <button string="Options" dropdown="1">
+            <item string="Receive FG" action="receive_fg" action_options='{"active_id":id}'/>
+            <item string="Adjust RM Issued Qty" action="adjust_rm" action_options='{"active_id":id}'/>
+            <divider/>
+            <item string="Copy" method="copy"/>
+            <item string="Copy To RM Goods Transfer" method="copy_to_pick_out"/>
+            <item string="Copy To RM Goods Transfer (Completed)" method="copy_to_pick_out_done"/>
+            <item string="Copy To FG Goods Transfer" method="copy_to_pick_in"/>
+            <item string="Copy To FG Goods Transfer (Completed)" method="copy_to_pick_in_done"/>
+            <item string="Copy To Grading" method="copy_to_grading"/>
+            <item string="Copy To Purchase Orders" method="copy_to_purchase"/>
+            <item string="Copy To Supplier Invoice" method="copy_to_invoice"/>
+            <item string="Copy To Customer Invoice (Labor)" method="copy_to_cust_invoice_labor"/>
+            <item string="To Draft" method="to_draft" states="confirmed,in_progress,done"/>
+            <item string="Void" method="void" states="confirmed,in_progress,done" confirm="Are you sure you want to void this production order?"/>
+        </button>
+    </top>
+    <head>
+        <field name="state"/>
+    </head>
+    <group form_layout="stacked">
+        <field name="number" span="2"/>
+        <field name="order_date" span="2"/>
+        <field name="due_date" span="2" show_required="1"/>
+        <field name="customer_id" span="2"/>
+        <field name="related_id" span="2"/>
+        <field name="sale_id" span="2"/>
+        <newline/>
+        <field name="product_id" span="2" onchange="onchange_product"/>
+        <field name="qty_planned" span="2" onchange="onchange_bom"/>
+        <field name="uom_id" span="2" onchange="onchange_bom"/>
+        <field name="qty_received" span="2"/>
+        <field name="qty2_received" span="2"/>
+        <!--<field name="qty_received_uos" span="2"/>-->
+        <field name="team_id" span="2"/>
+        <newline/>
+        <field name="bom_id" span="2" condition='[["product_id","=",product_id]]' onchange="onchange_bom"/>
+        <field name="routing_id" span="2" onchange="onchange_routing"/>
+        <field name="production_location_id" span="2"/>
+        <field name="location_id" span="2"/>
+        <field name="container_id" span="2"/>
+        <field name="lot_id" span="2"/>
+        <newline/>
+        <field name="supplier_id" span="2"/>
+        <field name="period_id" span="2"/>
+        <field name="parent_id" span="2"/>
+        <field name="ref"/>
+    </group>
+    <tabs>
+        <tab string="Components">
+            <field name="components" nolabel="1">
+                <list>
+                    <field name="product_id"/>
+                    <field name="qty_planned" onchange="onchange_planned_qty_line"/>
+                    <field name="uom_id"/>
+                    <field name="location_id"/>
+                    <field name="container_id"/>
+                    <field name="lot_id"/>
+                    <field name="qty_stock"/>
+                    <field name="qty_issued"/>
+                    <field name="issue_method"/>
+                    <field name="cost_price"/>
+                    <field name="cost_amount"/>
+                    <field name="notes"/>
+                </list>
+            </field>
+            <group columns="2">
+                <field span="8" name="remark"/>
+            </group>
+        </tab>
+        <tab string="Operations">
+            <field name="operations" nolabel="1">
+                <list>
+                    <field name="workcenter_id"/>
+                    <field name="employee_id"/>
+                    <field name="planned_duration"/>
+                    <field name="time_start"/>
+                    <field name="time_stop"/>
+                    <field name="actual_duration"/>
+                    <field name="notes"/>
+                </list>
+            </field>
+            <separator/>
+            <group form_layout="stacked">
+                <field name="time_start" span="2"/>
+                <field name="time_stop" span="2"/>
+            </group>
+        </tab>
+        <tab string="Gradings">
+            <field name="gradings" no_label="1"/>
+        </tab>
+        <tab string="QC">
+            <field name="qc_checked"/>
+            <!--<field name="qc_results" nolabel="1">
+                <list>
+                    <field name="product_id"/>
+                    <field name="lot_id"/>
+                    <field name="total_qty"/>
+                    <field name="sample_qty"/>
+                    <field name="test1"/>
+                    <field name="test2"/>
+                    <field name="test3"/>
+                    <field name="test4"/>
+                    <field name="test5"/>
+                    <field name="result"/>
+                </list>
+            </field>-->
+        </tab>
+        <tab string="Costing">
+            <field name="total_rm_cost"/>
+            <separator/>
+            <field name="total_cost"/>
+            <field name="unit_cost"/>
+            <separator/>
+            <field name="track_id"/>
+            <field name="track_balance"/>
+            <field name="track_entries" nolabel="1">
+                <list>
+                    <field name="date"/>
+                    <field name="related_id"/>
+                    <field name="product_id"/>
+                    <field name="description"/>
+                    <field name="qty"/>
+                    <field name="uom_id"/>
+                    <field name="amount"/>
+                </list>
+            </field>
+        </tab>
+    </tabs>
+    <field name="company_id" invisible="1"/>
+    <foot>
+        <button string="Confirm" method="confirm" size="large" type="success" states="draft"/>
+        <button string="In Progress" method="in_progress" size="large" type="success" states="confirmed" icon="arrow-right"/>
+        <button string="Completed" method="done" size="large" type="success" states="in_progress" icon="ok"/>
+    </foot>
+    <related>
+        <field name="sub_orders"/>
+        <field name="pickings"/>
+        <field name="sale_lines"/>
+        <field name="purchase_orders"/>
+        <field name="invoices"/>
+        <field name="documents">
+            <list>
+                <field name="file" target="_blank" preview="1"/>
+                <field name="categ_id"/>
+                <field name="description"/>
+                <field name="date"/>
+            </list>
+            <form>
+                <field name="categ_id"/>
+                <field name="file" target="_blank" onchange="onchange_file"/>
+                <field name="date"/>
+                <field name="description"/>
+                <field name="contact_id" invisible="1"/>
+            </form>
+        </field>
+        <field name="emails"/>
+        <field name="comments"/>
+    </related>
+</form>

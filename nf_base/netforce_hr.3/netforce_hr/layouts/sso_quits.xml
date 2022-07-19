@@ -1,0 +1,17 @@
+<form model="sso.quits" title="SSO Employee Quits Job ">
+    <field name="month" mode="month" span="4" onchange="onchange_month"/>
+    <field name="doc_date" span="4"/>
+    <field name="show_doc_date" span="4"/>
+    <separator string="Employee"/>
+    <field name="lines" nolabel="1">
+        <list>
+            <field name="employee_id" onchange="onchange_employee"/>
+            <field name="id_no"/>
+            <field name="resign_date"/>
+            <field name="reason"/>
+        </list>
+    </field>
+    <foot replace="1">
+        <button string="Print" icon="print" method="print_attach"/>
+    </foot>
+</form>

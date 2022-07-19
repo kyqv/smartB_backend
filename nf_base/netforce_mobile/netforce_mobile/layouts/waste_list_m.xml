@@ -1,0 +1,9 @@
+<list_m model="product.waste">
+    <field name="date"/>
+    <field name="number"/>
+    <newline/>
+    <field name="product_id"/>
+    <newline/>
+    <field name="qty"/>
+    <field name="uom_id"/>
+</list_m>

@@ -1,0 +1,53 @@
+<form model="task">
+    <head>
+        <field name="state"/>
+    </head>
+    <field name="number"/>
+    <field name="sequence"/>
+    <field name="date_created"/>
+    <separator/>
+    <field name="title"/>
+    <field name="duration" onchange="update_end"/>
+    <field name="date_start" onchange="update_end"/>
+    <field name="date_end"/>
+    <field name="due_date"/>
+    <separator/>
+    <field name="project_id"/>
+    <field name="milestone_id" condition='[["project_id","=",project_id]]'/>
+    <field name="task_list_id" condition='[["milestone_id","=",milestone_id]]'/>
+    <field name="related_id"/>
+    <separator/>
+    <field name="description" width="600" height="200"/>
+    <newline/>
+    <field name="progress"/>
+    <separator/>
+    <field name="state"/>
+    <field name="done_date"/>
+    <related>
+        <field name="assignments">
+            <list>
+                <field name="resource_id"/>
+                <field name="description"/>
+                <field name="est_hours"/>
+            </list>
+            <form>
+                <field name="resource_id"/>
+                <field name="description"/>
+                <field name="est_hours"/>
+            </form>
+        </field>
+        <field name="depends">
+            <list>
+                <field name="prev_task_id"/>
+                <field name="delay"/>
+            </list>
+            <form>
+                <field name="prev_task_id"/>
+                <field name="delay"/>
+            </form>
+        </field>
+        <field name="messages"/>
+        <field name="documents"/>
+        <field name="emails"/>
+    </related>
+</form>

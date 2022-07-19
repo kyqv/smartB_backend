@@ -1,0 +1,7 @@
+<action>
+    <field name="view">form_popup</field>
+    <field name="string">Receive Finished Goods</field>
+    <field name="model">production.order</field>
+    <field name="layout">receive_fg</field>
+    <field name="target">popup</field>
+</action>

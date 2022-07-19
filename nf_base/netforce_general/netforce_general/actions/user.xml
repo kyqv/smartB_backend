@@ -1,0 +1,9 @@
+<action>
+    <field name="name">user</field>
+    <field name="string">Users</field>
+    <field name="view">multi_view</field>
+    <field name="model">base.user</field>
+    <field name="tabs">[["All",[]],["Archived",[["active","=",false]]]]</field>
+    <field name="menu">gen_menu</field>
+    <field name="priority">1</field>
+</action>

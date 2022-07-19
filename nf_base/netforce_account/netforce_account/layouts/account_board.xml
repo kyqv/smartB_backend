@@ -1,0 +1,9 @@
+<board>
+    <vpanel>
+        <widget action="bank_widget" string="Bank Summary"/>
+    </vpanel>
+    <vpanel>
+        <widget action="money_in2" string="Receivable Summary"/>
+        <widget action="money_out2" string="Payable Summary"/>
+    </vpanel>
+</board>

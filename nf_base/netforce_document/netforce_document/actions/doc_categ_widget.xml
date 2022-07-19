@@ -1,0 +1,8 @@
+<action>
+    <field name="name">doc_categ_widget</field>
+    <field name="view">chart</field>
+    <field name="model">doc.report</field>
+    <field name="method">get_docs_per_categ</field>
+    <field name="chart_type">bar</field>
+    <field name="height">200</field>
+</action>

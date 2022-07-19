@@ -1,0 +1,25 @@
+<form model="issue" priority="1">
+    <field name="project_id" condition='[["number","=",context.project_code]]'/>
+    <field name="date_created"/>
+    <field name="number"/>
+    <separator/>
+    <field name="title"/>
+    <field name="type"/>
+    <field name="priority"/>
+    <field name="url"/>
+    <field name="sequence"/>
+    <separator/>
+    <field name="description"/>
+    <field name="description2"/>
+    <field name="screenshot"/>
+    <separator/>
+    <field name="state"/>
+    <newline/>
+    <field name="date_planned"/>
+    <field name="date_closed"/>
+    <separator/>
+    <field name="response"/>
+    <related>
+        <field name="screenshots"/>
+    </related>
+</form>

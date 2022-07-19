@@ -1,0 +1,5 @@
+<action>
+    <field name="name">service_layout</field>
+    <field name="view">nf_layout</field>
+    <field name="layout">service_menu</field>
+</action>

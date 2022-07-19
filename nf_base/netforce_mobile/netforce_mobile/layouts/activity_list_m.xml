@@ -1,0 +1,8 @@
+<list_m model="activity">
+    <field name="due_date" bold="1"/>
+    <field name="type"/>
+    <newline/>
+    <field name="subject"/>
+    <newline/>
+    <field name="user_id"/>
+</list_m>

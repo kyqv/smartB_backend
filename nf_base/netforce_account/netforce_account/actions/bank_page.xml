@@ -1,0 +1,6 @@
+<action>
+    <field name="view">page</field>
+    <field name="model">account.account</field>
+    <field name="menu">account_menu</field>
+    <field name="layout">bank_page</field>
+</action>

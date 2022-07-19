@@ -1,0 +1,6 @@
+<action>
+    <field name="string">General Dashboard</field>
+    <field name="view">board</field>
+    <field name="layout">gen_board</field>
+    <field name="menu">gen_menu</field>
+</action>

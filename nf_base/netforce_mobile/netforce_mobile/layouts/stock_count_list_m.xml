@@ -1,0 +1,6 @@
+<list_m model="stock.count">
+    <field name="date"/>
+    <field name="number"/>
+    <newline/>
+    <field name="location_id"/>
+</list_m>

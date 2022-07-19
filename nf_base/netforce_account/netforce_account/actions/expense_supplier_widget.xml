@@ -1,0 +1,8 @@
+<action>
+    <field name="view">chart</field>
+    <field name="string">Expenses Per Supplier</field>
+    <field name="model">account.invoice</field>
+    <field name="method">expenses_per_supplier</field>
+    <field name="chart_type">pie</field>
+    <field name="height">250</field>
+</action>

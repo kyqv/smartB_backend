@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Sales Forecast Details</field>
+    <field name="view">multi_view</field>
+    <field name="model">sale.forecast.line</field>
+    <field name="menu">sale_menu</field>
+</action>

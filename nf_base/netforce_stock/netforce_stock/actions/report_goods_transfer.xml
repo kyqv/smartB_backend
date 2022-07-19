@@ -1,0 +1,9 @@
+<action>
+    <field name="string">Goods Transfer Report</field>
+    <field name="view">report</field>
+    <field name="model">report.stock.move</field>
+    <field name="template">report_stock_move</field>
+    <field name="template_xls">report_stock_move</field>
+    <field name="menu">stock_menu</field>
+    <field name="context">{"pick_type":"internal"}</field>
+</action>

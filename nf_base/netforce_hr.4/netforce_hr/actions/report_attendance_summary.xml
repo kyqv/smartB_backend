@@ -1,0 +1,8 @@
+<action>
+    <field name="string">Attendance Summary</field>
+    <field name="view_cls">report</field>
+    <field name="model">report.attendance.summary</field>
+    <field name="report_template">report_attendance_summary</field>
+    <field name="report_template_xls">report_attendance_summary</field>
+    <field name="menu">hr_menu</field>
+</action>

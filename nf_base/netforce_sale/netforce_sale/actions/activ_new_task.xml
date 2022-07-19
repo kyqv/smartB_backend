@@ -1,0 +1,7 @@
+<action>
+    <field name="view_type">model</field>
+    <field name="model">activity</field>
+    <field name="defaults">{"type": "task"}</field>
+    <field name="template">activ_form_task</field>
+    <field name="menu">sale_menu</field>
+</action>

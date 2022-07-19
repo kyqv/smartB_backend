@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Postal Codes</field>
+    <field name="view">multi_view</field>
+    <field name="model">postal.code</field>
+    <field name="menu">gen_menu</field>
+</action>

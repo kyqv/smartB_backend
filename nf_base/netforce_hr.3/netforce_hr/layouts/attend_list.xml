@@ -1,0 +1,11 @@
+<list model="hr.attendance">
+    <top replace="1">
+        <button string="Sign In" icon="plus" action="attend" action_options='{"mode":"form","context":{"action":"sign_in"}}'/>
+        <button string="Sign Out" icon="minus" action="attend" action_options='{"mode":"form","context":{"action":"sign_out"}}'/>
+        <button string="Import Sign In/Out" icon="eject" action="import_attend"/>
+    </top>
+    <field name="employee_id"/>
+    <field name="time"/>
+    <field name="action"/>
+    <field name="mode"/>
+</list>

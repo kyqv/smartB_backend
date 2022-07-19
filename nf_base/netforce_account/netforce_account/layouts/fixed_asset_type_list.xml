@@ -1,0 +1,10 @@
+<list model="account.fixed.asset.type">
+    <field name="name"/>
+    <field name="code"/>
+    <field name="fixed_asset_account_id"/>
+    <field name="dep_rate"/>
+    <field name="dep_method"/>
+    <field name="accum_dep_account_id"/>
+    <field name="dep_exp_account_id"/>
+    <field name="description"/>
+</list>

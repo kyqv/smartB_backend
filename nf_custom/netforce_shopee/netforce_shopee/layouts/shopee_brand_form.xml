@@ -1,0 +1,5 @@
+<inherit inherit="brand_form">
+    <related position="append">
+        <field name="sync_records"/>
+    </related>
+</inherit>

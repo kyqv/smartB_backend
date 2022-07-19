@@ -1,0 +1,7 @@
+<action>
+    <field name="view">form_popup</field>
+    <field name="string">Adjust RM Issued Qty</field>
+    <field name="model">production.order</field>
+    <field name="layout">adjust_rm</field>
+    <field name="target">popup</field>
+</action>

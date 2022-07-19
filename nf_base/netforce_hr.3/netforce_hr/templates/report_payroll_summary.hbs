@@ -1,0 +1,120 @@
+<center>
+    <h2>
+        {{comp_name}}
+    </h2>
+    <h3>
+        Income-Expense-Tax Report
+    </h3>
+    <h4>
+        Report Date {{report_date}}
+    </h4>
+</center>
+<table class="table">
+    <thead>
+        <tr>
+            <th colspan="3">Employee Type</th>
+            <th colspan="5">{{emp_type}}</th>
+            <th colspan="8"></th>
+        </tr>
+        <!--
+        <tr>
+            <th>No.</th>
+            <th>Dept. Code</th>
+            <th>Emp. Code</th>
+            <th>Name</th>
+            <th colspan="10"></th>
+        </tr>
+        -->
+        <tr>
+            <th>No.</th>
+            <th>Dept. Code</th>
+            <th>Emp. Code</th>
+            <th>Name</th>
+            <!--
+            <th colspan="4"></th>
+            -->
+            <th>Salary</th>
+            <th>Bonus</th>
+            <th>Other Income</th>
+            <th>Overtime</th>
+            <th>Total Income</th>
+            <th>Other Expenses</th>
+            <th>Soc. Fund</th>
+            <th>Provident Fund</th>
+            <th>Loan</th>
+            <th>Tax</th>
+            <th>Total Expense</th>
+            <th>Net Income</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each lines}}
+            <!--payitem lines -->
+            {{#if last}}
+                <tr>
+                    {{#if is_total}}
+                        <th colspan="4" style="border-top: 1px solid #999;border-bottom:1px solid #999;">Total By Dept. {{dpt_name}}</th>
+                        <td style="text-align:right;border-top: 1px solid #999;border-bottom:1px solid #999;">{{currency salary zero=""}}</td>
+                        <td style="text-align:right;border-top: 1px solid #999;border-bottom:1px solid #999;">{{currency bonus zero=""}}</td>
+                        <td style="text-align:right;border-top: 1px solid #999;border-bottom:1px solid #999;">{{currency other_income zero=""}}</td>
+                        <td style="text-align:right;border-top: 1px solid #999;border-bottom:1px solid #999;">{{currency ot zero=""}}</td>
+                        <td style="text-align:right;border-top: 1px solid #999;border-bottom:1px solid #999;">{{currency total_income zero=""}}</td>
+                        <td style="text-align:right;border-top: 1px solid #999;border-bottom:1px solid #999;">{{currency other_expense zero=""}}</td>
+                        <td style="text-align:right;border-top: 1px solid #999;border-bottom:1px solid #999;">{{currency soc zero=""}}</td>
+                        <td style="text-align:right;border-top: 1px solid #999;border-bottom:1px solid #999;">{{currency prov zero=""}}</td>
+                        <td style="text-align:right;border-top: 1px solid #999;border-bottom:1px solid #999;">{{currency loan zero=""}}</td>
+                        <td style="text-align:right;border-top: 1px solid #999;border-bottom:1px solid #999;">{{currency tax zero=""}}</td>
+                        <td style="text-align:right;border-top: 1px solid #999;border-bottom:1px solid #999;">{{currency total_expense zero=""}}</td>
+                        <td style="text-align:right;border-top: 1px solid #999;border-bottom:1px solid #999;">{{currency net_income zero=""}}</td>
+                    {{else}}
+                        <th colspan="4" style="border-top: 1px solid #999;border-bottom: 2px solid #999">Grand Total</th>
+                        <td style="text-align:right;border-top: 1px solid #999;border-bottom: 2px solid #999">{{currency salary zero=""}}</td>
+                        <td style="text-align:right;border-top: 1px solid #999;border-bottom: 2px solid #999">{{currency bonus zero=""}}</td>
+                        <td style="text-align:right;border-top: 1px solid #999;border-bottom: 2px solid #999">{{currency other_income zero=""}}</td>
+                        <td style="text-align:right;border-top: 1px solid #999;border-bottom: 2px solid #999">{{currency ot zero=""}}</td>
+                        <td style="text-align:right;border-top: 1px solid #999;border-bottom: 2px solid #999">{{currency total_income zero=""}}</td>
+                        <td style="text-align:right;border-top: 1px solid #999;border-bottom: 2px solid #999">{{currency other_expense zero=""}}</td>
+                        <td style="text-align:right;border-top: 1px solid #999;border-bottom: 2px solid #999">{{currency soc zero=""}}</td>
+                        <td style="text-align:right;border-top: 1px solid #999;border-bottom: 2px solid #999">{{currency prov zero=""}}</td>
+                        <td style="text-align:right;border-top: 1px solid #999;border-bottom: 2px solid #999">{{currency loan zero=""}}</td>
+                        <td style="text-align:right;border-top: 1px solid #999;border-bottom: 2px solid #999">{{currency tax zero=""}}</td>
+                        <td style="text-align:right;border-top: 1px solid #999;border-bottom: 2px solid #999">{{currency total_expense zero=""}}</td>
+                        <td style="text-align:right;border-top: 1px solid #999;border-bottom: 2px solid #999">{{currency net_income zero=""}}</td>
+                    {{/if}}
+                </tr>
+            {{else}}
+                <!--
+                <tr>
+                    <th>{{no}}.</th>
+                    <th>{{dpt_code}}</th>
+                    <th>{{emp_code}}</th>
+                    <th colspan="5">{{emp_name}}</th>
+                    <th colspan="9"></th>
+                </tr>
+                -->
+                <tr>
+                    <th>{{no}}.</th>
+                    <th>{{dpt_code}}</th>
+                    <th>{{emp_code}}</th>
+                    <th>
+                        {{link string=emp_name action="employee" action_options='{"mode":"form"}' active_id=emp_id}}
+                    </th>
+                    <td style="text-align:right">{{currency salary zero=""}}</td>
+                    <td style="text-align:right">{{currency bonus zero=""}}</td>
+                    <td style="text-align:right">{{currency other_income zero=""}}</td>
+                    <td style="text-align:right">{{currency ot zero=""}}</td>
+                    <td style="text-align:right">{{currency total_income zero=""}}</td>
+                    <td style="text-align:right">{{currency other_expense zero=""}}</td>
+                    <td style="text-align:right">{{currency soc zero=""}}</td>
+                    <td style="text-align:right">{{currency prov zero=""}}</td>
+                    <td style="text-align:right">{{currency loan zero=""}}</td>
+                    <td style="text-align:right">{{currency tax zero=""}}</td>
+                    <td style="text-align:right">{{currency total_expense zero=""}}</td>
+                    <td style="text-align:right">{{currency net_income zero=""}}</td>
+                </tr>
+            {{/if}}
+        {{/each}}
+    </tbody>
+    <tfoot>
+    </tfoot>
+</table>

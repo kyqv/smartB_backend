@@ -1,0 +1,5 @@
+<list model="barcode.station">
+    <field name="name"/>
+    <field name="location_id"/>
+    <field name="description"/>
+</list>

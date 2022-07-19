@@ -1,0 +1,10 @@
+<form model="service">
+    <field name="name"/>
+    <field name="categ_id"/>
+    <field name="code"/>
+    <field name="group_id"/>
+    <field name="product_id"/>
+    <related>
+        <field name="comments"/>
+    </related>
+</form>

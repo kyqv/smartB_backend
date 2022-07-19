@@ -1,0 +1,7 @@
+<action>
+    <field name="string">Journals</field>
+    <field name="view">multi_view</field>
+    <field name="model">account.journal</field>
+    <field name="tabs">[["All",[]],["Archived",[["active","=",false]]]]</field>
+    <field name="menu">account_menu</field>
+</action>

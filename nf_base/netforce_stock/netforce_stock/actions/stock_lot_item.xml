@@ -1,0 +1,6 @@
+<action>
+    <field name="view">multi_view</field>
+    <field name="string">Lot Items</field>
+    <field name="model">stock.lot.item</field>
+    <field name="menu">stock_menu</field>
+</action>

@@ -1,0 +1,18 @@
+<form model="settings" title="Sales Settings">
+    <separator string="Sales Workflow"/>
+    <field name="sale_copy_picking"/>
+    <field name="sale_copy_reserve_picking"/>
+    <field name="sale_copy_invoice"/>
+    <field name="sale_copy_production"/>
+    <field name="sale_split_service"/>
+    <separator string="Commission"/>
+    <field name="commission_parent"/>
+    <field name="commission_grand_parent"/>
+    <field name="commission_remain"/>
+    <separator/>
+    <field name="sale_check_delivered_qty"/>
+    <separator string="Permissions"/>
+    <field name="approve_quot"/>
+    <field name="approve_sale"/>
+    <field name="approve_sale_reserve"/>
+</form>

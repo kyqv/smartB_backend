@@ -1,0 +1,9 @@
+<form model="reason.code">
+    <field name="type"/>
+    <field name="code"/>
+    <field name="name"/>
+    <field name="description"/>
+    <related>
+        <field name="comments"/>
+    </related>
+</form>

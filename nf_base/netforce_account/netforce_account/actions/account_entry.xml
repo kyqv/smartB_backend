@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Ledger Entries</field>
+    <field name="view">multi_view</field>
+    <field name="model">account.move.line</field>
+    <field name="menu">account_menu</field>
+</action>

@@ -1,0 +1,12 @@
+<list model="mkt.target" colors='{"#cfc":[["email_status","=","verified"]],"#fcc":[["email_status","in",["error_syntax","error_dns","error_smtp"]]]}'>
+    <field name="list_id"/>
+    <field name="date"/>
+    <field name="target_life"/>
+    <field name="first_name"/>
+    <field name="last_name"/>
+    <field name="company"/>
+    <field name="country_id"/>
+    <field name="phone"/>
+    <field name="email"/>
+    <field name="email_status"/>
+</list>

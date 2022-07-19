@@ -1,0 +1,7 @@
+<action>
+    <field name="string">Models</field>
+    <field name="view">multi_view</field>
+    <field name="model">model</field>
+    <field name="tabs">[["Custom",[["custom","=",true]]],["All",[]]]</field>
+    <field name="menu">gen_menu</field>
+</action>

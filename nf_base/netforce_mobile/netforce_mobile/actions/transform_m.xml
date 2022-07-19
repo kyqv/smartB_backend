@@ -1,0 +1,7 @@
+<action>
+    <field name="view">list_m</field>
+    <field name="title">Product Transforms</field>
+    <field name="model">stock.transform</field>
+    <field name="tabs">[["Draft",[["state","=","draft"]]],["Completed",[["state","=","done"]]],["All",[]]]</field>
+    <field name="menu">main_menu_m</field>
+</action>

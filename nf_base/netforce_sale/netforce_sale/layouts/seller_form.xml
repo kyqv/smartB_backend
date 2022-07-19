@@ -1,0 +1,8 @@
+<form model="seller">
+    <field name="name"/>
+    <field name="code"/>
+    <field name="employee_id"/>
+    <related>
+        <field name="commissions"/>
+    </related>
+</form>

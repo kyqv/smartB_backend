@@ -1,0 +1,7 @@
+<action>
+    <field name="string">Unrealized Gains and Losses</field>
+    <field name="view">report</field>
+    <field name="model">report.currency</field>
+    <field name="template">report_currency</field>
+    <field name="menu">account_menu</field>
+</action>

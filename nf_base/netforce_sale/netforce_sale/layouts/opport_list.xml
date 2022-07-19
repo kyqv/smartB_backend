@@ -1,0 +1,15 @@
+<list model="sale.opportunity" priority="1" colors='{"yellow":[["state","=","open"],["last_email_days",">=",7]],"red":[["state","=","open"],["last_email_days",">=",14]]}'>
+    <field name="number"/>
+    <field name="date"/>
+    <field name="name"/>
+    <field name="contact_id"/>
+    <field name="state"/>
+    <field name="stage_id"/>
+    <field name="age_days"/>
+    <field name="last_email_days"/>
+    <button string="Won" method="won" states="open" type="success" icon="ok"/>
+    <button string="Pause" method="pause" states="open" icon="pause"/>
+    <button string="Cancel" action="opport_cancel" states="open" type="warning"/>
+    <button string="Lost" action="opport_lost" states="open" type="danger" icon="remove"/>
+    <button string="Re-open" method="reopen" states="won,lost,paused,canceled" icon="arrow-left"/>
+</list>

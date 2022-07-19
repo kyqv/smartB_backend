@@ -1,0 +1,7 @@
+<action>
+    <field name="string">Notifications</field>
+    <field name="view">multi_view</field>
+    <field name="model">notif</field>
+    <field name="tabs">[["Pending",[["state","=","pending"]]],["Dismissed",[["state","=","dismissed"]]],["All",[]]]</field>
+    <field name="menu">msg_menu</field>
+</action>

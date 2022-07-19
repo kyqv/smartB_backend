@@ -1,0 +1,55 @@
+<form model="product.borrow" attrs='{"readonly":[["state","in",["done","voided"]]]}'>
+    <head>
+        <field name="state"/>
+        <button string="Print" icon="print" dropdown="1">
+            <item string="PDF" action="report_borrow_form" action_options="convert=pdf"/>
+            <item string="ODT" action="report_borrow_form"/>
+            <item string="Select Template" action="print_select_template" action_options="report_action=report_borrow_form&amp;template_type=borrow_form"/>
+        </button>
+        <button string="Options" dropdown="1" align="right">
+            <item string="Copy To Goods Receipt" method="copy_to_pick_in" states="approved"/>
+            <item string="Copy To Goods Issue" method="copy_to_picking" states="approved"/>
+            <item string="Void" method="void" confirm="Are you sure you want to void this claim?"/>
+        </button>
+    </head>
+    <field name="number"/>
+    <field name="date"/>
+    <field name="employee_id"/>
+    <field name="project_id"/>
+    <field name="borrow_for"/>
+    <field name="due_date"/>
+    <field name="lines" nolabel="1">
+        <list>
+            <field name="product_id" onchange="onchange_product"/>
+            <field name="qty"/>
+            <field name="uom_id"/>
+            <field name="issued_qty"/>
+            <field name="returned_qty"/>
+            <field name="lot_id"/>
+        </list>
+    </field>
+    <field name="notes"/>
+    <foot>
+        <button string="Approve" method="approve" states="draft" type="success" icon="ok"/>
+        <button string="Completed" method="set_done" states="approved" type="success"/>
+    </foot>
+    <related>
+        <field name="pickings"/>
+        <field name="documents">
+            <list>
+                <field name="file" target="_blank" preview="1"/>
+                <field name="categ_id"/>
+                <field name="description"/>
+                <field name="date"/>
+            </list>
+            <form>
+                <field name="categ_id"/>
+                <field name="file" target="_blank" onchange="onchange_file"/>
+                <field name="date"/>
+                <field name="description"/>
+                <field name="contact_id" invisible="1"/>
+            </form>
+        </field>
+        <field name="comments"/>
+    </related>
+</form>

@@ -1,0 +1,12 @@
+<search model="product">
+    <field name="name"/>
+    <field name="code"/>
+    <field name="barcode"/>
+    <field name="type"/>
+    <field name="sale_price"/>
+    <newline/>
+    <field name="categ_id" child_of="1"/>
+    <field name="brand_id"/>
+    <field name="uom_id"/>
+    <field name="company_id" child_of="1"/>
+</search>

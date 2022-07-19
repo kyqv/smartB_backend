@@ -1,0 +1,29 @@
+<form model="sale.modif">
+    <field name="order_id" invisible="1"/>
+    <field name="contact_id" invisible="1"/>
+    <field name="type"/>
+    <newline/>
+    <group attrs='{"invisible":[["type","!=","add_prod"]]}' columns="1">
+        <field name="product_id"/>
+        <field name="qty"/>
+        <field name="unit_price"/>
+        <field name="location_id"/>
+    </group>
+    <group attrs='{"invisible":[["type","!=","del_prod"]]}' columns="1">
+        <field name="product_id"/>
+    </group>
+    <group attrs='{"invisible":[["type","!=","change_qty"]]}' columns="1">
+        <field name="product_id"/>
+        <field name="qty"/>
+    </group>
+    <group attrs='{"invisible":[["type","!=","change_order"]]}' columns="1">
+        <field name="due_date"/>
+        <field name="delivery_date"/>
+        <field name="ship_term_id"/>
+        <field name="ship_port_id"/>
+    </group>
+    <field name="update_related"/>
+    <foot>
+        <button string="Apply Changes" method="apply_modif" type="primary"/>
+    </foot>
+</form>

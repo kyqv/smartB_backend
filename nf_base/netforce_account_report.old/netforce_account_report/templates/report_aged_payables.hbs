@@ -1,0 +1,81 @@
+<center>
+    <h2>
+        Aged Payables (Summary)
+    </h2>
+    <h3>
+        {{company_name}}
+        <br/>
+        As at {{fmt_date date}}
+    </h3>
+</center>
+<table class="table table-striped">
+    <thead>
+        <tr class="scroll-header">
+            <th>
+            </th>
+            <th style="text-align:right">
+                Total Payable
+            </th>
+            <th style="text-align:right">
+                Current
+            </th>
+            {{#each periods}}
+                <th style="text-align:right">
+                    {{period_name}}
+                </th>
+            {{/each}}
+            <th style="text-align:right">
+                Older
+            </th>
+        </tr>
+        <tr>
+            <th colspan="7">
+                Payables
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each lines context=context}}
+            <tr>
+                <td>
+                    {{contact_name}}
+                </td>
+                <td style="text-align:right">
+                    <a href="/ui#name=report_supp_invoice&defaults.contact_id={{contact_id}}&defaults.date_to={{date_to_total}}">{{currency amount_total}}</a>
+                </td>
+                <td style="text-align:right">
+                    <a href="/ui#name=report_supp_invoice&defaults.contact_id={{contact_id}}&defaults.date_from={{date_from_current}}">{{currency amount_current}}</a>
+                </td>
+                {{#each periods}}
+                    <td style="text-align:right">
+                        <a href="/ui#name=report_supp_invoice&defaults.contact_id={{../contact_id}}&defaults.date_from={{date_from}}&defaults.date_to={{date_to}}">{{currency amount}}</a>
+                    </td>
+                {{/each}}
+                <td style="text-align:right">
+                    <a href="/ui#name=report_supp_invoice&defaults.contact_id={{contact_id}}&defaults.date_to={{date_to_older}}">{{currency amount_older}}</a>
+                </td>
+            </tr>
+        {{/each}}
+    </tbody>
+    <tfoot>
+        <tr style="font-weight:bold">
+            <td>
+                Total Payables
+            </td>
+            <td style="text-align:right">
+                {{currency total}}
+            </td>
+            <td style="text-align:right">
+                {{currency total_current}}
+            </td>
+            {{#each periods}}
+                <td style="text-align:right">
+                    {{currency total}}
+                </td>
+            {{/each}}
+            <td style="text-align:right">
+                {{currency total_older}}
+            </td>
+        </tr>
+    </tfoot>
+</table>

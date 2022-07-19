@@ -1,0 +1,112 @@
+<center>
+    <h2>
+        Depreciation Schedule
+    </h2>
+    <h3>
+        {{company_name}}
+    </h3>
+    <h3>
+        {{fmt_date date_from}} to {{fmt_date date_to}}
+    </h3>
+    <br/>
+</center>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Number
+            </th>
+            <th>
+                Purchase Price
+            </th>
+            <th>
+                Purchase Date
+            </th>
+            <th>
+                Rate
+            </th>
+            <th>
+                Book Value
+                {{fmt_date date_from}}
+            </th>
+            <th>
+                Accum Dep
+            </th>
+            <th>
+                Book Value
+                {{fmt_date date_to}}
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each groups}}
+            <tr>
+                <th colspan="20">
+                    {{type_name}}
+                </th>
+            </tr>
+            {{#each lines}}
+                <tr>
+                    <td>
+                        {{asset_name}}
+                    </td>
+                    <td>
+                        <a href="/ui#name=fixed_asset&mode=page&active_id={{asset_id}}">
+                            {{asset_number}}
+                        </a>
+                    </td>
+                    <td style="text-align:right">
+                        {{currency purchase_price}}
+                    </td>
+                    <td>
+                        {{fmt_date purchase_date}}
+                    </td>
+                    <td style="text-align:right">
+                        {{rate}}%
+                    </td>
+                    <td style="text-align:right">
+                        {{currency book_val_from}}
+                    </td>
+                    <td style="text-align:right">
+                        {{currency accum_dep}}
+                    </td>
+                    <td style="text-align:right">
+                        {{currency book_val_to}}
+                    </td>
+                </tr>
+            {{/each}}
+            <tr>
+                <th colspan="5">
+                </th>
+                <th style="text-align:right">
+                    {{currency total_book_val_from}}
+                </th>
+                <th style="text-align:right">
+                    {{currency total_accum_dep}}
+                </th>
+                <th style="text-align:right">
+                    {{currency total_book_val_to}}
+                </th>
+            </tr>
+        {{/each}}
+    </tbody>
+    <tfoot>
+        <tr>
+            <th colspan="5">
+                Total
+            </th>
+            <th style="text-align:right">
+                {{currency total_book_val_from}}
+            </th>
+            <th style="text-align:right">
+                {{currency total_accum_dep}}
+            </th>
+            <th style="text-align:right">
+                {{currency total_book_val_to}}
+            </th>
+        </tr>
+    </tfoot>
+</table>

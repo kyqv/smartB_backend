@@ -1,0 +1,5 @@
+<action>
+    <field name="type">report_odt2</field>
+    <field name="model">stock.container</field>
+    <field name="template">container_label</field>
+</action>

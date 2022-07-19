@@ -1,0 +1,7 @@
+<form>
+    <field name="adjust_rm_product_id" required="1"/>
+    <field name="adjust_rm_qty" required="1"/>
+    <foot>
+        <button string="Confirm" method="adjust_rm_confirm" type="success"/>
+    </foot>
+</form>

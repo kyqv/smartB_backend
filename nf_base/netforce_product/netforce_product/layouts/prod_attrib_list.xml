@@ -1,0 +1,4 @@
+<list model="product.attribute">
+    <field name="name"/>
+    <field name="code"/>
+</list>

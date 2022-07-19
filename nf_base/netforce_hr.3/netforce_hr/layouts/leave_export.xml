@@ -1,0 +1,13 @@
+<export model="hr.leave">
+    <field name="number"/>
+    <field name="date"/>
+    <field name="employee_id"/>
+    <field name="leave_type_id"/>
+    <field name="period_id"/>
+    <field name="start_date"/>
+    <field name="end_date"/>
+    <field name="time_from"/>
+    <field name="time_to"/>
+    <field name="leave_reason"/>
+    <field name="state"/>
+</export>

@@ -1,0 +1,8 @@
+<list model="product.group">
+    <field name="sequence"/>
+    <field name="name"/>
+    <field name="code"/>
+    <field name="parent_id"/>
+    <field name="image"/>
+    <field name="color"/>
+</list>

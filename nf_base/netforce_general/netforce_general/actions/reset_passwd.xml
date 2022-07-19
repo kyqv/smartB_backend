@@ -1,0 +1,5 @@
+<action>
+    <field name="view">form_popup</field>
+    <field name="model">reset.passwd</field>
+    <field name="target">popup</field>
+</action>

@@ -1,0 +1,12 @@
+<action>
+    <field name="string">Issue Tracker</field>
+    <field name="no_title">1</field>
+    <!--<field name="no_import">1</field>-->
+    <field name="view">multi_view</field>
+    <field name="model">issue</field>
+    <field name="modes">list,form</field>
+    <field name="tabs">[["All",[]],["New",[["state","=","new"]]],["Incomplete",[["state","=","incomplete"]]],["Planned",[["state","=","planned"]]],["Closed",[["state","=","closed"]]]]</field>
+    <field name="group_field">state</field>
+    <field name="condition_expr">[["project_id.number","=",project_code]]</field>
+    <field name="no_login">1</field>
+</action>

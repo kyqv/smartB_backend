@@ -1,0 +1,15 @@
+<list model="log" colors='{"red":[["type","=","error"]],"orange":[["type","=","warning"]]}'>
+    <top replace="1">
+        <button string="Slow Test" method="test_slow"/>
+    </top>
+    <field name="date"/>
+    <field name="user_id"/>
+    <field name="ip_addr"/>
+    <field name="country_id"/>
+    <field name="message"/>
+    <field name="type"/>
+    <field name="txid"/>
+    <field name="entry_point"/>
+    <field name="client_name"/>
+    <field name="fields_changed"/>
+</list>

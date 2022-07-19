@@ -1,0 +1,7 @@
+<form model="theme.file">
+    <field name="theme_id"/>
+    <field name="name"/>
+    <field name="file"/>
+    <newline/>
+    <field name="body" width="800" height="500" view="field_code"/>
+</form>

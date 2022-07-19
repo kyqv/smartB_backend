@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Approve</field>
+    <field name="view">form_popup</field>
+    <field name="model">approve.wizard</field>
+    <field name="target">_popup</field>
+</action>

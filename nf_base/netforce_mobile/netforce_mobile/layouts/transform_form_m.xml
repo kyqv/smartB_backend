@@ -1,0 +1,30 @@
+<form_m model="stock.transform">
+    <field name="date"/>
+    <field name="number"/>
+    <newline/>
+    <field name="location_id"/>
+    <separator string="From Product"/>
+    <field name="from_product_id" onchange="onchange_from_product"/>
+    <newline/>
+    <field name="from_lot_id"/>
+    <newline/>
+    <field name="from_qty" onchange="onchange_from_qty"/>
+    <field name="from_uom_id"/>
+    <separator string="To Product"/>
+    <field name="to_product_id" onchange="onchange_to_product"/>
+    <newline/>
+    <field name="to_lot_id"/>
+    <newline/>
+    <field name="to_qty"/>
+    <field name="to_uom_id"/>
+    <newline/>
+    <field name="state"/>
+    <foot>
+        <button string="Validate" method="validate" type="success" states="draft" icon="ios-checkmark"/>
+        <button string="To Draft" method="to_draft" states="done,voided"/>
+        <button string="Void" method="void" states="done" type="danger" confirm="Are you sure?"/>
+    </foot>
+    <related>
+        <field name="stock_moves"/>
+    </related>
+</form_m>

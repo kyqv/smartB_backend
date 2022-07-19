@@ -1,0 +1,5 @@
+<action>
+    <field name="view_type">collection</field>
+    <field name="model">sale.opportunity</field>
+    <field name="template">opport_report_list</field>
+</action>

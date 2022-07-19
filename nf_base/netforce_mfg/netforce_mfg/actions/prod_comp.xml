@@ -1,0 +1,7 @@
+<action>
+    <field name="view">multi_view</field>
+    <field name="string">Production Components</field>
+    <field name="model">production.component</field>
+    <field name="tabs">[["All",[]],["To Issue",[["issue_method","=","manual"],["order_id.state","=","released"]]]]</field>
+    <field name="menu">mfg_menu</field>
+</action>

@@ -1,0 +1,10 @@
+<form model="script">
+    <field name="name"/>
+    <field name="language"/>
+    <newline/>
+    <field name="code" width="800" height="500" view="field_code" mode="javascript" attrs='{"invisible":[["language","!=","js"]]}'/>
+    <newline/>
+    <field name="code" width="800" height="500" view="field_code" mode="python" attrs='{"invisible":[["language","!=","py"]]}'/>
+    <newline/>
+    <field name="module_id"/>
+</form>

@@ -1,0 +1,6 @@
+<action>
+    <field name="view">template</field>
+    <field name="model">report.receivable</field>
+    <field name="method">debtor_exposure</field>
+    <field name="template">debtor_exposure_widget</field>
+</action>

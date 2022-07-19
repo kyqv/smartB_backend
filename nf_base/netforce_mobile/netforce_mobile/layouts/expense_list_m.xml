@@ -1,0 +1,10 @@
+<list_m model="hr.expense">
+    <field name="date"/>
+    <field name="employee_id"/>
+    <newline/>
+    <field name="merchant"/>
+    <field name="categ_id"/>
+    <newline/>
+    <field name="amount"/>
+    <field name="currency_id"/>
+</list_m>

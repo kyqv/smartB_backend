@@ -1,0 +1,23 @@
+<form model="hr.attendance.config">
+
+    <head>
+        <button string="Options" dropdown="1">
+            <item string="Copy" method="copy"/>
+        </button>
+    </head>
+
+
+    <field name="name"/>
+    <field name="ip_address"/>
+    <field name="url_download"/>
+    <field name="user"/>
+    <field name="password" password="true"/>
+    <field name="port"/>
+    <field name="os_type"/>
+    <foot>
+         <button string="Test" type="success" method="test"/>
+    </foot>
+    <related>
+        <field name="comments"/>
+    </related>
+</form>

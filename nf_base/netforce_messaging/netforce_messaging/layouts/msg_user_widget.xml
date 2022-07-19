@@ -1,0 +1,5 @@
+<list model="base.user" priority="20" colors='{"#9f9":[["online_status","=","online"]]}' noselect="1" action="inbox" hide_select="1" hide_page="1">
+    <head replace="1"/>
+    <field name="name"/>
+    <field name="online_status"/>
+</list>

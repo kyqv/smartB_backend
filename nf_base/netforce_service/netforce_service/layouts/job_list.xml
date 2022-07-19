@@ -1,0 +1,13 @@
+<list model="job" colors='{"#fcc":[["overdue","=",true]],"#cfc":[["state","=","verified"]]}' priority="1">
+    <field name="number"/>
+    <field name="contact_id"/>
+    <field name="project_id"/>
+    <field name="resource_id"/>
+    <field name="due_date"/>
+    <field name="service_type_id"/>
+    <field name="priority"/>
+    <field name="total_cost"/>
+    <field name="amount_total"/>
+    <field name="state"/>
+    <field name="overdue" invisible="1"/>
+</list>

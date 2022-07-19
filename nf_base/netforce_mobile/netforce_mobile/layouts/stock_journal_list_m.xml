@@ -1,0 +1,3 @@
+<list_m model="stock.journal">
+    <field name="name"/>
+</list_m>

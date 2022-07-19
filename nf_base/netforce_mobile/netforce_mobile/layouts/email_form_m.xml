@@ -1,0 +1,12 @@
+<form_m model="email.message">
+    <field name="date"/>
+    <field name="state"/>
+    <newline/>
+    <field name="from_addr"/>
+    <newline/>
+    <field name="to_addrs"/>
+    <newline/>
+    <field name="subject"/>
+    <newline/>
+    <field name="body" view="field_html"/>
+</form_m>

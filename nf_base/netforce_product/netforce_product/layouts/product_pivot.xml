@@ -1,0 +1,7 @@
+<pivot model="product" rows="categ_id.name" agg_name="count">
+    <field name="categ_id.name" string="Product Category"/>
+    <field name="brand_id.name" string="Brand"/>
+    <field name="type" string="Product Type"/>
+    <field name="name" string="Product Name"/>
+    <field name="code" string="Product Code"/>
+</pivot>

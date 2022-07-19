@@ -1,0 +1,41 @@
+<form model="profile">
+    <top>
+        <button string="Options" dropdown="1">
+            <item string="Copy" method="copy"/>
+        </button>
+    </top>
+    <field name="name"/>
+    <field name="code"/>
+    <separator string="Model Permissions"/>
+    <field name="default_model_perms"/>
+    <field name="perms" nolabel="1">
+        <list>
+            <field name="model_id"/>
+            <field name="perm_read"/>
+            <field name="perm_create"/>
+            <field name="perm_write"/>
+            <field name="perm_delete"/>
+            <field name="view_all"/>
+            <field name="modif_all"/>
+        </list>
+    </field>
+    <separator string="Other Permissions"/>
+    <field name="other_perms" nolabel="1">
+        <list>
+            <field name="name"/>
+        </list>
+    </field>
+    <field name="default_menu_access"/>
+    <separator string="Other Settings"/>
+    <field name="home_action"/>
+    <field name="home_action_mobile"/>
+    <newline/>
+    <field name="login_company_id"/>
+    <field name="prevent_login"/>
+    <field name="require_approve"/>
+    <related>
+        <field name="field_perms"/>
+        <field name="menu_perms"/>
+        <field name="comments"/>
+    </related>
+</form>

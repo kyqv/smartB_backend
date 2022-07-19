@@ -1,0 +1,10 @@
+<action>
+    <field name="string">Documents</field>
+    <field name="view_cls">multi_view</field>
+    <field name="model">document</field>
+    <field name="condition">[["state","=","verified"],["share","=",true]]</field>
+    <field name="modes">list,page</field>
+    <field name="menu">portal_menu</field>
+    <field name="list_view_xml">portal_doc_list</field>
+    <field name="form_view_xml">portal_doc_form</field>
+</action>

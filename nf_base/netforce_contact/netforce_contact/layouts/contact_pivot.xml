@@ -1,0 +1,11 @@
+<pivot model="contact" rows="categ_id.name" agg_name="count">
+    <field name="categ_id.name" string="Contact Category"/>
+    <field name="industry_id.name" string="Industry"/>
+    <field name="business_area_id.name" string="Business Area"/>
+    <field name="fleet_size_id.name" string="Fleet Size"/>
+    <field name="user_id.name" string="Responsible User"/>
+    <field name="type"/>
+    <field name="country_id.name" string="Country"/>
+    <field name="name" string="Contact Name"/>
+    <field name="code" string="Contact Code"/>
+</pivot>

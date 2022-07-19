@@ -1,0 +1,13 @@
+<list model="ecom2.cart">
+    <field name="number"/>
+    <field name="date"/>
+    <field name="customer_id"/>
+    <field name="amount_total"/>
+    <field name="ship_address_id"/>
+    <field name="delivery_date"/>
+    <field name="delivery_slot_id"/>
+    <field name="comments"/>
+    <field name="voucher_id"/>
+    <field name="state"/>
+    <field name="company_id"/>
+</list>

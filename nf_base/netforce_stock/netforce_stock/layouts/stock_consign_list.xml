@@ -1,0 +1,12 @@
+<list model="stock.consign">
+    <head>
+        <button string="Create Purchase Orders" method="create_purchase"/>
+        <button string="Create Sales Orders" method="create_sale"/>
+        <button string="Create Consignment Periods" method="create_periods"/>
+    </head>
+    <field name="location_id"/>
+    <field name="type"/>
+    <field name="contact_id"/>
+    <field name="company_id"/>
+    <field name="order_type"/>
+</list>

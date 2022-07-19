@@ -1,0 +1,8 @@
+<action>
+    <field name="string">Production Order</field>
+    <field name="view">report</field>
+    <field name="model">report.production.order</field>
+    <field name="report_template">report_production_order</field>
+    <field name="report_template_xls">report_production_order</field>
+    <field name="menu">mfg_menu</field>
+</action>

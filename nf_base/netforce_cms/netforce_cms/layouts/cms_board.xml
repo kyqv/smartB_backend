@@ -1,0 +1,5 @@
+<board>
+    <hpanel>
+        <widget action="visitors_per_day" string="Visitors Per Day" span="12"/>
+    </hpanel>
+</board>

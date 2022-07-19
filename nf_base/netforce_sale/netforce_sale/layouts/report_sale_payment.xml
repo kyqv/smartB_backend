@@ -1,0 +1,11 @@
+<form model="report.sale.payment">
+    <group form_layout="stacked">
+        <field name="invoice_date_from" span="2"/>
+        <field name="invoice_date_to" span="2"/>
+        <field name="order_date_from" span="2"/>
+        <field name="order_date_to" span="2"/>
+        <newline/>
+        <field name="pay_method_id" span="2"/>
+        <field name="account_id" span="2"/>
+    </group>
+</form>

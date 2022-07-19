@@ -1,0 +1,5 @@
+<list model="document.categ">
+    <field name="full_name"/>
+    <field name="code"/>
+    <field name="expire_after"/>
+</list>

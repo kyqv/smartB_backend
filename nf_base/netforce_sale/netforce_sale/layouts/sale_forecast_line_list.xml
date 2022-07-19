@@ -1,0 +1,9 @@
+<list model="sale.forecast.line">
+    <field name="forecast_id"/>
+    <field name="product_id"/>
+    <field name="customer_id"/>
+    <field name="min_shelf_life"/>
+    <field name="plan_qty"/>
+    <field name="actual_qty"/>
+    <field name="prev_diff_percent"/>
+</list>

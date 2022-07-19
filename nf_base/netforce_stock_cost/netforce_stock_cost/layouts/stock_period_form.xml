@@ -1,0 +1,25 @@
+<form model="stock.period" attrs='{"readonly":[["state","=","posted"]]}' show_company="1">
+    <head>
+        <field name="state"/>
+        <button string="Options" dropdown="1">
+            <item string="To Draft" method="to_draft" states="posted"/>
+            <divider/>
+            <item string="View Journal Entry" method="view_journal_entry" states="posted"/>
+        </button>
+    </head>
+    <field name="number"/>
+    <newline/>
+    <field name="date_from"/>
+    <field name="date_to"/>
+    <separator/>
+    <field name="num_stock_moves"/>
+    <field name="num_posted_stock_moves"/>
+    <field name="company_id" invisible="1"/>
+    <foot>
+        <button string="Post" method="post" type="success" states="draft"/>
+    </foot>
+    <related>
+        <field name="stock_moves"/>
+        <field name="comments"/>
+    </related>
+</form>

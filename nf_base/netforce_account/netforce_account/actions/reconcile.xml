@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Reconciliation</field>
+    <field name="view">page</field>
+    <field name="model">account.reconcile</field>
+    <field name="menu">account_menu</field>
+</action>

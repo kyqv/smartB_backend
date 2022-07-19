@@ -1,0 +1,9 @@
+<list model="shopee.webhook">
+    <head>
+        <button string="Handle Webhook" method="handle_webhook" show_progress="1"/>
+    </head>
+    <field name="date"/>
+    <field name="body"/>
+    <field name="processed_time"/>
+    <field name="state"/>
+</list>

@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Create Task List</field>
+    <field name="view">form_view</field>
+    <field name="model">create.task.list</field>
+    <field name="menu">project_menu</field>
+</action>

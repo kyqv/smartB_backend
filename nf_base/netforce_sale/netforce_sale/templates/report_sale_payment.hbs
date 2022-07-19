@@ -1,0 +1,90 @@
+<center>
+    <h2>
+        Sales Payment Report
+    </h2>
+    <h3>
+        {{company_name}}
+        <br/>
+        Order From {{fmt_date order_date_from}} to {{fmt_date order_date_to}}
+        <br/>
+        Invoice From {{fmt_date order_date_from}} to {{fmt_date order_date_to}}
+    </h3>
+</center>
+<table class="table">
+    <thead class="scroll-header">
+        <tr>
+            <th>
+                Order Number
+            </th>
+            <th>
+                Invoice Number
+            </th>
+            <th>
+                Invoice Date
+            </th>
+            <th>
+                Journal Date 
+            </th>
+            <th>
+                Customer Name
+            </th>
+            <th>
+                Telephone
+            </th>
+            <th>
+                Payment Method
+            </th>
+            <th>
+                Account
+            </th>
+            <th style="text-align:right">
+                Payment Amount
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each lines}}
+            <tr>
+                <td>
+                    {{#link action="sale" action_options='{"mode":"form"}' active_id=order_id}}
+                        {{../order_number}}
+                    {{/link}}
+                </td>
+                <td>
+                    {{#link action="view_invoice" active_id=invoice_id}}
+                        {{../invoice_number}}
+                    {{/link}}
+                </td>
+                <td>
+                    {{fmt_date invoice_date}}
+                </td>
+                <td>
+                    {{fmt_date journal_date}}
+                </td>
+                <td>
+                    {{customer_name}}
+                </td>
+                <td>
+                    {{phone}}
+                </td>
+                <td>
+                    {{pay_method}}
+                </td>
+                <td>
+                    {{account_name}}
+                </td>
+                <td style="text-align:right">
+                    {{currency amount}}
+                </td>
+            </tr>
+        {{/each}}
+    </tbody>
+    <tfoot>
+        <tr>
+            <th colspan="8">Total</th>
+            <th style="text-align:right">
+                {{currency total}}
+            </th>
+        </tr>
+    </tfoot>
+</table>

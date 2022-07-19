@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Chat Channels</field>
+    <field name="view">multi_view</field>
+    <field name="model">chat.channel</field>
+    <field name="menu">msg_menu</field>
+</action>

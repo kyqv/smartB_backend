@@ -1,0 +1,12 @@
+<list model="sale.recurring">
+    <field name="contact_id"/>
+    <field name="description"/>
+    <field name="product_id"/>
+    <field name="qty"/>
+    <field name="unit_price"/>
+    <field name="amount"/>
+    <field name="supplier_id"/>
+    <field name="interval_num"/>
+    <field name="interval_unit"/>
+    <field name="next_date"/>
+</list>

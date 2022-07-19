@@ -1,0 +1,6 @@
+<form_m model="hr.employee">
+    <field name="first_name"/>
+    <field name="last_name"/>
+    <newline/>
+    <field name="position"/>
+</form_m>

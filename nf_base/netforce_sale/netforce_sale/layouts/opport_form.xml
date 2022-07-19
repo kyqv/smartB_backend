@@ -1,0 +1,80 @@
+<form model="sale.opportunity" show_company="1">
+    <top>
+        <button string="Copy To Quotation" action="opport_to_quot"/>
+    </top>
+    <head>
+        <field name="state"/>
+        <button string="Options" dropdown="1">
+            <item string="Copy" method="copy"/>
+        </button>
+    </head>
+    <separator string="Compulsory Information"/>
+    <group span="6" columns="1">
+        <field name="number"/>
+        <field name="date"/>
+        <field name="name"/>
+    </group>
+    <group span="6" columns="1">
+        <field name="contact_id" create="1"/>
+    </group>
+    <separator string="Opportunity Information"/>
+    <group span="6" columns="1">
+        <field name="user_id"/>
+        <field name="state"/>
+        <field name="company_id"/>
+    </group>
+    <group span="6" columns="1">
+        <field name="date_close"/>
+        <field name="categ_id"/>
+        <field name="stage_id"/>
+        <newline/>
+        <field name="probability"/>
+        <field name="amount"/>
+        <field name="lost_reason_id"/>
+    </group>
+    <separator string="Additional Information"/>
+    <group span="6" columns="1">
+        <field name="lead_id"/>
+        <field name="source_id"/>
+        <field name="next_step"/>
+        <field name="industry_id"/>
+    </group>
+    <group span="6" columns="1">
+        <field name="product_id"/>
+        <field name="products"/>
+        <field name="qty"/>
+        <field name="region_id"/>
+    </group>
+    <separator string="Description Information"/>
+    <field name="description"/>
+    <field name="remind_date"/>
+    <field name="company_id" invisible="1"/>
+    <foot>
+        <button string="Won" method="won" states="open" type="success"/>
+        <button string="Pause" method="pause" states="open" icon="pause"/>
+        <button string="Cancel" action="opport_cancel" states="open" type="warning"/>
+        <button string="Lost" method="lost" states="open" type="danger"/>
+        <button string="Re-open" method="reopen" states="won,lost,paused,canceled" icon="arrow-left"/>
+    </foot>
+    <related>
+        <field name="notifs"/>
+        <field name="emails"/>
+        <field name="quotations"/>
+        <field name="competitors">
+            <list>
+                <field name="compet_id"/>
+                <field name="strengths"/>
+                <field name="weaknesses"/>
+            </list>
+            <form>
+                <field name="compet_id"/>
+                <newline/>
+                <field name="strengths"/>
+                <field name="weaknesses"/>
+            </form>
+        </field>
+        <field name="activities" show_inline="1"/>
+        <field name="documents" show_inline="1"/>
+        <field name="comments"/>
+    </related>
+</form>

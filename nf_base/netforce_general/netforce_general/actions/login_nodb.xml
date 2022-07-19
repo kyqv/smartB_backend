@@ -1,0 +1,6 @@
+<action>
+    <field name="view">model_view</field>
+    <field name="model">login</field>
+    <field name="template">login</field>
+    <field name="context">{"no_db": true}</field>
+</action>

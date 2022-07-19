@@ -1,0 +1,7 @@
+<list model="production.period">
+    <field name="number"/>
+    <field name="date_from"/>
+    <field name="date_to"/>
+    <field name="amount_total"/>
+    <field name="alloc_total"/>
+</list>

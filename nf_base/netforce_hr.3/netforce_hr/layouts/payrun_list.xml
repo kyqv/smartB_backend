@@ -1,0 +1,9 @@
+<list model="hr.payrun" colors='{"#cfc":[["state","=","approved"]],"#9f9":[["state","=","paid"]]}'>
+    <field name="number"/>
+    <field name="date_from"/>
+    <field name="date_to"/>
+    <field name="date_pay"/>
+    <field name="num_employees"/>
+    <field name="amount_total"/>
+    <field name="state"/>
+</list>

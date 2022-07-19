@@ -1,0 +1,6 @@
+<action>
+    <field name="view">list_m</field>
+    <field name="title">Carts</field>
+    <field name="model">ecom2.cart</field>
+    <field name="menu">main_menu_m</field>
+</action>

@@ -1,0 +1,5 @@
+<list model="stock.count.line" priority="20">
+    <field name="product_id"/>
+    <field name="prev_qty"/>
+    <field name="new_qty"/>
+</list>

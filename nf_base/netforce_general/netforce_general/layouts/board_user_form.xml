@@ -1,0 +1,5 @@
+<form model="board.user">
+    <field name="name"/>
+    <field name="user_id"/>
+    <field name="layout"/>
+</form>

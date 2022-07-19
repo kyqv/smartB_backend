@@ -1,0 +1,6 @@
+<list model="port.destination">
+    <field name="code"/>
+    <field name="name"/>
+    <field name="country_id"/>
+    <field name="description"/>
+</list>

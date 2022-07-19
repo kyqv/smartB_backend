@@ -1,0 +1,7 @@
+<action>
+    <field name="string">Sharing Settings</field>
+    <field name="view">multi_view</field>
+    <field name="model">share.access</field>
+    <field name="tabs">[["Active",[]],["Archived",[["active","=",false]]]]</field>
+    <field name="menu">gen_menu</field>
+</action>

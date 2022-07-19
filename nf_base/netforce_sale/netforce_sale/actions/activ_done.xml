@@ -1,0 +1,7 @@
+<action>
+    <field name="view_type">collection</field>
+    <field name="model">activity</field>
+    <field name="condition">[["state", "=", "done"]]</field>
+    <field name="template">activ_list</field>
+    <field name="layout">activ_page</field>
+</action>

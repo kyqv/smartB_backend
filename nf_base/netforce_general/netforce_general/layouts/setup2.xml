@@ -1,0 +1,10 @@
+<steps step="2" num_steps="5" title="STEP 2 - Please enter your company details">
+    <field name="address" sub="Please enter your company's address and details"/>
+    <field name="tax_id" sub="Please enter your company Tax ID (13 digits)"/>
+    <field name="branch_no" sub="Enter &quot;Head Office&quot; if your company is the head office or enter your branch number" placeholder="Branch / Branch Number"/>
+    <foot>
+        <button string="Back" method="back2" icon="arrow-left"/>
+        <button string="Next" type="primary" method="next2" icon="arrow-right"/>
+        <button string="Skip" method="start" icon="remove"/>
+    </foot>
+</steps>

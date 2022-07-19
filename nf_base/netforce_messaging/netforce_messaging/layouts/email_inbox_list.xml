@@ -1,0 +1,16 @@
+<list model="email.message" colors='{"#cfc":[["name_id","!=",null],["related_id","=",null]],"#9f9":[["name_id","!=",null],["related_id","!=",null]],"bold":[["opened","!=",true]]}'>
+    <head>
+        <button string="Link Emails" method="link_emails"/>
+        <button string="Mark Opened" method="mark_opened"/>
+        <button string="Exec Rules" method="exec_rules"/>
+    </head>
+    <field name="from_addr"/>
+    <field name="subject"/>
+    <field name="date"/>
+    <field name="name_id"/>
+    <field name="related_id"/>
+    <field name="mailbox_id"/>
+    <field name="num_attach"/>
+    <field name="is_spam"/>
+    <field name="opened" invisible="1"/>
+</list>

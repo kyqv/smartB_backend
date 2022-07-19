@@ -1,0 +1,8 @@
+<action>
+    <field name="string">Payroll Summary</field>
+    <field name="view_cls">report</field>
+    <field name="model">report.payroll.summary</field>
+    <field name="template">report_payroll_summary</field>
+    <field name="template_xls">report_payroll_summary</field>
+    <field name="menu">hr_menu</field>
+</action>

@@ -1,0 +1,5 @@
+<list model="routing">
+    <field name="number"/>
+    <field name="description"/>
+    <field name="location_id"/>
+</list>

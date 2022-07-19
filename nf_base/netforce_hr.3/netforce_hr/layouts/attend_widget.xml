@@ -1,0 +1,7 @@
+<list model="hr.employee" priority="20">
+    <field name="first_name"/>
+    <field name="last_name"/>
+    <field name="time_in"/>
+    <field name="time_out"/>
+    <field name="attend_state"/>
+</list>

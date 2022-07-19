@@ -1,0 +1,13 @@
+<export model="account.invoice">
+    <field name="type"/>
+    <field name="number"/>
+    <field name="ref"/>
+    <field name="inv_type"/>
+    <field name="contact_id"/>
+    <field name="date"/>
+    <field name="due_date"/>
+    <field name="amount_paid"/>
+    <field name="amount_due"/>
+    <field name="memo"/>
+    <field name="state"/>
+</export>

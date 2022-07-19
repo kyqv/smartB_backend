@@ -1,0 +1,6 @@
+<list model="email.template">
+    <field name="name"/>
+    <field name="from_addr"/>
+    <field name="to_addrs"/>
+    <field name="subject"/>
+</list>

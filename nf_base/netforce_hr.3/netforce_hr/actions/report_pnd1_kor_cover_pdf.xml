@@ -1,0 +1,6 @@
+<action>
+    <field name="type">report</field>
+    <field name="model">report.pnd1.kor</field>
+    <field name="method">get_data</field>
+    <field name="template">pnd1_kor_cover</field>
+</action>

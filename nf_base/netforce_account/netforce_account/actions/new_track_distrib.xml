@@ -1,0 +1,6 @@
+<action>
+    <field name="string">New Tracking Distribution</field>
+    <field name="view">form_popup</field>
+    <field name="model">track.distrib</field>
+    <field name="target">popup</field>
+</action>

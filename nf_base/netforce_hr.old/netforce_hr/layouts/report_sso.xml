@@ -1,0 +1,15 @@
+<form model="report.sso" title="Social Security Report">
+    <field name="month" mode="month" span="4"/>
+    <field name="doc_date" span="4"/>
+    <field name="show_doc_date" span="4"/>
+    <field name="name_pay" span="4"/>
+    <field name="position" span="4"/>
+    <field name="show_name" span="4"/>
+    <field name="option" span="4"/>
+    <foot replace="1">
+        <button string="Print Cover" method="print_cover" icon="print"/>
+        <button string="Print Attachment" method="print_attach" icon="print"/>
+        <button string="Print Excel" method="print_xls" icon="print"/>
+            <!--<button string="Export TXT" method="print_attach" icon="arrow-right"/>-->
+    </foot>
+</form>

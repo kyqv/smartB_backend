@@ -1,0 +1,14 @@
+<form_m model="visitor.action">
+    <field name="time"/>
+    <field name="ip_addr"/>
+    <newline/>
+    <field name="visitor_id"/>
+    <field name="session_id"/>
+    <newline/>
+    <field name="action_type"/>
+    <field name="details"/>
+    <newline/>
+    <field name="location"/>
+    <newline/>
+    <field name="referrer"/>
+</form_m>

@@ -1,0 +1,8 @@
+<action>
+    <field name="view">report</field>
+    <field name="string">Sales Payment Report</field>
+    <field name="model">report.sale.payment</field>
+    <field name="template">report_sale_payment</field>
+    <field name="template_xls">sale_payment</field>
+    <field name="menu">sale_menu</field>
+</action>

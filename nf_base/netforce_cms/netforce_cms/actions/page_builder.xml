@@ -1,0 +1,5 @@
+<action>
+    <field name="string">Page Builder</field>
+    <field name="view">page_builder</field>
+    <field name="menu">cms_menu</field>
+</action>

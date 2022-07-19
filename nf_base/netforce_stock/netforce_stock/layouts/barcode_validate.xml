@@ -1,0 +1,27 @@
+<form model="barcode.validate" title="Barcode: Validate Picking">
+    <group form_layout="stacked">
+        <field name="picking_id" span="2" required="1"/>
+        <button string="Fill Products" icon="align-justify" method="fill_products"/>
+    </group>
+    <separator string="Products"/>
+    <field name="lines" nolabel="1">
+        <list>
+            <field name="product_id" readonly="1"/>
+            <field name="qty_planned" readonly="1"/>
+            <field name="uom_id" readonly="1"/>
+            <field name="location_from_id" readonly="1"/>
+            <field name="location_to_id" readonly="1"/>
+            <field name="lot_id" readonly="1"/>
+            <field name="qty_actual"/>
+            <field name="container_to_id" readonly="1"/>
+            <field name="related_id" readonly="1"/>
+        </list>
+    </field>
+    <separator/>
+    <field name="mode"/>
+    <field name="location_loss_id" attrs='{"invisible":[["mode","!=","loss"]]}'/>
+    <foot replace="1">
+        <button string="Validate" method="validate" type="success" icon="ok"/>
+        <button string="Clear" method="clear"/>
+    </foot>
+</form>

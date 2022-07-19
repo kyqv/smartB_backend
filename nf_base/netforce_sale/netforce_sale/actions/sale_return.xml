@@ -1,0 +1,7 @@
+<action>
+    <field name="string">Sales Returns</field>
+    <field name="view">multi_view</field>
+    <field name="model">sale.return</field>
+    <field name="tabs">[["All",[]],["Draft",[["state","=","draft"]]],["Confirmed",[["state","=","confirmed"]]],["Completed",[["state","=","done"]]]]</field>
+    <field name="menu">sale_menu</field>
+</action>

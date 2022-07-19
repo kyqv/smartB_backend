@@ -1,0 +1,5 @@
+<inherit inherit="contact_form">
+    <field name="sale_orders" position="after">
+        <field name="previous_sale_products"/>
+    </field>
+</inherit>

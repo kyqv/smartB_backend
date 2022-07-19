@@ -1,0 +1,76 @@
+<center>
+    <h2>
+        Sales by Product
+    </h2>
+    <h3>
+        {{company_name}}
+        <br/>
+        From {{fmt_date date_from}} to {{fmt_date date_to}}
+    </h3>
+</center>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Item
+            </th>
+            <th>
+                Current Unit Price
+            </th>
+            <th>
+                Qty Sold
+            </th>
+            <th>
+                Total
+            </th>
+            <th>
+                Avg. Price
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each lines}}
+            <tr>
+                <td>
+                    <a href="action?name=report_product_sales_page&product_id={{product_id}}&date_from={{date_from}}&date_to={{date_to}}">
+                        {{product_name}}
+                    </a>
+                </td>
+                <td>
+                    {{product_price}}
+                </td>
+                <td>
+                    <a href="action?name=report_product_sales_page&product_id={{product_id}}&date_from={{date_from}}&date_to={{date_to}}">
+                        {{qty}}
+                    </a>
+                </td>
+                <td>
+                    <a href="action?name=report_product_sales_page&product_id={{product_id}}&date_from={{date_from}}&date_to={{date_to}}">
+                        {{currency amount}}
+                    </a>
+                </td>
+                <td>
+                    <a href="action?name=report_product_sales_page&product_id={{product_id}}&date_from={{date_from}}&date_to={{date_to}}">
+                        {{currency avg_price}}
+                    </a>
+                </td>
+            </tr>
+        {{/each}}
+    </tbody>
+    <tfoot>
+        <tr>
+            <th colspan="2">
+                Total
+            </th>
+            <th>
+                {{total_qty}}
+            </th>
+            <th>
+                {{currency total_amount}}
+            </th>
+            <th>
+                {{currency total_avg_price}}
+            </th>
+        </tr>
+    </tfoot>
+</table>

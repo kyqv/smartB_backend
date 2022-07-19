@@ -1,0 +1,7 @@
+<form>
+    <field name="receive_fg_qty" required="1"/>
+    <field name="receive_fg_done"/>
+    <foot>
+        <button string="Confirm" method="receive_fg_confirm" type="success"/>
+    </foot>
+</form>

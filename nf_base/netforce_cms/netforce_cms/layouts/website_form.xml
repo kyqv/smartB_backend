@@ -1,0 +1,5 @@
+<form model="website">
+    <field name="name"/>
+    <field name="domain"/>
+    <field name="theme_id"/>
+</form>

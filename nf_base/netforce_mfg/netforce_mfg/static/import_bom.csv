@@ -1,0 +1,3 @@
+Number,BoM Type,FG Product / Code,Qty,UoM / Name,FG Warehouse / Name,Production Location / Name,Lines / Sequence,Lines / RM Product / Code,Lines / Qty,Lines / UoM / Name,Lines / RM Warehouse / Name
+BOM-001,Normal,TEST_FG1,1,Unit,Factory / Finished Goods,Factory / Processing,1,TEST_RM1,1,Unit,Factory / Raw Materials
+,,,,,,,2,TEST_RM2,1,Unit,Factory / Raw Materials

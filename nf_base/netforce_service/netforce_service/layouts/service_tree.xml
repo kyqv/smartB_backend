@@ -1,0 +1,9 @@
+<tree model="service" child_field="children">
+    <field name="full_name" nowrap="1"/>
+    <field name="contact_id" nowrap="1"/>
+    <field name="due_date"/>
+    <field name="stage_id"/>
+    <field name="num_tasks"/>
+    <field name="user_id"/>
+    <button string="View Details" action="service_tree" action_options="mode=page"/>
+</tree>

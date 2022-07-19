@@ -1,0 +1,86 @@
+<form model="bom">
+    <head>
+        <button string="Print (New)" icon="print" action="report_bom_form2" action_options='{"active_id":id}'/>
+        <button string="Options" dropdown="1">
+            <item string="Copy" method="copy"/>
+            <item string="Update Product Cost" method="update_product_cost"/>
+        </button>
+    </head>
+    <tabs>
+        <tab string="General">
+            <group form_layout="stacked">
+                <field name="number" span="2"/>
+                <field name="type" span="2"/>
+                <field name="routing_id" span="2"/>
+            </group>
+            <group form_layout="stacked">
+                <field name="product_id" span="2"/>
+                <field name="qty" span="2"/>
+                <field name="uom_id" span="2"/>
+                <field name="location_id" span="2"/>
+                <field name="production_location_id" span="2"/>
+                <field name="virt_production_location_id" span="2"/>
+            </group>
+            <field name="lines" nolabel="1">
+                <list>
+                    <field name="product_id" onchange="onchange_product"/>
+                    <field name="weight"/>
+                    <field name="qty"/>
+                    <field name="uom_id"/>
+                    <field name="location_id"/>
+                    <field name="container"/>
+                    <field name="lot"/>
+                    <field name="issue_method"/>
+                    <field name="qty2" onchange="onchange_qty2"/>
+                    <field name="cost_amount"/>
+                    <field name="forecast_cost_amount"/>
+                    <field name="labor_amount"/>
+                    <field name="notes"/>
+                </list>
+            </field>
+            <newline/>
+            <field name="max_qty_loss"/>
+        </tab>
+        <tab string="Costing">
+            <field name="rm_cost_amount"/>
+            <separator/>
+            <field name="direct_labor_amount"/>
+            <newline/>
+            <field name="total_direct_labor"/>
+            <separator/>
+            <field name="factory_overhead_amount"/>
+            <newline/>
+            <field name="total_factory_overhead"/>
+            <separator/>
+            <field name="other_overhead_amount"/>
+            <newline/>
+            <field name="total_other_overhead"/>
+            <separator/>
+            <field name="waste_amount"/>
+            <field name="waste_percent"/>
+            <newline/>
+            <field name="extra_amount"/>
+            <field name="extra_percent"/>
+            <separator/>
+            <field name="cost_amount_total"/>
+        </tab>
+    </tabs>
+    <related>
+        <field name="documents">
+            <list>
+                <field name="file" target="_blank" preview="1"/>
+                <field name="categ_id"/>
+                <field name="description"/>
+                <field name="date"/>
+            </list>
+            <form>
+                <field name="categ_id"/>
+                <field name="file" target="_blank" onchange="onchange_file"/>
+                <field name="date"/>
+                <field name="description"/>
+                <field name="contact_id" invisible="1"/>
+            </form>
+        </field>
+        <field name="comments"/>
+    </related>
+</form>

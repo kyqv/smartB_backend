@@ -1,0 +1,52 @@
+<form model="shopee.account">
+    <top>
+        <button string="Sync">
+            <item string="Refresh Access Token" method="refresh_access_token"/>
+            <item string="Get Shop Info" method="get_info" show_progress="1"/>
+            <item string="Get Product Categories" method="get_categ" show_progress="1"/>
+            <!--<item string="Get Shop Categories" method="get_shop_categ" show_progress="1"/>-->
+            <!--<item string="Get Brands" method="get_brands" show_progress="1"/>-->
+            <!--<item string="Get Logistic Channels" method="get_logis" show_progress="1"/>-->
+            <item string="Get Products" method="get_products" show_progress="1"/>
+            <divider/>
+            <!--<item string="Upload Categories" method="upload_categs" show_progress="1"/>-->
+            <!--<item string="Upload Products" method="upload_products" show_progress="1"/>-->
+            <divider/>
+            <item string="Download Orders" method="get_orders" show_progress="1"/>
+            <!--<item string="Download Payments" method="get_payments" show_progress="1"/>-->
+        </button>
+    </top>
+    <tabs>
+        <tab string="General">
+            <field name="name"/>
+            <field name="shop_idno"/>
+            <field name="region"/>
+            <field name="status"/>
+            <!--<field name="sale_channel_id"/>-->
+            <!--<field name="pricelist_id"/>-->
+            <field name="stock_journal_id"/>
+            <field name="contact_id"/>
+        </tab>
+        <tab string="Sync">
+            <field name="order_last_update_time"/>
+            <field name="payment_last_update_time"/>
+        </tab>
+        <tab string="Settings">
+            <field name="require_invoice"/>
+            <field name="company_id"/>
+        </tab>
+        <tab string="OAuth2">
+            <field name="auth_code"/>
+            <newline/>
+            <field name="token"/>
+            <field name="refresh_token"/>
+            <field name="token_expiry_time"/>
+        </tab>
+    </tabs>
+    <foot>
+        <button string="Authorize" method="authorize"/>
+    </foot>
+    <related>
+        <field name="sync_records"/>
+    </related>
+</form>

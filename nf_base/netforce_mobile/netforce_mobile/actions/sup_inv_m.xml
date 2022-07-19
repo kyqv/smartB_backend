@@ -1,0 +1,8 @@
+<action>
+    <field name="view">list_m</field>
+    <field name="title">Supplier Invoices</field>
+    <field name="model">account.invoice</field>
+    <field name="condition">[["type","=","in"]]</field>
+    <field name="tabs">[["Draft",[["state","=","draft"]]],["Waiting Payment",[["state","=","waiting_payment"]]],["Paid",[["state","=","paid"]]]]</field>
+    <field name="menu">main_menu_m</field>
+</action>

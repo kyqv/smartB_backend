@@ -1,0 +1,20 @@
+<list model="activity" action="view_activity" colors='{"due_date,#f00":[["overdue","=",true]],"#9f9":[["state","=","done"]]}' priority="1">
+    <!--<top replace="1">
+        <button string="New Activity" icon="plus" dropdown="1">
+            <item string="Task" action="activ" action_options="mode=form&amp;context.activ_type=task"/>
+            <item string="Event" action="activ" action_options="mode=form&amp;context.activ_type=event"/>
+            <item string="Meeting" action="activ" action_options="mode=form&amp;context.activ_type=meeting"/>
+            <item string="Call" action="activ" action_options="mode=form&amp;context.activ_type=call"/>
+            <item string="Email" action="activ" action_options="mode=form&amp;context.activ_type=email"/>
+        </button>
+    </top>-->
+    <field name="type"/>
+    <field name="user_id"/>
+    <field name="subject"/>
+    <field name="related_id"/>
+    <field name="name_id"/>
+    <field name="priority"/>
+    <field name="due_date"/>
+    <field name="state"/>
+    <field name="overdue" invisible="1"/>
+</list>

@@ -1,0 +1,8 @@
+<action>
+    <field name="name">fixed_asset_dispose</field>
+    <field name="string">Dispose</field>
+    <field name="view">form_view</field>
+    <field name="model">account.fixed.asset.dispose</field>
+    <field name="menu">account_menu</field>
+</action>
+

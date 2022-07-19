@@ -1,0 +1,14 @@
+<form model="folder">
+    <field name="name"/>
+    <field name="parent_id"/>
+    <separator/>
+    <field name="contact_id"/>
+    <field name="related_id"/>
+    <separator/>
+    <field name="user_id"/>
+    <field name="company_id"/>
+    <related>
+        <field name="sub_folders"/>
+        <field name="docs"/>
+    </related>
+</form>

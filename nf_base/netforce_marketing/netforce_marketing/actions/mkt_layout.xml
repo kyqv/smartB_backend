@@ -1,0 +1,4 @@
+<action>
+    <field name="view_cls">nf_layout</field>
+    <field name="view_xml">mkt_menu</field>
+</action>

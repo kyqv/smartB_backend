@@ -1,0 +1,5 @@
+<form model="sequence.running">
+    <field name="sequence_id"/>
+    <field name="prefix"/>
+    <field name="next"/>
+</form>

@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Email Rules</field>
+    <field name="view">multi_view</field>
+    <field name="model">email.rule</field>
+    <field name="menu">msg_menu</field>
+</action>

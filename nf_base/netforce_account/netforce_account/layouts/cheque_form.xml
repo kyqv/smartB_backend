@@ -1,0 +1,14 @@
+<form model="account.cheque" show_company="1">
+    <field name="date"/>
+    <field name="amount"/>
+    <field name="number"/>
+    <field name="bank_id"/>
+    <field name="branch"/>
+    <separator/>
+    <field name="contact_id"/>
+    <field name="related_id"/>
+    <separator/>
+    <field name="state"/>
+    <field name="image"/>
+    <field name="company_id" invisible="1"/>
+</form>

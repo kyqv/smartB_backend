@@ -1,0 +1,4 @@
+<action>
+    <field name="view">aln_timeline_m</field>
+    <field name="menu">main_menu_m</field>
+</action>

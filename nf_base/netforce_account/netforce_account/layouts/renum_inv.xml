@@ -1,0 +1,24 @@
+<form model="renum.inv">
+    <separator string="Conditions"/>
+    <field name="date_from"/>
+    <field name="date_to"/>
+    <newline/>
+    <field name="prefix"/>
+    <newline/>
+    <field name="num_from"/>
+    <field name="num_to"/>
+    <newline/>
+    <field name="state"/>
+    <newline/>
+    <field name="pay_methods"/>
+    <newline/>
+    <field name="min_amount"/>
+    <separator string="Renumbering"/>
+    <field name="prefix_new"/>
+    <field name="padding"/>
+    <newline/>
+    <field name="start_num"/>
+    <foot>
+        <button string="Renumber" type="primary" method="renum_inv" show_progress="1"/>
+    </foot>
+</form>

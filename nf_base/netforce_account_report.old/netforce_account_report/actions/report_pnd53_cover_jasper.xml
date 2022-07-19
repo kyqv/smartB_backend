@@ -1,0 +1,6 @@
+<action>
+    <field name="type">report</field>
+    <field name="model">report.tax.pnd53</field>
+    <field name="method">get_data_cover</field>
+    <field name="template">pnd53_cover</field>
+</action>

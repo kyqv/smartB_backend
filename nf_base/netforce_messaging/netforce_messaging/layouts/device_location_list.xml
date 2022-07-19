@@ -1,0 +1,5 @@
+<list model="device.location">
+    <field name="time"/>
+    <field name="device_id"/>
+    <field name="coords"/>
+</list>

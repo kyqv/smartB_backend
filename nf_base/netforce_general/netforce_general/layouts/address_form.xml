@@ -1,0 +1,18 @@
+<form model="address">
+    <field name="type"/>
+    <field name="name"/>
+    <field name="address"/>
+    <field name="address2"/>
+    <field name="city"/>
+    <field name="postal_code"/>
+    <field name="country_id"/>
+    <field name="province_id" condition='[["country_id","=",country_id]]'/>
+    <field name="district_id" condition='[["province_id","=",province_id]]'/>
+    <field name="subdistrict_id" condition='[["district_id","=",district_id]]'/>
+    <field name="phone"/>
+    <field name="mobile"/>
+    <field name="contact_name"/>
+    <field name="sequence"/>
+    <field name="comments"/>
+    <field name="coords"/>
+</form>

@@ -1,0 +1,6 @@
+<list model="email.reject">
+    <field name="email"/>
+    <field name="date"/>
+    <field name="reason"/>
+    <field name="details"/>
+</list>

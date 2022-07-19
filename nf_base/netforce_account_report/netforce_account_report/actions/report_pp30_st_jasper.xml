@@ -1,0 +1,6 @@
+<action>
+    <field name="type">report</field>
+    <field name="model">report.pp30</field>
+    <field name="method">get_data_report</field>
+    <field name="template">vat</field>
+</action>

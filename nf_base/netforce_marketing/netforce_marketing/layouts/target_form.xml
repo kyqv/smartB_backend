@@ -1,0 +1,25 @@
+<form model="mkt.target">
+    <field name="list_id"/>
+    <field name="date"/>
+    <separator/>
+    <field name="first_name"/>
+    <field name="last_name"/>
+    <field name="company"/>
+    <field name="country_id"/>
+    <field name="phone"/>
+    <field name="email"/>
+    <field name="website"/>
+    <field name="street"/>
+    <field name="city"/>
+    <field name="province_id"/>
+    <field name="zip"/>
+    <field name="fax"/>
+    <field name="mobile"/>
+    <field name="birthday"/>
+    <separator string="Email Verification"/>
+    <field name="email_status"/>
+    <field name="email_error" attrs='{"invisible":[["email_status","not in",["error_syntax","error_dns","error_smtp"]]]}'/>
+    <related>
+        <field name="comments"/>
+    </related>
+</form>

@@ -1,0 +1,9 @@
+<form model="industry">
+    <field name="name"/>
+    <field name="code"/>
+    <field name="parent_id"/>
+    <field name="description"/>
+    <related>
+        <field name="comments"/>
+    </related>
+</form>

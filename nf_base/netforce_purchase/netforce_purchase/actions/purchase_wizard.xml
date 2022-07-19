@@ -1,0 +1,6 @@
+<action>
+    <field name="view">form_popup</field>
+    <field name="string">New Purchase Order</field>
+    <field name="model">purchase.wizard</field>
+    <field name="target">popup</field>
+</action>

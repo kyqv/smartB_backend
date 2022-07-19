@@ -1,0 +1,43 @@
+<form model="mkt.campaign">
+    <head>
+        <field name="state"/>
+        <button string="Options" dropdown="1">
+            <item string="Create Emails" method="create_emails"/>
+        </button>
+    </head>
+    <field name="name"/>
+    <field name="date"/>
+    <field name="email_tmpl_id"/>
+    <field name="mailbox_id"/>
+    <field name="limit_day"/>
+    <field name="limit_hour"/>
+    <field name="target_lists"/>
+    <field name="min_target_life"/>
+    <field name="state"/>
+    <separator string="Campaign Statistics"/>
+    <field name="num_targets"/>
+    <newline/>
+    <field name="num_create"/>
+    <field name="percent_create"/>
+    <field name="num_create_day"/>
+    <field name="num_create_hour"/>
+    <field name="num_sent"/>
+    <field name="percent_sent"/>
+    <field name="num_delivered"/>
+    <field name="percent_delivered"/>
+    <field name="num_bounced"/>
+    <field name="percent_bounced"/>
+    <field name="num_rejected"/>
+    <field name="percent_rejected"/>
+    <field name="num_opened"/>
+    <field name="percent_opened"/>
+    <field name="num_clicked"/>
+    <field name="percent_clicked"/>
+    <foot>
+        <button string="Create Emails" method="create_emails" type="success"/>
+    </foot>
+    <related>
+        <field name="emails"/>
+        <field name="comments"/>
+    </related>
+</form>

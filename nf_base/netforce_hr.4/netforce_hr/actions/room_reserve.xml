@@ -1,0 +1,13 @@
+<action>
+    <field name="string">Room Reservations</field>
+    <field name="view_cls">multi_view</field>
+    <field name="model">room.reserve</field>
+    <field name="tabs">[
+                    ["All",[]],
+                    ["Draft",[["state","=","draft"]]],
+                    ["Awaiting Approval",[["state","=","waiting_approval"]]],
+                    ["Approved",[["state","=","approved"]]]]
+    </field>
+    <field name="modes">list,calendar,form</field>
+    <field name="menu">hr_menu</field>
+</action>

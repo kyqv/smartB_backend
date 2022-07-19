@@ -1,0 +1,9 @@
+<list model="production.component">
+    <field name="order_id"/>
+    <field name="product_id"/>
+    <field name="qty_planned"/>
+    <field name="uom_id"/>
+    <field name="location_id"/>
+    <field name="qty_issued"/>
+    <field name="issue_method"/>
+</list>

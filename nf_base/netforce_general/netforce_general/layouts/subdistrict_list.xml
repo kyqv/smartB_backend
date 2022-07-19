@@ -1,0 +1,5 @@
+<list model="subdistrict">
+    <field name="district_id"/>
+    <field name="name"/>
+    <field name="code"/>
+</list>

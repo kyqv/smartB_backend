@@ -1,0 +1,13 @@
+<list model="account.move.line" order="move_id.date desc,id desc">
+    <search>
+        <field name="move_date"/>
+        <field name="description"/>
+        <field name="debit"/>
+        <field name="credit"/>
+        <field name="contact_id"/>
+    </search>
+    <field name="move_date"/>
+    <field name="description"/>
+    <field name="debit"/>
+    <field name="credit"/>
+</list>

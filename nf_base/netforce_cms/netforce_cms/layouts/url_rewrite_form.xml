@@ -1,0 +1,4 @@
+<form model="url.rewrite">
+    <field name="path_from"/>
+    <field name="path_to"/>
+</form>

@@ -1,0 +1,8 @@
+<action>
+    <field name="view">list_m</field>
+    <field name="title">Goods Transfers</field>
+    <field name="model">stock.picking</field>
+    <field name="condition">[["type","=","internal"]]</field>
+    <field name="context">{"pick_type":"internal"}</field>
+    <field name="menu">main_menu_m</field>
+</action>

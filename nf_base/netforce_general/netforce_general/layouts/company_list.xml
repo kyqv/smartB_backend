@@ -1,0 +1,6 @@
+<list model="company">
+    <field name="name"/>
+    <field name="parent_id"/>
+    <field name="code"/>
+    <field name="contact_id"/>
+</list>

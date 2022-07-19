@@ -1,0 +1,9 @@
+<form model="hr.attendance">
+    <field name="employee_id"/>
+    <field name="time"/>
+    <field name="action"/>
+    <field name="mode"/>
+    <related>
+        <field name="comments"/>
+    </related>
+</form>

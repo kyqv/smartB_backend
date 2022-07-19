@@ -1,0 +1,364 @@
+<div style="max-width:1170px;margin:0 auto">
+<center>
+    <h2>
+        Balance Sheet
+    </h2>
+    <h3>
+        {{company_name}}
+        <br/>
+        As at {{fmt_date date}}
+    </h3>
+</center>
+<table class="table table-condensed">
+    <thead class="scroll-header">
+        <tr>
+            <th>
+            </th>
+            <th style="text-align:right">
+                {{fmt_date col0}}
+            </th>
+            {{#if col1}}
+                <th style="text-align:right">
+                    {{fmt_date col1}}
+                </th>
+            {{/if}}
+            {{#if col2}}
+                <th style="text-align:right">
+                    {{fmt_date col2}}
+                </th>
+            {{/if}}
+            {{#if col3}}
+                <th style="text-align:right">
+                    {{fmt_date col3}}
+                </th>
+            {{/if}}
+            {{#if col4}}
+                <th style="text-align:right">
+                    {{fmt_date col4}}
+                </th>
+            {{/if}}
+            {{#if col5}}
+                <th style="text-align:right">
+                    {{fmt_date col5}}
+                </th>
+            {{/if}}
+            {{#if col6}}
+                <th style="text-align:right">
+                    {{fmt_date col6}}
+                </th>
+            {{/if}}
+            {{#if col7}}
+                <th style="text-align:right">
+                    {{fmt_date col7}}
+                </th>
+            {{/if}}
+            {{#if col8}}
+                <th style="text-align:right">
+                    {{fmt_date col8}}
+                </th>
+            {{/if}}
+            {{#if col9}}
+                <th style="text-align:right">
+                    {{fmt_date col9}}
+                </th>
+            {{/if}}
+            {{#if col10}}
+                <th style="text-align:right">
+                    {{fmt_date col10}}
+                </th>
+            {{/if}}
+            {{#if col11}}
+                <th style="text-align:right">
+                    {{fmt_date col11}}
+                </th>
+            {{/if}}
+        </tr>
+    </thead>
+    <tbody>
+        {{#each lines context=context}}
+            {{#ifeq type "group_header"}}
+                <tr style="font-weight:bold;{{#unless padding}}font-size: 16px{{/unless}}">
+                    <td colspan="20" {{#if padding}}style="padding-left:{{padding}}px"{{/if}}>
+                        {{string}}
+                    </td>
+                </tr>
+            {{/ifeq}}
+            {{#ifeq type "account"}}
+                <tr>
+                    <td {{#if padding}}style="padding-left:{{padding}}px"{{/if}}>
+                        {{string}}
+                    </td>
+                    {{#ifeq string "Current Year Earnings"}}
+                        <td style="text-align:right">
+                            {{#link action="report_profit_loss" defaults_account_id=id defaults_date_to=../data.date defaults_track_id=../data.track_id defaults_track2_id=../data.track2_id}}
+
+                                {{currency amount paren=1}}
+                            {{/link}}
+                        </td>
+                        {{#if ../data.col1}}
+                            <td style="text-align:right">
+                                {{#link action="report_profit_loss" defaults_account_id=id defaults_date_to=../data.date1 defaults_track_id=../data.track_id defaults_track2_id=../data.track2_id}}
+
+                                    {{currency amount1 paren=1}}
+                                {{/link}}
+                            </td>
+                        {{/if}}
+                        {{#if ../data.col2}}
+                            <td style="text-align:right">
+                                {{#link action="report_profit_loss" defaults_account_id=id defaults_date_to=../data.date2 defaults_track_id=../data.track_id defaults_track2_id=../data.track2_id}}
+
+                                    {{currency amount2 paren=1}}
+                                {{/link}}
+                            </td>
+                        {{/if}}
+                        {{#if ../data.col3}}
+                            <td style="text-align:right">
+                                {{#link action="report_profit_loss" defaults_account_id=id defaults_date_to=../data.date3 defaults_track_id=../data.track_id defaults_track2_id=../data.track2_id}}
+
+                                    {{currency amount3 paren=1}}
+                                {{/link}}
+                            </td>
+                        {{/if}}
+                        {{#if ../data.col4}}
+                            <td style="text-align:right">
+                                {{#link action="report_profit_loss" defaults_account_id=id defaults_date_to=../data.date4 defaults_track_id=../data.track_id defaults_track2_id=../data.track2_id}}
+
+                                    {{currency amount4 paren=1}}
+                                {{/link}}
+                            </td>
+                        {{/if}}
+                        {{#if ../data.col5}}
+                            <td style="text-align:right">
+                                {{#link action="report_profit_loss" defaults_account_id=id defaults_date_to=../data.date5 defaults_track_id=../data.track_id defaults_track2_id=../data.track2_id}}
+
+                                    {{currency amount5 paren=1}}
+                                {{/link}}
+                            </td>
+                        {{/if}}
+                        {{#if ../data.col6}}
+                            <td style="text-align:right">
+                                {{#link action="report_profit_loss" defaults_account_id=id defaults_date_to=../data.date6 defaults_track_id=../data.track_id defaults_track2_id=../data.track2_id}}
+
+                                    {{currency amount6 paren=1}}
+                                {{/link}}
+                            </td>
+                        {{/if}}
+                        {{#if ../data.col7}}
+                            <td style="text-align:right">
+                                {{#link action="report_profit_loss" defaults_account_id=id defaults_date_to=../data.date7 defaults_track_id=../data.track_id defaults_track2_id=../data.track2_id}}
+
+                                    {{currency amount7 paren=1}}
+                                {{/link}}
+                            </td>
+                        {{/if}}
+                        {{#if ../data.col8}}
+                            <td style="text-align:right">
+                                {{#link action="report_profit_loss" defaults_account_id=id defaults_date_to=../data.date8 defaults_track_id=../data.track_id defaults_track2_id=../data.track2_id}}
+
+                                    {{currency amount8 paren=1}}
+                                {{/link}}
+                            </td>
+                        {{/if}}
+                        {{#if ../data.col9}}
+                            <td style="text-align:right">
+                                {{#link action="report_profit_loss" defaults_account_id=id defaults_date_to=../data.date9 defaults_track_id=../data.track_id defaults_track2_id=../data.track2_id}}
+
+                                    {{currency amount9 paren=1}}
+                                {{/link}}
+                            </td>
+                        {{/if}}
+                        {{#if ../data.col10}}
+                            <td style="text-align:right">
+                                {{#link action="report_profit_loss" defaults_account_id=id defaults_date_to=../data.date10 defaults_track_id=../data.track_id defaults_track2_id=../data.track2_id}}
+
+                                    {{currency amount10 paren=1}}
+                                {{/link}}
+                            </td>
+                        {{/if}}
+                        {{#if ../data.col11}}
+                            <td style="text-align:right">
+                                {{#link action="report_profit_loss" defaults_account_id=id defaults_date_to=../data.date11 defaults_track_id=../data.track_id defaults_track2_id=../data.track2_id}}
+
+                                    {{currency amount11 paren=1}}
+                                {{/link}}
+                            </td>
+                        {{/if}}
+                    {{else}}
+                        <td style="text-align:right">
+                            {{#link action="report_account_sum" defaults_account_id=id defaults_date_to=../data.date defaults_track_id=../data.track_id defaults_track2_id=../data.track2_id}}
+
+                                {{currency amount paren=1}}
+                            {{/link}}
+                        </td>
+                        {{#if ../data.col1}}
+                            <td style="text-align:right">
+                                {{#link action="report_account_sum" defaults_account_id=id defaults_date_to=../data.date defaults_track_id=../data.track_id defaults_track2_id=../data.track2_id}}
+
+                                    {{currency amount1 paren=1}}
+                                {{/link}}
+                            </td>
+                        {{/if}}
+                        {{#if ../data.col2}}
+                            <td style="text-align:right">
+                                {{#link action="report_account_sum" defaults_account_id=id defaults_date_to=../data.date defaults_track_id=../data.track_id defaults_track2_id=../data.track2_id}}
+
+                                    {{currency amount2 paren=1}}
+                                {{/link}}
+                            </td>
+                        {{/if}}
+                        {{#if ../data.col3}}
+                            <td style="text-align:right">
+                                {{#link action="report_account_sum" defaults_account_id=id defaults_date_to=../data.date defaults_track_id=../data.track_id defaults_track2_id=../data.track2_id}}
+
+                                    {{currency amount3 paren=1}}
+                                {{/link}}
+                            </td>
+                        {{/if}}
+                        {{#if ../data.col4}}
+                            <td style="text-align:right">
+                                {{#link action="report_account_sum" defaults_account_id=id defaults_date_to=../data.date defaults_track_id=../data.track_id defaults_track2_id=../data.track2_id}}
+
+                                    {{currency amount4 paren=1}}
+                                {{/link}}
+                            </td>
+                        {{/if}}
+                        {{#if ../data.col5}}
+                            <td style="text-align:right">
+                                {{#link action="report_account_sum" defaults_account_id=id defaults_date_to=../data.date defaults_track_id=../data.track_id defaults_track2_id=../data.track2_id}}
+
+                                    {{currency amount5 paren=1}}
+                                {{/link}}
+                            </td>
+                        {{/if}}
+                        {{#if ../data.col6}}
+                            <td style="text-align:right">
+                                {{#link action="report_account_sum" defaults_account_id=id defaults_date_to=../data.date defaults_track_id=../data.track_id defaults_track2_id=../data.track2_id}}
+
+                                    {{currency amount6 paren=1}}
+                                {{/link}}
+                            </td>
+                        {{/if}}
+                        {{#if ../data.col7}}
+                            <td style="text-align:right">
+                                {{#link action="report_account_sum" defaults_account_id=id defaults_date_to=../data.date defaults_track_id=../data.track_id defaults_track2_id=../data.track2_id}}
+
+                                    {{currency amount7 paren=1}}
+                                {{/link}}
+                            </td>
+                        {{/if}}
+                        {{#if ../data.col8}}
+                            <td style="text-align:right">
+                                {{#link action="report_account_sum" defaults_account_id=id defaults_date_to=../data.date defaults_track_id=../data.track_id defaults_track2_id=../data.track2_id}}
+
+                                    {{currency amount8 paren=1}}
+                                {{/link}}
+                            </td>
+                        {{/if}}
+                        {{#if ../data.col9}}
+                            <td style="text-align:right">
+                                {{#link action="report_account_sum" defaults_account_id=id defaults_date_to=../data.date defaults_track_id=../data.track_id defaults_track2_id=../data.track2_id}}
+
+                                    {{currency amount9 paren=1}}
+                                {{/link}}
+                            </td>
+                        {{/if}}
+                        {{#if ../data.col10}}
+                            <td style="text-align:right">
+                                {{#link action="report_account_sum" defaults_account_id=id defaults_date_to=../data.date defaults_track_id=../data.track_id defaults_track2_id=../data.track2_id}}
+
+                                    {{currency amount10 paren=1}}
+                                {{/link}}
+                            </td>
+                        {{/if}}
+                        {{#if ../data.col11}}
+                            <td style="text-align:right">
+                                {{#link action="report_account_sum" defaults_account_id=id defaults_date_to=../data.date defaults_track_id=../data.track_id defaults_track2_id=../data.track2_id}}
+
+                                    {{currency amount11 paren=1}}
+                                {{/link}}
+                            </td>
+                        {{/if}}
+                    {{/ifeq}}
+                </tr>
+            {{/ifeq}}
+            {{#ifeq type "group_footer"}}
+                <tr style="font-weight:bold">
+                    <td style="border-top: 1px solid #999;{{#if padding}}padding-left:{{padding}}px{{/if}}">
+                        {{string}}
+                    </td>
+                    <td style="border-top: 1px solid #999;text-align:right">
+                        {{currency amount paren=1}}
+                    </td>
+                    {{#if ../data.col1}}
+                        <td style="border-top: 1px solid #999;text-align:right">
+                            {{currency amount1 paren=1}}
+                        </td>
+                    {{/if}}
+                    {{#if ../data.col2}}
+                        <td style="border-top: 1px solid #999;text-align:right">
+                            {{currency amount2 paren=1}}
+                        </td>
+                    {{/if}}
+                    {{#if ../data.col3}}
+                        <td style="border-top: 1px solid #999;text-align:right">
+                            {{currency amount3 paren=1}}
+                        </td>
+                    {{/if}}
+                    {{#if ../data.col4}}
+                        <td style="border-top: 1px solid #999;text-align:right">
+                            {{currency amount4 paren=1}}
+                        </td>
+                    {{/if}}
+                    {{#if ../data.col5}}
+                        <td style="border-top: 1px solid #999;text-align:right">
+                            {{currency amount5 paren=1}}
+                        </td>
+                    {{/if}}
+                    {{#if ../data.col6}}
+                        <td style="border-top: 1px solid #999;text-align:right">
+                            {{currency amount6 paren=1}}
+                        </td>
+                    {{/if}}
+                    {{#if ../data.col7}}
+                        <td style="border-top: 1px solid #999;text-align:right">
+                            {{currency amount7 paren=1}}
+                        </td>
+                    {{/if}}
+                    {{#if ../data.col8}}
+                        <td style="border-top: 1px solid #999;text-align:right">
+                            {{currency amount8 paren=1}}
+                        </td>
+                    {{/if}}
+                    {{#if ../data.col9}}
+                        <td style="border-top: 1px solid #999;text-align:right">
+                            {{currency amount9 paren=1}}
+                        </td>
+                    {{/if}}
+                    {{#if ../data.col10}}
+                        <td style="border-top: 1px solid #999;text-align:right">
+                            {{currency amount10 paren=1}}
+                        </td>
+                    {{/if}}
+                    {{#if ../data.col11}}
+                        <td style="border-top: 1px solid #999;text-align:right">
+                            {{currency amount11 paren=1}}
+                        </td>
+                    {{/if}}
+                </tr>
+                {{#ifeq separator "single"}}
+                    <tr>
+                        <td style="border-top:1px solid #000" colspan="20">
+                        </td>
+                    </tr>
+                {{/ifeq}}
+                {{#ifeq separator "double"}}
+                    <tr>
+                        <td style="border-top:1px solid #000; border-bottom:1px solid #000; padding:0; height:1px" colspan="20">
+                        </td>
+                    </tr>
+                {{/ifeq}}
+            {{/ifeq}}
+        {{/each}}
+    </tbody>
+</table>
+</div>

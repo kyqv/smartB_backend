@@ -1,0 +1,8 @@
+<action>
+    <field name="name">log</field>
+    <field name="string">Audit Log</field>
+    <field name="view">list_container</field>
+    <field name="model">log</field>
+    <field name="modes">list,page</field>
+    <field name="menu">gen_menu</field>
+</action>

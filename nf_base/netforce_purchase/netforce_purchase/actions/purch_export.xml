@@ -1,0 +1,6 @@
+<action>
+    <field name="type">export</field>
+    <field name="model">purchase.order</field>
+    <field name="filename">purchase_orders.csv</field>
+    <field name="export_fields">["contact_id", "date", "number", "ref", "currency_id", "tax_type", "lines.product_id", "lines.description", "lines.qty", "lines.uom_id", "lines.unit_price", "lines.discount", "lines.tax_id"]</field>
+</action>

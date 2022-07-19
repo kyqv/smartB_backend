@@ -1,0 +1,5 @@
+<form model="sync.record">
+    <field name="firebase_account_id"/>
+    <field name="related_id"/>
+    <field name="path"/>
+</form>

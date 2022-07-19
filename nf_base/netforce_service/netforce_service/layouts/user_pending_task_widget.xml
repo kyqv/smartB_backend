@@ -1,0 +1,7 @@
+<list model="task" colors='{"deadline,#f00":[["overdue","=",true]]}' noselect="1" action="view_task">
+    <field name="project_id"/>
+    <field name="job_id"/>
+    <field name="name"/>
+    <field name="deadline"/>
+    <field name="overdue" invisible="1"/>
+</list>

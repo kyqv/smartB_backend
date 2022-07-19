@@ -1,0 +1,7 @@
+<action>
+    <field name="string">Leave Types</field>
+    <field name="view_cls">multi_view</field>
+    <field name="model">hr.leave.type</field>
+    <field name="menu">hr_menu</field>
+    <field name="modes">list,page,form</field>
+</action>

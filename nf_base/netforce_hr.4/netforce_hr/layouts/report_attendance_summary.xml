@@ -1,0 +1,4 @@
+<form model="report.attendance.summary">
+    <field name="date_from" span="3"/>
+    <field name="date_to" span="3"/>
+</form>

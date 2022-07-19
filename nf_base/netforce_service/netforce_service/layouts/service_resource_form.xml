@@ -1,0 +1,49 @@
+<form model="service.resource">
+    <field name="name"/>
+    <field name="type"/>
+    <field name="employee_id"/>
+    <field name="contact_id"/>
+    <field name="user_id"/>
+    <field name="product_id"/>
+    <field name="skill_level_id"/>
+    <field name="product_categs"/>
+    <field name="regions"/>
+    <related>
+        <field name="allocs">
+            <list>
+                <field name="job_id"/>
+                <field name="time_start"/>
+                <field name="time_stop"/>
+                <field name="description"/>
+            </list>
+            <form>
+                <field name="job_id"/>
+                <newline/>
+                <field name="time_start"/>
+                <field name="time_stop"/>
+                <field name="description"/>
+                <field name="resource_id" invisible="1"/>
+            </form>
+        </field>
+        <field name="documents">
+            <list>
+                <field name="contact_id"/>
+                <field name="file" target="_blank"/>
+                <field name="categ_id"/>
+                <field name="description"/>
+                <field name="date"/>
+                <field name="expiry_date"/>
+            </list>
+            <form>
+                <field name="contact_id"/>
+                <field name="categ_id"/>
+                <field name="file" target="_blank" onchange="onchange_file"/>
+                <field name="date"/>
+                <field name="description"/>
+                <field name="expiry_date"/>
+            </form>
+        </field>
+        <field name="time_sheets"/>
+        <field name="comments"/>
+    </related>
+</form>

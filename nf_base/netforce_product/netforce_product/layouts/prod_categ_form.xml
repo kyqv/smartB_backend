@@ -1,0 +1,46 @@
+<form model="product.categ">
+    <head>
+        <button string="Options" dropdown="1">
+            <item string="Update Product List Prices" method="update_sale_prices"/>
+        </button>
+    </head>
+    <tabs>
+        <tab string="General">
+            <field name="name"/>
+            <field name="code"/>
+            <field name="parent_id"/>
+            <field name="description"/>
+            <field name="image"/>
+            <field name="gross_profit"/>
+            <newline/>
+            <field name="brands"/>
+        </tab>
+        <tab string="Accounting">
+            <field name="sale_account_id" condition='[["type","!=","view"]]'/>
+            <field name="sale_return_account_id" condition='[["type","!=","view"]]'/>
+            <field name="sale_tax_id"/>
+            <field name="purchase_account_id" condition='[["type","!=","view"]]'/>
+            <field name="purchase_return_account_id" condition='[["type","!=","view"]]'/>
+            <field name="purchase_tax_id"/>
+            <field name="cost_method"/>
+            <field name="cogs_account_id" condition='[["type","!=","view"]]'/>
+            <field name="stock_account_id" condition='[["type","!=","view"]]'/>
+        </tab>
+        <tab string="Inventory">
+            <separator string="Product Locations"/>
+            <field name="locations" nolabel="1">
+                <list>
+                    <field name="sequence"/>
+                    <field name="location_id"/>
+                    <field name="bin_location"/>
+                    <field name="stock_qty"/>
+                </list>
+            </field>
+        </tab>
+    </tabs>
+    <related>
+        <field name="sub_categories"/>
+        <field name="products"/>
+        <field name="comments"/>
+    </related>
+</form>

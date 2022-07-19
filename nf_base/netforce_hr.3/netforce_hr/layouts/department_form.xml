@@ -1,0 +1,8 @@
+<form model="hr.department" show_company="1">
+    <field name="name"/>
+    <field name="code"/>
+    <field name="company_id" invisible="1"/>
+    <related>
+        <field name="comments"/>
+    </related>
+</form>

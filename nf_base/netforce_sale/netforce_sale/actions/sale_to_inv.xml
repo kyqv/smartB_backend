@@ -1,0 +1,7 @@
+<action>
+    <field name="view_type">collection</field>
+    <field name="model">sale.order</field>
+    <field name="condition">[["state", "=", "confirmed"]]</field>
+    <field name="template">sale_to_inv</field>
+    <field name="target">_popup</field>
+</action>

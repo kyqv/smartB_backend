@@ -1,0 +1,7 @@
+<list model="land.cost">
+    <field name="number"/>
+    <field name="date"/>
+    <field name="amount"/>
+    <field name="invoice_id"/>
+    <field name="state"/>
+</list>

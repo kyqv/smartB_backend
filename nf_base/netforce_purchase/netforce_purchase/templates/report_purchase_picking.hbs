@@ -1,0 +1,58 @@
+<center>
+    <h2>
+        Purchase Order vs Goods Receipt Report
+    </h2>
+    <h3>
+        {{company_name}}
+        <br/>
+        From {{fmt_date date_from}} to {{fmt_date date_to}}
+    </h3>
+</center>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                Purchase Order
+            </th>
+            <th style="text-align:center">
+                Total GRs
+            </th>
+            <th style="text-align:center">
+                Total Qty
+            </th>
+            <th style="text-align:center">
+                Total Qty Received
+            </th>
+            <th style="text-align:center">
+                Total Qty Remaining
+            </th>
+        </tr>
+    </thead>
+    </tbody>
+        {{#each data.lines}}
+            <tr>
+                <td> 
+                    {{purchase_number}}
+                </td>
+                <td style="text-align:center">
+                    <a href='/action?name=pick_in&search_condition=[["related_id","=","purchase.order,{{purchase_id}}"]]' target="_blank">
+                       {{total_pick_in}}
+                    </a>
+                </td>
+                <td style="text-align:center">
+                    <a href='/action?name=purchase&mode=form&active_id={{purchase_id}}' target="_blank">
+                        {{total_qty}}
+                    </a>
+                </td>
+                <td style="text-align:center">
+                    <a href='/action?name=stock_move&search_condition=[["id","in",[{{move_ids}}]]]' target="_blank">
+                        {{total_qty_received}}
+                    </a>
+                </td>
+                <td style="text-align:center">
+                    {{total_qty_pending}}
+                </td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>

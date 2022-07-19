@@ -1,0 +1,6 @@
+<form model="help.video">
+    <field name="code"/>
+    <field name="title"/>
+    <field name="popup_title"/>
+    <field name="url"/>
+</form>

@@ -1,0 +1,6 @@
+<form model="gen.sale.report">
+    <field name="date_from"/>
+    <foot>
+        <button string="Generate Report" method="gen_report" type="primary"/>
+    </foot>
+</form>

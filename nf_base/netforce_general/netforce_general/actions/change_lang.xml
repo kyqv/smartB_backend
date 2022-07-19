@@ -1,0 +1,6 @@
+<action>
+    <field name="type">method</field>
+    <field name="model">translation</field>
+    <field name="method">change_lang</field>
+    <field name="context">{"set_locale":locale}</field>
+</action>

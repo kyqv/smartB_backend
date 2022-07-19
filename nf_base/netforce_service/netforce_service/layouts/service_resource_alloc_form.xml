@@ -1,0 +1,7 @@
+<form model="service.resource.alloc">
+    <field name="resource_id"/>
+    <field name="job_id"/>
+    <field name="time_start"/>
+    <field name="time_stop"/>
+    <field name="description"/>
+</form>

@@ -1,0 +1,11 @@
+<action>
+    <field name="string">Purchases By Supplier</field>
+    <field name="view">report_view</field>
+    <field name="model">purchase.order</field>
+    <field name="condition">[["order_id.state","in",["confirmed","done"]]]</field>
+    <field name="group_select">year,quarter,month,week,contact_id,contact_id.categ_id,state</field>
+    <field name="function_select">agg_amount_total</field>
+    <field name="group_fields">contact_id</field>
+    <field name="agg_fields">agg_amount_total</field>
+    <field name="menu">purchase_menu</field>
+</action>

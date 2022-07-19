@@ -1,0 +1,19 @@
+<form model="ecom.product.review">
+    <head>
+        <field name="state"/>
+    </head>
+    <group form_layout="stacked">
+        <field name="name" span="2"/>
+        <field name="product_id" span="2"/>
+        <field name="date" span="2"/>
+        <newline/>
+        <field name="title" span="2"/>
+        <field name="rating" span="2"/>
+        <field name="review" span="6"/>
+    </group> 
+    <foot>
+        <button string="Approve" method="approve_review" size="large" type="success" states="draft"/>
+        <button string="Discard" method="discard_review" size="large" type="danger" states="draft"/>
+        <button string="Reset to Draft" method="reset_draft" size="large" icon="refresh" states="approved,discarded"/>
+    </foot>
+</form> 

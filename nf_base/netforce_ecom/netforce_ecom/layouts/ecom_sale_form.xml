@@ -1,0 +1,5 @@
+<inherit inherit="sale_form">
+    <field name="pay_method_id" position="after">
+        <field name="ecom_tax_no"/>
+    </field>
+</inherit>

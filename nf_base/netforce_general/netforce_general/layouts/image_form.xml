@@ -1,0 +1,4 @@
+<form model="image">
+    <field name="image"/>
+    <!--<field name="related_id"/>-->
+</form>

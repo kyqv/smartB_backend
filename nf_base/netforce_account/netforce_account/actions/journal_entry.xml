@@ -1,0 +1,8 @@
+<action>
+    <field name="string">Journal Entries</field>
+    <field name="view">multi_view</field>
+    <field name="model">account.move</field>
+    <field name="tabs">[["All",[]],["Draft",[["state","=","draft"]]],["Posted",[["state","=","posted"]]]]</field>
+    <field name="import_sample">import_journal_entries.csv</field>
+    <field name="menu">account_menu</field>
+</action>

@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Attendance</field>
+    <field name="view_cls">multi_view</field>
+    <field name="model">hr.attendance</field>
+    <field name="menu">hr_menu</field>
+</action>

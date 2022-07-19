@@ -1,0 +1,7 @@
+<action>
+    <field name="string">Access Tokens</field>
+    <field name="view">multi_view</field>
+    <field name="model">access.token</field>
+    <field name="tabs">[["All",[]],["Active",[["state","=","active"]]],["Logged Out",[["state","=","logout"]]],["Expired",[["state","=","expired"]]]]</field>
+    <field name="menu">gen_menu</field>
+</action>

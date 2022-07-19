@@ -1,0 +1,150 @@
+<form model="job" show_company="1">
+    <head>
+        <field name="state"/>
+        <button string="Options" dropdown="1">
+            <item string="Copy To Goods Issue" method="copy_to_pick_out"/>
+            <item string="Copy To Invoice" method="copy_to_invoice"/>
+            <item string="Create Tracking Code" method="create_track"/>
+        </button>
+    </head>
+    <tabs>
+        <tab string="General">
+            <group form_layout="stacked">
+                <field name="contact_id" span="2"/>
+                <field name="project_id" condition='[["contact_id","=",contact_id]]' span="2"/>
+                <field name="template_id" span="2" onchange="onchange_template"/>
+                <field name="number" span="2"/>
+                <field name="service_type_id" span="2"/>
+                <newline/>
+                <field name="state" onchange="onchange_state" span="2"/>
+                <field name="due_date" onchange="onchange_due_date" span="2"/>
+                <field name="close_date" onchange="onchange_close_date" span="2"/>
+                <field name="related_id" span="2"/>
+            </group>
+            <separator string="Worksheet"/>
+            <field name="lines" nolabel="1">
+                <list>
+                    <field name="type"/>
+                    <field name="product_id" onchange="onchange_product"/>
+                    <field name="description"/>
+                    <field name="qty"/>
+                    <field name="uom_id"/>
+                    <field name="unit_price"/>
+                    <field name="amount"/>
+                    <field name="payment_type"/>
+                </list>
+            </field>
+            <group offset="7" span="4" columns="1">
+                <field name="amount_contract"/>
+                <field name="amount_job"/>
+                <field name="amount_total"/>
+            </group>
+        </tab>
+        <tab string="Planning">
+            <field name="time_start"/>
+            <field name="time_stop"/>
+            <field name="skill_level_id"/>
+            <field name="priority"/>
+            <separator/>
+            <field name="date_open"/>
+            <field name="date_close"/>
+        </tab>
+        <tab string="Approval">
+            <separator string="Complete Order"/>
+            <field name="done_approved_by_id"/>
+            <button string="Approve" icon="ok" action="job_approve_done"/>
+        </tab>
+        <tab string="Costing">
+            <field name="track_id"/>
+            <field name="track_balance"/>
+            <field name="track_entries" nolabel="1">
+                <list>
+                    <field name="date"/>
+                    <field name="track_id"/>
+                    <field name="related_id"/>
+                    <field name="product_id"/>
+                    <field name="description"/>
+                    <field name="qty"/>
+                    <field name="uom_id"/>
+                    <field name="amount"/>
+                </list>
+            </field>
+        </tab>
+        <tab string="Other">
+            <field name="location_id" span="2"/>
+            <separator/>
+            <field name="description"/>
+            <field name="complaints"/>
+            <field name="cause"/>
+            <field name="correction"/>
+            <separator string="Reason Codes"/>
+            <field name="multi_visit_code_id"/>
+            <field name="late_response_code_id"/>
+        </tab>
+    </tabs>
+    <related>
+        <field name="items">
+            <list>
+                <field name="service_item_id"/>
+                <field name="description"/>
+                <field name="fault_reason_id"/>
+                <field name="counter"/>
+            </list>
+            <form>
+                <field name="service_item_id" condition='[["contact_id","=",parent.contact_id]]'/>
+                <field name="description"/>
+                <field name="fault_reason_id"/>
+                <field name="counter"/>
+            </form>
+        </field>
+        <field name="allocs">
+            <list>
+                <field name="time_start"/>
+                <field name="time_stop"/>
+                <field name="resource_id"/>
+                <field name="description"/>
+            </list>
+            <form>
+                <field name="time_start"/>
+                <field name="time_stop"/>
+                <field name="resource_id" context='{"job_id":job_id,"time_start":time_start,"time_stop":time_stop}' condition='[["is_avail","=",true]]'/>
+                <field name="description"/>
+                <field name="job_id" invisible="1"/>
+            </form>
+        </field>
+        <field name="tasks"/>
+        <field name="work_time">
+            <list>
+                <field name="date"/>
+                <field name="employee_id"/>
+                <field name="product_id"/>
+                <field name="description"/>
+                <field name="duration"/>
+                <field name="unit_price"/>
+                <field name="amount"/>
+            </list>
+        </field>
+        <field name="stock_moves"/>
+        <field name="invoices"/>
+        <field name="activities"/>
+        <field name="documents">
+            <list>
+                <field name="contact_id"/>
+                <field name="file" target="_blank"/>
+                <field name="categ_id"/>
+                <field name="description"/>
+                <field name="date"/>
+                <field name="expiry_date"/>
+            </list>
+            <form>
+                <field name="contact_id"/>
+                <field name="categ_id"/>
+                <field name="file" target="_blank" onchange="onchange_file"/>
+                <field name="date"/>
+                <field name="description"/>
+                <field name="expiry_date"/>
+            </form>
+        </field>
+        <field name="comments"/>
+    </related>
+</form>

@@ -1,0 +1,18 @@
+<list hide_select="1" show_print="1">
+    <head replace="1">
+    </head>
+    <field name="start_date"/>
+    <field name="end_date"/>
+    <field name="end_date_actual"/>
+    <field name="name"/>
+    <field name="sale_order_id"/>
+    <field name="sale_categ_id"/>
+    <field name="sale_price" show_total="1"/>
+    <field name="total_area" show_total="1"/>
+    <field name="sale_price_area" show_total="1"/>
+    <field name="other_price" show_total="1"/>
+    <field name="profit_amount" show_total="1"/>
+    <field name="margin_percent"/>
+    <field name="amount_paid" show_total="1"/>
+    <field name="amount_unpaid" show_total="1"/>
+</list>

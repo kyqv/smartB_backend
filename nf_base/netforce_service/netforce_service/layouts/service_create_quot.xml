@@ -1,0 +1,7 @@
+<form model="service.create.quot">
+    <field name="contact_id"/>
+    <field name="job_template_id"/>
+    <foot>
+        <button string="Create Quotation" method="create_quot" type="primary"/>
+    </foot>
+</form>

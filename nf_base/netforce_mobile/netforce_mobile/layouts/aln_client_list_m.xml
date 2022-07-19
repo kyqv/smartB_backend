@@ -1,0 +1,4 @@
+<list_m model="aln.client">
+    <field name="name"/>
+    <field name="code"/>
+</list_m>

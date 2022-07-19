@@ -1,0 +1,13 @@
+<form model="production.plan">
+    <field name="date"/>
+    <field name="product_id"/>
+    <newline/>
+    <field name="plan_qty"/>
+    <field name="actual_qty"/>
+    <newline/>
+    <field name="uom_id"/>
+    <field name="location_id"/>
+    <related>
+        <field name="stock_moves"/>
+    </related>
+</form>

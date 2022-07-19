@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Delivery Slots</field>
+    <field name="view">multi_view</field>
+    <field name="model">delivery.slot</field>
+    <field name="menu">stock_menu</field>
+</action>

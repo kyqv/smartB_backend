@@ -1,0 +1,4 @@
+<list model="mfg.team">
+    <field name="name"/>
+    <field name="description"/>
+</list>

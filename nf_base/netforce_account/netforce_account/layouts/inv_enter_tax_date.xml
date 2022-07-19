@@ -1,0 +1,6 @@
+<form model="account.invoice" title="Enter Tax Date" priority="20">
+    <field name="tax_date"/>
+    <foot>
+        <button string="Post Tax Journal Entry" method="post_tax_date" type="primary"/>
+    </foot>
+</form>

@@ -1,0 +1,7 @@
+<action>
+    <field name="view">form_popup</field>
+    <field name="string">Send Invoice</field>
+    <field name="model">send.wizard</field>
+    <field name="target">popup</field>
+    <field name="context">{"model":"account.invoice","template_type":"cust_invoice"}</field>
+</action>

@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Sales Order Analysis</field>
+    <field name="view">pivot</field>
+    <field name="model">sale.order</field>
+    <field name="menu">sale_menu</field>
+</action>

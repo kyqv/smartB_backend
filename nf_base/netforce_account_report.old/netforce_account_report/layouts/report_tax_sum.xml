@@ -1,0 +1,10 @@
+<form model="report.tax.sum">
+    <group form_layout="stacked">
+        <field name="date_from" span="2"/>
+        <field name="date_to" span="2"/>
+        <newline/>
+        <field name="by_rate"/>
+        <newline/>
+        <field name="by_comp"/>
+    </group>
+</form>

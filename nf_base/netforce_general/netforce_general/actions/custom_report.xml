@@ -1,0 +1,5 @@
+<action>
+    <field name="view">print_preview</field>
+    <field name="name">Custom Report</field>
+    <field name="hide_buttons">1</field>
+</action>

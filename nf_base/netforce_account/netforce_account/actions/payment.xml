@@ -1,0 +1,10 @@
+<action>
+    <field name="string">Payments</field>
+    <field name="view">multi_view</field>
+    <field name="model">account.payment</field>
+    <field name="tabs">[["All",[]],["Draft",[["state","=","draft"]]],["Posted",[["state","=","posted"]]]]</field>
+    <field name="group_field">type</field>
+    <field name="group_field_path">type</field>
+    <field name="import_sample">import_payments.csv</field>
+    <field name="menu">account_menu</field>
+</action>

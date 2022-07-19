@@ -1,0 +1,26 @@
+<form model="account.credit.wizard" title="Allocate Credit to Invoice">
+    <field name="invoice_id" invisible="1"/>
+    <template type="hbs">
+        <h5>
+            Allocate oustanding credit to <a href="#name=view_invoice&amp;active_id={{lookup data.invoice_id 0}}"> {{lookup data.invoice_id 1}}</a>
+        </h5>
+    </template>
+    <field name="lines" nolabel="1">
+        <list>
+            <field name="move_line_id" invisible="1"/>
+            <field name="move_id"/>
+            <field name="date"/>
+            <field name="account_id"/>
+            <field name="amount_credit_remain"/>
+            <field name="amount" onchange="update_amounts"/>
+        </list>
+    </field>
+    <group offset="8" span="4" columns="1">
+        <field name="amount_due"/>
+        <field name="amount_alloc"/>
+        <field name="amount_remain"/>
+    </group>
+    <foot replace="1">
+        <button string="Allocate Credit" method="allocate" size="large" type="success"/>
+    </foot>
+</form>

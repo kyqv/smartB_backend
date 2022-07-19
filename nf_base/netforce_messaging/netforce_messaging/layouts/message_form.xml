@@ -1,0 +1,9 @@
+<form model="message">
+    <field name="date"/>
+    <field name="state"/>
+    <field name="from_id"/>
+    <field name="to_id"/>
+    <field name="subject" size="xlarge"/>
+    <newline/>
+    <field name="body" width="600"/>
+</form>

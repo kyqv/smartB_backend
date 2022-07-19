@@ -1,0 +1,5 @@
+<list model="service.application">
+    <field name="name"/>
+    <field name="code"/>
+    <field name="industry_id"/>
+</list>

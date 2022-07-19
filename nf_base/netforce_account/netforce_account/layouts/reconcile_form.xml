@@ -1,0 +1,19 @@
+<form model="account.reconcile">
+    <field name="number"/>
+    <separator string="Account Entries"/>
+    <field name="lines" nolabel="1">
+        <list>
+            <field name="move_date"/>
+            <field name="move_number"/>
+            <field name="description"/>
+            <field name="account_id"/>
+            <field name="debit"/>
+            <field name="credit"/>
+            <field name="contact_id"/>
+        </list>
+    </field>
+    <group offset="6" span="4">
+        <field name="debit" span="2"/>
+        <field name="credit" span="2"/>
+    </group>
+</form>

@@ -1,0 +1,12 @@
+<pivot model="sale.opportunity" cols="stage_id.name" rows="categ_id.name" agg_name="count">
+    <field name="contact_id.name" string="Contact"/>
+    <field name="contact_id.categ_id.name" string="Contact Category"/>
+    <field name="stage_id.name" string="Stage"/>
+    <field name="categ_id.name" string="Sales Category"/>
+    <field name="lead_source"/>
+    <field name="state"/>
+    <field name="user_id.name" string="Responsible User"/>
+    <field name="date"/>
+    <field name="date_week"/>
+    <field name="date_month"/>
+</pivot>

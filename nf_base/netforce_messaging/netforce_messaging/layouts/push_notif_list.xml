@@ -1,0 +1,7 @@
+<list model="push.notif">
+    <field name="time"/>
+    <field name="title"/>
+    <field name="message"/>
+    <field name="state"/>
+    <field name="device_id"/>
+</list>

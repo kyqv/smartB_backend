@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Sales Dashboard (New)</field>
+    <field name="view">board_edit</field>
+    <field name="layout">sale_board2</field>
+    <field name="menu">sale_menu</field>
+</action>

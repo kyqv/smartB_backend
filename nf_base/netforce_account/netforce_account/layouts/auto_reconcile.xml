@@ -1,0 +1,8 @@
+<form model="auto.reconcile" title="Automatic Reconcilation Wizard">
+    <field name="account_id" required="1"/>
+    <field name="contact_id"/>
+    <field name="to_date"/>
+    <foot>
+        <button string="Reconcile" type="primary" method="do_reconcile" icon="arrow-right"/>
+    </foot>
+</form>

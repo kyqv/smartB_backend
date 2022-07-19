@@ -1,0 +1,57 @@
+<center>
+    <h2>
+        Receivable Transactions
+    </h2>
+    <h3>
+        {{company_name}}
+        <br/>
+        {{#if date_from}}
+            From {{fmt_date date_from}} to {{fmt_date date_to}}
+        {{else}}
+            To {{fmt_date date_to}}
+        {{/if}}
+    </h3>
+</center>
+<table class="table table-condensed">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Contact</th>
+            <th>Number</th>
+            <th>Description</th>
+            <th>Due Date</th>
+            <th style="text-align:right">Total Amount</th>
+            <th style="text-align:right">Due Amount</th>
+            <th>Rec #</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each lines context=context}}
+            <tr>
+                <td>{{fmt_date move_date}}</td>
+                <td>{{contact_name}}</td>
+                <td>
+                    {{#link action="view_transaction" active_id=id}}
+                        {{../move_number}}
+                    {{/link}}
+                </td>
+                <td>{{description}}</a></td>
+                <td>{{fmt_date due_date}}</td>
+                <td style="text-align:right">{{currency total_amount}}</td>
+                <td style="text-align:right">{{currency due_amount}}</td>
+                <td>
+                    {{#link action="reconcile" active_id=reconcile_id}}
+                        {{../reconcile_number}}
+                    {{/link}}
+                </td>
+            </tr>
+        {{/each}}
+    </tbody>
+    <tfoot>
+        <tr>
+            <th colspan="6" style="text-align:right">Total</th>
+            <th style="text-align:right">{{currency totals.amount_total}}</th>
+            <th></th>
+        </tr>
+    </tfoot>
+</table>

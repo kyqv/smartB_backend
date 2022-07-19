@@ -1,0 +1,11 @@
+<list model="product.borrow" colors='{"due_date,#f00":[["is_overdue","=",true],["is_return_item","=",false]]}'>
+    <field name="number"/>
+    <field name="date"/>
+    <field name="employee_id"/>
+    <field name="project_id"/>
+    <field name="borrow_for"/>
+    <field name="due_date"/>
+    <field name="state"/>
+    <field name="is_overdue" invisible="1"/>
+    <field name="is_return_item" invisible="1"/>
+</list>

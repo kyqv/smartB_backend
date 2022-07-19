@@ -1,0 +1,12 @@
+<list model="stock.packaging">
+    <field name="name"/>
+    <field name="code"/>
+    <field name="description"/>
+    <field name="width"/>
+    <field name="height"/>
+    <field name="length"/>
+    <field name="net_weight"/>
+    <field name="packaging_weight"/>
+    <field name="product_id"/>
+    <field name="num_items"/>
+</list>

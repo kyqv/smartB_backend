@@ -1,0 +1,7 @@
+<action>
+    <field name="string">Stock Balance Analysis</field>
+    <field name="view">pivot</field>
+    <field name="model">stock.balance</field>
+    <field name="menu">stock_menu</field>
+    <!--<field name="read_group">1</field>-->
+</action>

@@ -1,0 +1,8 @@
+<action>
+    <field name="name">time.entry</field>
+    <field name="string">Time Entries</field>
+    <field name="view">multi_view</field>
+    <field name="model">time.entry</field>
+    <field name="modes">list,form</field>
+    <field name="menu">service_menu</field>
+</action>

@@ -1,0 +1,17 @@
+<form model="hr.notification" title="Notification Settings">
+    <tabs>
+        <tab string="Trigger Event">
+            <field name="birthday_ntf"/>
+        </tab>
+        <tab string="Templates">
+            <group form_layout="stacked" span="6">
+                <separator string="Birthday"/>
+                <field name="subject" span="12"/>
+                <newline/>
+                <field name="description" span="12" height="150"/>
+            </group>
+            <group span="6" cols="1">
+            </group>
+        </tab>
+    </tabs>
+</form>

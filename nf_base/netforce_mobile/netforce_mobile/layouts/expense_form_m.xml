@@ -1,0 +1,18 @@
+<form_m model="hr.expense">
+    <field name="merchant"/>
+    <newline/>
+    <field name="image"/>
+    <newline/>
+    <field name="description"/>
+    <newline/>
+    <field name="amount"/>
+    <field name="currency_id"/>
+    <newline/>
+    <field name="date"/>
+    <newline/>
+    <field name="categ_id"/>
+    <newline/>
+    <field name="employee_id"/>
+    <newline/>
+    <field name="claim_id"/>
+</form_m>

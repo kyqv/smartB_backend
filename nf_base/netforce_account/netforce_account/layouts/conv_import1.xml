@@ -1,0 +1,6 @@
+<form model="conv.bal" title="Import conversion balances">
+    <field name="file" required="1"/>
+    <foot>
+        <button string="Import" method="import_acc_file" type="primary"/>
+    </foot>
+</form>

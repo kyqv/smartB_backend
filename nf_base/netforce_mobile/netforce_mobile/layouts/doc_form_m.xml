@@ -1,0 +1,6 @@
+<form_m model="document">
+    <field name="date"/>
+    <field name="state"/>
+    <newline/>
+    <field name="file"/>
+</form_m>

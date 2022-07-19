@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Device Tokens</field>
+    <field name="view">multi_view</field>
+    <field name="model">device.token</field>
+    <field name="menu">msg_menu</field>
+</action>

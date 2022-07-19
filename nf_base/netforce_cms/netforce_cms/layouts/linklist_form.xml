@@ -1,0 +1,12 @@
+<form model="cms.linklist">
+    <field name="name"/>
+    <field name="code"/>
+    <separator string="Items"/>
+    <field name="items" nolabel="1">
+        <list>
+            <field name="title"/>
+            <field name="type"/>
+            <field name="url"/>
+        </list>
+    </field>
+</form>

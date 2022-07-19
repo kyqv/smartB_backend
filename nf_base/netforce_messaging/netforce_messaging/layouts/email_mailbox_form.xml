@@ -1,0 +1,17 @@
+<form model="email.mailbox">
+    <head>
+        <button string="Options" dropdown="1">
+            <item string="Send emails" method="send_emails"/>
+            <item string="Fetch emails" method="fetch_emails"/>
+            <item string="Get Email Events" method="get_email_events"/>
+        </button>
+    </head>
+    <field name="name"/>
+    <field name="user_id"/>
+    <field name="type"/>
+    <field name="account_id"/>
+    <field name="account_mailbox"/>
+    <separator/>
+    <field name="last_msg_uid"/>
+    <field name="last_msg_date"/>
+</form>

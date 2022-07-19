@@ -1,0 +1,3 @@
+<form_m model="hr.expense.categ">
+    <field name="name"/>
+</form_m>

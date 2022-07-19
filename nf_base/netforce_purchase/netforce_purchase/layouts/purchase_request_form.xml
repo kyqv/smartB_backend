@@ -1,0 +1,72 @@
+<form model="purchase.request" attrs='{"readonly":[["state","in",["waiting_po","done","voided"]]]}' show_company="1" show_save="1">
+    <top>
+        <button string="Print" icon="print" action="report_purchase_request_form3" action_options='{"active_id":id}'/>
+        <button string="Options" dropdown="1" align="right">
+            <item string="Copy To Purchase Order" method="copy_to_purchase" states="waiting_po"/>
+            <item string="Copy" method="copy"/>
+            <item string="To Draft" method="btn_draft" states="waiting_approval,waiting_po,done,voided"/>
+            <item string="Void" method="btn_void" confirm="Are you sure you want to void this purchase request?" states="waiting_approva,waiting_po,done"/>
+        </button>
+    </top>
+    <head>
+        <field name="state"/>
+    </head>
+    <tabs>
+        <tab string="General">
+            <group form_layout="stacked" columns="6">
+                <field name="number"/>
+                <field name="date"/>
+                <field name="ref"/>
+                <field name="department_id"/>
+                <field name="request_by_id"/>
+                <field name="approve_by_id" readonly="1"/>
+            </group>
+            <field name="lines" nolabel="1">
+                <list>
+                    <field name="product_id" onchange="onchange_product" condition='[["can_purchase","=",true]]'/>
+                    <field name="description"/>
+                    <field name="qty" onchange="onchange_qty"/>
+                    <field name="uom_id" onchange="update_amounts"/>
+                    <field name="qty_order"/>
+                    <field name="customer_id"/>
+                    <field name="location_id"/>
+                    <field name="supplier_id"/>
+                    <field name="purchase_order_id" attrs='{"readonly":[["parent.state","in",["done","voided"]]]}'/>
+                    <field name="department_id"/>
+                    <field name="notes"/>
+                </list>
+            </field>
+            <field name="other_info"/>
+        </tab>
+        <tab string="Approval">
+            <field name="approvals"/>
+        </tab>
+    </tabs>
+    <field name="company_id" invisible="1"/>
+    <foot>
+        <button string="Submit For Approval" method="btn_submit" icon="arrow-right" states="draft"/>
+        <button string="Approve" method="btn_approve" icon="ok" type="success" states="waiting_approval"/>
+        <button string="Reject" method="btn_reject" icon="remove" type="danger" states="waiting_approval"/>
+        <button string="Completed" method="btn_done" type="success" states="waiting_po"/>
+        <button string="Reopen" method="btn_reopen" icon="refresh" states="done"/>
+    </foot>
+    <related>
+        <field name="purchase_orders"/>
+        <field name="documents">
+            <list>
+                <field name="file" target="_blank" preview="1"/>
+                <field name="categ_id"/>
+                <field name="description"/>
+                <field name="date"/>
+            </list>
+            <form>
+                <field name="categ_id"/>
+                <field name="file" target="_blank" onchange="onchange_file"/>
+                <field name="date"/>
+                <field name="description"/>
+                <field name="contact_id" invisible="1"/>
+            </form>
+        </field>
+        <field name="comments"/>
+    </related>
+</form>

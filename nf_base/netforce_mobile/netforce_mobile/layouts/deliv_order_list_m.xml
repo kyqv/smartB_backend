@@ -1,0 +1,14 @@
+<list_m model="nd.order" colors='{"#ccf":[["state","=","in_progress"]],"#cfc":[["state","=","done"]],"#fcc":[["state","=","error"]]}'>
+    <field name="delivery_date"/>
+    <field name="number"/>
+    <newline/>
+    <field name="customer_id"/>
+    <field name="route_id"/>
+    <newline/>
+    <button title="Pick Up" method="set_in_progress" states="waiting" icon="ios-arrow-forward"/>
+    <button title="Completed" method="set_done" type="success" states="in_progress" icon="ios-checkmark" confirm="Confirm delivery?"/>
+    <button title="Can Not Deliver" method="set_error" type="danger" states="in_progress" icon="ios-close"/>
+    <button title="Waiting" method="set_waiting" states="in_progress" icon="ios-arrow-back"/>
+    <button title="Reopen" method="set_in_progress" states="done,error" icon="ios-arrow-back"/>
+    <field name="state" invisible="1"/>
+</list_m>

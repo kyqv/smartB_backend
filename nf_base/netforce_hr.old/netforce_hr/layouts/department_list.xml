@@ -1,0 +1,4 @@
+<list model="hr.department">
+    <field name="name"/>
+    <field name="code"/>
+</list>

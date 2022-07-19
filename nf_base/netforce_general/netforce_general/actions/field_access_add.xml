@@ -1,0 +1,6 @@
+<action>
+    <field name="view">form_popup</field>
+    <field name="string">Field Access Add</field>
+    <field name="model">field.access.add</field>
+    <field name="target">popup</field>
+</action>

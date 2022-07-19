@@ -1,0 +1,5 @@
+<list model="ecom.wishlist">
+    <field name="contact_id"/>
+    <field name="product_id"/>
+    <field name="date"/>
+</list> 

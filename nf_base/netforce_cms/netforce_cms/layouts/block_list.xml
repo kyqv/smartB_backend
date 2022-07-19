@@ -1,0 +1,4 @@
+<list model="cms.block">
+    <field name="name"/>
+    <field name="related_id"/>
+</list>

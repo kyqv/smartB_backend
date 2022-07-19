@@ -1,0 +1,6 @@
+<action>
+    <field name="view_cls">chart_view</field>
+    <field name="model">hr.report</field>
+    <field name="method">get_attend_hist</field>
+    <field name="chart_type">bar</field>
+</action>

@@ -1,0 +1,18 @@
+<v:flash/>
+<v:form type="inline" border="1">
+    <v:form_body background="1">
+        <div style="margin-bottom:10px">
+            <strong>Make a payment</strong>
+        </div>
+        <v:row>
+            <v:field name="amount" span="2"/>
+            <v:field name="date" span="2"/>
+            <v:field name="account_id" span="2"/>
+            <v:field name="ref" span="2"/>
+            <v:field name="claim_id" invisible="1"/>
+            <div class="span2" style="padding-top:10px">
+                <v:button string="Add Payment" method="add_payment" type="success" icon="ok" icon_white="1"/>
+            </div>
+        </v:row>
+    </v:form_body>
+</v:form>

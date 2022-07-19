@@ -1,0 +1,5 @@
+<list model="language" hide_select="1" hide_page="1">
+    <head replace="1"/>
+    <field name="name"/>
+    <field name="num_translations"/>
+</list>

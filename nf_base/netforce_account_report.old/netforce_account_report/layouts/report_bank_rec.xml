@@ -1,0 +1,6 @@
+<form model="report.bank.rec">
+    <group form_layout="stacked">
+        <field name="account_id" span="2"/>
+        <field name="date" span="2"/>
+    </group>
+</form>

@@ -1,0 +1,6 @@
+<action>
+    <field name="type">export</field>
+    <field name="model">account.account</field>
+    <field name="filename">accounts.csv</field>
+    <field name="export_fields">["code", "name", "type", "parent_id", "tax_id", "description", "bank_type", "bank_name", "currency_id", "bank_no", "creditcard_no"]</field>
+</action>

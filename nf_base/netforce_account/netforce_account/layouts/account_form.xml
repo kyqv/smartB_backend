@@ -1,0 +1,76 @@
+<form model="account.account" show_company="1">
+    <group span="6" columns="1">
+        <field name="type"/>
+        <group attrs='{"invisible":[["type","=","bank"]]}' columns="1">
+            <field name="code"/>
+            <field name="name"/>
+            <field name="parent_id"/>
+            <field name="description" width="300" height="80"/>
+            <field name="tax_id"/>
+            <field name="enable_payment"/>
+            <field name="enable_adjust"/>
+            <field name="currency_id"/>
+            <field name="require_contact"/>
+            <field name="require_tax_no"/>
+            <field name="require_track"/>
+            <field name="require_track2"/>
+            <field name="sequence_id"/>
+            <field name="hide_details"/>
+        </group>
+        <group attrs='{"invisible":[["type","!=","bank"]]}' columns="1">
+            <field name="bank_name"/>
+            <field name="name"/>
+            <field name="code"/>
+            <field name="parent_id"/>
+            <field name="bank_no"/>
+            <field name="currency_id"/>
+            <field name="description" width="300" height="80"/>
+        </group>
+        <group attrs='{"invisible":[["type","!=","fixed_asset"]]}' columns="1">
+            <field name="fixed_asset_type_id"/>
+        </group>
+    </group>
+    <template span="5" offset="1">
+        <![CDATA[
+            <div>
+                <h5 style={{color:"#666"}}>How account types affect your reports</h5>
+                <div style={{float:"left",width:160,backgroundColor:"#f0f3fa",border:"1px solid #ccc",padding:10}}>
+                    <div style={{textAlign:"center",color:"#666"}}>Profit &amp; Loss</div>
+                    <div style={{fontSize:11,color:"#999",fontWeight:"bold"}}>Income</div>
+                    <div style={{fontSize:11,paddingLeft:10}}>Revenue</div>
+                    <div style={{fontSize:11,color:"#999",fontWeight:"bold"}}><i>Less</i> Cost of Sales</div>
+                    <div style={{fontSize:11,paddingLeft:10}}>Cost of Sales</div>
+                    <div style={{fontSize:11,color:"#999",fontWeight:"bold",borderTop:"1px solid #999",borderBottom:"1px solid #999"}}>GROSS PROFIT</div>
+                    <div style={{fontSize:11,color:"#999",fontWeight:"bold"}}><i>Plus Other</i> Income</div>
+                    <div style={{fontSize:11,paddingLeft:10}}>Other Income</div>
+                    <div style={{fontSize:11,color:"#999",fontWeight:"bold"}}><i>Less</i> Expenses</div>
+                    <div style={{fontSize:11,paddingLeft:10}}>Expenses</div>
+                    <div style={{fontSize:11,paddingLeft:10}}>Other Expenses</div>
+                    <div style={{fontSize:11,color:"#999",fontWeight:"bold",borderTop:"1px solid #999",borderBottom:"2px solid #999"}}>NET PROFIT</div>
+                </div>
+                <div style={{float:"left",width:160,backgroundColor:"#f0f3fa",border:"1px solid #ccc",padding:10,marginLeft:10}}>
+                    <div style={{textAlign:"center",color:"#666"}}>Balance Sheet</div>
+                    <div style={{fontSize:11,color:"#999",fontWeight:"bold"}}>Assets</div>
+                    <div style={{fontSize:11,paddingLeft:10}}>Bank Accounts</div>
+                    <div style={{fontSize:11,paddingLeft:10}}>Receivables</div>
+                    <div style={{fontSize:11,paddingLeft:10}}>Current Assets</div>
+                    <div style={{fontSize:11,paddingLeft:10}}>Non-current Assets</div>
+                    <div style={{fontSize:11,color:"#999",fontWeight:"bold",borderTop:"1px solid #999",borderBottom:"1px solid #999"}}>TOTAL ASSETS</div>
+                    <div style={{fontSize:11,color:"#999",fontWeight:"bold"}}><i>Less</i> Liabilities</div>
+                    <div style={{fontSize:11,paddingLeft:10}}>Payables</div>
+                    <div style={{fontSize:11,paddingLeft:10}}>Current Liabilities</div>
+                    <div style={{fontSize:11,paddingLeft:10}}>Non-current Liabilities</div>
+                    <div style={{fontSize:11,color:"#999",fontWeight:"bold",borderTop:"1px solid #999",borderBottom:"2px solid #999"}}>NET ASSETS</div>
+                    <div style={{fontSize:11,color:"#999",fontWeight:"bold"}}>Equity</div>
+                    <div style={{fontSize:11,paddingLeft:10}}>Equity</div>
+                    <div style={{fontSize:11,color:"#999",fontWeight:"bold"}}><i>Plus</i> Net Profit</div>
+                    <div style={{fontSize:11,color:"#999",fontWeight:"bold",borderTop:"1px solid #999",borderBottom:"2px solid #999"}}>TOTAL EQUITY</div>
+                </div>
+            </div>
+        ]]>
+    </template>
+    <field name="company_id" invisible="1"/>
+    <related>
+        <field name="comments"/>
+    </related>
+</form>

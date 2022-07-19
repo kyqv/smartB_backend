@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Industries</field>
+    <field name="view">multi_view</field>
+    <field name="model">industry</field>
+    <field name="menu">contact_menu</field>
+</action>

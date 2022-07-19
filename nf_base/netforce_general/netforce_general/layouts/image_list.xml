@@ -1,0 +1,4 @@
+<list model="image">
+    <field name="image"/>
+    <!--<field name="related_id"/>-->
+</list>

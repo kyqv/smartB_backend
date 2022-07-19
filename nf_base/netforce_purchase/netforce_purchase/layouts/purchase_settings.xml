@@ -1,0 +1,11 @@
+<form model="settings" title="Purchase Settings">
+    <separator string="Purchase Workflow"/>
+    <field name="purchase_copy_picking"/>
+    <field name="purchase_copy_invoice"/>
+    <field name="purchase_check_received_qty"/>
+    <field name="purchase_min_approvals"/>
+    <field name="pr_require_supplier"/>
+    <separator string="Permissions"/>
+    <field name="approve_purchase"/>
+    <field name="approve_purchase_request"/>
+</form>

@@ -1,0 +1,11 @@
+<form model="hr.payitem">
+    <field name="name"/>
+    <newline/>
+    <field name="description"/>
+    <newline/>
+    <field name="type"/>
+    <newline/>
+    <field name="account_id" condition='[["type","!=","view"]]'/>
+    <newline/>
+    <field name="sequence"/>
+</form>

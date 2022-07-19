@@ -1,0 +1,9 @@
+<form model="action">
+    <field name="name"/>
+    <field name="string"/>
+    <field name="view"/>
+    <field name="model_id"/>
+    <field name="menu"/>
+    <newline/>
+    <field name="options" width="500" height="200"/>
+</form>

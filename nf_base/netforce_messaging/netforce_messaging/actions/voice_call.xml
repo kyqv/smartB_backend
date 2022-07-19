@@ -1,0 +1,7 @@
+<action>
+    <field name="string">Voice Calls</field>
+    <field name="view">multi_view</field>
+    <field name="model">voice.call</field>
+    <field name="tabs">[["All",[]],["Planned",[["state","=","planned"]]],["In Progress",[["state","=","in_progress"]]],["Completed",[["state","=","done"]]],["Failed",[["state","=","error"]]]]</field>
+    <field name="menu">msg_menu</field>
+</action>

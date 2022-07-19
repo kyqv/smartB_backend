@@ -1,0 +1,8 @@
+<action>
+    <field name="view_cls">list_view</field>
+    <field name="model">issue</field>
+    <field name="condition">[["state","!=","closed"]]</field>
+    <field name="order">priority</field>
+    <field name="limit">5</field>
+    <field name="noselect">1</field>
+</action>

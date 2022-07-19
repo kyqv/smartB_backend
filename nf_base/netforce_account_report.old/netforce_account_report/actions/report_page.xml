@@ -1,0 +1,5 @@
+<action>
+    <field name="view">template</field>
+    <field name="template">report_page</field>
+    <field name="menu">account_menu</field>
+</action>

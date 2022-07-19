@@ -1,0 +1,7 @@
+<action>
+    <field name="view">list</field>
+    <field name="model">contact</field>
+    <field name="order">write_time desc</field>
+    <field name="limit">10</field>
+    <field name="layout">contact_recent_list</field>
+</action>

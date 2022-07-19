@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Tracking Entries</field>
+    <field name="view">multi_view</field>
+    <field name="model">account.track.entry</field>
+    <field name="menu">account_menu</field>
+</action>

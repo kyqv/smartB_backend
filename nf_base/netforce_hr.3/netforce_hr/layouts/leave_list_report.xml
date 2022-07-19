@@ -1,0 +1,12 @@
+<list model="hr.leave">
+    <field name="number"/>
+    <field name="date"/>
+    <field name="employee_id"/>
+    <field name="start_date"/>
+    <field name="end_date"/>
+    <field name="leave_type_id"/>
+    <field name="period_id"/>
+    <field name="days_requested"/>
+    <field name="days_remaining"/>
+    <field name="state"/>
+</list>

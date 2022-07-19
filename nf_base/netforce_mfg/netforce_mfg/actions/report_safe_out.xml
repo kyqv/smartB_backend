@@ -1,0 +1,8 @@
+<action>
+    <field name="type">report_odt2</field>
+    <field name="model">barcode.safe.out</field>
+    <field name="method">get_report_data</field>
+    <field name="template">barcode_safe_out</field>
+    <field name="convert">pdf</field>
+</action>
+

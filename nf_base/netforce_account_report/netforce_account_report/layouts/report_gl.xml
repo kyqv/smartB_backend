@@ -1,0 +1,15 @@
+<form model="report.gl">
+    <group form_layout="stacked">
+        <field name="date_from" span="2"/>
+        <field name="date_to" span="2"/>
+        <field name="select_type" span="2"/>
+        <newline/>
+        <field name="account_from_id" span="2" attrs='{"invisible":[["select_type","!=","range"]]}'/>
+        <field name="account_to_id" span="2" attrs='{"invisible":[["select_type","!=","range"]]}'/>
+        <newline/>
+        <field name="accounts" attrs='{"invisible":[["select_type","!=","list"]]}'/>
+        <newline/>
+        <field name="track_id" span="2"/>
+        <field name="journal_id" span="2"/>
+    </group>
+</form>

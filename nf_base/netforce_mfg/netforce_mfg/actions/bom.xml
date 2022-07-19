@@ -1,0 +1,7 @@
+<action>
+    <field name="view">multi_view</field>
+    <field name="string">Bill of Materials</field>
+    <field name="model">bom</field>
+    <field name="menu">mfg_menu</field>
+    <field name="import_sample">import_bom.csv</field>
+</action>

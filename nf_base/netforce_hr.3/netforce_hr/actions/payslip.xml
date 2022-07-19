@@ -1,0 +1,13 @@
+<action>
+    <field name="string">Pay Slips</field>
+    <field name="view_cls">multi_view</field>
+    <field name="model">hr.payslip</field>
+    <field name="tabs">[
+        ["All",[]],
+        ["Draft",[["state","=","draft"]]],
+        ["Approved",[["state","=","approved"]]],
+        ["Paid",[["state","=","paid"]]],
+        ["Posted",[["state","=","posted"]]]
+        ]</field>
+    <field name="menu">hr_menu</field>
+</action>

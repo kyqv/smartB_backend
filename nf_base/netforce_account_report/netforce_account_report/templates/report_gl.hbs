@@ -1,0 +1,64 @@
+<center>
+    <h2>
+        General Ledger Summary
+    </h2>
+    <h3>
+        {{company_name}}
+        <br/>
+        From {{fmt_date date_from}} to {{fmt_date date_to}}
+    </h3>
+</center>
+<table class="table">
+    <thead class="scroll-header">
+        <tr>
+            <th>
+                Account
+            </th>
+            <th style="text-align:right">
+                Debit
+            </th>
+            <th style="text-align:right">
+                Credit
+            </th>
+            <th style="text-align:right">
+                Net Movement
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each lines context=context}}
+            <tr>
+                <td>
+                    {{code}} - {{name}}
+                </td>
+                <td style="text-align:right">
+                    {{currency debit zero=""}}
+                </td>
+                <td style="text-align:right">
+                    {{currency credit zero=""}}
+                </td>
+                <td style="text-align:right">
+                    {{#link action="report_account_trans" defaults_account_id=id defaults_date_from=../date_from defaults_date_to=../date_to}}
+                        {{currency balance paren=1}}
+                    {{/link}}
+                </td>
+            </tr>
+        {{/each}}
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>
+                Total
+            </th>
+            <th style="text-align:right">
+                {{currency total_debit}}
+            </th>
+            <th style="text-align:right">
+                {{currency total_credit}}
+            </th>
+            <th style="text-align:right">
+                {{currency total_balance}}
+            </th>
+        </tr>
+    </tfoot>
+</table>

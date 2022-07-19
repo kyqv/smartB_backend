@@ -1,0 +1,13 @@
+<list model="issue" priority="1" colors='{"#cfc":[["state","=","closed"]],"#fcc":[["state","=","incomplete"]]}'>
+    <field name="number"/>
+    <field name="project_id"/>
+    <field name="title"/>
+    <field name="type"/>
+    <field name="priority"/>
+    <field name="sequence"/>
+    <field name="date_created"/>
+    <field name="state"/>
+    <field name="age_days"/>
+    <field name="date_planned"/>
+    <field name="date_closed"/>
+</list>

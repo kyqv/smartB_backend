@@ -1,0 +1,8 @@
+<list model="approval">
+    <field name="date"/>
+    <field name="user_id"/>
+    <field name="related_id"/>
+    <field name="wkf_step_id"/>
+    <field name="state"/>
+    <field name="approve_date"/>
+</list>

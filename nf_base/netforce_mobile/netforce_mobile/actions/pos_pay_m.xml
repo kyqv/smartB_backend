@@ -1,0 +1,9 @@
+<action>
+    <field name="view">form_m</field>
+    <field name="model">ecom2.cart</field>
+    <field name="layout">pos_pay_m</field>
+    <field name="sub_action">pos_cart_summary_m</field>
+    <field name="sub_pos">left</field>
+    <field name="cookie_active_id">cart_id</field>
+    <field name="mode">edit</field>
+</action>

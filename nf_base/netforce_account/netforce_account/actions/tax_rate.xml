@@ -1,0 +1,8 @@
+<action>
+    <field name="string">Tax Rates</field>
+    <field name="view">multi_view</field>
+    <field name="model">account.tax.rate</field>
+    <field name="tabs">[["All",[]],["Archived",[["active","=",false]]]]</field>
+    <field name="import_sample">import_tax_rates.csv</field>
+    <field name="menu">account_menu</field>
+</action>

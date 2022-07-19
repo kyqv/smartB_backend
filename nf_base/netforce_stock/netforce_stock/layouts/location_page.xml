@@ -1,0 +1,38 @@
+<page model="stock.location" title_field="name">
+    <field name="balance"/>
+    <related_tabs>
+        <field name="products" nolabel="1" view_cls="form_list_view">
+            <list>
+                <head>
+                    <button string="New Purchase Order" method="make_po" icon="plus-sign"/>
+                </head>
+                <field name="product_id"/>
+                <field name="qty_phys"/>
+                <field name="qty_virt"/>
+                <field name="min_qty"/>
+                <field name="uom_id"/>
+                <field name="last_change"/>
+            </list>
+            <search>
+                <field name="product_id"/>
+            </search>
+        </field>
+        <field name="stock_moves" nolabel="1" view_cls="form_list_view">
+            <list>
+                <field name="product_id"/>
+                <field name="date"/>
+                <field name="ref"/>
+                <field name="qty"/>
+                <field name="uom_id"/>
+                <field name="location_from_id"/>
+                <field name="location_to_id"/>
+                <field name="state"/>
+            </list>
+            <search>
+                <field name="product_id"/>
+                <field name="ref"/>
+                <field name="state"/>
+            </search>
+        </field>
+    </related_tabs>
+</page>

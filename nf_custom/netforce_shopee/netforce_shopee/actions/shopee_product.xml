@@ -1,0 +1,7 @@
+<action>
+    <field name="string">Shopee Products</field>
+    <field name="view">multi_view</field>
+    <field name="model">shopee.product</field>
+    <field name="menu">shopee_menu</field>
+    <field name="theme">orange</field>
+</action>

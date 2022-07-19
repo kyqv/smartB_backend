@@ -1,0 +1,85 @@
+<center>
+    <h2>
+        Stock Forecast Summary
+    </h2>
+    <h3>
+        {{data.company_name}}
+    </h3>
+    <h4>
+        Date: {{data.date}}
+    </h4>
+</center>
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th style="width:20px"><input type="checkbox" class="nf-select-all"/></th>
+            <th>Product Code</th>
+            <th>Product Name</th>
+            <th>Current Stock</th>
+            <th>Min Qty</th>
+            {{#if show_shelf_life}}
+                <th>Min Qty 50%</th>
+                <th>Min Qty 75%</th>
+            {{/if}}
+            <th>Date Below Min</th>
+            <th>Lead Time (Days)</th>
+            <th>Order Date</th>
+            <th>Max Qty</th>
+            <th>Order Qty</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each lines}}
+            <tr {{#if show_alert}}style="background-color:#f99"{{/if}}>
+                <td><input type="checkbox" class="nf-prod-select" data-product-id="{{prod_id}}" data-qty="{{order_qty}}"/></td>
+                <td>
+                    {{#link action="report_forecast_details" defaults_product_id=prod_id}}
+                        {{prod_code}}
+                    {{/link}}
+                </td>
+                <td>{{prod_name}}</td>
+                <td>{{current_qty}}</td>
+                <td>{{min_qty}}</td>
+                {{#if ../show_shelf_life}}
+                    <td>{{min_qty_50}}</td>
+                    <td>{{min_qty_75}}</td>
+                {{/if}}
+                <td>{{min_qty_date}}{{#if min_qty_date}} (in {{min_qty_months}} months){{/if}}</td>
+                <td>{{lead_time}}</td>
+                <td>{{order_date}}</td>
+                <td>{{max_qty}}</td>
+                <td>{{order_qty}}</td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>
+<button class="btn btn-success btn-lg nf-btn-order"><span class="glyphicon glyphicon-arrow-right"></span> Order Products</button>
+<script>
+$(function() {
+    $(".nf-btn-order").click(function() {
+        var prod_qtys={};
+        $("input.nf-prod-select:checked").each(function() {
+            var prod_id=$(this).data("product-id");
+            var qty=$(this).data("qty");
+            prod_qtys[prod_id]=qty;
+        });
+        console.log("prod_qtys",prod_qtys);
+        if (_.isEmpty(prod_qtys)) {
+            alert("No items selected");
+            return;
+        }
+        var action={
+            name: "stock_order",
+            context: {
+                product_qtys: prod_qtys,
+            },
+        };
+        NF.actions.execute(action);
+    });
+
+    $(".nf-select-all").click(function() {
+        var val=$(this).is(":checked");
+        $("input.nf-prod-select").prop("checked",val);
+    });
+});
+</script>

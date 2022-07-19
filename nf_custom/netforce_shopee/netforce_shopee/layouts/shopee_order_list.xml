@@ -1,0 +1,23 @@
+<list model="shopee.order" colors='{"#f66":[["show_warning","=",true]]}'>
+    <head>
+        <!--<button string="Get Shipping Parameter" method="get_shipping_parameter"/>-->
+        <!--<button string="Ship Order" method="ship_order"/>-->
+        <button string="Get Tracking Number" method="get_tracking_number"/>
+        <!--<button string="Copy to Sale Order" method="copy_to_sale"/>-->
+        <!--<button string="Copy to Goods Issue" method="copy_to_picking"/>-->
+        <button string="Copy to Goods Issue (Skip Error)" method="copy_to_picking_skip_error" show_progress="1"/>
+        <!--<button string="Copy to Customer Invoice" method="copy_to_invoice"/>-->
+        <button string="Refresh Warnings" method="function_store"/>
+    </head>
+    <field name="account_id"/>
+    <field name="order_sn"/>
+    <field name="region"/>
+    <field name="weight"/>
+    <field name="total_amount"/>
+    <field name="order_create_time"/>
+    <field name="ship_by_date"/>
+    <field name="shipping_carrier"/>
+    <field name="tracking_number"/>
+    <field name="order_status"/>
+    <field name="show_warning" invisible="1"/>
+</list>

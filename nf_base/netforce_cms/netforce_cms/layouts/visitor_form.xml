@@ -1,0 +1,10 @@
+<form model="visitor">
+    <field name="create_time"/>
+    <field name="id_no"/>
+    <field name="name"/>
+    <field name="user_agent"/>
+    <related>
+        <field name="sessions"/>
+        <field name="actions"/>
+    </related>
+</form>

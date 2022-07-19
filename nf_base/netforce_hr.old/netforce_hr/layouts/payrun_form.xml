@@ -1,0 +1,59 @@
+<form model="hr.payrun" attrs='{"readonly":[["state","in",["approved","paid","posted"]]]}' show_company="1">
+    <head>
+        <field name="state"/>
+    </head>
+    <group form_layout="stacked">
+        <field name="number" span="2"/>
+        <field name="month" onchange="onchange_month" span="2"/>
+        <field name="date_from" span="2"/>
+        <field name="date_to" span="2"/>
+        <field name="date_pay" onchange="onchange_paydate" span="2"/>
+        <field name="department_id" span="2"/>
+    </group>
+    <head>
+        <button string="Print" dropdown="1" icon="print">
+            <item string="PaySlips" action="print_slip" action_options="convert=pdf"/>
+            <item string="Bank Report" action="report_bank"/>
+        </button>
+        <button string="Options" dropdown="1">
+            <item string="Copy" method="copy"/>
+            <item string="To Draft" states="approved,paid,posted" method="to_draft" confirm="Are you sure?"/>
+            <!--<item string="Copy Journal Entry" states="paid" action="payrun_journal"/>-->
+            <item string="View Journal" states="posted" method="view_journal"/>
+        </button>
+    </head>
+    <separator string="Payslips"/>
+    <field name="payslips" nolabel="1" view_cls="form_list_view">
+        <list colors='{"#cfc":[["state","=","approved"]],"#9f9":[["state","=","paid"]],"#ACD2E9":[["state","=","posted"]]}'>
+            <field name="due_date"/>
+            <field name="employee_id"/>
+            <field name="amount_salary"/>
+            <field name="amount_bonus"/>
+            <field name="amount_overtime"/>
+            <field name="amount_allow"/>
+            <field name="amount_tax"/>
+            <field name="amount_social"/>
+            <field name="amount_provident"/>
+            <field name="amount_other_expense"/>
+            <field name="amount_net"/>
+            <field name="state"/>
+        </list>
+    </field>
+    <group span="6" columns="1">
+        <button string="Generate Payslips" states="draft" method="gen_payslips" icon="arrow-right"/>
+    </group>
+    <group span="6" columns="1">
+        <field name="amount_employee"/>
+        <field name="amount_other"/>
+        <field name="amount_total"/>
+    </group>
+    <field name="company_id" invisible="1"/>
+    <related>
+        <field name="comments"/>
+    </related>
+    <foot>
+        <button string="Approve" method="approve" states="draft" icon="ok" type="default"/>
+        <button string="Pay" method="pay" states="approved" icon="ok" type="success"/>
+        <button string="Post" states="paid" action="payrun_journal" type="success"/>
+    </foot>
+</form>

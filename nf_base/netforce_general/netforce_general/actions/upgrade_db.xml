@@ -1,0 +1,5 @@
+<action>
+    <field name="view">model</field>
+    <field name="model">upgrade_db</field>
+    <field name="template">upgrade_db</field>
+</action>

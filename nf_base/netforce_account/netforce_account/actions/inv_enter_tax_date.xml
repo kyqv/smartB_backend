@@ -1,0 +1,7 @@
+<action>
+    <field name="string">Enter Tax Date</field>
+    <field name="view">form_popup</field>
+    <field name="model">account.invoice</field>
+    <field name="layout">inv_enter_tax_date</field>
+    <field name="target">popup</field>
+</action>

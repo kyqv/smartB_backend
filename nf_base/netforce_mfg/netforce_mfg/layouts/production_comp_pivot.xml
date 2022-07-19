@@ -1,0 +1,18 @@
+<pivot model="production.component" rows="product_id.default_supplier_id.name,product_id.name,uom_id.name" cols="order_id.due_date_week" agg_name="sum" vals="qty_planned">
+    <field name="product_id.code" string="RM Product Code"/>
+    <field name="product_id.name" string="RM Product Name"/>
+    <field name="product_id.categ_id.name" string="RM Product Category"/>
+    <field name="product_id.cost_price" string="RM Cost Price"/>
+    <field name="qty_planned" string="RM Planned Qty"/>
+    <field name="uom_id.name" string="RM UoM"/>
+    <field name="order_id.number" string="Order Number"/>
+    <field name="order_id.product_id.code" string="FG Product Code"/>
+    <field name="order_id.product_id.name" string="FG Product Name"/>
+    <field name="order_id.product_id.categ_id.name" string="FG Product Category"/>
+    <field name="order_id.state"/>
+    <field name="order_id.due_date"/>
+    <field name="order_id.due_date_week"/>
+    <field name="order_id.due_date_month"/>
+    <field name="order_id.order_date"/>
+    <field name="order_id.uom_id.name" string="FG UoM"/>
+</pivot>

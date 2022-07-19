@@ -1,0 +1,8 @@
+<action>
+    <field name="view_cls">chart</field>
+    <field name="model">visitor.action</field>
+    <field name="method">get_visitors_per_day</field>
+    <field name="chart_type">area</field>
+    <field name="x_type">datetime</field>
+    <field name="height">150</field>
+</action>

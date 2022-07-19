@@ -1,0 +1,7 @@
+<action>
+    <field name="view">chart</field>
+    <field name="model">report.sale</field>
+    <field name="method">expected_revenue</field>
+    <field name="chart_type">bar</field>
+    <field name="height">150</field>
+</action>

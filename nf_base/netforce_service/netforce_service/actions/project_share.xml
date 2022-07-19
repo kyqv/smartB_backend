@@ -1,0 +1,13 @@
+<action>
+    <field name="string">Project Tasks</field>
+    <field name="no_title">1</field>
+    <field name="no_import">1</field>
+    <field name="view">multi_view</field>
+    <field name="model">task</field>
+    <field name="modes">list,form</field>
+    <field name="tabs">[["Open",[["state","=","open"]]],["Closed",[["state","=","closed"]]],["Reviewed",[["state","=","reviewed"]]],["All",[]]]</field>
+    <field name="list_layout">task_list_share</field>
+    <field name="form_layout">task_form_share</field>
+    <field name="group_field">resource_id</field>
+    <field name="no_login">1</field>
+</action>

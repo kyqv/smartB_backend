@@ -1,0 +1,9 @@
+<list model="theme">
+    <top>
+        <button string="Import ZIP" action="import_theme_zip" icon="download"/>
+    </top>
+    <head>
+        <button string="Export ZIP" method="export_zip" icon="upload"/>
+    </head>
+    <field name="name"/>
+</list>

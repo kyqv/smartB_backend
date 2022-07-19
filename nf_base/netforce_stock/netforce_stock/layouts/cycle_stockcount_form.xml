@@ -1,0 +1,28 @@
+<form model="cycle.stock.count" show_company="1" show_save="1">
+    <top>
+        <button string="Options" dropdown="1" align="right">
+            <!--
+            <item string="test_option1" method="test_func"/>
+            -->
+        </button>
+    </top>
+
+    <tabs>
+        <tab string="Main">
+            <field name="product_id"/>
+            <field name="location_id"/>
+            <field name="date"/>
+            <field name="abc_categ"/>
+            <field name="xyz_categ"/>
+            <field name="qty"/>
+        </tab>
+    </tabs> 
+    <!--
+    <foot>
+        <button string="Test" method="test_func"/>
+    </foot>
+    -->
+    <related>
+        <field name="record_id"/>
+    </related>
+</form>

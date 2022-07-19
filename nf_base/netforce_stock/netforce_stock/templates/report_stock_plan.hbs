@@ -1,0 +1,74 @@
+<center>
+    <h2>
+        Stock Planning / Ordering
+    </h2>
+    <h3>
+        {{company_name}}
+    </h3>
+</center>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th style="width:20px"><input type="checkbox" class="nf-select-all"/></th>
+            <th>Product Code</th>
+            <th>Product Name</th>
+            <th>Forecast Qty In {{plan_horizon}} days</th>
+            <th>Minimum Qty</th>
+            <th>Missing Qty</th>
+            <th>Stock UoM</th>
+            <th>Order Qty</th>
+            <th>Order UoM</th>
+            <th>Order Lead Time</th>
+            <th>Supply Method</th>
+            <th>Supplier Name</th>
+        </tr>
+    <tbody>
+        {{#each lines context=context}}
+            <tr>
+                <td><input type="checkbox" class="nf-prod-select" data-product-id="{{product_id}}"/></td>
+                <td><a href="#name=product&amp;mode=form&amp;active_id={{product_id}}">{{product_code}}</a></td>
+                <td>{{product_name}}</td>
+                <td>{{plan_qty_horiz}}</td>
+                <td>{{min_qty}}</td>
+                <td>{{req_qty}}</td>
+                <td>{{stock_uom_name}}</td>
+                <td>{{order_qty}}</td>
+                <td>{{order_uom_name}}</td>
+                <td>{{order_lead_time}}</td>
+                <td>{{supply_method}}</td>
+                <td>{{supplier_name}}</td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>
+<button class="btn btn-success btn-lg nf-btn-order"><span class="glyphicon glyphicon-arrow-right"></span> Order Products</button>
+<script>
+$(function() {
+    $(".nf-btn-order").click(function() {
+        var prod_ids=[];
+        $("input.nf-prod-select:checked").each(function() {
+            var prod_id=$(this).data("product-id");
+            prod_ids.push(prod_id);
+        });
+        console.log("prod_ids",prod_ids);
+        if (_.isEmpty(prod_ids)) {
+            alert("No items selected");
+            return;
+        }
+        var action={
+            name: "stock_order",
+            context: {
+                product_ids: prod_ids,
+                location_id: {{#if location_id}}{{location_id}}{{else}}null{{/if}},
+                plan_horizon: {{plan_horizon}},
+            },
+        };
+        NF.actions.execute(action);
+    });
+
+    $(".nf-select-all").click(function() {
+        var val=$(this).is(":checked");
+        $("input.nf-prod-select").prop("checked",val);
+    });
+});
+</script>

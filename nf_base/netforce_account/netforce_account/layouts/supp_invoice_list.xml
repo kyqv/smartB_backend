@@ -1,0 +1,27 @@
+<list model="account.invoice" method="view_invoice">
+    <top replace="1">
+        <button string="New Invoice" action="supp_invoice" action_options='{"mode":"form","form_layout":"supp_invoice_form","context":{"defaults":{"type":"in","inv_type":"invoice"}}}' icon="plus-sign"/>
+        <button string="New Credit Note" action="supp_invoice" action_options='{"mode":"form","form_layout":"supp_credit_form","context":{"defaults":{"type":"in","inv_type":"credit"}}}' icon="plus-sign"/>
+        <button string="New Debit Note" action="supp_invoice" action_options='{"mode":"form","form_layout":"supp_debit_form","context":{"defaults":{"type":"in","inv_type":"debit"}}}' icon="plus-sign"/>
+        <button string="New Repeating Invoice" action="supp_invoice" action_options='{"mode":"form","form_layout":"supp_repeat_form","context":{"defaults":{"type":"in","inv_type":"invoice","state":"repeat"}}}' icon="plus-sign"/>
+        <button string="Import" action_options='{"view":"import","string":"Import Invoices","model":"account.invoice","menu":"account_menu"}' icon="download"/>
+    </top>
+    <head>
+        <button string="Approve" method="post"/>
+        <button string="To Draft" method="to_draft"/>
+        <button string="Void" method="void"/>
+        <button string="Print" icon="print" action="report_supp_invoice_form3" action_options='{"ids":ids}'/>
+    </head>
+    <field name="number"/>
+    <field name="ref"/>
+    <field name="inv_type"/>
+    <field name="contact_id"/>
+    <field name="date"/>
+    <field name="due_date"/>
+    <field name="amount_paid"/>
+    <field name="amount_due"/>
+    <field name="currency_id"/>
+    <field name="memo"/>
+    <field name="state"/>
+    <field name="company_id"/>
+</list>

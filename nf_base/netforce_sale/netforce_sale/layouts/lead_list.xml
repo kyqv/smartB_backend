@@ -1,0 +1,18 @@
+<list model="sale.lead">
+    <head>
+        <!--<button string="Convert To Opportunity" method="copy_to_opport" type="success" icon="ok"/>
+        <button string="Void" method="void" icon="remove"/>-->
+        <button string="Check Spam" method="check_spam"/>
+    </head>
+    <field name="number"/>
+    <field name="date"/>
+    <field name="title"/>
+    <field name="contact_name"/>
+    <field name="email"/>
+    <field name="age_days"/>
+    <field name="state"/>
+    <button string="Convert" method="copy_to_opport" type="success" icon="ok" states="new"/>
+    <button string="Refer" action="lead_refer" type="warning" states="new" icon="arrow-right"/>
+    <button string="Void" method="void" type="danger" icon="remove" states="new"/>
+    <button string="Back To New" method="set_new" states="converted,referred,voided" icon="arrow-left"/>
+</list>

@@ -1,0 +1,5 @@
+<list model="service.stage">
+    <field name="categ_id"/>
+    <field name="name"/>
+    <field name="sequence"/>
+</list>

@@ -1,0 +1,5 @@
+<action>
+    <field name="type">report_odt2</field>
+    <field name="model">hr.expense</field>
+    <field name="template">hr_expense</field>
+</action>

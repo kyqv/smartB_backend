@@ -1,0 +1,148 @@
+<style>
+.row-total td {
+    border-top: 1px solid black !important;
+    border-bottom: 1px solid black;
+    font-weight: bold;
+}
+</style>
+<center>
+    <h2>
+        Unrealized Gains and Losses
+    </h2>
+    <h3>
+        {{company_name}}
+        <br/>
+        From {{fmt_date date_from}} to {{fmt_date date_to}}
+    </h3>
+</center>
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th style="text-align:right">Balance</th>
+            <th>Account Currency</th>
+            <th style="text-align:right">Balance</th>
+            <th>Company Currency</th>
+            <th style="text-align:right">Balance (revalued)</th>
+            <th style="text-align:right">Unrealized Gain/Loss</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="font-weight:bold">
+                Accounts Receivable
+            </td>
+            <td colspan="10"></td>
+        </tr>
+        {{#each receivable_accounts}}
+            <tr>
+                <td>{{name}}</td>
+                <td style="text-align:right">{{currency balance_cur}}</td>
+                <td>{{account_currency_code}}</td>
+                <td style="text-align:right">{{currency balance}}</td>
+                <td>{{company_currency_code}}</td>
+                <td style="text-align:right">{{currency balance_reval}}</td>
+                <td style="text-align:right">{{currency unreal_gain}}</td>
+            </tr>
+        {{/each}}
+        <tr class="row-total">
+            <td>Total Accounts Receivable</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td style="text-align:right">{{currency totals_receivable.unreal_gain}}</td>
+        </tr>
+        <tr>
+            <td style="font-weight:bold">
+                Accounts Payable
+            </td>
+            <td colspan="10"></td>
+        </tr>
+        {{#each payable_accounts}}
+            <tr>
+                <td>{{name}}</td>
+                <td style="text-align:right">{{currency balance_cur}}</td>
+                <td>{{account_currency_code}}</td>
+                <td style="text-align:right">{{currency balance}}</td>
+                <td>{{company_currency_code}}</td>
+                <td style="text-align:right">{{currency balance_reval}}</td>
+                <td style="text-align:right">{{currency unreal_gain}}</td>
+            </tr>
+        {{/each}}
+        <tr class="row-total">
+            <td>Total Accounts Payable</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td style="text-align:right">{{currency totals_payable.unreal_gain}}</td>
+        </tr>
+        <tr>
+            <td style="font-weight:bold">
+                Bank Accounts
+            </td>
+            <td colspan="10"></td>
+        </tr>
+        {{#each bank_accounts}}
+            <tr>
+                <td>{{name}}</td>
+                <td style="text-align:right">{{currency balance_cur}}</td>
+                <td>{{account_currency_code}}</td>
+                <td style="text-align:right">{{currency balance}}</td>
+                <td>{{company_currency_code}}</td>
+                <td style="text-align:right">{{currency balance_reval}}</td>
+                <td style="text-align:right">{{currency unreal_gain}}</td>
+            </tr>
+        {{/each}}
+        <tr class="row-total">
+            <td>Total Bank Accounts</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td style="text-align:right">{{currency totals_bank.unreal_gain}}</td>
+        </tr>
+        <tr>
+            <td style="font-weight:bold">
+                Deposit Accounts
+            </td>
+            <td colspan="10"></td>
+        </tr>
+        {{#each deposit_accounts}}
+            <tr>
+                <td>{{name}}</td>
+                <td style="text-align:right">{{currency balance_cur}}</td>
+                <td>{{account_currency_code}}</td>
+                <td style="text-align:right">{{currency balance}}</td>
+                <td>{{company_currency_code}}</td>
+                <td style="text-align:right">{{currency balance_reval}}</td>
+                <td style="text-align:right">{{currency unreal_gain}}</td>
+            </tr>
+        {{/each}}
+        <tr class="row-total">
+            <td>Total Deposit Accounts</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td style="text-align:right">{{currency totals_deposit.unreal_gain}}</td>
+        </tr>
+        <tr><td></td></tr>
+        <tr class="row-total">
+            <td style="font-weight:bold">
+                FX Exposure
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td style="text-align:right">{{currency total_exposure}}</td>
+        </tr>
+    </tbody>
+</table>

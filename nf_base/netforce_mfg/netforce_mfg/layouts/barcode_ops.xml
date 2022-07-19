@@ -1,0 +1,10 @@
+<form model="barcode.ops" title="Barcode Operations Update">
+    <group form_layout="stacked">
+        <field name="production_id" span="2" required="1"/>
+        <field name="workcenter_id" span="2" required="1"/>
+    </group>
+    <foot replace="1">
+        <button string="Start" method="start" type="success" icon="ok"/>
+        <button string="Stop" method="stop" type="danger" icon="remove"/>
+    </foot>
+</form>

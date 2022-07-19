@@ -1,0 +1,7 @@
+<action>
+    <field name="view">list_m</field>
+    <field name="title">Product Waste</field>
+    <field name="model">product.waste</field>
+    <field name="tabs">[["Draft",[["state","=","draft"]]],["Completed",[["state","=","done"]]],["All",[]]]</field>
+    <field name="menu">main_menu_m</field>
+</action>

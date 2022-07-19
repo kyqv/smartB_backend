@@ -1,0 +1,56 @@
+<form model="hr.leave" attrs='{"readonly":[["state","in",["approved","rejected"]]]}' show_company="1">
+    <head>
+        <field name="state"/>
+        <button string="Options" dropdown="1">
+            <item string="To Draft" method="to_draft" states="waiting_approval,approved,rejected"/>
+        </button>
+    </head>
+    <group form_layout="stacked">
+        <separator string="General Information"/>
+        <field name="number" span="2"/>
+        <field name="date" span="2"/>
+        <field name="employee_id" span="2" onchange="onchange_employee"/>
+        <field name="schedule_id" onchange="onchange_schedule" span="2"/>
+        <field name="leave_type_id" span="2" onchange="onchange_type"/>
+        <field name="period_id" span="2" condition='[["leave_type_id","=",leave_type_id]]'/>
+    </group>
+    <group form_layout="stacked">
+        <field name="date_from" invisible="1" span="2"/>
+        <field name="date_to" invisible="1" span="2"/>
+        <separator string="Leaving Information"/>
+        <field name="start_date" onchange="onchange_date" span="2"/>
+        <field name="end_date" onchange="onchange_date" span="2"/>
+        <newline/>
+        <field name="days_requested" span="2"/>
+        <field name="days_remaining" span="2"/>
+        <newline/>
+        <field name="leave_reason" span="4"/>
+    </group>
+    <field name="company_id" invisible="1"/>
+    <foot>
+        <button string="Submit for approval" method="submit_for_approval" size="large" states="draft"/>
+        <button string="Approve" method="approve" size="large" type="success" states="waiting_approval" perm="hr_approve"/>
+        <button string="Reject" method="reject" size="large" type="danger" states="waiting_approval" perm="hr_approve"/>
+        <button string="Reopen" method="do_reopen" size="large" icon="repeat" states="approved,rejected" perm="hr_approve"/>
+    </foot>
+    <related>
+        <field name="documents">
+            <list>
+                <field name="file" target="_blank"/>
+                <field name="categ_id"/>
+                <field name="description"/>
+                <field name="date"/>
+                <field name="expiry_date"/>
+            </list>
+            <form>
+                <field name="categ_id"/>
+                <field name="date"/>
+                <field name="expiry_date"/>
+                <field name="description"/>
+                <newline/>
+                <field name="file" target="_blank" onchange="onchange_file"/>
+            </form>
+        </field>
+        <field name="comments"/>
+    </related>
+</form>

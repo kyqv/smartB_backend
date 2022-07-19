@@ -1,0 +1,5 @@
+<action>
+    <field name="type">method</field>
+    <field name="model">job</field>
+    <field name="method">check_dup</field>
+</action>

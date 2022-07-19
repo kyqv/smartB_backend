@@ -1,0 +1,7 @@
+<action>
+    <field name="string">Stock Forecast Summary</field>
+    <field name="view">report</field>
+    <field name="model">report.forecast.summary</field>
+    <field name="template">report_forecast_summary</field>
+    <field name="menu">stock_menu</field>
+</action>

@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Business Areas</field>
+    <field name="view">multi_view</field>
+    <field name="model">business.area</field>
+    <field name="menu">contact_menu</field>
+</action>

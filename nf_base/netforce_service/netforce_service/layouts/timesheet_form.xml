@@ -1,0 +1,27 @@
+<form model="time.sheet" attrs='{"readonly":[["state","!=","draft"]]}'>
+    <head>
+        <field name="state"/>
+    </head>
+    <field name="date"/>
+    <field name="resource_id"/>
+    <field name="work_time" nolabel="1">
+        <list>
+            <field name="product_id" onchange="onchange_product"/>
+            <field name="description"/>
+            <field name="duration"/>
+            <field name="unit_price"/>
+            <field name="project_id"/>
+            <field name="job_id"/>
+            <field name="amount"/>
+        </list>
+    </field>
+    <foot>
+        <button string="Submit for approval" method="submit" states="draft" icon="arrow-right"/>
+        <button string="Approve" method="approve" states="waiting_approval" type="success"/>
+        <button string="Reject" method="reject" states="waiting_approval" type="danger"/>
+        <button string="To Draft" method="to_draft" states="approved,rejected"/>
+    </foot>
+    <related>
+        <field name="comments"/>
+    </related>
+</form>

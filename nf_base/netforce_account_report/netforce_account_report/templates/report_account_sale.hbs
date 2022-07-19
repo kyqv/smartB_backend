@@ -1,0 +1,73 @@
+<center>
+    <h2>
+        Accounting Sales Report
+    </h2>
+    <h3>
+        {{company_name}}
+        <br/>
+        From {{fmt_date date_from}} to {{fmt_date date_to}}
+    </h3>
+</center>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                Number
+            </th>
+            <th>
+                Date
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Account
+            </th>
+            <th style="text-align:right">
+                Amount
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each groups}}
+            <tr>
+                <th>
+                    {{contact_name}}
+                </th>
+                <th colspan="10">
+                </th>
+            </tr>
+            {{#each lines}}
+                <tr>
+                    <td>
+                        {{#link action="view_transaction" active_id=id}}
+                            {{../number}}
+                        {{/link}}
+                    </td>
+                    <td>
+                        {{date}}
+                    </td>
+                    <td>
+                        {{description}}
+                    </td>
+                    <td>
+                        [{{account_code}}] {{account_name}}
+                    </td>
+                    <td style="text-align:right">
+                        {{currency amount}}
+                    </td>
+                </tr>
+            {{/each}}
+            <tr>
+                <th style="border-bottom: 1px solid #999">
+                    Total
+                </th>
+                <th colspan="3" style="border-bottom: 1px solid #999">
+                </th>
+                <th style="border-bottom: 1px solid #999;text-align:right">
+                    {{currency total}}
+                </th>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>

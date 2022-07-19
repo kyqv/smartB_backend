@@ -1,0 +1,7 @@
+<action>
+    <field name="name">uom</field>
+    <field name="string">Units of Measure</field>
+    <field name="view">multi_view</field>
+    <field name="model">uom</field>
+    <field name="menu">gen_menu</field>
+</action>

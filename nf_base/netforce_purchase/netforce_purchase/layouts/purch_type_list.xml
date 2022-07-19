@@ -1,0 +1,5 @@
+<list model="purchase.type">
+    <field name="name"/>
+    <field name="parent_id"/>
+    <field name="description"/>
+</list>

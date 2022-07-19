@@ -1,0 +1,6 @@
+<list model="field.access">
+    <field name="field_id"/>
+    <field name="profile_id"/>
+    <field name="user_id"/>
+    <field name="access"/>
+</list>

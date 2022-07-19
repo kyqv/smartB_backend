@@ -1,0 +1,45 @@
+<form model="stock.cut" title="Stock Cutting">
+    <separator string="Orders"/>
+    <field name="orders">
+        <list>
+            <field name="width"/>
+            <field name="qty"/>
+            <field name="qty_type"/>
+            <field name="pat_qty"/>
+        </list>
+    </field>
+    <separator string="Stock"/>
+    <field name="stock">
+        <list>
+            <field name="width"/>
+            <field name="qty"/>
+            <field name="jumbo"/>
+            <field name="pat_qty"/>
+        </list>
+    </field>
+    <separator string="Cutting Patterns"/>
+    <field name="patterns">
+        <list>
+            <field name="stock_width"/>
+            <field name="num"/>
+            <field name="width1"/>
+            <field name="qty1"/>
+            <field name="width2"/>
+            <field name="qty2"/>
+            <field name="width3"/>
+            <field name="qty3"/>
+            <field name="width4"/>
+            <field name="qty4"/>
+            <field name="width5"/>
+            <field name="qty5"/>
+            <field name="total_cut"/>
+            <field name="waste"/>
+            <field name="total_waste" shw_total="1"/>
+        </list>
+    </field>
+    <newline/>
+    <field name="total_waste"/>
+    <foot>
+        <button string="Compute Patterns" method="solve" type="success" icon="arrow-right"/>
+    </foot>
+</form>

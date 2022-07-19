@@ -1,0 +1,4 @@
+<list model="store.type">
+    <field name="name"/>
+    <field name="code"/>
+</list>

@@ -1,0 +1,7 @@
+<action>
+    <field name="name">profile</field>
+    <field name="string">Profiles</field>
+    <field name="view">multi_view</field>
+    <field name="model">profile</field>
+    <field name="menu">gen_menu</field>
+</action>

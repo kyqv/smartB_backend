@@ -1,0 +1,33 @@
+<form model="expense.claim" show_company="1" attrs='{"readonly":[["state","in",["approved","paid","declined"]]]}'>
+    <head>
+        <field name="state"/>
+        <button string="Print" icon="print" action="print_expense_claim"/>
+        <button string="Options" dropdown="1">
+            <item string="To Draft" method="do_to_draft" states="waiting_approval,approved,declined,paid"/>
+            <divider/>
+            <item string="View Journal Entry" method="view_journal_entry" states="approved,paid"/>
+        </button>
+    </head>
+    <field name="number"/>
+    <field name="employee_id"/>
+    <newline/>
+    <field name="date_from"/>
+    <field name="date_to"/>
+    <newline/>
+    <field name="description"/>
+    <separator/>
+    <field name="num_expenses"/>
+    <field name="amount_total"/>
+    <separator/>
+    <field name="account_id" condition='[["company_id","=",company_id],["or",["type","in",["bank","cash","cheque"]],["enable_payment","=",true]]]'/>
+    <field name="company_id" invisible="1"/>
+    <foot>
+        <button string="Submit For Approval" method="do_submit" icon="arrow-right" states="draft"/>
+        <button string="Approve" method="do_approve" type="success" icon="ok" states="waiting_approval" perm="approve_expense"/>
+        <button string="Decline" method="do_decline" type="danger" icon="remove" states="waiting_approval" perm="approve_expense"/>
+    </foot>
+    <related>
+        <field name="expenses"/>
+        <field name="comments"/>
+    </related>
+</form>

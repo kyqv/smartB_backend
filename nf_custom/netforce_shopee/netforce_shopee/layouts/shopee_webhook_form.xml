@@ -1,0 +1,12 @@
+<form model="shopee.webhook">
+    <top>`
+        <button string="Options">
+            <item string="Handle Webhook" method="handle_webhook"/>
+        </button>
+    </top>
+    <field name="date"/>
+    <field name="body"/>
+    <field name="processed_time"/>
+    <field name="state"/>
+    <field name="error"/>
+</form>

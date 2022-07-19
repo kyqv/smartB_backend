@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Relation Types</field>
+    <field name="view">multi_view</field>
+    <field name="model">contact.relation.type</field>
+    <field name="menu">contact_menu</field>
+</action>

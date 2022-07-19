@@ -1,0 +1,35 @@
+<form model="stock.move" show_company="1" attrs='{"readonly":[["state","=","done"]]}'>
+    <head>
+        <field name="state"/>
+    </head>
+    <tabs>
+        <tab string="General">
+            <field name="date"/>
+            <field name="contact_id"/>
+            <field name="number"/>
+            <field name="picking_id"/>
+            <field name="ref"/>
+            <field name="related_id"/>
+            <separator/>
+            <field name="product_id"/>
+            <field name="lot_id"/>
+            <field name="qty"/>
+            <field name="uom_id"/>
+            <separator/>
+            <field name="location_from_id"/>
+            <field name="location_to_id"/>
+            <field name="container_from_id"/>
+            <field name="container_to_id"/>
+            <separator/>
+            <field name="cost_price"/>
+            <field name="cost_amount"/>
+            <field name="qty2"/>
+            <separator/>
+            <field name="move_id"/>
+        </tab>
+        <tab string="Other">
+            <field name="journal_id"/>
+        </tab>
+    </tabs>
+    <field name="company_id" invisible="1"/>
+</form>

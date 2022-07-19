@@ -1,0 +1,8 @@
+<action>
+    <field name="view_type">collection</field>
+    <field name="model">stock.move</field>
+    <field name="condition">[["or",["location_from_id","=",warehouse_id],["location_to_id","=",warehouse_id]],["state","in",["pending","done"]]]</field>
+    <field name="order">date desc,id desc</field>
+    <field name="template">warehouse_transaction_list</field>
+    <field name="layout">warehouse_page</field>
+</action>

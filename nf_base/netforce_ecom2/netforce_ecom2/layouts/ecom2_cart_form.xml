@@ -1,0 +1,97 @@
+<form model="ecom2.cart" show_company="1">
+    <top>
+        <button string="Print" icon="print" action="report_cart_form" action_options='{"active_id":id}'/>
+        <button string="Options" dropdown="1">
+            <item string="To Draft" method="to_draft" states="confirmed"/>
+        </button>
+    </top>
+    <head>
+        <field name="state"/>
+    </head>
+    <field name="company_id" invisible="1"/>
+    <tabs>
+        <tab string="General">
+            <field name="number"/>
+            <field name="date"/>
+            <field name="customer_id"/>
+            <field name="delivery_date"/>
+            <field name="ship_address_id" condition='[["contact_id","=",customer_id]]'/>
+            <field name="delivery_slot_id"/>
+            <field name="bill_address_id" condition='[["contact_id","=",customer_id]]'/>
+            <field name="currency_id"/>
+            <field name="ship_method_id"/>
+            <field name="pay_method_id"/>
+            <field name="pay_amount"/>
+            <field name="delivery_delay"/>
+            <field name="lines">
+                <list>
+                    <field name="product_id"/>
+                    <field name="lot_id"/>
+                    <field name="weight"/>
+                    <field name="unit_price"/>
+                    <field name="qty"/>
+                    <field name="uom_id"/>
+                    <field name="discount"/>
+                    <field name="delivery_date"/>
+                    <field name="ship_method_id"/>
+                    <field name="ship_address_id" condition='[["contact_id","=",parent.customer_id]]'/>
+                    <field name="delivery_slot_id"/>
+                    <field name="packaging_id"/>
+                    <field name="addons"/>
+                    <field name="qty_avail"/>
+                    <field name="delivery_delay"/>
+                    <field name="delivery_weekdays"/>
+                    <field name="amount"/>
+                </list>
+            </field>
+            <field name="amount_ship"/>
+            <field name="amount_voucher"/>
+            <field name="amount_total"/>
+            <field name="state"/>
+            <newline/>
+            <field name="comments"/>
+        </tab>
+        <tab string="Checkout">
+            <field name="email"/>
+            <newline/>
+            <group span="6" columns="1">
+                <separator string="Billing Details"/>
+                <field name="bill_first_name"/>
+                <field name="bill_last_name"/>
+                <field name="bill_company"/>
+                <field name="bill_phone"/>
+                <field name="bill_country"/>
+                <field name="bill_address"/>
+                <field name="bill_postal_code"/>
+                <field name="bill_city"/>
+            </group>
+            <group span="6" columns="1">
+                <separator string="Shipping Details"/>
+                <field name="ship_first_name"/>
+                <field name="ship_last_name"/>
+                <field name="ship_company"/>
+                <field name="ship_phone"/>
+                <field name="ship_country"/>
+                <field name="ship_address"/>
+                <field name="ship_postal_code"/>
+                <field name="ship_city"/>
+            </group>
+        </tab>
+        <tab string="Other">
+            <field name="voucher_id"/>
+            <separator/>
+            <field name="delivery_slots_str"/>
+            <separator/>
+            <field name="transaction_no"/>
+        </tab>
+    </tabs>
+    <foot>
+        <button string="Confirm Order" method="confirm" type="success" icon="arrow-right" states="draft"/>
+        <button string="Cancel Order" method="cancel_order" type="danger" icon="remove" states="waiting_payment,paid" confirm="Are you sure?"/>
+    </foot>
+    <related>
+        <field name="sale_orders"/>
+        <field name="documents"/>
+        <field name="logs"/>
+    </related>
+</form>

@@ -1,0 +1,252 @@
+# Copyright (c) 2012-2015 Netforce Co. Ltd.
+# 
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+# 
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+# 
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+# EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+# IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+# DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+# OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
+# OR OTHER DEALINGS IN THE SOFTWARE.
+
+from netforce.controller import Controller
+from netforce.model import get_model, clear_cache, LogError
+from netforce import database
+from netforce import access
+from netforce.locale import set_active_locale
+import json
+import sys
+from datetime import *
+import time
+import random
+from netforce.locale import translate
+from netforce.utils import timeout, json_dumps, check_token
+from netforce.log import rpc_log
+import traceback
+from netforce import logger
+
+TIMEOUT=60
+
+def log_slow_rpc(dbname,min_dt,dt,model,method,args,opts,user_id,company_id):
+    t=time.strftime("%Y-%m-%dT%H:%M:%S")
+    f=open("/tmp/slow_rpc_%s.log"%min_dt,"a")
+    line="[%s] db=%s dt=%s model=%s method=%s user_id=%s company_id=%s args=%s\n"%(t,dbname,dt,model,method,user_id,company_id,args)
+    f.write(line)
+
+def log_security(msg,user_id=None,ip_addr=None):
+    t=time.strftime("%Y-%m-%dT%H:%M:%S")
+    f=open("/tmp/security.log","a")
+    line="[%s] user_id=%s ip_addr=%s %s\n"%(t,user_id,ip_addr,msg)
+    f.write(line)
+
+class JsonRpc(Controller):
+    _path = "/json_rpc"
+
+    def post(self):
+        req = json.loads(self.request.body.decode())
+        # open("/tmp/json_rpc.log","a").write(self.request.body.decode()+"\n###############################################################\n")
+        try:
+            clear_cache()
+            method = req["method"]
+            params = req["params"]
+            if method == "execute":
+                model = params[0]
+                method = params[1]
+                if method.startswith("_"):
+                    raise Exception("Invalid method")
+                entry_point="JSON_RPC %s %s"%(model,method)
+                logger.set_entry_point(entry_point)
+                args = params[2]
+                if len(params) >= 4:
+                    opts = params[3] or {}
+                else:
+                    opts = {}
+                if len(params) >= 5:
+                    cookies = params[4] or {}
+                else:
+                    cookies = {}
+                if "database" in cookies:
+                    dbname=cookies["database"]
+                    database.set_active_db(dbname)
+                if "locale" in cookies:
+                    set_active_locale(cookies["locale"])
+                user_id=None
+                if "user_id" in cookies:
+                    user_id=int(cookies["user_id"])
+                    token=cookies.get("token")
+                    dbname=database.get_active_db()
+                    if not check_token(dbname, user_id, token):
+                        raise LogError("Invalid access token",require_logout=True)
+                print("@"*80)
+                print("@"*80)
+                print("@"*80)
+                print("user_id",user_id)
+                access.set_active_user(user_id)
+                if "company_id" in cookies:
+                    company_id=int(cookies["company_id"])
+                    access.set_active_company(company_id)
+                else:
+                    access.set_active_company(1) # XXX
+                client_name=cookies.get("client_name")
+                logger.set_client_name(client_name)
+                user_id = access.get_active_user()
+                rpc_log.info("EXECUTE db=%s model=%s method=%s user=%s" %
+                             (database.get_active_db(), model, method, user_id))
+                print("cookies",cookies)
+                ctx = {
+                    "request_handler": self,
+                    "request": self.request,
+                }
+                ctx.update(self.get_cookies())
+                ctx.update(cookies);
+                ctx.update(opts.get("context",{}))
+                opts["context"]=ctx
+                with timeout(seconds=TIMEOUT):  # XXX: can make this faster? (less signal sys handler overhead)
+                    t0 = time.time()
+                    with database.Transaction():
+                        m = get_model(model)
+                        res=m.exec_func(method,args,opts)
+                    t1 = time.time()
+                    dt = (t1 - t0) * 1000
+                    rpc_log.info("<<< %d ms" % dt)
+                resp = {
+                    "result": res,
+                    "error": None,
+                    "id": req["id"],
+                }
+            else:
+                raise Exception("Invalid method: %s" % method)
+        except Exception as e:
+            try:
+                msg = translate(str(e))
+            except:
+                print("WARNING: Failed to translate error message")
+                msg = str(e)
+            rpc_log.error(msg)
+            rpc_log.error(traceback.format_exc())
+            err = {
+                "message": msg,
+            }
+            error_fields = getattr(e, "error_fields", None)
+            if error_fields:
+                err["error_fields"] = error_fields
+            require_logout = getattr(e, "require_logout", None)
+            if require_logout:
+                err["require_logout"]=True
+            resp = {
+                "result": None,
+                "error": err,
+                "id": req["id"],
+            }
+        access.clear_active_user()
+        try:
+            data = json_dumps(resp)
+            self.add_header("Access-Control-Allow-Origin","*")
+            self.write(data)
+        except:
+            print("JSONRPC ERROR: invalid response")
+            from pprint import pprint
+            pprint(resp)
+            traceback.print_exc()
+
+    def get(self):
+        db = database.get_connection()
+        if db:
+            db.begin()
+        try:
+            clear_cache()
+            print(self)
+            method = self.get_argument("method")
+            model = self.get_argument("model")
+            if method.startswith("_"):
+                raise Exception("Invalid method")
+            args = self.get_argument("args",None)
+            if args:
+                args=json.loads(args)
+            else:
+                args=[]
+            opts = self.get_argument("opts",None)
+            if opts:
+                opts=json.loads(opts)
+            else:
+                opts={}
+            cookies = self.get_argument("cookies",None)
+            if cookies:
+                cookies = json.loads(cookies)
+            else:
+                cookies = {}
+            if "locale" in cookies:
+                set_active_locale(cookies["locale"])
+            user_id = access.get_active_user()
+            rpc_log.info("EXECUTE db=%s model=%s method=%s user=%s" %
+                         (database.get_active_db(), model, method, user_id))
+            m = get_model(model)
+            f = getattr(m, method)
+            ctx = {
+                "request_handler": self,
+                "request": self.request,
+            }
+            ctx.update(self.get_cookies())
+            opts.setdefault("context", {}).update(ctx)
+            with timeout(seconds=TIMEOUT):  # XXX: can make this faster? (less signal sys handler overhead)
+                t0 = time.time()
+                res = f(*args, **opts)
+                t1 = time.time()
+                dt = (t1 - t0) * 1000
+                rpc_log.info("<<< %d ms" % dt)
+            resp = {
+                "result": res,
+                "error": None,
+                "id": self.get_argument("id"),
+            }
+            db = database.get_connection()
+            if db:
+                db.commit()
+        except Exception as e:
+            try:
+                msg = translate(str(e))
+            except:
+                print("WARNING: Failed to translate error message")
+                msg = str(e)
+            rpc_log.error(msg)
+            if db:
+                db.rollback()
+            rpc_log.error(traceback.format_exc())
+            err = {
+                "message": msg,
+            }
+            error_fields = getattr(e, "error_fields", None)
+            if error_fields:
+                err["error_fields"] = error_fields
+            resp = {
+                "result": None,
+                "error": err,
+                "id": self.get_argument("id",None),
+            }
+        access.clear_active_user()
+        try:
+            data = json_dumps(resp)
+            self.add_header("Access-Control-Allow-Origin","*")
+            self.add_header("Last-Modified",datetime.utcnow())
+            self.write(data)
+        except:
+            print("JSONRPC ERROR: invalid response")
+            from pprint import pprint
+            pprint(resp)
+            traceback.print_exc()
+
+    def options(self):
+        self.add_header("Access-Control-Allow-Origin","*")
+        self.add_header("Access-Control-Allow-Headers","Content-Type, X-Database, X-Schema, X-Locale")
+        self.add_header("Access-Control-Allow-Methods","POST, GET, OPTIONS")
+
+JsonRpc.register()

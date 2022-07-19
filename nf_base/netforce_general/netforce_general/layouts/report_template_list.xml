@@ -1,0 +1,12 @@
+<list model="report.template">
+    <field name="type"/>
+    <field name="sequence"/>
+    <field name="name"/>
+    <field name="format"/>
+    <field name="file"/>
+    <field name="orientation"/>
+    <field name="printer_name"/>
+    <field name="multi_render"/>
+    <field name="convert_pdf"/>
+    <field name="company_id"/>
+</list>

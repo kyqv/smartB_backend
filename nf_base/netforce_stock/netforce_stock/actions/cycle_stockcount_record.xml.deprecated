@@ -1,0 +1,10 @@
+<action>
+    <field name="string">Cycle Stock Count Records</field>
+    <field name="view">multi_view</field>
+    <field name="model">cycle.stock.count.record</field>
+    <field name="list_layout">cycle_stockcount_record_list</field>
+    <field name="form_layout">cycle_stockcount_record_form</field>
+    <field name="model_string">Cycle Stock Count Record</field>
+    <field name="modes">list,form,calendar</field>
+    <field name="menu">stock_menu</field>
+</action>

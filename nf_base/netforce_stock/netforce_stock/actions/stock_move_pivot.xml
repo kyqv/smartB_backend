@@ -1,0 +1,7 @@
+<action>
+    <field name="string">Stock Movement Analysis</field>
+    <field name="view">pivot</field>
+    <field name="model">stock.move</field>
+    <field name="read_group">1</field>
+    <field name="menu">stock_menu</field>
+</action>

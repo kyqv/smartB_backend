@@ -1,0 +1,6 @@
+<list model="chat.message">
+    <field name="time"/>
+    <field name="channel_id"/>
+    <field name="message"/>
+    <field name="user_id"/>
+</list>

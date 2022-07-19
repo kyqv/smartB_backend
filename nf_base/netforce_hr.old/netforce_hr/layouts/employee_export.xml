@@ -1,0 +1,25 @@
+<export model="hr.employee">
+    <field name="code"/>
+    <field name="department_id"/>
+    <field name="first_name"/>
+    <field name="last_name"/>
+    <field name="title"/>
+    <field name="position"/>
+    <field name="work_status"/>
+    <field name="work_type"/>
+    <field name="hire_date"/>
+    <field name="resign_date"/>
+    <field name="user_id"/>
+    <field name="approver_id"/>
+    <field name="birth_date"/>
+    <field name="age"/>
+    <field name="gender"/>
+    <field name="marital_status"/>
+    <field name="id_no"/>
+    <field name="phone"/>
+    <field name="drive_license_type"/>
+    <field name="drive_license_no"/>
+    <field name="country_id"/>
+    <field name="bank_account"/>
+    <field name="salary"/>
+</export>

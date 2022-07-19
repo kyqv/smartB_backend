@@ -1,0 +1,4 @@
+<search model="country">
+    <field name="name"/>
+    <field name="code"/>
+</search>

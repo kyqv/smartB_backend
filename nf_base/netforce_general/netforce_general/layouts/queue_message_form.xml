@@ -1,0 +1,15 @@
+<form model="queue.message">
+    <head>
+        <field name="state"/>
+    </head>
+    <field name="queue_id"/>
+    <field name="time_received"/>
+    <field name="body"/>
+    <separator/>
+    <field name="state"/>
+    <field name="time_processed"/>
+    <field name="result"/>
+    <field name="error"/>
+    <newline/>
+    <button string="Process" method="process_message"/>
+</form>

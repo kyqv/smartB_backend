@@ -1,0 +1,8 @@
+<action>
+    <field name="string">Depreciation Schedule</field>
+    <field name="view">report</field>
+    <field name="model">report.dep.schedule</field>
+    <field name="template">report_dep_schedule</field>
+    <!--<field name="template_xls">fixed_asset</field>-->
+    <field name="menu">account_menu</field>
+</action>

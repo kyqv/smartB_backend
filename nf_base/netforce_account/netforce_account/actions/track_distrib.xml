@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Tracking Distributions</field>
+    <field name="view">multi_view</field>
+    <field name="model">track.distrib</field>
+    <field name="menu">account_menu</field>
+</action>

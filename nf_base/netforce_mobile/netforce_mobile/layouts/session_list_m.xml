@@ -1,0 +1,7 @@
+<list_m model="visitor.session">
+    <field name="create_time"/>
+    <field name="id_no"/>
+    <newline/>
+    <field name="visitor_id"/>
+    <field name="num_actions" label="Actions"/>
+</list_m>

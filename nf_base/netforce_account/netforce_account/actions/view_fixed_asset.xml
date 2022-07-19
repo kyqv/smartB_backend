@@ -1,0 +1,5 @@
+<action>
+    <field name="type">method</field>
+    <field name="model">account.fixed.asset</field>
+    <field name="method">view_fixed_asset</field>
+</action>

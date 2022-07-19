@@ -1,0 +1,20 @@
+<form model="delivery.slot">
+    <field name="name"/>
+    <field name="sequence"/>
+    <field name="time_from"/>
+    <field name="time_to"/>
+    <related>
+        <field name="capacities">
+            <list>
+                <field name="weekday"/>
+                <field name="capacity"/>
+                <field name="exclude_postal_codes"/>
+            </list>
+            <form>
+                <field name="weekday"/>
+                <field name="capacity"/>
+                <field name="exclude_postal_codes"/>
+            </form>
+        </field>
+    </related>
+</form>

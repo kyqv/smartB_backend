@@ -1,0 +1,4 @@
+<list_m model="currency">
+    <field name="name"/>
+    <field name="code"/>
+</list_m>

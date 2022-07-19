@@ -1,0 +1,19 @@
+<form model="sso.regist" title="SSO Employee Registration">
+    <field name="month" mode="month" span="4" onchange="onchange_month"/>
+    <field name="doc_date" span="4"/>
+    <field name="show_doc_date" span="4"/>
+    <separator string="Employee"/>
+    <field name="lines" nolabel="1">
+        <list>
+            <field name="employee_id" onchange="onchange_employee"/>
+            <field name="id_no"/>
+            <field name="hire_date"/>
+            <field name="old_company"/>
+            <field name="other_old_company"/>
+        </list>
+    </field>
+    <foot replace="1">
+        <button string="Print Cover" icon="print" method="print_cover"/>
+        <button string="Print Attach" icon="print" method="print_attach"/>
+    </foot>
+</form>

@@ -1,0 +1,4 @@
+<list model="hr.schedule">
+    <field name="name"/>
+    <field name="working_hour"/>
+</list>

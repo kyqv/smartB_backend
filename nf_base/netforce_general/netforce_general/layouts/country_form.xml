@@ -1,0 +1,11 @@
+<form model="country">
+    <field name="name"/>
+    <field name="code"/>
+    <field name="phone_prefix"/>
+    <field name="flag"/>
+    <field name="timezone"/>
+    <related>
+        <field name="provinces"/>
+        <field name="postal_codes"/>
+    </related>
+</form>

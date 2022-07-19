@@ -1,0 +1,19 @@
+<menu string="Manufacturing">
+    <item string="Dashboard" action="mfg_board"/>
+    <item string="Production" dropdown="1">
+        <item string="Production Orders" action="production"/>
+        <item string="Production Periods" action="production_period"/>
+        <item string="Production Plan" action="production_plan"/>
+    </item>
+    <item string="Settings">
+        <item string="Settings" action="mfg_settings"/>
+        <item string="Bill Of Materials" action="bom"/>
+        <item string="Workcenters" action="workcenter"/>
+        <item string="Routings" action="routing"/>
+        <item string="Teams" action="mfg_team"/>
+    </item>
+    <item string="Report">
+        <item string="Production Analysis" action="production_analysis"/>
+        <item string="Production Component Analysis" action="production_comp_analysis"/>
+    </item>
+</menu>

@@ -1,0 +1,21 @@
+<form model="record.history">
+    <top>
+        <button string="Restore Values" method="restore_vals" confirm="Are you sure?"/>
+    </top>
+    <field name="time"/>
+    <field name="model"/>
+    <field name="record_id"/>
+    <field name="user_id"/>
+    <related>
+        <field name="field_values">
+            <list>
+                <field name="field"/>
+                <field name="value" string="Prev Value"/>
+            </list>
+            <form>
+                <field name="field"/>
+                <field name="value" string="Prev Value"/>
+            </form>
+        </field>
+    </related>
+</form>

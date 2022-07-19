@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Product Attributes</field>
+    <field name="view">multi_view</field>
+    <field name="model">product.attribute</field>
+    <field name="menu">product_menu</field>
+</action>

@@ -1,0 +1,8 @@
+<form model="skill.level">
+    <field name="name"/>
+    <field name="level"/>
+    <field name="description"/>
+    <related>
+        <field name="comments"/>
+    </related>
+</form>

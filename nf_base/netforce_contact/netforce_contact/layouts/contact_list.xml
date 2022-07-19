@@ -1,0 +1,18 @@
+<list model="contact" priority="1">
+    <top>
+        <button string="Archive Duplicates" method="arch_dup"/>
+    </top>
+    <head>
+        <button string="Print" icon="print" action="report_contact" action_options='{"ids":ids}'/>
+    </head>
+    <field name="name"/>
+    <field name="code"/>
+    <field name="type"/>
+    <field name="categ_id"/>
+    <field name="phone"/>
+    <field name="contact_person_id"/>
+    <field name="org_id"/>
+    <field name="email"/>
+    <field name="state"/>
+    <field name="company_id"/>
+</list>

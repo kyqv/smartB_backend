@@ -1,0 +1,8 @@
+<action>
+    <field name="string">Shopee Webhook</field>
+    <field name="view">multi_view</field>
+    <field name="model">shopee.webhook</field>
+    <field name="menu">shopee_menu</field>
+    <field name="tabs">[["New",[["state","=","new"]]],["Error",[["state","=","error"]]],["Done",[["state","=","done"]]],["ALL",[]]]</field>
+    <field name="theme">orange</field>
+</action>

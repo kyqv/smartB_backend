@@ -1,0 +1,8 @@
+<action>
+    <field name="string">Journal Report</field>
+    <field name="view">report</field>
+    <field name="model">report.journal</field>
+    <field name="template">report_journal</field>
+    <field name="template_xls">account_journal</field>
+    <field name="menu">account_menu</field>
+</action>

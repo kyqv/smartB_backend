@@ -1,0 +1,14 @@
+<form model="reminder">
+    <head>
+        <field name="state"/>
+        <button string="Options" dropdown="1">
+            <item string="Send Email" method="send_email"/>
+        </button>
+    </head>
+    <field name="scheduled_date"/>
+    <field name="doc_id"/>
+    <field name="user_id"/>
+    <field name="subject"/>
+    <field name="body"/>
+    <field name="state"/>
+</form>

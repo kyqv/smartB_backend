@@ -1,0 +1,6 @@
+<action>
+    <field name="view">form</field>
+    <field name="string">Stock Cutting</field>
+    <field name="model">stock.cut</field>
+    <field name="menu">stock_menu</field>
+</action>

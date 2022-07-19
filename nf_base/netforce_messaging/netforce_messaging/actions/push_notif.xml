@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Push Notifications</field>
+    <field name="view">multi_view</field>
+    <field name="model">push.notif</field>
+    <field name="menu">msg_menu</field>
+</action>

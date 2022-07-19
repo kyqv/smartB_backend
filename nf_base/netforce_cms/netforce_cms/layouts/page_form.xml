@@ -1,0 +1,20 @@
+<form model="cms.page">
+    <head>
+        <field name="state"/>
+    </head>
+    <field name="title"/>
+    <field name="code"/>
+    <field name="user_id"/>
+    <field name="state"/>
+    <newline/>
+    <field name="body" width="900" height="500" view="field_html"/>
+    <newline/>
+    <field name="template"/>
+    <newline/>
+    <field name="meta_description"/>
+    <field name="meta_keywords"/>
+    <related>
+        <field name="blocks"/>
+        <field name="comments"/>
+    </related>
+</form>

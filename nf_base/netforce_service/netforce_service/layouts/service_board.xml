@@ -1,0 +1,12 @@
+<board>
+    <hpanel>
+        <widget string="Projects In Progress" action="project_widget" span="12"/>
+    </hpanel>
+    <hpanel>
+        <widget string="Time Spent Per Project" action="time_project_widget" span="12"/>
+        <widget string="Time Spent Per Resource" action="time_resource_widget" span="12"/>
+    </hpanel>
+    <hpanel>
+        <widget string="Pending Service Orders" action="job_widget"/>
+    </hpanel>
+</board>

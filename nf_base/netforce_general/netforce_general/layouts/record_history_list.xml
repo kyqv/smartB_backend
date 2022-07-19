@@ -1,0 +1,7 @@
+<list model="record.history">
+    <field name="time"/>
+    <field name="model"/>
+    <field name="record_id"/>
+    <field name="user_id"/>
+    <field name="num_fields"/>
+</list>

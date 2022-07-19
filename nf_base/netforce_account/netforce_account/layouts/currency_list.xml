@@ -1,0 +1,9 @@
+<list model="currency">
+    <field name="name"/>
+    <field name="code"/>
+    <field name="sign"/>
+    <field name="iso_number"/>
+    <field name="product_id"/>
+    <field name="sell_rate"/>
+    <field name="buy_rate"/>
+</list>

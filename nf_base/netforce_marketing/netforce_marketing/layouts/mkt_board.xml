@@ -1,0 +1,5 @@
+<board>
+    <hpanel>
+        <widget string="Active Campaigns" action="campaign_widget" span="12"/>
+    </hpanel>
+</board>

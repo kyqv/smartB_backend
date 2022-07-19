@@ -1,0 +1,4 @@
+<list_m model="stock.location">
+    <field name="name"/>
+    <field name="code"/>
+</list_m>

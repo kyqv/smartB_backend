@@ -1,0 +1,6 @@
+<list model="cms.blog.post">
+    <field name="blog_id"/>
+    <field name="date"/>
+    <field name="title"/>
+    <field name="user_id"/>
+</list>

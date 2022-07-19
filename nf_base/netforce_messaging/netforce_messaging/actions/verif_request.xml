@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Verification Requests</field>
+    <field name="view">multi_view</field>
+    <field name="model">verif.request</field>
+    <field name="menu">msg_menu</field>
+</action>

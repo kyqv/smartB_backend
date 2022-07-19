@@ -1,0 +1,10 @@
+<action>
+    <field name="view">list_m</field>
+    <field name="title">Receive From Supplier</field>
+    <field name="model">stock.picking</field>
+    <field name="condition">[["journal_id.type","=","in"]]</field>
+    <field name="tabs">[["Planned",[["state","in",["pending","approved"]]]],["QC Checked",[["state","=","qc_checked"]]],["Completed",[["state","=","done"]]]]</field>
+    <field name="form_layout">pick_in_form_m</field>
+    <field name="context">{"pick_type":"in"}</field>
+    <field name="menu">main_menu_m</field>
+</action>

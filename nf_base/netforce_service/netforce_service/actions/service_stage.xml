@@ -1,0 +1,7 @@
+<action>
+    <field name="name">service_stage</field>
+    <field name="string">Service Stages</field>
+    <field name="view">multi_view</field>
+    <field name="model">service.stage</field>
+    <field name="menu">service_menu</field>
+</action>

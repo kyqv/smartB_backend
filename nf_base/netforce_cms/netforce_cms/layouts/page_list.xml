@@ -1,0 +1,6 @@
+<list model="cms.page">
+    <field name="title"/>
+    <field name="code"/>
+    <field name="user_id"/>
+    <field name="state"/>
+</list>

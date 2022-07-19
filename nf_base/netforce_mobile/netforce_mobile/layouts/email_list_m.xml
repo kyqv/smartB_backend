@@ -1,0 +1,10 @@
+<list_m model="email.message">
+    <field name="date"/>
+    <field name="state"/>
+    <newline/>
+    <field name="from_addr" label="From"/>
+    <newline/>
+    <field name="to_addrs" label="To"/>
+    <newline/>
+    <field name="subject"/>
+</list_m>

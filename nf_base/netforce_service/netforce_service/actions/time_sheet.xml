@@ -1,0 +1,7 @@
+<action>
+    <field name="string">Time Sheets</field>
+    <field name="view">multi_view</field>
+    <field name="model">time.sheet</field>
+    <field name="tabs">[["All",[]],["Draft",[["state","=","draft"]]],["Waiting Approval",[["state","=","waiting_approval"]]],["Approved",[["state","=","approved"]]]]</field>
+    <field name="menu">service_menu</field>
+</action>

@@ -1,0 +1,62 @@
+<menu string="General">
+    <item string="Dashboard" action="gen_board"/>
+    <item string="Access Control">
+        <item string="Users" action="user"/>
+        <item string="Profiles" action="profile"/>
+        <item string="Roles" action="role"/>
+        <item string="Sharing Settings" action="share_settings"/>
+        <item string="Field Access" action="field_access"/>
+        <item string="Menu Access" action="menu_access"/>
+        <item string="Permissions" action="permission"/>
+        <item string="Groups" action="group"/>
+        <item string="Companies" action="company"/>
+        <item string="Audit Log" action="log"/>
+        <item string="Access Tokens" action="access_token"/>
+    </item>
+    <item string="Workflow">
+        <item string="Workflow Rules" action="wkf_rule"/>
+        <item string="Cron Jobs" action="cron_job"/>
+        <item string="Task Queue" action="bg_task"/>
+        <item string="Approval Workflows" action="approve_wkf"/>
+        <item string="External Queues" action="queue"/>
+    </item>
+    <item string="Database">
+        <item string="Models" action="model"/>
+        <item string="Fields" action="field"/>
+        <item string="Model Instances" action="model_inst"/>
+        <item string="Field Values" action="field_value"/>
+        <item string="Record History" action="record_history"/>
+    </item>
+    <item string="User Interface">
+        <item string="Layouts" action="view_layout"/>
+        <item string="Actions" action="action"/>
+    </item>
+    <item string="Language">
+        <item string="Languages" action="lang"/>
+        <item string="Translations" action="translation"/>
+    </item>
+    <item string="Help">
+        <item string="Video Tutorials" action="help_video"/>
+        <item string="Tooltips" action="help_tooltip"/>
+        <item string="Overlays" action="help_overlay"/>
+    </item>
+    <item string="Other">
+        <item string="Organization Settings" action="org_settings"/>
+        <item string="Units Of Measure" action="uom"/>
+        <item string="UoM Conversion Factors" action="uom_conv"/>
+        <item string="Report Templates" action="report_template"/>
+        <item string="Sequences" action="sequence"/>
+        <item string="Countries" action="country"/>
+        <item string="Provinces" action="province"/>
+        <item string="Districts" action="district"/>
+        <item string="Subdistricts" action="subdistrict"/>
+        <item string="Postal Codes" action="postal_code"/>
+        <item string="Attachments" action="attach"/>
+        <item string="Company Types" action="company_type"/>
+        <item string="Banks" action="bank_name"/>
+        <item string="Reason Codes" action="reason_code"/>
+        <item string="Bug Reports" action="bug_report"/>
+        <item string="UI Config" action="config"/>
+        <item string="User Dashboards" action="board_user"/>
+    </item>
+</menu>

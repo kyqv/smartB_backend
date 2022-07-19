@@ -1,0 +1,5 @@
+<form model="package.price" show_company="1">
+    <field name="code"/>
+    <field name="description"/>
+    <field name="unit_price"/>
+</form>

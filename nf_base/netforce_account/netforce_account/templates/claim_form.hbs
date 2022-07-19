@@ -1,0 +1,70 @@
+<v:bread>
+    <v:bread_item string="Expense Claims" action="expense_draft"/>
+    {{#ifeq context.data.state "waiting_approval"}}
+        <v:bread_item string="Waiting Approval" action="claim_waiting_approval"/>
+    {{/ifeq}}
+    {{#ifeq context.data.state "waiting_payment"}}
+        <v:bread_item string="Waiting Payment" action="claim_waiting_payment"/>
+    {{/ifeq}}
+    {{#ifin context.data.state "paid" "voided"}}
+        <v:bread_item string="All Claims" action="claim_all"/>
+    {{/ifin}}
+</v:bread>
+<v:page title="{{#if context.data.id}}Edit{{else}}New{{/if}} Expense Claim">
+    <v:flash/>
+
+    {{#ifeq context.data.state "waiting_approval"}}
+        <v:separator string="Expense claim submitted {{context.data.date}}"/>
+        <v:field name="expenses" template="claim_expense_list_approve" count="5" nolabel="1"/>
+        <div class="offset8 form-horizontal">
+            <v:field name="amount_total" size="medium"/>
+            <v:field name="amount_approved" size="medium"/>
+            <v:field name="amount_paid" size="medium"/>
+        </div>
+        <v:separator string="Authorize expense claim"/>
+        {{#if context.data.can_authorize}}
+            <v:form_body background="1">
+                <v:row>
+                    <v:field name="due_date" span="2"/>
+                    <div class="span2" style="padding-top:10px">
+                        <v:button string="Authorize" method="do_authorize" type="primary"/>
+                    </div>
+                </v:row>
+            </v:form_body>
+        {{else}}
+            <p>
+                {{t "This expense claim can only be authorized after all receipts have been either Approved or Declined."}}
+            </p>
+        {{/if}}
+        <div class="clearfix">
+            <v:button string="Delete Expense Claim" method="_delete" type="danger" pull="right" next="claim_waiting_approval" confirm="Are you sure you want to delete this expense claim?"/>
+        </div>
+    {{else}}
+        <v:separator string="Payment due {{context.data.due_date}}"/>
+        <v:field name="expenses" template="claim_expense_list" count="5" nolabel="1"/>
+        <div class="offset8 form-horizontal">
+            <v:field name="amount_total" size="medium"/>
+            <v:field name="amount_approved" size="medium"/>
+            <v:field name="amount_paid" size="medium"/>
+        </div>
+        {{#ifeq context.data.state "waiting_payment"}}
+            <v:action name="claim_payment" claim_id="{{context.data.id}}"/>
+            <div class="clearfix" style="margin-top:10px">
+                {{#unless context.data.payments}}
+                    <v:button string="Void Expense Claim" method="void" pull="right" next="claim_waiting_payment" confirm="Are you sure you want to void this expense claim?"/>
+                {{/unless}}
+            </div>
+        {{/ifeq}}
+    {{/ifeq}}
+
+    <v:field name="uuid" invisible="1"/>
+    <v:field name="date" invisible="1"/>
+    <v:field name="due_date" invisible="1"/>
+    <v:field name="user_id" invisible="1"/>
+    <v:field name="state" invisible="1"/>
+    <v:field name="user_id" invisible="1"/>
+    <v:field name="can_authorize" invisible="1"/>
+    <v:field name="payments" invisible="1"/>
+
+    <v:history uuid="{{context.data.uuid}}"/>
+</v:page>

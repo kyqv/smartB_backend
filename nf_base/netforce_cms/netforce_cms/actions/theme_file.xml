@@ -1,0 +1,7 @@
+<action>
+    <field name="string">Static Files</field>
+    <field name="view">multi_view</field>
+    <field name="model">theme.file</field>
+    <field name="tabs">[["All",[]],["HTML",[["name","like",".html"]]],["JS",[["name","like",".js"]]],["CSS",[["name","like",".css"]]],["Images",["or",["name","like",".png"],["name","like",".jpg"],["name","like",".svg"]]],["Fonts",["or",["name","ilike","woff"],["name","ilike","woff2"],["name","ilike","eot"]]]]</field>
+    <field name="menu">cms_menu</field>
+</action>

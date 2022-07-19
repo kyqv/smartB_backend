@@ -1,0 +1,10 @@
+<form model="report.stock.aging">
+    <group form_layout="stacked">
+        <field name="date" span="2"/>
+        <field name="categ_id" span="2"/>
+        <field name="product_id" span="2"/>
+        <field name="location_id" span="2"/>
+        <field name="period_days" span="2"/>
+        <field name="num_periods" span="2"/>
+    </group>
+</form>

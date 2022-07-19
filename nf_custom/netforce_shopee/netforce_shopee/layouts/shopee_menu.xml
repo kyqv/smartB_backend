@@ -1,0 +1,12 @@
+<menu string="Shopee">
+    <item string="Shopee Products" action="shopee_product"/>
+    <item string="Shopee Accounts" action="shopee_account"/>
+    <item string="Shopee Orders" action="shopee_order"/>
+    <item string="Settings">
+        <item string="Shopee Settings" action="shopee_settings"/>
+        <item string="Shopee Product Categories" action="shopee_product_categ"/>
+    </item>
+    <item string="Others">
+        <item string="Webhook" action="shopee_webhook"/>
+    </item>
+</menu>

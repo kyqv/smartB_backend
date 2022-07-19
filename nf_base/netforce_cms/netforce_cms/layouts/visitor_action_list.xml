@@ -1,0 +1,8 @@
+<list model="visitor.action">
+    <field name="time"/>
+    <field name="visitor_id"/>
+    <field name="session_id"/>
+    <field name="ip_addr"/>
+    <field name="action_type"/>
+    <field name="location"/>
+</list>

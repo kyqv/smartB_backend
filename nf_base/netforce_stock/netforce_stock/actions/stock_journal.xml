@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Stock Journals</field>
+    <field name="view">multi_view</field>
+    <field name="model">stock.journal</field>
+    <field name="menu">stock_menu</field>
+</action>

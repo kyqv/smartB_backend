@@ -1,0 +1,4 @@
+<list model="expense.categ">
+    <field name="name"/>
+    <field name="description"/>
+</list>

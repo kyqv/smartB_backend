@@ -1,0 +1,12 @@
+<list model="wkf.rule" colors='{"#ccc":[["state","=","inactive"]]}'>
+    <field name="trigger_model_id"/>
+    <field name="trigger_event"/>
+    <field name="sequence"/>
+    <field name="condition_method"/>
+    <field name="condition_args"/>
+    <field name="action_model_id"/>
+    <field name="action_method"/>
+    <field name="action_args"/>
+    <field name="action_stop"/>
+    <field name="state"/>
+</list>

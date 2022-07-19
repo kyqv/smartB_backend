@@ -1,0 +1,20 @@
+<page model="stock.location" title="View Warehouse">
+    <head>
+        <field name="name"/>
+        <button string="Manage Warehouse" dropdown="1">
+            <item string="Product Stock" action="warehouse" action_options='{"mode":"page","active_id":id,"related_tab":1}'/>
+            <item string="Stock Transactions" action="warehouse" action_options='{"mode":"page","active_id":id,"related_tab":2}'/>
+            <divider/>
+            <item string="Goods Receipt" action="pick_in" action_options='{"mode":"form"}'/>
+            <item string="Goods Transfer" action="pick_internal" action_options='{"mode":"form"}'/>
+            <item string="Goods Issue" action="pick_out" action_options='{"mode":"form"}'/>
+        </button>
+    </head>
+    <group form_layout="stacked">
+        <field name="balance" span="2" strong="1"/>
+    </group>
+    <related_tabs>
+        <tab string="Product Stock" action="warehouse_balance" action_options='{"condition":[["location_id","=",id]]}'/>
+        <tab string="Stock Transactions" action="warehouse_move" action_options='{"condition":["or",["location_from_id","=",id],["location_to_id","=",id]]}'/>
+    </related_tabs>
+</page>

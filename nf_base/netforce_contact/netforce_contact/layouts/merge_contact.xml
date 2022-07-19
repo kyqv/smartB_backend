@@ -1,0 +1,7 @@
+<form model="merge.contact">
+    <field name="from_contact_id" readonly="1"/>
+    <field name="to_contact_id"/>
+    <foot>
+        <button string="Merge" type="primary" method="merge"/>
+    </foot>
+</form>

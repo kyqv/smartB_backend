@@ -1,0 +1,5 @@
+<list model="province">
+    <field name="country_id"/>
+    <field name="name"/>
+    <field name="code"/>
+</list>

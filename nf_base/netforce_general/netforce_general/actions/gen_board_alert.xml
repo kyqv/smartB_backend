@@ -1,0 +1,4 @@
+<action>
+    <field name="view">alert</field>
+    <field name="model">cron.job</field>
+</action>

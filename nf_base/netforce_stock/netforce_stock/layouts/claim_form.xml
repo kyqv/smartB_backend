@@ -1,0 +1,65 @@
+<form model="product.claim">
+    <head>
+        <field name="state"/>
+        <button string="Print" icon="print" dropdown="1">
+            <item string="PDF" action="report_claim_form" action_options="convert=pdf"/>
+            <item string="ODT" action="report_claim_form"/>
+            <item string="Select Template" action="print_select_template" action_options="report_action=report_claim_form&amp;template_type=claim_form"/>
+        </button>
+        <button string="Options" dropdown="1" align="right">
+            <item string="Void" method="void" confirm="Are you sure you want to void this claim?"/>
+        </button>
+    </head>
+    <field name="number"/>
+    <field name="date_received"/>
+    <field name="contact_id"/>
+    <field name="project_id" condition='[["contact_id","=",contact_id]]'/>
+    <separator string="Product Details"/>
+    <field name="product_id"/>
+    <field name="qty"/>
+    <field name="lot_id"/>
+    <field name="warranty"/>
+    <newline/>
+    <field name="warranty_start"/>
+    <field name="warranty_end"/>
+    <separator string="Defect Details"/>
+    <field name="defect" width="600"/>
+    <newline/>
+    <field name="cause_damage"/>
+    <separator string="Repair Details"/>
+    <field name="repair_process"/>
+    <field name="action_token"/>
+    <newline/>
+    <field name="date_sent_sup"/>
+    <field name="date_received_sup"/>
+    <newline/>
+    <field name="repair_details" width="600"/>
+    <separator string="Replacement Details"/>
+    <field name="repl_product_id"/>
+    <field name="repl_qty"/>
+    <separator string="Notes"/>
+    <field name="note" width="600"/>
+    <foot>
+        <button string="Approve" method="approve" states="draft" type="success" icon="ok"/>
+        <button string="Completed" method="set_done" states="approved" type="success"/>
+    </foot>
+    <related>
+        <field name="pickings"/>
+        <field name="documents">
+            <list>
+                <field name="file" target="_blank" preview="1"/>
+                <field name="categ_id"/>
+                <field name="description"/>
+                <field name="date"/>
+            </list>
+            <form>
+                <field name="categ_id"/>
+                <field name="file" target="_blank" onchange="onchange_file"/>
+                <field name="date"/>
+                <field name="description"/>
+                <field name="contact_id" invisible="1"/>
+            </form>
+        </field>
+        <field name="comments"/>
+    </related>
+</form>

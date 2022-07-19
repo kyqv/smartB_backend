@@ -1,0 +1,5 @@
+<action>
+    <field name="type">method</field>
+    <field name="model">activity</field>
+    <field name="method">view_activity</field>
+</action>

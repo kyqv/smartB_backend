@@ -1,0 +1,6 @@
+<action>
+    <field name="view_type">collection</field>
+    <field name="model">procurement.order</field>
+    <field name="template">procurement_list</field>
+    <field name="layout">procurement_page</field>
+</action>

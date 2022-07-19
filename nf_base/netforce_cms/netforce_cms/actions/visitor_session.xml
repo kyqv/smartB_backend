@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Sessions</field>
+    <field name="view">multi_view</field>
+    <field name="model">visitor.session</field>
+    <field name="menu">cms_menu</field>
+</action>

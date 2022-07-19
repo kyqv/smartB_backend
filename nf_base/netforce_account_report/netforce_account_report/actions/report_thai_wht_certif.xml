@@ -1,0 +1,8 @@
+<action>
+    <field name="view">report</field>
+    <field name="string">Thailand WHT Certificate Report</field>
+    <field name="model">report.thai.wht.certif</field>
+    <field name="report_type">jasper</field>
+    <field name="template_jasper">thai_wht_certif</field>
+    <field name="menu">account_menu</field>
+</action>

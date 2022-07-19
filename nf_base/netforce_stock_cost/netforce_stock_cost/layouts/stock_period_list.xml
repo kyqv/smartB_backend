@@ -1,0 +1,8 @@
+<list model="stock.period">
+    <field name="number"/>
+    <field name="date_from"/>
+    <field name="date_to"/>
+    <field name="state"/>
+    <field name="num_stock_moves"/>
+    <field name="num_posted_stock_moves"/>
+</list>

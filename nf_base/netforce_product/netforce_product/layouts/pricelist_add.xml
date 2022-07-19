@@ -1,0 +1,7 @@
+<form model="pricelist.add" title="Add products to pricelist">
+    <field name="pricelist_id" invisible="1"/>
+    <field name="product_categs"/>
+    <foot replace="1">
+        <button string="Add Products" method="add_products" type="primary"/>
+    </foot>
+</form>

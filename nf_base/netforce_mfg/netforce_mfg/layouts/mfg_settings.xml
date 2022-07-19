@@ -1,0 +1,6 @@
+<form model="settings" title="Manufacturing Settings">
+    <separator string="Manufacturing Workflow"/>
+    <field name="mfg_order_create_fg"/>
+    <separator string="Permissions"/>
+    <field name="approve_production"/>
+</form>

@@ -1,0 +1,6 @@
+<action>
+    <field name="view_type">model</field>
+    <field name="model">report.expense.contact</field>
+    <field name="template">report_expense_contact_page</field>
+    <field name="menu">account_menu</field>
+</action>

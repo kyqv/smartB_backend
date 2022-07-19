@@ -1,0 +1,19 @@
+<form model="bg.task">
+    <field name="date"/>
+    <field name="model"/>
+    <field name="method"/>
+    <field name="args"/>
+    <field name="user_id"/>
+    <field name="company_id"/>
+    <newline/>
+    <field name="timeout"/>
+    <field name="state"/>
+    <separator/>
+    <field name="cron_job_id"/>
+    <separator/>
+    <field name="start_time"/>
+    <field name="end_time"/>
+    <newline/>
+    <field name="result"/>
+    <field name="error_message"/>
+</form>

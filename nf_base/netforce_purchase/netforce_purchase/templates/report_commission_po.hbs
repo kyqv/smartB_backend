@@ -1,0 +1,89 @@
+<center>
+    <h2>
+        Commission Purchase Report
+    </h2>
+    <h3>
+        {{company_name}}
+        <br/>
+        From {{fmt_date date_from}} to {{fmt_date date_to}}
+    </h3>
+</center>
+<table class="table">
+    <thead class="scroll-header">
+        <tr>
+            <th>
+                Date
+            </th>
+            <th>
+                Purchase Order
+            </th>
+            <th>
+                Supplier
+            </th>
+            <th style="text-align:right">
+                Purchase Amount
+            </th>
+            <th style="text-align:right">
+                Commission Percent
+            </th>
+            <th style="text-align:right">
+                Commission Amount
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each groups}}
+            <tr>
+                <th colspan="10">
+                    Customer: {{customer}}
+                </th>
+            </tr>
+            {{#each lines context=context}}
+                <tr>
+                    <td>
+                        {{fmt_date date}}
+                    </td>
+                    <td>
+                        {{#view "link" action="purchase" action_options="mode=form" active_id=id context=context}}
+                            {{../number}}
+                        {{/view}}
+                    </td>
+                    <td>
+                        {{supplier}}
+                    </td>
+                    <td style="text-align:right">
+                        {{currency amount_subtotal zero=""}}
+                    </td>
+                    <td style="text-align:right">
+                        {{currency commission_percent zero=""}}
+                    </td>
+                    <td style="text-align:right">
+                        {{currency commission_amount zero=""}}
+                    </td>
+                </tr>
+            {{/each}}
+            <tr>
+                <th colspan="3" style="border-bottom: 1px solid black">Totals</th>
+                <th style="text-align:right;border-bottom: 1px solid black">
+                    {{currency totals.amount_subtotal zero=""}}
+                </th>
+                <th style="border-bottom: 1px solid black"></th>
+                <th style="text-align:right;border-bottom: 1px solid black">
+                    {{currency totals.commission_amount zero=""}}
+                </th>
+            </tr>
+        {{/each}}
+    </tbody>
+    <tfoot>
+        <tr>
+            <th colspan="3" style="border-bottom: 1px solid black">Grand Totals</th>
+            <th style="text-align:right;border-bottom: 1px solid black">
+                {{currency totals.amount_subtotal zero=""}}
+            </th>
+            <th style="border-bottom: 1px solid black"></th>
+            <th style="text-align:right;border-bottom: 1px solid black">
+                {{currency totals.commission_amount zero=""}}
+            </th>
+        </tr>
+    </tfoot>
+</table>

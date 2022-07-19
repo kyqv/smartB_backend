@@ -1,0 +1,7 @@
+<action>
+    <field name="view">list_m</field>
+    <field name="title">Opportunities</field>
+    <field name="model">sale.opportunity</field>
+    <field name="tabs">[["Open",[["state","=","open"]]],["Paused",[["state","=","paused"]]],["Won",[["state","=","won"]]],["Canceled",[["state","=","canceled"]]],["Lost",[["state","=","lost"]]]]</field>
+    <field name="menu">main_menu_m</field>
+</action>

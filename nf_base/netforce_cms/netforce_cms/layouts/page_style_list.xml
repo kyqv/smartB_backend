@@ -1,0 +1,4 @@
+<list model="page.style">
+    <field name="name"/>
+    <field name="code"/>
+</list>

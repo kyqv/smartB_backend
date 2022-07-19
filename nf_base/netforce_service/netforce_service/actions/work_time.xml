@@ -1,0 +1,7 @@
+<action>
+    <field name="string">Time Sheets</field>
+    <field name="view">multi_view</field>
+    <field name="model">work.time</field>
+    <field name="tabs">[["All",[]],["Today",[["is_today","=",true]]],["This Week",[["is_this_week","=",true]]],["Last Week",[["is_last_week","=",true]]],["Waiting Approval",[["state","=","waiting_approval"]]]]</field>
+    <field name="menu">service_menu</field>
+</action>

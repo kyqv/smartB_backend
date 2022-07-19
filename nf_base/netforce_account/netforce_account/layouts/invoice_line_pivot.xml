@@ -1,0 +1,16 @@
+<pivot model="account.invoice.line" rows="product_id.name" cols="invoice_id.date_month" vals="amount,qty" agg_name="sum" search="invoice_id.contact_id,invoice_id.number,invoice_id.date,invoice_id.due_date,product_id.code,product_id.name,invoice_id.type">
+    <field name="product_id.name" string="Product"/>
+    <field name="product_id.categ_id.name" string="Product Category"/>
+    <field name="invoice_id.contact_id.name" string="Contact"/>
+    <field name="invoice_id.contact_id.categ_id.name" string="Contact Category"/>
+    <field name="invoice_id.state" string="Status"/>
+    <field name="invoice_id.date" string="Invoice Date"/>
+    <field name="invoice_id.date_week" string="Invoice Week"/>
+    <field name="invoice_id.date_month" string="Invoice Month"/>
+    <field name="invoice_id.due_date" string="Due Date"/>
+    <field name="invoice_id.number" string="Invoice Number"/>
+    <field name="invoice_id.type" string="Invoice Type"/>
+    <field name="invoice_id.inv_type" string="Invoice Subtype"/>
+    <field name="amount" string="Amount"/>
+    <field name="qty" string="Qty"/>
+</pivot>

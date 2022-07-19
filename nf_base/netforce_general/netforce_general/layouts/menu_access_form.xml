@@ -1,0 +1,16 @@
+<form model="menu.access">
+    <top>
+        <button string="Options">
+            <item string="Duplicate Menu Access" action="menu_access_add" action_context='{"refer_id":id}'/>
+        </button>
+    </top>
+
+    <field name="profile_id"/>
+    <field name="user_id"/>
+    <field name="action"/>
+    <field name="menu"/>
+    <field name="parent_menu"/>
+    <field name="button"/>
+    <field name="label"/>
+    <field name="access"/>
+</form>

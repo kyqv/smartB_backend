@@ -1,0 +1,13 @@
+<list model="fulfillment.bill" priority="20">
+    <top>
+        <button string="To Draft" method="to_draft"/>
+        <button string="Void" method="void"/>
+        <button string="Generate Bill" method="generate_bill_all"/>
+    </top>
+    <field name="number"/>
+    <field name="contact_id"/>
+    <field name="date"/>
+    <field name="month"/>
+    <field name="qty_total"/>
+    <field name="amount_total"/>
+</list>

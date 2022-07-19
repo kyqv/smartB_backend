@@ -1,0 +1,7 @@
+<list model="chat.channel">
+    <field name="name"/>
+    <field name="code"/>
+    <field name="sequence"/>
+    <field name="num_members"/>
+    <field name="num_messages"/>
+</list>

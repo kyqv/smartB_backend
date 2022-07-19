@@ -1,0 +1,13 @@
+<list model="landed.cost">
+    <head>
+        <button string="Merge Landed Costs" method="merge_lc"/>
+    </head>
+    <field name="number"/>
+    <field name="date"/>
+    <field name="est_duty"/>
+    <field name="est_ship"/>
+    <field name="act_duty"/>
+    <field name="act_ship"/>
+    <field name="invoice_id"/>
+    <field name="state"/>
+</list>

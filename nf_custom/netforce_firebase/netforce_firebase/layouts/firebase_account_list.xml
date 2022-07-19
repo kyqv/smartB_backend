@@ -1,0 +1,4 @@
+<list model="firebase.account">
+    <field name="name"/>
+    <field name="db_url"/>
+</list>

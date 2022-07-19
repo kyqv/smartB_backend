@@ -1,0 +1,8 @@
+<list model="sequence">
+    <field name="name"/>
+    <field name="type"/>
+    <field name="model_id"/>
+    <field name="prefix"/>
+    <field name="padding"/>
+    <field name="company_id"/>
+</list>

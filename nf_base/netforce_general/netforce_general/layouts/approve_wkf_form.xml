@@ -1,0 +1,27 @@
+<form model="approve.wkf" show_company="1">
+    <field name="type"/>
+    <field name="company_id"/>
+    <separator string="Conditions"/>
+    <field name="user_id"/>
+    <field name="group_id"/>
+    <newline/>
+    <field name="min_amount"/>
+    <field name="max_amount"/>
+    <related>
+        <field name="steps">
+            <list>
+                <field name="sequence"/>
+                <field name="user_type"/>
+                <field name="approve_user_id"/>
+                <field name="company_id"/>
+            </list>
+            <form>
+                <field name="sequence"/>
+                <field name="user_type"/>
+                <group span="6" columns="1" attrs='{"invisible":[["user_type","!=","select"]]}'>
+                    <field name="approve_user_id"/>
+                </group>
+            </form>
+        </field>
+    </related>
+</form>

@@ -1,0 +1,8 @@
+<form model="report.forecast.details">
+    <group form_layout="stacked">
+        <field name="date" span="2"/>
+        <field name="product_id" span="2"/>
+        <field name="forecast_days" span="2"/>
+        <field name="show_shelf_life" span="2"/>
+    </group>
+</form>

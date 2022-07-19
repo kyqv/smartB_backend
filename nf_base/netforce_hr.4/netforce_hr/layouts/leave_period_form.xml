@@ -1,0 +1,7 @@
+<form model="hr.leave.period">
+    <field name="leave_type_id"/>
+    <field name="max_days"/>
+    <field name="date_from"/>
+    <field name="date_to"/>
+    <field name="max_date"/>
+</form>

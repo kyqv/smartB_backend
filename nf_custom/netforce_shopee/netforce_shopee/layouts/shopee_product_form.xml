@@ -1,0 +1,47 @@
+<form model="shopee.product">
+    <top>
+        <button string="Options">
+            <item string="Get Variants" method="get_model_list"/>
+            <item string="Map System Product" method="map_product"/>
+            <item string="Update Shopee Stock" method="update_stock"/>
+        </button>
+    </top>
+    <head>
+        <field name="item_status"/>
+    </head>
+    <tabs>
+        <tab string="General">
+            <field name="account_id"/>
+            <field name="sync_id"/>
+            <field name="item_status"/>
+            <field name="item_sku"/>
+            <field name="item_name"/>
+            <field name="product_id"/>
+            <field name="category_id" condition='[["has_children","=",false]]'/>
+            <field name="description"/>
+            <field name="has_model"/>
+            <group attrs='{"invisible":[["hase_model","=","1"]]}'>
+                <field name="current_price"/>
+                <field name="normal_stock"/>
+            </group>
+            <group attrs='{"invisible":[["has_model","=","0"]]}'>
+                <separator string="Variants"/>
+                <field name="models">
+                    <list colors='{"#f66":[["show_warning","=",true]]}'>
+                        <field name="sync_id"/>
+                        <field name="model_sku"/>
+                        <field name="current_price"/>
+                        <field name="normal_stock"/>
+                        <field name="product_id"/>
+                        <field name="tier_index"/>
+                        <field name="tier_info"/>
+                        <field name="show_warning" invisible="1"/>
+                    </list>
+                </field>
+            </group>
+        </tab>
+    </tabs>
+    <related>
+        <field name="tier_variation"/>
+    </related>
+</form>

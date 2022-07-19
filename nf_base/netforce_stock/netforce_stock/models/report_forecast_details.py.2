@@ -1,0 +1,233 @@
+# Copyright (c) 2012-2015 Netforce Co. Ltd.
+# 
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+# 
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+# 
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+# EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+# IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+# DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+# OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
+# OR OTHER DEALINGS IN THE SOFTWARE.
+
+from netforce.model import Model, fields, get_model
+from netforce import access
+from netforce import database
+from datetime import *
+from dateutil.relativedelta import *
+import time
+import io
+from pprint import pprint
+try:
+    import matplotlib
+    matplotlib.use('Agg')
+    import matplotlib.pyplot as plt
+    import matplotlib.dates as mdates
+    import numpy as np
+except:
+    raise Exception("Failed to import matplotlib")
+
+
+def get_total_qtys(prod_ids=None, loc_id=None, date_from=None, date_to=None, states=None, categ_ids=None, min_life_50_date=None, min_life_75_date=None):
+    db = database.get_connection()
+    q = "SELECT " \
+        " m.product_id,p.uom_id AS prod_uom_id,m.location_from_id,m.location_to_id,m.uom_id,m.state,SUM(m.qty) AS total_qty " \
+        " FROM stock_move m " \
+        " JOIN product p on m.product_id=p.id" \
+        " LEFT JOIN stock_lot l on m.lot_id=l.id WHERE true"
+    q_args = []
+    if states:
+        q+=" AND m.state IN %s"
+        q_args.append(tuple(states))
+    if date_from:
+        q += " AND m.date>=%s"
+        q_args.append(date_from + " 00:00:00")
+    if date_to:
+        q += " AND m.date<=%s"
+        q_args.append(date_to + " 23:59:59")
+    if prod_ids:
+        q += " AND m.product_id IN %s"
+        q_args.append(tuple(prod_ids))
+    if loc_id:
+        q += " AND (m.location_from_id=%s OR m.location_to_id=%s)"
+        q_args += [loc_id, loc_id]
+    if categ_ids:
+        q += " AND p.categ_id IN %s"
+        q_args.append(tuple(categ_ids))
+    if min_life_50_date:
+        q += " AND l.life_50_date>=%s"
+        q_args.append(min_life_50_date)
+    if min_life_75_date:
+        q += " AND l.life_75_date>=%s"
+        q_args.append(min_life_75_date)
+    company_id = access.get_active_company()
+    if company_id:
+        q += " AND m.company_id=%s"
+        q_args.append(company_id)
+    q += " GROUP BY m.product_id,p.uom_id,m.location_from_id,m.location_to_id,m.uom_id,m.state"
+    #print("q",q)
+    #print("q_args",q_args)
+    res = db.query(q, *q_args)
+    totals = {}
+    for r in res:
+        qty = get_model("uom").convert(r.total_qty,r.uom_id,r.prod_uom_id)
+        k = (r.product_id, r.location_from_id, r.location_to_id, r.state)
+        totals.setdefault(k, 0)
+        totals[k] += qty
+    return totals
+
+def get_svg(date,product_id,min_life=None):
+    product=get_model("product").browse(product_id)
+    locations={}
+    for loc in get_model("stock.location").search_browse([]):
+        locations[loc.id]=loc
+
+    res=get_total_qtys(prod_ids=[product_id],date_to=date)
+    prod_qtys={}
+    for (prod_id, loc_from_id, loc_to_id, state), qty in res.items():
+        prod_qtys.setdefault(prod_id,{})
+        k=(loc_from_id,loc_to_id,state)
+        prod_qtys[prod_id][k]=qty
+    print("prod_qtys",prod_qtys)
+    def get_qty_phys(prod_id):
+        qtys=prod_qtys.get(prod_id,{})
+        total_qty = 0
+        for (loc_from_id, loc_to_id, state), qty in qtys.items():
+            loc_from=locations[loc_from_id]
+            loc_to=locations[loc_to_id]
+            if loc_from.type!="internal" and loc_to.type=="internal":
+                if state=="done":
+                    total_qty+=qty
+            elif loc_from.type=="internal" and loc_to.type!="internal":
+                if state=="done":
+                    total_qty-=qty
+        return total_qty
+
+    qty=get_qty_phys(product_id)
+    d=datetime.strptime(date,"%Y-%m-%d")
+    dates=[d]
+    qtys=[float(qty)]
+    cond=[["product_id","=",product_id],["date",">=",date],["state","in",["pending","confirmed"]]]
+    for move in get_model("stock.move").search_browse(cond,order="date,id"):
+        ds=move.date[:10]
+        d=datetime.strptime(ds,"%Y-%m-%d")
+        last_d=dates[-1]
+        last_qty=qtys[-1]
+        if d!=last_d:
+            d2=last_d+timedelta(days=1)
+            while d2<d:
+                dates.append(d2)
+                qtys.append(last_qty)
+                d2+=timedelta(days=1)
+            dates.append(d)
+            qtys.append(last_qty)
+        if move.location_from_id.type!="internal" and move.location_to_id.type=="internal":
+            qtys[-1]+=float(move.qty)
+        elif move.location_from_id.type=="internal" and move.location_to_id.type!="internal":
+            qtys[-1]-=float(move.qty)
+    print("dates",dates)
+    print("qtys",qtys)
+
+    if len(qtys)>1:
+        min_qty=float(product.min_qty or 0)
+        max_qty=float(product.max_qty or 0)
+        ymax=max(qtys)
+        if max_qty and max_qty>ymax:
+            ymax=max_qty
+        min_qty_date=None
+        for i in range(len(qtys)):
+            qty=qtys[i]
+            if qty<min_qty:
+                min_qty_date=dates[i]
+                break
+        fig, ax = plt.subplots(figsize=(12,4))
+        ax.plot_date(dates,qtys,"-",label="Forecast Qty")
+        ax.fill_between(dates,qtys,facecolor="blue",alpha=0.1)
+        ax.fill_between(dates,qtys,min_qty,facecolor="red",alpha=0.1,where=[q<=min_qty for q in qtys],interpolate=True) # XXX
+        ax.set_ylim(ymin=0,ymax=ymax*1.1)
+        ax.grid(True)
+        ax.axhline(y=min_qty,color="r",label="Min Qty")
+        ax.axhline(y=max_qty,color="g",label="Max Qty")
+        if min_qty_date:
+            ax.axvline(x=min_qty_date,color="r")
+            lead_days=product.purchase_lead_time
+            if lead_days:
+                order_date=min_qty_date-timedelta(days=lead_days)
+                ax.axvline(x=order_date,color="orange",label="Order Date")
+        fmt = mdates.DateFormatter('%a, %d %b')
+        ax.xaxis.set_major_formatter(fmt)
+        fig.autofmt_xdate(bottom=0.2, rotation=30, ha='right')
+        ax.set_ylabel("Quantity")
+        ax.legend()
+        
+        img_data = io.StringIO()
+        fig.savefig(img_data,format="svg")
+        svg_data=img_data.getvalue()
+    else:
+        svg_data=None
+    return svg_data
+
+
+class ReportForecastDetails(Model):
+    _name = "report.forecast.details"
+    _transient = True
+    _fields = {
+        "date": fields.Date("Date", required=True),
+        "product_id": fields.Many2One("product", "Product", on_delete="cascade", required=True),
+        "show_life_50": fields.Boolean("Show Min Shelf Life 50%"),
+        "show_life_75": fields.Boolean("Show Min Shelf Life 75%"),
+    }
+    _defaults = {
+        "date": lambda *a: date.today().strftime("%Y-%m-%d"),
+        "show_life_50": True,
+        "show_life_75": True,
+    }
+
+    def get_report_data(self, ids, context={}):
+        print("forecast_details.get_report_data")
+        company_id = access.get_active_company()
+        comp = get_model("company").browse(company_id)
+        if ids:
+            params = self.read(ids, load_m2o=False)[0]
+        else:
+            params = self.default_get(load_m2o=False, context=context)
+
+        date = params.get("date")
+        if not date:
+            return
+        product_id = params.get("product_id")
+        if not product_id:
+            return
+        product=get_model("product").browse(product_id)
+
+        svg_data=get_svg(date,product_id)
+        if params.get("show_life_50"):
+            svg_data_50=get_svg(date,product_id,min_life="50")
+        else:
+            svg_data_50=None
+        if params.get("show_life_75"):
+            svg_data_75=get_svg(date,product_id,min_life="75")
+        else:
+            svg_data_75=None
+
+        return {
+            "company_name": comp.name,
+            "date": date,
+            "product_code": product.code,
+            "product_name": product.name,
+            "svg_data": svg_data,
+            "svg_data_50": svg_data_50,
+            "svg_data_75": svg_data_75,
+            "show_life_50": params.get("show_life_50"),
+            "show_life_75": params.get("show_life_75"),
+        }
+
+ReportForecastDetails.register()

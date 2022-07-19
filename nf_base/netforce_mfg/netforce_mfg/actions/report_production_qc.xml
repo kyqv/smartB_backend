@@ -1,0 +1,8 @@
+<action>
+    <field name="string">Production QC</field>
+    <field name="view">report</field>
+    <field name="model">report.production.qc</field>
+    <field name="report_template">report_production_qc</field>
+    <field name="report_template_xls">report_production_qc</field>
+    <field name="menu">mfg_menu</field>
+</action>

@@ -1,0 +1,7 @@
+<action>
+    <field name="view">list_m</field>
+    <field name="title">Documents</field>
+    <field name="model">aln.doc</field>
+    <field name="tabs">[["Upload Req.",[["state","=","upload_request"]]],["Sign. Req.",[["state","=","sign_request"]]],["Completed",[["state","=","done"]]]]</field>
+    <field name="menu">main_menu_m</field>
+</action>

@@ -1,0 +1,41 @@
+<center>
+    <h2>
+        Production Component Report
+    </h2>
+</center>
+<table class="table table-striped">
+    <thead class="scroll-header">
+        <tr>
+            <th>No</th>
+            <th>Sale Order Number</th>
+            <th>Order Date</th>
+            <th>Number</th>
+            <th>Product Code</th>
+            <th>Product Name</th>
+            <th>Production Location</th>
+            <th>Received Qty</th>
+            <th>Issued Qty</th>
+            <th>Remain Qty</th>
+            <th>Container</th>
+            <th>Remark</th>
+        </tr>
+    </thead>
+    {{#each lines context=context}}
+        <tbody>
+            <tr>
+                <td>{{_item_no}}</td>
+                <td>{{sale_order_number}}</td>
+                <td>{{order_date}}</td>
+                <td>{{number}}</td>
+                <td>{{product_code}}</td>
+                <td>{{product_name}}</td>
+                <td>{{production_location}}</td>
+                <td text-align="right">{{currency qty_received}}</td>
+                <td text-align="right">{{currency qty_issued}}</td>
+                <td text-align="right">{{currency qty_stock}}</td>
+                <td>{{container}}</td>
+                <td>{{remark}}</td>
+            </tr>
+        </tbody>
+    {{/each}}
+</table>

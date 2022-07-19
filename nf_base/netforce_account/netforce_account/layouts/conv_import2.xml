@@ -1,0 +1,7 @@
+<form model="conv.bal" title="Import unpaid sales invoices">
+    <field name="file" required="1"/>
+    <field name="date_fmt" required="1"/>
+    <foot>
+        <button string="Import" method="import_sale_file" type="primary"/>
+    </foot>
+</form>

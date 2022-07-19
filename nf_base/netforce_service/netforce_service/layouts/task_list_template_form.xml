@@ -1,0 +1,21 @@
+<form model="task.list.template">
+    <field name="name"/>
+    <related>
+        <field name="task_templates">
+            <list>
+                <field name="sequence"/>
+                <field name="title"/>
+                <field name="description"/>
+                <field name="start_after"/>
+                <field name="duration"/>
+            </list>
+            <form>
+                <field name="sequence"/>
+                <field name="title"/>
+                <field name="description"/>
+                <field name="start_after"/>
+                <field name="duration"/>
+            </form>
+        </field>
+    </related>
+</form>

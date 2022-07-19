@@ -1,0 +1,9 @@
+<form model="field.value">
+    <field name="model_id" required="1"/>
+    <field name="inst_id" condition='[["model_id","=",model_id]]' required="1"/>
+    <field name="field_id" condition='[["model_id","=",model_id]]' required="1"/>
+    <separator/>
+    <field name="value"/>
+    <separator/>
+    <field name="history_id"/>
+</form>

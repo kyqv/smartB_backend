@@ -1,0 +1,5 @@
+<action>
+    <field name="view">send_wizard</field>
+    <field name="model">account.invoice</field>
+    <field name="menu">account_menu</field>
+</action>

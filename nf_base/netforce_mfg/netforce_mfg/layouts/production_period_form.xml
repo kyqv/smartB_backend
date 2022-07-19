@@ -1,0 +1,24 @@
+<form model="production.period">
+    <head>
+        <button string="Options" dropdown="1">
+            <item string="Update Period Costs" method="update_period_costs"/>
+        </button>
+    </head>
+    <group form_layout="stacked">
+        <field name="number" span="2"/>
+        <field name="date_from" span="2"/>
+        <field name="date_to" span="2"/>
+    </group>
+    <field name="costs">
+        <list>
+            <field name="product_id"/>
+            <field name="amount"/>
+            <field name="alloc_amount"/>
+        </list>
+    </field>
+    <field name="amount_total"/>
+    <field name="alloc_total"/>
+    <related>
+        <field name="production_orders"/>
+    </related>
+</form>

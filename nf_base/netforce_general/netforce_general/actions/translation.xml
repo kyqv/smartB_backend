@@ -1,0 +1,9 @@
+<action>
+    <field name="name">translation</field>
+    <field name="string">Translations</field>
+    <field name="view">multi_view</field>
+    <field name="model">translation</field>
+    <field name="tabs">[["All",[]],["Waiting Translation",[["translation","=",null]]]]</field>
+    <field name="import_sample">import_translations.csv</field>
+    <field name="menu">gen_menu</field>
+</action>

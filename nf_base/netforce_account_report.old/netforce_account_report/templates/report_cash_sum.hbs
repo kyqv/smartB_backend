@@ -1,0 +1,97 @@
+<center>
+    <h2>
+        Cash Summary
+    </h2>
+    <h3>
+        {{context.company_name}}
+        <br/>
+        From {{fmt_date context.data.date_from}} to {{fmt_date context.data.date_to}}
+    </h3>
+</center>
+<table class="table table-condensed">
+    <thead>
+        <tr>
+            <th>
+            </th>
+            <th>
+                {{fmt_date context.data.col0}}
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each context.data.lines context=context}}
+            {{#ifeq type "group_header"}}
+                <tr style="font-weight:bold">
+                    <td colspan="10" {{#if padding}}style="padding-left:{{padding}}px"{{/if}}>
+                        {{string}}
+                    </td>
+                </tr>
+            {{/ifeq}}
+            {{#ifeq type "account"}}
+                <tr>
+                    <td {{#if padding}}style="padding-left:{{padding}}px"{{/if}}>
+                        <a href="/ui#name=report_account_trans_page&account_id={{id}}&date_from={{context.data.date_from}}&date_to={{context.data.date_to}}&cash_basis=1">
+                            {{string}}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/ui#name=report_account_trans_page&account_id={{id}}&date_from={{context.data.date_from}}&date_to={{context.data.date_to}}&cash_basis=1">
+                            {{currency amount}}
+                        </a>
+                    </td>
+                </tr>
+            {{/ifeq}}
+            {{#ifeq type "group_footer"}}
+                <tr style="font-weight:bold">
+                    <td style="border-top: 1px solid #999;{{#if padding}}padding-left:{{padding}}px{{/if}}">
+                        {{string}}
+                    </td>
+                    <td style="border-top: 1px solid #999">
+                        {{currency amount}}
+                    </td>
+                </tr>
+                {{#ifeq separator "single"}}
+                <tr>
+                    <td style="border-top:1px solid #000" colspan="10">
+                    </td>
+                </tr>
+                {{/ifeq}}
+                {{#ifeq separator "double"}}
+                <tr>
+                    <td style="border-top:1px solid #000; border-bottom:1px solid #000; padding:0; height:1px" colspan="10">
+                    </td>
+                </tr>
+                {{/ifeq}}
+            {{/ifeq}}
+        {{/each}}
+        <tr style="font-weight:bold">
+            <td colspan="10">
+                Summary
+            </td>
+        </tr>
+        <tr>
+            <td style="padding-left:10px">
+                Opening Balance
+            </td>
+            <td>
+                {{currency context.data.cash_open}}
+            </td>
+        </tr>
+        <tr>
+            <td style="padding-left:10px">
+                Plus Net Cash Movement
+            </td>
+            <td>
+                {{currency context.data.cash_move}}
+            </td>
+        </tr>
+        <tr>
+            <td style="padding-left:10px">
+                Closing Balance
+            </td>
+            <td>
+                {{currency context.data.cash_close}}
+            </td>
+        </tr>
+    </tbody>
+</table>

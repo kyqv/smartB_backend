@@ -1,0 +1,4 @@
+<action>
+    <field name="view">chat</field>
+    <field name="menu">msg_menu</field>
+</action>

@@ -1,0 +1,7 @@
+<action>
+    <field name="name">bank_name</field>
+    <field name="string">Banks</field>
+    <field name="view">multi_view</field>
+    <field name="model">bank</field>
+    <field name="menu">gen_menu</field>
+</action>

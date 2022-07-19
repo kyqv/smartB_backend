@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Blog Posts</field>
+    <field name="view">multi_view</field>
+    <field name="model">cms.blog.post</field>
+    <field name="menu">cms_menu</field>
+</action>

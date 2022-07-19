@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Messaging Dashboard</field>
+    <field name="view">board</field>
+    <field name="layout">msg_board</field>
+    <field name="menu">msg_menu</field>
+</action>

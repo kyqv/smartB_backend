@@ -1,0 +1,15 @@
+<form model="firebase.account">
+    <tabs>
+	    <tab string="General">
+		    <field name="name"/>
+		    <field name="db_url"/>
+	</tab>
+	<tab string="Auth">
+	<field name="key_json"/>
+</tab>
+</tabs>
+    <related>
+        <field name="sync_models"/>
+        <field name="sync_records"/>
+    </related>
+</form>

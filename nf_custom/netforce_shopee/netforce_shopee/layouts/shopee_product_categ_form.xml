@@ -1,0 +1,7 @@
+<form model="shopee.product.categ">
+    <field name="sync_id"/>
+    <field name="original_category_name"/>
+    <field name="display_category_name"/>
+    <field name="parent_id"/>
+    <field name="has_children"/>
+</form>

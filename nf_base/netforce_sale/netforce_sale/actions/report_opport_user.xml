@@ -1,0 +1,6 @@
+<action>
+    <field name="view_type">model</field>
+    <field name="model">report.opport.user</field>
+    <field name="method">get_data</field>
+    <field name="template">report_opport_user</field>
+</action>

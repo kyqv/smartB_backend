@@ -1,0 +1,6 @@
+<action>
+    <field name="type">report</field>
+    <field name="model">hr.payrun</field>
+    <field name="method">get_bank_data</field>
+    <field name="template">report_bank</field>
+</action>

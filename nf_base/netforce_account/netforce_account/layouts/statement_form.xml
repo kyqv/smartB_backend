@@ -1,0 +1,19 @@
+<form model="account.statement" show_company="1">
+    <group form_layout="stacked">
+        <field name="account_id" span="2" onchange="onchange_account"/>
+        <field name="date_start" span="2"/>
+        <field name="date_end" span="2"/>
+        <field name="balance_start" span="2"/>
+        <field name="balance_end" span="2"/>
+    </group>
+    <field name="lines" nolabel="1">
+        <list onchange="update_balance">
+            <field name="date"/>
+            <field name="description"/>
+            <field name="received" onchange="update_balance"/>
+            <field name="spent" onchange="update_balance"/>
+            <field name="balance"/>
+        </list>
+    </field>
+    <field name="company_id" invisible="1"/>
+</form>

@@ -1,0 +1,8 @@
+<action>
+    <field name="name">service_board_user</field>
+    <field name="string">My Jobs Dashboard</field>
+    <field name="view">board</field>
+    <field name="layout">service_board_user</field>
+    <field name="menu">service_menu</field>
+    <field name="reload">60</field>
+</action>

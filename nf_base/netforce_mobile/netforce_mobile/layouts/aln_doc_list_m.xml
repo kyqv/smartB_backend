@@ -1,0 +1,7 @@
+<list_m model="aln.doc">
+    <field name="date"/>
+    <field name="client_id"/>
+    <newline/>
+    <field name="doc_type_id"/>
+    <field name="job_id"/>
+</list_m>

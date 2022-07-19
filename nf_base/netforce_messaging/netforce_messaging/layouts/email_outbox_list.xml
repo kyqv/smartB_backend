@@ -1,0 +1,13 @@
+<list model="email.message" colors='{"#ccf":[["name_id","!=",null],["related_id","=",null]],"#cfc":[["name_id","!=",null],["related_id","!=",null]]}'>
+    <head>
+        <button string="Link Emails" method="link_emails"/>
+    </head>
+    <field name="to_addrs"/>
+    <field name="subject"/>
+    <field name="date"/>
+    <field name="name_id"/>
+    <field name="related_id"/>
+    <field name="mailbox_id"/>
+    <field name="state"/>
+    <field name="opened"/>
+</list>

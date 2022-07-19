@@ -1,0 +1,6 @@
+<action>
+    <field name="view">list_m</field>
+    <field name="title">Tasks</field>
+    <field name="model">task</field>
+    <field name="menu">main_menu_m</field>
+</action>

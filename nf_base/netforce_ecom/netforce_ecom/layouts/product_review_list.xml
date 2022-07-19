@@ -1,0 +1,8 @@
+<list model="ecom.product.review">
+    <field name="name"/>
+    <field name="product_id"/>
+    <field name="title"/>
+    <field name="rating"/>
+    <field name="date"/>
+    <field name="state"/>
+</list> 

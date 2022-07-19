@@ -1,0 +1,32 @@
+<form model="document">
+    <head>
+        <field name="state"/>
+        <button string="Options" dropdown="1">
+            <item string="Create Reminders" method="create_reminders" confirm="Are you sure? This will delete existing reminders."/>
+            <item string="Delete Pending Reminders" method="delete_pending_reminders" confirm="Are you sure?"/>
+            <divider/>
+            <item string="To Draft" method="to_draft" states="verified"/>
+        </button>
+    </head>
+    <group attrs='{"readonly":[["state","=","verified"]]}'>
+        <field name="title"/>
+        <field name="date"/>
+        <field name="expiry_date"/>
+        <separator/>
+        <field name="contact_id"/>
+        <field name="related_id"/>
+        <separator/>
+        <field name="folder_id"/>
+        <field name="categ_id" onchange="onchange_categ"/>
+        <field name="description"/>
+        <separator/>
+        <field name="files" view="field_files" onchange="onchange_files"/>
+    </group>
+    <!--<field name="share"/>-->
+    <foot>
+        <button string="Verified" method="to_verified" type="success" states="draft"/>
+    </foot>
+    <related>
+        <field name="notifs"/>
+    </related>
+</form>

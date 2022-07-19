@@ -1,0 +1,8 @@
+<list model="reminder" colors='{"#9f9":[["state","=","sent"]]}'>
+    <field name="scheduled_date"/>
+    <field name="doc_id"/>
+    <field name="user_id"/>
+    <field name="subject"/>
+    <field name="body"/>
+    <field name="state"/>
+</list>

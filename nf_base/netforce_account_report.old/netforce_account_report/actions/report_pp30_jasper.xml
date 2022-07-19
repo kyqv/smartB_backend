@@ -1,0 +1,6 @@
+<action>
+    <field name="type">report</field>
+    <field name="model">report.pp30</field>
+    <field name="method">get_data</field>
+    <field name="template">pp30</field>
+</action>

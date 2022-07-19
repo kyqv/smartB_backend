@@ -1,0 +1,6 @@
+<list model="sync.record">
+    <field name="time"/>
+    <field name="related_id"/>
+    <field name="sync_id"/>
+    <field name="account_id"/>
+</list>

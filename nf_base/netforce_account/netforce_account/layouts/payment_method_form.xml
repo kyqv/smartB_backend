@@ -1,0 +1,13 @@
+<form model="payment.method">
+    <field name="name"/>
+    <field name="code"/>
+    <field name="sequence"/>
+    <field name="type"/>
+    <field name="account_id"/>
+    <field name="require_report"/>
+    <separator/>
+    <field name="instructions"/>
+    <related>
+        <field name="comments"/>
+    </related>
+</form>

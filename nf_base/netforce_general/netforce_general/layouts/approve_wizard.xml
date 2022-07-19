@@ -1,0 +1,10 @@
+<form model="approve.wizard">
+    <field name="approve_model" invisible="1"/>
+    <field name="approve_id" invisible="1"/>
+    <field name="approve_method" invisible="1"/>
+    <field name="approver_id"/>
+    <field name="pin_code" password="1"/>
+    <foot>
+        <button string="Approve" method="approve" type="success" icon="ok"/>
+    </foot>
+</form>

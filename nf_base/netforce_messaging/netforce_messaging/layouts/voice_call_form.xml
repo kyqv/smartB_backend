@@ -1,0 +1,23 @@
+<form model="voice.call">
+    <field name="phone_from"/>
+    <field name="phone_to"/>
+    <separator/>
+    <field name="plan_time"/>
+    <field name="start_time"/>
+    <field name="end_time"/>
+    <field name="duration"/>
+    <separator/>
+    <field name="state"/>
+    <field name="state_details"/>
+    <separator/>
+    <field name="contact_id"/>
+    <field name="related_id"/>
+    <separator/>
+    <field name="description"/>
+    <field name="file"/>
+    <separator/>
+    <field name="call_id"/>
+    <foot>
+        <button string="Start Call" icon="phone" type="success" method="start_call"/>
+    </foot>
+</form>

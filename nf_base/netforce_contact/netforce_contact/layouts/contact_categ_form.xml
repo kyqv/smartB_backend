@@ -1,0 +1,25 @@
+<form model="contact.categ">
+    <tabs>
+        <tab string="General">
+            <field name="name"/>
+            <field name="code"/>
+            <field name="parent_id"/>
+            <field name="description"/>
+            <field name="sequence_id"/>
+        </tab>
+        <tab string="Accounting">
+            <separator string="Accounts"/>
+            <field name="account_receivable_id"/>
+            <field name="account_payable_id"/>
+            <separator string="Taxes"/>
+            <field name="sale_tax_id"/>
+            <field name="purchase_tax_id"/>
+        </tab>
+        <tab string="Sales">
+            <field name="sale_discount_percent"/>
+        </tab>
+    </tabs>
+    <related>
+        <field name="comments"/>
+    </related>
+</form>

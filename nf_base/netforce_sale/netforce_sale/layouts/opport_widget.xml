@@ -1,0 +1,8 @@
+<list model="sale.opportunity" hide_select="1" hide_page="1">
+    <head replace="1">
+        <button string="New Opportunity" action="opport" action_options='{"mode":"form"}' icon="plus" noselect="1"/>
+    </head>
+    <field name="name"/>
+    <field name="contact_id"/>
+    <field name="last_email_days"/>
+</list>

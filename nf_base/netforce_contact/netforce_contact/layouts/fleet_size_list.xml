@@ -1,0 +1,4 @@
+<list model="fleet.size">
+    <field name="code"/>
+    <field name="name"/>
+</list>

@@ -1,0 +1,15 @@
+<form model="cms.blog.post">
+    <field name="blog_id"/>
+    <field name="date"/>
+    <field name="title"/>
+    <field name="user_id"/>
+    <newline/>
+    <field name="body" width="900" height="300" view="field_html"/>
+    <newline/>
+    <field name="meta_description"/>
+    <field name="meta_keywords"/>
+    <related>
+        <field name="blocks"/>
+        <field name="comments"/>
+    </related>
+</form>

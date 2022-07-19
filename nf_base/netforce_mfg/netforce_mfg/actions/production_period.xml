@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Production Periods</field>
+    <field name="view">multi_view</field>
+    <field name="model">production.period</field>
+    <field name="menu">mfg_menu</field>
+</action>

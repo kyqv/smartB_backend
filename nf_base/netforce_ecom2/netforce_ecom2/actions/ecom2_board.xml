@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Ecommerce Dashboard</field>
+    <field name="view">board</field>
+    <field name="layout">ecom2_board</field>
+    <field name="menu">ecom2_menu</field>
+</action>

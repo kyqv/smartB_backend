@@ -1,0 +1,14 @@
+<list_m model="sale.lead">
+    <field name="date" bold="1"/>
+    <field name="age_days" bold="1" label="Age"/>
+    <newline/>
+    <field name="title" label="Subject"/>
+    <newline/>
+    <field name="contact_name" label="From"/>
+    <newline/>
+    <button title="Convert" method="copy_to_opport" type="success" icon="ios-checkmark" states="new"/>
+    <button title="Refer" action="lead_refer_m" action_options='{"active_id":id,"mode":"edit"}' type="warning" icon="ios-arrow-round-forward" states="new"/>
+    <button title="Void" method="void" type="danger" icon="ios-close" states="new"/>
+    <button title="Back To New" method="set_new" states="converted,referred,voided" icon="ios-arrow-back"/>
+    <field name="state" invisible="1"/>
+</list_m>

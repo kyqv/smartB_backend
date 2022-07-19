@@ -1,0 +1,7 @@
+<action>
+    <field name="view">list_m</field>
+    <field name="title">Leads</field>
+    <field name="model">sale.lead</field>
+    <field name="tabs">[["New",[["state","=","new"]]],["Converted",[["state","=","converted"]]],["Referred",[["state","=","referred"]]],["Voided",[["state","=","voided"]]]]</field>
+    <field name="menu">main_menu_m</field>
+</action>

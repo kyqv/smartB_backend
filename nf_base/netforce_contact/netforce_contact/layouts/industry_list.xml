@@ -1,0 +1,5 @@
+<list model="industry">
+    <field name="name"/>
+    <field name="code"/>
+    <field name="parent_id"/>
+</list>

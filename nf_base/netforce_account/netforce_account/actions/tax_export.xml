@@ -1,0 +1,6 @@
+<action>
+    <field name="type">export</field>
+    <field name="model">account.tax.rate</field>
+    <field name="filename">tax_rates.csv</field>
+    <field name="export_fields">["name", "components.name", "components.rate", "components.account_id", "components.type"]</field>
+</action>

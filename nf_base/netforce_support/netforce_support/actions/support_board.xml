@@ -1,0 +1,7 @@
+<action>
+    <field name="name">support_board</field>
+    <field name="string">Support Dashboard</field>
+    <field name="view_cls">board</field>
+    <field name="view_xml">support_board</field>
+    <field name="menu">support_menu</field>
+</action>

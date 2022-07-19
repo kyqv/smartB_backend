@@ -1,0 +1,6 @@
+<pivot model="task" rows="resource_id.name" cols="project_id.name" agg_name="count">
+    <field name="resource_id.name" string="Resource"/>
+    <field name="project_id.name" string="Project"/>
+    <field name="job_id.name" string="Service Order"/>
+    <field name="state"/>
+</pivot>

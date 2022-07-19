@@ -1,0 +1,7 @@
+<action>
+    <field name="view_type">collection</field>
+    <field name="model">stock.picking</field>
+    <field name="condition">[["type", "=", "in"]]</field>
+    <field name="template">pick_in_to_invoice</field>
+    <field name="target">_popup</field>
+</action>

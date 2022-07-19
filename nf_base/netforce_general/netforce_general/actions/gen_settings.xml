@@ -1,0 +1,4 @@
+<action>
+    <field name="template">gen_settings</field>
+    <field name="menu">gen_menu</field>
+</action>

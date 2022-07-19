@@ -1,0 +1,47 @@
+<form model="account.transfer" attrs='{"readonly":[["state","!=","draft"]]}' show_company="1">
+    <head>
+        <field name="state"/>
+        <button string="Options" dropdown="1">
+            <item string="Copy" method="copy"/>
+            <item string="To Draft" method="to_draft" states="posted"/>
+            <item string="Void" method="void" states="posted" confirm="Are you sure you want to void this transfer?"/>
+            <divider/>
+            <item string="View Journal Entry" method="view_journal_entry" states="posted"/>
+        </button>
+    </head>
+    <group form_layout="stacked">
+        <field name="date" span="2" onchange="onchange_date"/>
+        <field name="number" span="2"/>
+        <field name="ref" span="2"/>
+        <field name="track_id" span="2"/>
+        <field name="track2_id" span="2"/>
+        <newline/>
+        <field name="account_from_id" span="2"/>
+        <field name="account_to_id" span="2"/>
+        <newline/>
+        <field name="amount" span="2" onchange="onchange_amount"/>
+        <field name="amount_received" span="2" onchange="onchange_amount_received"/>
+    </group>
+    <field name="company_id" invisible="1"/>
+    <foot>
+        <button string="Post" method="post" type="success" states="draft"/>
+    </foot>
+    <related>
+        <field name="documents">
+            <list>
+                <field name="file" target="_blank" preview="1"/>
+                <field name="categ_id"/>
+                <field name="description"/>
+                <field name="date"/>
+            </list>
+            <form>
+                <field name="categ_id"/>
+                <field name="file" target="_blank" onchange="onchange_file"/>
+                <field name="date"/>
+                <field name="description"/>
+                <field name="contact_id" invisible="1"/>
+            </form>
+        </field>
+        <field name="comments"/>
+    </related>
+</form>

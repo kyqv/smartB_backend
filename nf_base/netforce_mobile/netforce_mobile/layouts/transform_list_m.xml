@@ -1,0 +1,7 @@
+<list_m model="stock.transform">
+    <field name="date"/>
+    <field name="number"/>
+    <newline/>
+    <field name="from_product_id"/>
+    <field name="to_product_id"/>
+</list_m>

@@ -1,0 +1,64 @@
+<div style="max-width:1170px;margin:0 auto">
+<center>
+    <h2>
+        Project Budget Report
+    </h2>
+    <h3>
+        {{data.company_name}}
+        <br/>
+        {{#if data.track_name}}
+        Project: [{{data.track_code}}] {{data.track_name}}
+        {{/if}}
+        {{#if data.contact_name}}
+        Supplier: {{data.contact_name}}
+        {{/if}}
+    </h3>
+</center>
+<table class="table table-condensed">
+    <thead class="scroll-header">
+        <tr>
+            <th>
+                Supplier
+            </th>
+            <th>
+                Account
+            </th>
+            <th style="text-align:right">
+                Forecast Total
+            </th>
+            <th style="text-align:right">
+                Actual Total
+            </th>
+            <th style="text-align:right">
+                Paid
+            </th>
+            <th style="text-align:right">
+                Unpaid
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each lines}}
+            <tr>
+                <td>{{contact_name}}</td>
+                <td>[{{account_code}}] {{account_name}}</td>
+                <td style="text-align:right">{{currency budget_amount}}</td>
+                <td style="text-align:right">
+                    {{#link action="report_account_trans" defaults_contact_id=contact_id defaults_account_id=account_id defaults_track_id=../data.track_id}}
+                        {{currency actual_amount}}
+                    {{/link}}
+                </td>
+                <td style="text-align:right">{{currency paid_amount}}</td>
+                <td style="text-align:right">{{currency unpaid_amount}}</td>
+            </tr>
+        {{/each}}
+        <tr>
+            <th></th>
+            <th></th>
+            <th style="text-align:right">{{currency data.budget_total}}</th>
+            <th style="text-align:right">{{currency data.actual_total}}</th>
+            <th style="text-align:right">{{currency data.paid_total}}</th>
+            <th style="text-align:right">{{currency data.unpaid_total}}</th>
+        </tr>
+    </tbody>
+</table>

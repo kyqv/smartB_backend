@@ -1,0 +1,4 @@
+<form model="fault.code">
+    <field name="code"/>
+    <field name="description"/>
+</form>

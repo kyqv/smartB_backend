@@ -1,0 +1,10 @@
+<form model="report.sale.commission">
+    <group form_layout="stacked">
+        <field name="date_from" span="2"/>
+        <field name="date_to" span="2"/>
+        <field name="seller_percent" span="2"/>
+        <field name="parent_percent" span="2"/>
+        <field name="grand_parent_percent" span="2"/>
+        <field name="default_margin" span="2"/>
+    </group>
+</form>

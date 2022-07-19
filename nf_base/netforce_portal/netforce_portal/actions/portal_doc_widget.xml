@@ -1,0 +1,8 @@
+<action>
+    <field name="view_cls">list_view</field>
+    <field name="model">document</field>
+    <field name="condition">[["state","=","verified"],["share","=",true]]</field>
+    <field name="order">date desc</field>
+    <field name="limit">10</field>
+    <field name="view_xml">portal_doc_widget</field>
+</action>

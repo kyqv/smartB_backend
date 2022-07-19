@@ -1,0 +1,7 @@
+<record model="action">
+    <field name="string">Carts</field>
+    <field name="view">multi_view</field>
+    <field name="model">ecom.cart</field>
+    <field name="tabs">[["All",[]],["Draft",[["state","=","draft"]]],["Confirmed",[["state","=","confirmed"]]],["Completed",[["state","=","done"]]],["Canceled",[["state","=","canceled"]]]]</field>
+    <field name="menu">ecom_menu</field>
+</record>

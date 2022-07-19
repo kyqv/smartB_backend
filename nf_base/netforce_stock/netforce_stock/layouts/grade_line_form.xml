@@ -1,0 +1,12 @@
+<form model="stock.grade.line">
+    <field name="grade_id"/>
+    <field name="product_id"/>
+    <field name="qty"/>
+    <field name="product_gb_id"/>
+    <field name="qty_ga"/>
+    <field name="qty_gb"/>
+    <field name="qty_waste"/>
+    <field name="qty_loss"/>
+    <field name="uom_id"/>
+    <field name="related_id"/>
+</form>

@@ -1,0 +1,10 @@
+<form_m model="nd.route">
+    <field name="delivery_date"/>
+    <field name="round_id"/>
+    <newline/>
+    <field name="driver_id"/>
+    <field name="state"/>
+    <related>
+        <field name="orders"/>
+    </related>
+</form_m>

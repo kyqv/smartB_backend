@@ -1,0 +1,7 @@
+<action>
+    <field name="name">hr_board</field>
+    <field name="string">HR Dashboard</field>
+    <field name="view_cls">board</field>
+    <field name="view_xml">hr_board</field>
+    <field name="menu">hr_menu</field>
+</action>

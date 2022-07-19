@@ -1,0 +1,13 @@
+<list model="sync.model">
+    <head>
+        <button string="Upload To Firebase" method="upload_firebase" type="primary" icon="arrow-right" show_progress="1"/>
+        <button string="Clear Firebase" method="clear_firebase" show_progress="1"/>
+    </head>
+    <field name="firebase_account_id"/>
+    <field name="model_id"/>
+    <field name="path"/>
+    <field name="fields"/>
+    <field name="filter"/>
+    <field name="enable_realtime"/>
+    <field name="last_sync_time"/>
+</list>

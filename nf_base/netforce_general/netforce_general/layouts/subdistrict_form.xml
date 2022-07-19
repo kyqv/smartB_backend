@@ -1,0 +1,8 @@
+<form model="subdistrict">
+    <field name="district_id"/>
+    <field name="name"/>
+    <field name="code"/>
+    <related>
+        <field name="postal_codes"/>
+    </related>
+</form>

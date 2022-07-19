@@ -1,0 +1,8 @@
+<action>
+    <field name="view_type">collection</field>
+    <field name="model">stock.balance</field>
+    <field name="condition">[["location_id","=",warehouse_id]]</field>
+    <field name="template">warehouse_product_list</field>
+    <field name="layout">warehouse_page</field>
+</action>
+

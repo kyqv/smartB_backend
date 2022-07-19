@@ -1,0 +1,5 @@
+<form model="layout">
+    <field name="name"/>
+    <newline/>
+    <field name="layout" width="800" height="500"/>
+</form>

@@ -1,0 +1,12 @@
+<list model="issue" colors='{"#ccc":[["state","=","closed"]],"#ccf":[["state","=","in_progress"]],"#efe":[["state","=","ready"]],"#fcc":[["state","=","wait_customer"]],"#ffc":[["state","=","wait_internal"]]}'>
+    <field name="number"/>
+    <field name="date_created"/>
+    <field name="project_id"/>
+    <field name="related_id"/>
+    <field name="title"/>
+    <field name="type_id"/>
+    <field name="priority"/>
+    <field name="resource_id"/>
+    <field name="state"/>
+    <field name="date_estimate"/>
+</list>

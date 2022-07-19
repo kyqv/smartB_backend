@@ -1,0 +1,15 @@
+<form model="mkt.activity">
+    <head>
+        <field name="state"/>
+    </head>
+    <field name="target_id"/>
+    <field name="type"/>
+    <field name="date"/>
+    <field name="state"/>
+    <field name="subject"/>
+    <newline/>
+    <field name="body" attrs='{"invisible":[["type","=","sms"]]}' width="900" height="350" wysi="1"/>
+    <related>
+        <field name="comments"/>
+    </related>
+</form>

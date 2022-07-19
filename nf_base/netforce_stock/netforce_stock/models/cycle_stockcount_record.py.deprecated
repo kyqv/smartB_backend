@@ -1,0 +1,55 @@
+# Copyright (c) 2012-2015 Netforce Co. Ltd.
+# 
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+# 
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+# 
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+# EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+# IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+# DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+# OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
+# OR OTHER DEALINGS IN THE SOFTWARE.
+
+from netforce.model import Model, fields, get_model
+
+
+class CycleStockCountRecord(Model):
+    _name = "cycle.stock.count.record"
+    _string = "Cycle Stock Count Record"
+    _fields = {
+        "date": fields.Date("Date",search=True),
+        "product_id": fields.Many2One("product","Product",condition=[["type","=","stock"]],search=True),
+        "abc_categ": fields.Selection([["a_","A"],["b_","B"],["c_","C"],["none","Not Categorized"]],"ABC Category",search=True),        
+        "xyz_categ": fields.Selection([["x_","X"],["y_","Y"],["z_","Z"],["none","Not Categorized"]],"XYZ Category",search=True),
+        #"turnover_rate": fields.Decimal("Inventory Turnover"),
+        "location_id": fields.Many2One("stock.location", "Stock Location", required=True, search=True),
+        "pic_id": fields.Many2One("base.user","Stock Count PIC",search=True),
+        "cycle_count_id": fields.Many2One("cycle.stock.count","Cycle Stock Count"),
+        "expected_qty": fields.Decimal("Expected Qty on System"),
+        "actual_qty": fields.Decimal("Actual Qty Counted"),
+        "state": fields.Selection([["draft","Draft"],["done","Validated"]],"Status",search=True),
+    }
+    _order = "date,id"
+
+    def default_get(self,field_names=None, context={}, **kw): 
+        print("CycleStockCountRecord.default_get")
+        return {
+            "state":"draft",
+        }
+
+    def to_draft(self,ids,context={}):
+        res=self.browse(ids)
+        for record in res:
+            if record.state == done:
+                self.write(ids,{state:draft})
+        return
+
+CycleStockCountRecord.register()

@@ -1,0 +1,7 @@
+<list_m model="sale.order">
+    <field name="date"/>
+    <field name="number"/>
+    <newline/>
+    <field name="contact_id"/>
+    <field name="amount_total"/>
+</list_m>

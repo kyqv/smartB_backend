@@ -1,0 +1,106 @@
+<form model="shopee.order">
+    <top>
+        <button string="Options">
+            <!--<item string="Get Shipping Parameter" method="get_shipping_parameter"/>-->
+            <!--<item string="Ship Order" method="ship_order"/>-->
+            <item string="Get Tracking Number" method="get_tracking_number"/>
+            <!--<item string="Copy to Sale Order" method="copy_to_sale"/>-->
+            <item string="Copy to Goods Issue" method="copy_to_picking"/>
+            <!--<item string="Copy to Customer Invoice" method="copy_to_invoice"/>-->
+        </button>
+    </top>
+    <tabs>
+        <tab string="General">
+            <field name="account_id"/>
+            <field name="order_sn"/>
+            <field name="order_status"/>
+            <field name="order_create_time"/>
+            <field name="region"/>
+            <field name="currency"/>
+            <field name="cod"/>
+            <field name="total_amount"/>
+            <field name="shipping_carrier"/>
+            <field name="payment_method"/>
+            <field name="estimated_shipping_fee"/>
+            <field name="message_to_seller"/>
+            <field name="days_to_ship"/>
+            <field name="ship_by_date"/>
+            <field name="actual_shipping_fee"/>
+            <field name="weight"/>
+            <field name="items">
+                <list>
+                    <field name="item_id"/>
+                    <field name="item_sku"/>
+                    <field name="item_name"/>
+                    <field name="model_id"/>
+                    <field name="model_name"/>
+                    <field name="model_quantity_purchased"/>
+                    <field name="model_original_price"/>
+                    <field name="model_discounted_price"/>
+                    <field name="wholesale"/>
+                    <field name="weight"/>
+                </list>
+            </field>
+        </tab>
+        <tab string="Buyer Info">
+            <field name="buyer_user_id"/>
+            <field name="buyer_username"/>
+            <field name="recipient_address_name"/>
+            <field name="recipient_address_phone"/>
+            <field name="recipient_address_town"/>
+            <field name="recipient_address_district"/>
+            <field name="recipient_address_city"/>
+            <field name="recipient_address_state"/>
+            <field name="recipient_address_region"/>
+            <field name="recipient_address_zipcode"/>
+            <field name="recipient_address_full_address"/>
+        </tab>
+        <tab string="Other Info">
+            <field name="goods_to_declare"/>
+            <field name="note"/>
+            <field name="note_update_time"/>
+            <field name="pay_time"/>
+            <field name="dropshipper"/>
+            <field name="credit_card_number"/>
+            <field name="dropshipper_phone"/>
+            <field name="split_up"/>
+            <field name="buyer_cancel_reason"/>
+            <field name="cancel_by"/>
+            <field name="cancel_reason"/>
+            <field name="actual_shipping_fee_confirmed"/>
+            <field name="buyer_cpf_id"/>
+            <field name="fulfillment_flag"/>
+            <field name="pickup_done_time"/>
+        </tab>
+        <tab string="Shipping Info">
+            <field name="dropoff"/>
+            <field name="dropoff_info"/>
+            <field name="pickup"/>
+            <field name="pickup_info"/>
+            <field name="non_integrated"/>
+            <field name="non_integrated_info"/>
+            <separator/>
+            <field name="tracking_number"/>
+            <field name="package_number"/>
+        </tab>
+        <tab string="Invoice Info">
+            <field name="invoice_data_number"/>
+            <field name="invoice_data_series_number"/>
+            <field name="invoice_data_access_key"/>
+            <field name="invoice_data_issue_date"/>
+            <field name="invoice_data_total_value"/>
+            <field name="invoice_data_products_total_value"/>
+            <field name="invoice_data_tax_code"/>
+        </tab>
+        <tab string="Troubleshooting">
+            <field name="logs"/>
+        </tab>
+    </tabs>
+    <related>
+        <field name="sync_records"/>
+        <field name="sale_orders"/>
+        <field name="pickings"/>
+        <field name="invoices"/>
+        <field name="payments"/>
+    </related>
+</form>

@@ -1,0 +1,24 @@
+<form model="product.attribute">
+    <field name="name"/>
+    <field name="code"/>
+    <related>
+        <field name="options">
+            <list>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="sequence"/>
+                <field name="description"/>
+                <field name="image" preview="1" nofilename="1"/>
+                <field name="price"/>
+            </list>
+            <form>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="sequence"/>
+                <field name="description"/>
+                <field name="image"/>
+                <field name="price"/>
+            </form>
+        </field>
+    </related>
+</form>

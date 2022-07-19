@@ -1,0 +1,7 @@
+<action>
+    <field name="string">Bank Transfers</field>
+    <field name="view">multi_view</field>
+    <field name="model">account.transfer</field>
+    <field name="tabs">[["All",[]],["Draft",[["state","=","draft"]]],["Posted",[["state","=","posted"]]]]</field>
+    <field name="menu">account_menu</field>
+</action>

@@ -1,0 +1,6 @@
+<action>
+    <field name="view">list_m</field>
+    <field name="title">SMS Messages</field>
+    <field name="model">sms.message</field>
+    <field name="menu">main_menu_m</field>
+</action>

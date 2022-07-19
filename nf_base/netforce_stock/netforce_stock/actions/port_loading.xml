@@ -1,0 +1,6 @@
+<action>
+    <field name="view">multi_view</field>
+    <field name="string">Port Loading</field>
+    <field name="model">port.loading</field>
+    <field name="menu">stock_menu</field>
+</action>

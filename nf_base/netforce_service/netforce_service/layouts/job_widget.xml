@@ -1,0 +1,10 @@
+<list model="job" colors='{"#fcc":[["overdue","=",true]]}' priority="20">
+    <field name="number"/>
+    <field name="contact_id"/>
+    <field name="service_type_id"/>
+    <field name="due_date"/>
+    <field name="time_start"/>
+    <field name="time_stop"/>
+    <field name="state"/>
+    <field name="overdue" invisible="1"/>
+</list>

@@ -1,0 +1,11 @@
+<list model="bill.note">
+    <head>
+        <button string="Print" icon="print" action="report_bill_note_form" action_options='{"ids":ids}'/>
+    </head>
+    <field name="number"/>
+    <field name="date"/>
+    <field name="customer_id"/>
+    <field name="amount_total"/>
+    <field name="amount_due"/>
+    <field name="remarks"/>
+</list>

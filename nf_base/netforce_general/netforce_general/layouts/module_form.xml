@@ -1,0 +1,18 @@
+<form model="module">
+    <head>
+        <button string="Options" dropdown="1">
+            <item string="Delete Module" method="delete_modules" confirm="Are you sure?"/>
+        </button>
+    </head>
+    <field name="name"/>
+    <field name="description"/>
+    <field name="version"/>
+    <field name="author"/>
+    <related>
+        <field name="models"/>
+        <field name="view_layouts"/>
+        <field name="actions"/>
+        <field name="templates"/>
+        <field name="scripts"/>
+    </related>
+</form>

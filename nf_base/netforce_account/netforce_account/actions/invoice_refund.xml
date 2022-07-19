@@ -1,0 +1,4 @@
+<action>
+    <field name="view">related_form</field>
+    <field name="model">invoice.refund</field>
+</action>

@@ -1,0 +1,726 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="pnd91_attach" language="groovy" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.0000000000000022"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="528"/>
+	<style name="default" isDefault="true" mode="Transparent" forecolor="#010101" backcolor="#FFFFFF" hAlign="Center" vAlign="Middle" fontName="Loma" fontSize="9" isBold="false" isItalic="false" isUnderline="false" pdfFontName="/usr/share/fonts/truetype/tlwg/Loma.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true">
+		<box leftPadding="2" rightPadding="2"/>
+		<paragraph lineSpacing="Single"/>
+	</style>
+	<style name="default-bold" forecolor="#000000" backcolor="#FFFFFF" hAlign="Center" vAlign="Middle" fontName="Loma" fontSize="9" isBold="true" isItalic="false" isUnderline="false" pdfFontName="/usr/share/fonts/truetype/tlwg/Loma-Bold.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true">
+		<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2"/>
+	</style>
+	<style name="amount" style="default" hAlign="Right" fontName="TlwgMono" pdfFontName="/usr/share/fonts/truetype/tlwg/TlwgMono.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+	<parameter name="ID" class="java.lang.Integer" isForPrompting="false"/>
+	<queryString language="json">
+		<![CDATA[lines]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[id]]></fieldDescription>
+	</field>
+	<field name="name" class="java.lang.String">
+		<fieldDescription><![CDATA[name]]></fieldDescription>
+	</field>
+	<field name="pin" class="java.lang.String">
+		<fieldDescription><![CDATA[pin]]></fieldDescription>
+	</field>
+	<field name="birthdate" class="java.lang.String">
+		<fieldDescription><![CDATA[birthdate]]></fieldDescription>
+	</field>
+	<field name="spouse_name" class="java.lang.String">
+		<fieldDescription><![CDATA[spouse_name]]></fieldDescription>
+	</field>
+	<field name="spouse_pin" class="java.lang.String">
+		<fieldDescription><![CDATA[spouse_pin]]></fieldDescription>
+	</field>
+	<field name="spouse_birthdate" class="java.lang.String">
+		<fieldDescription><![CDATA[spouse_birthdate]]></fieldDescription>
+	</field>
+	<field name="A1" class="java.lang.Double">
+		<fieldDescription><![CDATA[A1]]></fieldDescription>
+	</field>
+	<field name="A2" class="java.lang.Double">
+		<fieldDescription><![CDATA[A2]]></fieldDescription>
+	</field>
+	<field name="A3" class="java.lang.Double">
+		<fieldDescription><![CDATA[A3]]></fieldDescription>
+	</field>
+	<field name="A4" class="java.lang.Double">
+		<fieldDescription><![CDATA[A4]]></fieldDescription>
+	</field>
+	<field name="A5" class="java.lang.Double">
+		<fieldDescription><![CDATA[A5]]></fieldDescription>
+	</field>
+	<field name="A6" class="java.lang.Double">
+		<fieldDescription><![CDATA[A6]]></fieldDescription>
+	</field>
+	<field name="A7" class="java.lang.Double">
+		<fieldDescription><![CDATA[A7]]></fieldDescription>
+	</field>
+	<field name="A8" class="java.lang.Double">
+		<fieldDescription><![CDATA[A8]]></fieldDescription>
+	</field>
+	<field name="A9" class="java.lang.Double">
+		<fieldDescription><![CDATA[A9]]></fieldDescription>
+	</field>
+	<field name="A10" class="java.lang.Double">
+		<fieldDescription><![CDATA[A10]]></fieldDescription>
+	</field>
+	<field name="A11" class="java.lang.Double">
+		<fieldDescription><![CDATA[A11]]></fieldDescription>
+	</field>
+	<field name="A12" class="java.lang.Double">
+		<fieldDescription><![CDATA[A12]]></fieldDescription>
+	</field>
+	<field name="B1" class="java.lang.Double">
+		<fieldDescription><![CDATA[B1]]></fieldDescription>
+	</field>
+	<field name="B2" class="java.lang.Double">
+		<fieldDescription><![CDATA[B2]]></fieldDescription>
+	</field>
+	<field name="B3" class="java.lang.Double">
+		<fieldDescription><![CDATA[B3]]></fieldDescription>
+	</field>
+	<field name="B4a" class="java.lang.Double">
+		<fieldDescription><![CDATA[B4a]]></fieldDescription>
+	</field>
+	<field name="B4b" class="java.lang.Double">
+		<fieldDescription><![CDATA[B4b]]></fieldDescription>
+	</field>
+	<field name="B5" class="java.lang.Double">
+		<fieldDescription><![CDATA[B5]]></fieldDescription>
+	</field>
+	<field name="B6" class="java.lang.Double">
+		<fieldDescription><![CDATA[B6]]></fieldDescription>
+	</field>
+	<field name="B7" class="java.lang.Double">
+		<fieldDescription><![CDATA[B7]]></fieldDescription>
+	</field>
+	<field name="C1" class="java.lang.Double">
+		<fieldDescription><![CDATA[C1]]></fieldDescription>
+	</field>
+	<field name="C2" class="java.lang.Double">
+		<fieldDescription><![CDATA[C2]]></fieldDescription>
+	</field>
+	<field name="C3a" class="java.lang.Double">
+		<fieldDescription><![CDATA[C3a]]></fieldDescription>
+	</field>
+	<field name="C3_persons" class="java.lang.Integer">
+		<fieldDescription><![CDATA[C3a_persons]]></fieldDescription>
+	</field>
+	<field name="C3b" class="java.lang.Double">
+		<fieldDescription><![CDATA[C3b]]></fieldDescription>
+	</field>
+	<field name="C3b_persons" class="java.lang.Integer">
+		<fieldDescription><![CDATA[C3b_persons]]></fieldDescription>
+	</field>
+	<field name="C4a" class="java.lang.Double">
+		<fieldDescription><![CDATA[C4a]]></fieldDescription>
+	</field>
+	<field name="C4a_pin" class="java.lang.String">
+		<fieldDescription><![CDATA[C4a_pin]]></fieldDescription>
+	</field>
+	<field name="C4b" class="java.lang.Double">
+		<fieldDescription><![CDATA[C4b]]></fieldDescription>
+	</field>
+	<field name="C4b_pin" class="java.lang.String">
+		<fieldDescription><![CDATA[C4b_pin]]></fieldDescription>
+	</field>
+	<field name="C4c" class="java.lang.Double">
+		<fieldDescription><![CDATA[C4c]]></fieldDescription>
+	</field>
+	<field name="C4c_pin" class="java.lang.String">
+		<fieldDescription><![CDATA[C4c_pin]]></fieldDescription>
+	</field>
+	<field name="C4d" class="java.lang.Double">
+		<fieldDescription><![CDATA[C4d]]></fieldDescription>
+	</field>
+	<field name="C4d_pin" class="java.lang.String">
+		<fieldDescription><![CDATA[C4d_pin]]></fieldDescription>
+	</field>
+	<field name="C5" class="java.lang.Double">
+		<fieldDescription><![CDATA[C5]]></fieldDescription>
+	</field>
+	<field name="C6" class="java.lang.Double">
+		<fieldDescription><![CDATA[C6]]></fieldDescription>
+	</field>
+	<field name="C6a_pin" class="java.lang.String">
+		<fieldDescription><![CDATA[C6a_pin]]></fieldDescription>
+	</field>
+	<field name="C6b_pin" class="java.lang.String">
+		<fieldDescription><![CDATA[C6b_pin]]></fieldDescription>
+	</field>
+	<field name="C6c_pin" class="java.lang.String">
+		<fieldDescription><![CDATA[C6c_pin]]></fieldDescription>
+	</field>
+	<field name="C6d_pin" class="java.lang.String">
+		<fieldDescription><![CDATA[C6d_pin]]></fieldDescription>
+	</field>
+	<field name="C7a" class="java.lang.Double">
+		<fieldDescription><![CDATA[C7a]]></fieldDescription>
+	</field>
+	<field name="C7b" class="java.lang.Double">
+		<fieldDescription><![CDATA[C7b]]></fieldDescription>
+	</field>
+	<field name="C8" class="java.lang.Double">
+		<fieldDescription><![CDATA[C8]]></fieldDescription>
+	</field>
+	<field name="C9" class="java.lang.Double">
+		<fieldDescription><![CDATA[C9]]></fieldDescription>
+	</field>
+	<field name="C10" class="java.lang.Double">
+		<fieldDescription><![CDATA[C10]]></fieldDescription>
+	</field>
+	<field name="C11" class="java.lang.Double">
+		<fieldDescription><![CDATA[C11]]></fieldDescription>
+	</field>
+	<field name="C12" class="java.lang.Double">
+		<fieldDescription><![CDATA[C12]]></fieldDescription>
+	</field>
+	<field name="C13" class="java.lang.Double">
+		<fieldDescription><![CDATA[C13]]></fieldDescription>
+	</field>
+	<field name="C14" class="java.lang.Double">
+		<fieldDescription><![CDATA[C14]]></fieldDescription>
+	</field>
+	<field name="field2" class="java.lang.String"/>
+	<field name="field3" class="java.lang.String"/>
+	<variable name="B4" class="java.lang.Double" resetType="Column">
+		<variableExpression><![CDATA[$F{B4a} + $F{B4b}]]></variableExpression>
+	</variable>
+	<background>
+		<band height="842" splitType="Prevent">
+			<image>
+				<reportElement x="0" y="0" width="595" height="842"/>
+				<imageExpression><![CDATA["pnd91_bg2.gif"]]></imageExpression>
+			</image>
+		</band>
+	</background>
+	<detail>
+		<band height="842" splitType="Prevent">
+			<textField>
+				<reportElement x="266" y="30" width="11" height="15">
+					<printWhenExpression><![CDATA[$F{pin}.size() > 12]]></printWhenExpression>
+				</reportElement>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{pin}[12]]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="178" y="30" width="11" height="15">
+					<printWhenExpression><![CDATA[$F{pin}.size() > 5]]></printWhenExpression>
+				</reportElement>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{pin}[5]]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="239" y="30" width="11" height="15">
+					<printWhenExpression><![CDATA[$F{pin}.size() > 10]]></printWhenExpression>
+				</reportElement>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{pin}[10]]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="189" y="30" width="11" height="15">
+					<printWhenExpression><![CDATA[$F{pin}.size() > 6]]></printWhenExpression>
+				</reportElement>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{pin}[6]]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="162" y="30" width="11" height="15">
+					<printWhenExpression><![CDATA[$F{pin}.size() > 4]]></printWhenExpression>
+				</reportElement>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{pin}[4]]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="30" width="11" height="15">
+					<printWhenExpression><![CDATA[$F{pin}.size() > 7]]></printWhenExpression>
+				</reportElement>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{pin}[7]]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="151" y="30" width="11" height="15">
+					<printWhenExpression><![CDATA[$F{pin}.size() > 3]]></printWhenExpression>
+				</reportElement>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{pin}[3]]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="250" y="30" width="11" height="15">
+					<printWhenExpression><![CDATA[$F{pin}.size() > 11]]></printWhenExpression>
+				</reportElement>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{pin}[11]]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="222" y="30" width="11" height="15">
+					<printWhenExpression><![CDATA[$F{pin}.size() > 9]]></printWhenExpression>
+				</reportElement>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{pin}[9]]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="129" y="30" width="11" height="15">
+					<printWhenExpression><![CDATA[$F{pin}.size() > 1]]></printWhenExpression>
+				</reportElement>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{pin}[1]]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="140" y="30" width="11" height="15">
+					<printWhenExpression><![CDATA[$F{pin}.size() > 2]]></printWhenExpression>
+				</reportElement>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{pin}[2]]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="113" y="30" width="11" height="15">
+					<printWhenExpression><![CDATA[$F{pin}.size() > 0]]></printWhenExpression>
+				</reportElement>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{pin}[0]]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="211" y="30" width="11" height="15">
+					<printWhenExpression><![CDATA[$F{pin}.size() > 8]]></printWhenExpression>
+				</reportElement>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{pin}[8]]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="204" y="103" width="100" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[Integer.toString($F{A1}.intValue()).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="204" y="119" width="100" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[Integer.toString($F{A2}.intValue()).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="306" y="103" width="22" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new DecimalFormat("00").format(($F{A1} - $F{A1}.intValue()) * 100).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="306" y="119" width="22" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new DecimalFormat("00").format(($F{A2} - $F{A2}.intValue()) * 100).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="204" y="139" width="100" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[Integer.toString($F{A3}.intValue()).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="306" y="139" width="22" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new DecimalFormat("00").format(($F{A3} - $F{A3}.intValue()) * 100).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="306" y="173" width="22" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new DecimalFormat("00").format(($F{A4} - $F{A4}.intValue()) * 100).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="204" y="173" width="100" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[Integer.toString($F{A4}.intValue()).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="204" y="190" width="100" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[Integer.toString($F{A5}.intValue()).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="306" y="190" width="22" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new DecimalFormat("00").format(($F{A5} - $F{A5}.intValue()) * 100).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="204" y="208" width="100" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[Integer.toString($F{A6}.intValue()).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="306" y="208" width="22" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new DecimalFormat("00").format(($F{A6} - $F{A6}.intValue()) * 100).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="204" y="226" width="100" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[Integer.toString($F{A7}.intValue()).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="306" y="226" width="22" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new DecimalFormat("00").format(($F{A7} - $F{A7}.intValue()) * 100).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="306" y="262" width="22" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new DecimalFormat("00").format(($F{A8} - $F{A8}.intValue()) * 100).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="204" y="262" width="100" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[Integer.toString($F{A8}.intValue()).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="306" y="280" width="22" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new DecimalFormat("00").format(($F{A9} - $F{A9}.intValue()) * 100).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="204" y="280" width="100" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[Integer.toString($F{A9}.intValue()).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="306" y="298" width="22" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new DecimalFormat("00").format(($F{A10} - $F{A10}.intValue()) * 100).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="204" y="298" width="100" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[Integer.toString($F{A10}.intValue()).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="306" y="316" width="22" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new DecimalFormat("00").format(($F{A11} - $F{A11}.intValue()) * 100).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="204" y="316" width="100" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[Integer.toString($F{A11}.intValue()).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="306" y="335" width="22" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new DecimalFormat("00").format(($F{A12} - $F{A12}.intValue()) * 100).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="204" y="335" width="100" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[Integer.toString($F{A12}.intValue()).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="199" y="631" width="100" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[Integer.toString($F{B1}.intValue()).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="304" y="631" width="22" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new DecimalFormat("00").format(($F{B1} - $F{B1}.intValue()) * 100).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="304" y="649" width="22" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new DecimalFormat("00").format(($F{B2} - $F{B2}.intValue()) * 100).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="199" y="649" width="100" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[Integer.toString($F{B2}.intValue()).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="199" y="670" width="100" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[Integer.toString($F{B3}.intValue()).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="304" y="670" width="22" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new DecimalFormat("00").format(($F{B3} - $F{B3}.intValue()) * 100).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="199" y="713" width="100" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[Integer.toString($V{B4}.intValue()).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="304" y="713" width="22" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new DecimalFormat("00").format(($V{B4} - $V{B4}.intValue()) * 100).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="304" y="783" width="22" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new DecimalFormat("00").format(($F{B7} - $F{B7}.intValue()) * 100).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="199" y="765" width="100" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[Integer.toString($F{B6}.intValue()).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="304" y="765" width="22" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new DecimalFormat("00").format(($F{B6} - $F{B6}.intValue()) * 100).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<line direction="BottomUp">
+				<reportElement x="29" y="710" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{B4a} != 0.0]]></printWhenExpression>
+				</reportElement>
+			</line>
+			<line direction="BottomUp">
+				<reportElement x="29" y="728" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{B4b} != 0.0]]></printWhenExpression>
+				</reportElement>
+			</line>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="488" y="90" width="70" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[Integer.toString($F{C1}.intValue()).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="563" y="90" width="22" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new DecimalFormat("00").format(($F{C1} - $F{C1}.intValue()) * 100).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="563" y="107" width="22" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new DecimalFormat("00").format(($F{C2} - $F{C2}.intValue()) * 100).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="488" y="107" width="70" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[Integer.toString($F{C2}.intValue()).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="563" y="136" width="22" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new DecimalFormat("00").format(($F{C3a} - $F{C3a}.intValue()) * 100).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="488" y="151" width="70" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[Integer.toString($F{C3b}.intValue()).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="563" y="151" width="22" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new DecimalFormat("00").format(($F{C3b} - $F{C3b}.intValue()) * 100).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="488" y="136" width="70" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[Integer.toString($F{C3a}.intValue()).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="432" y="136" width="15" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{C3_persons}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="563" y="189" width="22" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new DecimalFormat("00").format(($F{C4a} - $F{C4a}.intValue()) * 100).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="488" y="189" width="70" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[Integer.toString($F{C4a}.intValue()).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="563" y="215" width="22" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new DecimalFormat("00").format(($F{C4b} - $F{C4b}.intValue()) * 100).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="488" y="215" width="70" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[Integer.toString($F{C4b}.intValue()).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="563" y="241" width="22" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new DecimalFormat("00").format(($F{C4c} - $F{C4c}.intValue()) * 100).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="488" y="241" width="70" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[Integer.toString($F{C4c}.intValue()).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="563" y="266" width="22" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new DecimalFormat("00").format(($F{C4d} - $F{C4d}.intValue()) * 100).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="488" y="266" width="70" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[Integer.toString($F{C4d}.intValue()).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="339" y="189" width="140" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{C4a_pin}? $F{C4a_pin}.replace(""," ").trim(): ""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="amount" x="339" y="215" width="140" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{C4b_pin}? $F{C4b_pin}.replace(""," ").trim():""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="amount" x="339" y="241" width="140" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{C4c_pin}? $F{C4c_pin}.replace(""," ").trim():""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="amount" x="339" y="266" width="140" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{C4d_pin} ? $F{C4d_pin}.replace(""," ").trim(): ""]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="563" y="303" width="22" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new DecimalFormat("00").format(($F{C5} - $F{C5}.intValue()) * 100).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="488" y="303" width="70" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[Integer.toString($F{C5}.intValue()).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="563" y="388" width="22" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new DecimalFormat("00").format(($F{C6} - $F{C6}.intValue()) * 100).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="488" y="388" width="70" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[Integer.toString($F{C6}.intValue()).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="amount" x="339" y="425" width="140" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{C6d_pin}?$F{C6d_pin}.replace(""," ").trim():""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="amount" x="339" y="344" width="140" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{C6a_pin}?$F{C6a_pin}.replace(""," ").trim():""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="amount" x="339" y="400" width="140" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{C6c_pin}?$F{C6c_pin}.replace(""," ").trim():""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="amount" x="339" y="373" width="140" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{C6b_pin}? $F{C6b_pin}.replace(""," ").trim():""]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="563" y="452" width="22" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new DecimalFormat("00").format(($F{C7a} - $F{C7a}.intValue()) * 100).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="488" y="452" width="70" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[Integer.toString($F{C7a}.intValue()).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="488" y="468" width="70" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[Integer.toString($F{C7b}.intValue()).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="563" y="468" width="22" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new DecimalFormat("00").format(($F{C7b} - $F{C7b}.intValue()) * 100).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="563" y="500" width="22" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new DecimalFormat("00").format(($F{C8} - $F{C8}.intValue()) * 100).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="488" y="500" width="70" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[Integer.toString($F{C8}.intValue()).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="563" y="530" width="22" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new DecimalFormat("00").format(($F{C9} - $F{C9}.intValue()) * 100).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="488" y="530" width="70" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[Integer.toString($F{C9}.intValue()).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="563" y="547" width="22" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new DecimalFormat("00").format(($F{C10} - $F{C10}.intValue()) * 100).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="488" y="547" width="70" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[Integer.toString($F{C10}.intValue()).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="563" y="580" width="22" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new DecimalFormat("00").format(($F{C11} - $F{C11}.intValue()) * 100).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="488" y="580" width="70" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[Integer.toString($F{C11}.intValue()).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="563" y="596" width="22" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new DecimalFormat("00").format(($F{C12} - $F{C12}.intValue()) * 100).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="488" y="596" width="70" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[Integer.toString($F{C12}.intValue()).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="563" y="613" width="22" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new DecimalFormat("00").format(($F{C13} - $F{C13}.intValue()) * 100).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="488" y="613" width="70" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[Integer.toString($F{C13}.intValue()).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="563" y="629" width="22" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new DecimalFormat("00").format(($F{C14} - $F{C14}.intValue()) * 100).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="479" y="629" width="79" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[Integer.toString($F{C14}.intValue()).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="432" y="151" width="15" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{C3b_persons}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="amount" x="199" y="783" width="100" height="15"/>
+				<textElement textAlignment="Right">
+					<font fontName="TlwgMono"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Integer.toString($F{B7}.intValue()).replace(""," ").trim()]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

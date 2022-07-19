@@ -1,0 +1,9 @@
+<list_m model="visitor.action">
+    <field name="time"/>
+    <field name="visitor_id"/>
+    <newline/>
+    <field name="action_type"/>
+    <field name="session_id"/>
+    <newline/>
+    <field name="location"/>
+</list_m>

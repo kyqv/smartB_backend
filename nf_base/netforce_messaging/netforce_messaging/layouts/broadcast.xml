@@ -1,0 +1,8 @@
+<form model="broadcast">
+    <field name="channel_id"/>
+    <field name="profile_id"/>
+    <field name="message"/>
+    <foot>
+        <button string="Send" type="primary" method="send"/>
+    </foot>
+</form>

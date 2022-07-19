@@ -1,0 +1,5 @@
+<list model="script">
+    <field name="name"/>
+    <field name="language"/>
+    <field name="module_id"/>
+</list>

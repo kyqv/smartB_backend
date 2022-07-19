@@ -1,0 +1,15 @@
+<form model="menu.access.add">
+    <field name="menu_access_id" invisible="1"/>
+    <field name="profile_id"/>
+    <field name="user_id"/>
+    <field name="action"/>
+    <field name="menu"/>
+    <field name="parent_menu"/>
+    <field name="button"/>
+    <field name="label"/>
+	<field name="access"/>
+    <foot>
+        <button string="Add" method="duplicate_menu_access" type="primary"/>
+        <!--<button string="Add" method="add_lines" type="primary"/>-->
+    </foot>
+</form>

@@ -1,0 +1,12 @@
+<v:page title="Expense Claims">
+    <v:toolbar>
+        <v:button string="Add Receipt" icon="plus-sign" action="expense_edit"/>
+    </v:toolbar>
+    <v:tabs>
+        <v:tab_item string="Draft Receipts" action="expense_draft"/>
+        <v:tab_item string="All Claims" action="claim_all"/>
+        <v:tab_item string="Waiting Approval" action="claim_waiting_approval"/>
+        <v:tab_item string="Waiting Payment" action="claim_waiting_payment"/>
+    </v:tabs>
+    {{{context.content}}}
+</v:page>

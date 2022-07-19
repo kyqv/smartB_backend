@@ -1,0 +1,4 @@
+<form model="ship.port">
+    <field name="name"/>
+    <field name="country_id"/>
+</form>

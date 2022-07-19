@@ -1,0 +1,5 @@
+<inherit inherit="main_menu">
+    <!--<item string="General" position="before">
+        <item string="Marketing" action="mkt_board"/>
+    </item>-->
+</inherit>

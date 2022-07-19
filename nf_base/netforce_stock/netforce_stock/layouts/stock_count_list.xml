@@ -1,0 +1,11 @@
+<list model="stock.count">
+    <head>
+        <button string="Validate" method="validate" show_progress="1"/>
+    </head>
+    <field name="number"/>
+    <field name="memo"/>
+    <field name="location_id"/>
+    <field name="date"/>
+    <field name="num_lines"/>
+    <field name="state"/>
+</list>

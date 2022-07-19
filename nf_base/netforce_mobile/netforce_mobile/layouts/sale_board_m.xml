@@ -1,0 +1,9 @@
+<board>
+    <hpanel>
+        <widget action="sale_day_widget_m" string="Sales Per Day"/>
+        <widget action="sale_month_widget_m" string="Sales per month"/>
+    </hpanel>
+    <hpanel>
+        <widget action="sale_prod_categ_widget_m" string="Sales per product category"/>
+    </hpanel>
+</board>

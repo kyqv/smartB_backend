@@ -1,0 +1,6 @@
+<action>
+    <field name="view">list</field>
+    <field name="model">account.move.line</field>
+    <field name="layout">bank_move_line</field>
+    <field name="order">move_id.date desc,id desc</field>
+</action>

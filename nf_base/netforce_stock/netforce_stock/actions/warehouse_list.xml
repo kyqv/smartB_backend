@@ -1,0 +1,8 @@
+<action>
+    <field name="view_type">collection</field>
+    <field name="model">stock.location</field>
+    <field name="condition">[["type", "=", "internal"]]</field>
+    <field name="template">warehouse_list</field>
+    <field name="layout">warehouse_list_page</field>
+    <field name="context">{"big": true}</field>
+</action>

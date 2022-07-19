@@ -1,0 +1,7 @@
+<form model="cost.type">
+    <field name="name"/>
+    <field name="description"/>
+    <field name="amount_type"/>
+    <field name="amount"/>
+    <field name="contact_group_id"/>
+</form>

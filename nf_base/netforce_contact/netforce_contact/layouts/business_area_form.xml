@@ -1,0 +1,9 @@
+<form model="business.area">
+    <field name="name"/>
+    <field name="code"/>
+    <field name="categ_id"/>
+    <field name="description"/>
+    <related>
+        <field name="comments"/>
+    </related>
+</form>

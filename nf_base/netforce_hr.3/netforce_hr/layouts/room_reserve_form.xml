@@ -1,0 +1,26 @@
+<form model="room.reserve" attrs='{"readonly":[["state","in",["waiting_approval","approved","canceled"]]]}'>
+    <head>
+        <field name="state"/>
+    </head>
+    <group form_layout="stacked">
+        <field name="request_date" span="2"/>
+        <field name="user_id" span="2"/>
+    </group>
+    <group form_layout="stacked">
+        <field name="room_id" span="2"/>
+        <field name="date" span="2"/>
+        <field name="from_time" span="2"/>
+        <field name="to_time" span="2"/>
+        <newline/>
+        <field name="details" span="4"/>
+        <field name="contact_id" span="2"/>
+    </group>
+    <foot>
+        <button string="Submit for approval" states="draft" method="submit" icon="arrow-right"/>
+        <button string="Approve" states="waiting_approval" type="success" method="approve"/>
+        <button string="Reject" states="waiting_approval" type="danger" method="reject"/>
+    </foot>
+    <related>
+        <field name="comments"/>
+    </related>
+</form>

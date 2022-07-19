@@ -1,0 +1,64 @@
+<menu_m title="Netforce" show_custom_pages="1">
+    <item title="Contacts" action="contact_m"/>
+    <item title="Products" action="product_m"/>
+    <!--
+    <header title="Expenses"/>
+    <item title="Expenses" action="expense_m"/>
+    <item title="Expense Claims" action="expense_claim_m"/>
+    <item title="Expense Categories" action="expense_categ_m"/>
+    -->
+    <header title="Inventory"/>
+    <item title="Transfer Lots" action="stock_transfer_m"/>
+    <item title="Receive From Supplier" action="pick_in_m"/>
+    <item title="Pack For Customer" action="pick_out_m"/>
+    <item title="Return To Supplier" action="pick_out_return_m"/>
+    <item title="Goods Transfers" action="pick_internal_m"/>
+    <item title="Product Waste" action="waste_m"/>
+    <item title="Product Transforms" action="transform_m"/>
+    <item title="Stock Counts" action="stock_count_m"/>
+    <header title="Delivery"/>
+    <item title="Delivery Orders" action="deliv_order_m"/>
+    <item title="Delivery Routes" action="deliv_route_m"/>
+    <header title="Accounting"/>
+    <item title="Customer Invoices" action="cust_inv_m"/>
+    <item title="Supplier Invoices" action="sup_inv_m"/>
+    <item title="Payments" action="payment_m"/>
+    <header title="Sales"/>
+    <item title="Dashboard" action="sale_board_m"/>
+    <item title="Leads" action="lead_m"/>
+    <item title="Opportunities" action="opport_m"/>
+    <item title="Quotations" action="quot_m"/>
+    <item title="Sales Orders" action="sale_order_m"/>
+    <item title="Sales Activities" action="activity_m"/>
+    <header title="POS"/>
+    <item title="Sell Products" action="pos_product_m"/>
+    <header title="Purchasing"/>
+    <item title="Purchase Orders" action="purchase_order_m"/>
+    <header title="Service"/>
+    <item title="Projects" action="project_m"/>
+    <item title="Service Orders" action="job_m"/>
+    <item title="Tasks" action="task_m"/>
+    <item title="Time Sheets" action="time_sheet_m"/>
+    <header title="Website"/>
+    <item title="Visitors" action="visitor_m"/>
+    <item title="Sessions" action="visitor_session_m"/>
+    <item title="Actions" action="visitor_action_m"/>
+    <header title="Ecommerce"/>
+    <item title="Carts" action="cart_m"/>
+    <header title="Manufacturing"/>
+    <item title="Production Orders" action="production_order_m"/>
+    <header title="HR"/>
+    <item title="Employees" action="employee_m"/>
+    <item title="Leave Requests" action="leave_m"/>
+    <header title="Messaging"/>
+    <item title="Email Messages" action="email_m"/>
+    <item title="SMS Messages" action="sms_m"/>
+    <header title="Documents"/>
+    <item title="Documents" action="document_m"/>
+    <!--<header title="Asia Law Network (test)"/>
+    <item title="Dashboard" action="aln_board_m"/>
+    <item title="Clients" action="aln_client_m"/>
+    <item title="Jobs" action="aln_job_m"/>
+    <item title="Meetings" action="aln_meeting_m"/>
+    <item title="Documents" action="aln_doc_m"/>-->
+</menu_m>

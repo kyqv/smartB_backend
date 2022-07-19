@@ -1,0 +1,109 @@
+<form model="stock.picking" attrs='{"readonly":[["state","in",["done","voided"]]]}' show_company="1">
+    <top>
+        <button string="Print" icon="print" dropdown="1">
+            <item string="PDF" action="report_pick_internal_form" action_options="convert=pdf"/>
+            <item string="ODT" action="report_pick_internal_form"/>
+            <item string="Select Template" action="print_select_template" action_options="report_action=report_pick_internal_form&amp;template_type=goods_transfer"/>
+        </button>
+        <button string="Print (New)" icon="print" action="report_pick_internal_form2" action_options='{"active_id":id}'/>
+        <button string="Options" dropdown="1" align="right">
+            <item string="Copy To Customer Invoice" method="copy_to_invoice"/>
+            <item string="Copy" method="copy"/>
+            <divider/>
+            <item string="To Draft" method="to_draft" states="pending,approved,done,voided"/>
+            <item string="Void" method="void" confirm="Are you sure you want to void this goods transfer?" states="done"/>
+            <divider/>
+            <item string="Assign Lots" method="assign_lots" states="draft"/>
+            <item string="Expand Bundles" method="expand_bundles"/>
+            <item string="Remove Bundle Components" method="remove_bundle_components" confirm="Are you sure?"/>
+            <divider/>
+            <item string="Update Locations" method="update_locations"/>
+            <divider/>
+            <item string="View Journal Entry" method="view_journal_entry" states="done"/>
+        </button>
+    </top>
+    <head>
+        <field name="state"/>
+    </head>
+    <tabs>
+        <tab string="General">
+            <field name="type" invisible="1"/>
+            <group form_layout="stacked">
+                <field name="journal_id" span="2" onchange="onchange_journal"/>
+                <field name="number" span="2"/>
+                <field name="date" span="2"/>
+                <field name="contact_id" span="2" onchange="onchange_contact"/>
+                <field name="ref" span="2"/>
+                <field name="related_id" span="2"/>
+                <newline/>
+                <field name="location_from_id" span="2"/>
+                <field name="location_to_id" span="2"/>
+            </group>
+            <field name="lines" nolabel="1" reorder_field="sequence">
+                <list>
+                    <field name="sequence"/>
+                    <field name="product_id" onchange="onchange_product" condition='[["type","in",["stock","consumable"]]]'/>
+                    <field name="qty"/>
+                    <field name="uom_id"/>
+                    <field name="location_from_id" condition='[["type","=","internal"]]'/>
+                    <field name="location_to_id" condition='[["type","=","internal"]]'/>
+                    <field name="qty2"/>
+                    <field name="cost_price" readonly="1"/>
+                    <field name="cost_amount" readonly="1"/>
+                    <field name="sale_price" readonly="1"/>
+                    <field name="sale_amount" readonly="1"/>
+                    <field name="lot_id" create="1"/>
+                    <field name="container_id" create="1"/>
+                    <field name="track_id" create="1"/>
+                    <field name="qty_stock"/>
+                    <field name="related_id"/>
+                    <field name="notes"/>
+                </list>
+            </field>
+            <field name="other_info"/>
+        </tab>
+        <tab string="Approval">
+            <field name="pending_by_id"/>
+            <field name="done_by_id"/>
+            <separator string="Complete Transaction"/>
+            <field name="done_approved_by_id"/>
+            <button string="Approve" icon="ok" method="approve_done" confirm="Are you sure?" perm="stock_approve_done"/>
+        </tab>
+        <tab string="Addresses">
+            <separator string="From"/>
+            <field name="from_contact_id"/>
+            <field name="from_address_id" condition='[["contact_id","=",from_contact_id],["contact_id","!=",null]]'/>
+            <separator string="To"/>
+            <field name="to_contact_id"/>
+            <field name="to_address_id" condition='[["contact_id","=",to_contact_id],["contact_id","!=",null]]'/>
+        </tab>
+        <tab string="Other">
+            <field name="date_done"/>
+       </tab>
+    </tabs>
+    <field name="company_id" invisible="1"/>
+    <foot states="draft,pending">
+        <button string="Confirm" method="pending" states="draft"/>
+        <button string="Approve" method="approve" states="pending" perm="approve_picking"/>
+        <button string="Validate" action="pick_validate" states="approved" perm="validate_picking"/>
+    </foot>
+    <related>
+        <field name="expand_lines"/>
+        <field name="documents">
+            <list>
+                <field name="file" target="_blank" preview="1"/>
+                <field name="categ_id"/>
+                <field name="description"/>
+                <field name="date"/>
+            </list>
+            <form>
+                <field name="categ_id"/>
+                <field name="file" target="_blank" onchange="onchange_file"/>
+                <field name="date"/>
+                <field name="description"/>
+                <field name="contact_id" invisible="1"/>
+            </form>
+        </field>
+        <field name="comments"/>
+    </related>
+</form>

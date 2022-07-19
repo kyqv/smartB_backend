@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Account Balances</field>
+    <field name="view">multi_view</field>
+    <field name="model">account.balance</field>
+    <field name="menu">account_menu</field>
+</action>

@@ -1,0 +1,28 @@
+<form model="wkf.rule">
+    <head>
+        <button string="Options">
+            <item string="Copy" method="copy"/>
+        </button>
+    </head>
+    <field name="description"/>
+    <field name="state"/>
+    <separator string="Trigger"/>
+    <field name="trigger_model_id"/>
+    <field name="trigger_event"/>
+    <field name="sequence"/>
+    <separator string="Condition"/>
+    <field name="condition_method"/>
+    <field name="condition_args"/>
+    <separator string="Action"/>
+    <field name="action_model_id"/>
+    <field name="action_method"/>
+    <field name="action_args"/>
+    <field name="action_stop"/>
+    <group attrs='{"invisible":[["state","!=","inactive"]]}'>
+        <separator/>
+        <field name="error"/>
+    </group>
+    <related>
+        <field name="comments"/>
+    </related>
+</form>

@@ -1,0 +1,16 @@
+<list model="base.user">
+    <head>
+        <button string="Approve" method="approve"/>
+        <button string="Reject" method="reject"/>
+    </head>
+    <field name="name"/>
+    <field name="login"/>
+    <field name="code"/>
+    <field name="profile_id"/>
+    <field name="role_id"/>
+    <field name="email"/>
+    <field name="mobile"/>
+    <field name="contact_id"/>
+    <field name="company_id"/>
+    <field name="state"/>
+</list>

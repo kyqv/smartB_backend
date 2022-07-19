@@ -1,0 +1,21 @@
+<list model="hr.payslip" colors='{"#cfc":[["state","=","approved"]],"#9f9":[["state","=","paid"]]}'>
+    <head>
+        <button string="Print" icon="print" action="print_payslip"/>
+        <button string="Print (New)" icon="print" action="print_payslip2" action_options='{"ids":ids}'/>
+        <button string="Approve" method="approve" icon="ok" type="default"/>
+        <button string="To Draft" method="to_draft" icon="repeat" type="default"/>
+    </head>
+    <field name="run_id"/>
+    <field name="due_date"/>
+    <field name="employee_id"/>
+    <field name="amount_salary"/>
+    <field name="amount_bonus"/>
+    <field name="amount_overtime"/>
+    <field name="amount_allow"/>
+    <field name="amount_tax"/>
+    <field name="amount_social"/>
+    <field name="amount_provident"/>
+    <field name="amount_other_expense"/>
+    <field name="amount_net"/>
+    <field name="state"/>
+</list>

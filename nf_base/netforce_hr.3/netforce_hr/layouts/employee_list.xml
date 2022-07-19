@@ -1,0 +1,12 @@
+<list model="hr.employee" colors='{"#ccc":[["work_status","!=","working"]]}'>
+    <field name="code"/>
+    <field name="title"/>
+    <field name="first_name"/>
+    <field name="last_name"/>
+    <field name="position"/>
+    <field name="department_id"/>
+    <field name="user_id"/>
+    <field name="work_status"/>
+    <field name="attendance_code"/>
+    <field name="picture" preview="1"/>
+</list>

@@ -1,0 +1,8 @@
+<inherit inherit="stock_menu">
+    <item string="Reports" position="after">
+        <item string="Costing">
+            <item string="Compute Cost" action="stock_compute_cost"/>
+            <item string="Stock Periods" action="stock_period"/>
+        </item>
+    </item>
+</inherit>

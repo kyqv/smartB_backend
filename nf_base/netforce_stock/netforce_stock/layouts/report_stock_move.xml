@@ -1,0 +1,12 @@
+<form model="report.stock.move">
+    <group>
+        <field name="date_from"/>
+        <field name="date_to"/>
+        <field name="location_from_id"/>
+        <field name="location_to_id"/>
+        <field name="ref"/>
+        <field name="related_id"/>
+        <field name="show_loss_only"/>
+        <field name="pick_type" invisible="1"/>
+    </group>
+</form>

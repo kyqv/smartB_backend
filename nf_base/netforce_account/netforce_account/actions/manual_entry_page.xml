@@ -1,0 +1,4 @@
+<action>
+    <field name="template">manual_entry_page</field>
+    <field name="menu">account_menu</field>
+</action>

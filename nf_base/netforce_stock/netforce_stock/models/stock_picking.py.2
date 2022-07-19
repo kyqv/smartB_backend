@@ -1,0 +1,1257 @@
+# copyright (c) 2012-2015 Netforce Co. Ltd.
+# 
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+# 
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+# 
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+# EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+# IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+# DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+# OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
+# OR OTHER DEALINGS IN THE SOFTWARE.
+
+from netforce.model import Model, fields, get_model
+from netforce.utils import get_data_path
+from netforce.access import get_active_company, get_active_user, set_active_user
+from netforce import database
+from datetime import *
+import time
+
+class Picking(Model):
+    _name = "stock.picking"
+    _string = "Stock Picking"
+    _audit_log = True
+    _name_field = "number"
+    _key = ["company_id", "type", "number"]
+    _multi_company = True
+    _content_search=True
+    _fields = {
+        "type": fields.Selection([["in", "Goods Receipt"], ["internal", "Goods Transfer"], ["out", "Goods Issue"]], "Type", required=True),
+        "journal_id": fields.Many2One("stock.journal", "Journal", required=True, search=True),
+        "number": fields.Char("Number", required=True, search=True),
+        "ref": fields.Char("Ref", search=True),
+        "contact_id": fields.Many2One("contact", "Contact", search=True),
+        "date": fields.DateTime("Date", required=True, search=True),
+        "state": fields.Selection([("draft", "Draft"), ("pending", "Planned"), ("approved", "Approved"), ("qc_checked","QC Checked"), ("done", "Completed"), ("voided", "Voided"), ("rejected","Rejected")], "Status", required=True),
+        "lines": fields.One2Many("stock.move", "picking_id", "Lines"),
+        "move_id": fields.Many2One("account.move", "Journal Entry"),
+        "product_id": fields.Many2One("product", "Product", store=False, function_search="search_product"),
+        "comments": fields.One2Many("message", "related_id", "Comments"),
+        "related_id": fields.Reference([["sale.order", "Sales Order"], ["purchase.order", "Purchase Order"], ["project","Project"], ["job", "Service Order"], ["product.claim", "Claim Bill"], ["product.borrow", "Borrow Request"], ["stock.picking", "Picking"], ["production.order","Production Order"]], "Related To"),
+        "currency_id": fields.Many2One("currency", "Currency", required=True),
+        "addresses": fields.One2Many("address", "related_id", "Addresses"),
+        "ship_address_id": fields.Many2One("address", "Shipping Address"),
+        "qty_total": fields.Decimal("Total Quantity", function="get_qty_total"),
+        "qty_validated": fields.Decimal("Validated Quantity", function="get_qty_validated"),
+        "cost_total": fields.Decimal("Total Cost", function="get_cost_total"),
+        "container_id": fields.Many2One("stock.container", "Container"),
+        "company_id": fields.Many2One("company", "Company"),
+        "gross_weight": fields.Decimal("Gross Weight"),
+        "pending_by_id": fields.Many2One("base.user", "Pending By", readonly=True),
+        "done_by_id": fields.Many2One("base.user", "Completed By", readonly=True),
+        "done_approved_by_id": fields.Many2One("base.user", "Approved By", readonly=True),
+        "employee_id": fields.Many2One("hr.employee", "Employee"),
+        "ship_method_id": fields.Many2One("ship.method", "Shipping Method",search=True),
+        "documents": fields.One2Many("document", "related_id", "Documents"),
+        "ship_cost": fields.Decimal("Shipping Cost"),
+        "ship_pay_by": fields.Selection([["company", "Company"], ["customer", "Customer"], ["supplier", "Supplier"]], "Shipping Paid By"),
+        "landed_costs": fields.Many2Many("landed.cost","Landed Costs",function="get_landed_costs"),
+        "messenger_id": fields.Many2One("messenger","Messenger"),
+        "avail_messengers": fields.Many2Many("messenger","Available Messengers"),
+        "currency_rate": fields.Decimal("Currency Rate"),
+        "product_id2": fields.Many2One("product","Product",store=False,function_search="search_product2",search=True), #XXX ICC
+        "sequence": fields.Decimal("Sequence",function="_get_related",function_context={"path":"ship_address_id.sequence"}),
+        "delivery_slot_id": fields.Many2One("delivery.slot","Delivery Slot"),
+        "ship_state": fields.Selection([["wait_pick","Waiting Pickup"],["in_transit","In Transit"],["delivered","Delivered"],["error","Can not deliver"]],"Shipping Status"),
+        "from_coords": fields.Char("Source Coordinates",function="get_from_coords"),
+        "to_coords": fields.Char("Destination Coordinates",function="get_to_coords"),
+        "delivery_id": fields.Many2One("nd.order","Delivery Order"),
+        "route_id": fields.Many2One("nd.route","Delivery Route",function="_get_related",function_context={"path":"delivery_id.route_id"}),
+        "ship_tracking": fields.Char("Shipping Tracking",function="get_route_text",function_multi=True,store=True), # for PLR sync
+        "ship_route": fields.Char("Shipping Route",function="get_route_text",function_multi=True,store=True), # for PLR sync
+        "validate_lines": fields.One2Many("pick.validate.line","pick_id","Validations"),
+        "employee_id": fields.Many2One("hr.employee","Employee"),
+        "qc_results": fields.One2Many("qc.result","pick_id","QC Results"),
+        "total_qty": fields.Decimal("Total Qty",function="get_total_qty"),
+        "total_lot_weight": fields.Decimal("Total Lot Weight",function="get_total_lot_weight"),
+        "total_net_weight": fields.Decimal("Total Net Weight",function="get_total_weight",function_multi=True),
+        "total_gross_weight": fields.Decimal("Total Gross Weight",function="get_total_weight",function_multi=True),
+        "packaging_id": fields.Many2One("stock.packaging", "Packaging"),
+        "pallet_id": fields.Many2One("stock.pallet", "Pallet"),
+        "num_pallets": fields.Integer("Number Of Pallets"),
+        "transform_lines": fields.One2Many("stock.transform.line","picking_id","Transform Lines"),
+        "transforms": fields.Many2Many("stock.transform","Product Transforms",function="get_transforms"),
+        "gradings": fields.One2Many("stock.grade.line","picking_id","Gradings"),
+        "other_info": fields.Text("Other Info"),
+        "from_contact_id": fields.Many2One("contact", "From Contact"),
+        "from_address_id": fields.Many2One("address", "From Address"),
+        "to_contact_id": fields.Many2One("contact", "To Contact"),
+        "to_address_id": fields.Many2One("address", "To Address"),
+        "total_sale_amount": fields.Decimal("Total Sales Amount",function="get_total_sale_amount"),
+        "location_to_id": fields.Many2One("stock.location","To Location",function="get_location"),
+        "invoice_id": fields.Many2One("account.invoice", "Invoice"),
+    }
+    _order = "date desc,number desc"
+
+    _sql_constraints = [
+        ("key_uniq", "unique (company_id, type, number)", "The number of each company and type must be unique!")
+    ]
+
+    def _get_journal(self, context={}):
+        pick_type = context.get("pick_type")
+        settings = get_model("settings").browse(1)
+        if pick_type == "in":
+            journal_id = settings.pick_in_journal_id.id
+        elif pick_type == "out":
+            journal_id = settings.pick_out_journal_id.id
+        elif pick_type == "internal":
+            journal_id = settings.pick_internal_journal_id.id
+        else:
+            journal_id = None
+        return journal_id
+
+    def _get_number(self, context={}):
+        pick_type = context.get("pick_type")
+        journal_id = context.get("journal_id")
+        seq_id = None
+        if journal_id:
+            journal = get_model("stock.journal").browse(journal_id)
+            seq_id = journal.sequence_id.id
+        if not seq_id and pick_type:
+            seq_type = "pick_" + pick_type
+            seq_id = get_model("sequence").find_sequence(seq_type)
+        if not seq_id:
+            return None
+        while 1:
+            num = get_model("sequence").get_next_number(seq_id,context=context)
+            user_id = get_active_user()
+            set_active_user(1)
+            res = self.search([["number", "=", num]])
+            set_active_user(user_id)
+            if not res:
+                return num
+            get_model("sequence").increment_number(seq_id,context=context)
+
+    def _get_type(self, context={}):
+        return context.get("pick_type")
+
+    def _get_currency(self, context={}):
+        settings = get_model("settings").browse(1)
+        return settings.currency_id.id
+
+    _defaults = {
+        "state": "draft",
+        "journal_id": _get_journal,
+        "number": _get_number,
+        "type": _get_type,
+        "date": lambda *a: time.strftime("%Y-%m-%d %H:%M:%S"),
+        "currency_id": _get_currency,
+        "company_id": lambda *a: get_active_company(),
+    }
+
+    def delete(self, ids, **kw):
+        move_ids = []
+        #account_move_ids = []
+        for obj in self.browse(ids):
+            for line in obj.lines:
+                move_ids.append(line.id)
+                #if line.move_id:
+                #    account_move_ids.append(line.move_id.id)
+        if move_ids:
+            get_model("stock.move").delete(move_ids)  # to update stored functions
+        #if account_move_ids: # XXX: already in stock.move
+        #    account_move_ids=list(set(account_move_ids))
+        #    get_model("account.move").delete(account_move_ids,force=True)
+        super().delete(ids, **kw)
+
+    def copy_to_cust_invoice(self, ids, context):
+        id = ids[0]
+        return {
+            "name": "cust_invoice_new",
+            "from_pick_out_id": id,
+        }
+
+    def pending(self, ids, context={}):
+        user_id = get_active_user()
+        for obj in self.browse(ids):
+            for move in obj.lines:
+                move.write({"state": "pending", "date": obj.date})
+                if obj.related_id and not move.related_id:
+                    move.write({"related_id":"%s,%d"%(obj.related_id._model,obj.related_id.id)})
+            obj.write({"state": "pending", "pending_by_id": user_id})
+            obj.check_stock()
+
+    def check_stock(self,ids,context={}):
+        print("stock_picking.check_stock",ids)
+        obj=self.browse(ids)[0]
+        for move in obj.lines:
+            prod=move.product_id
+            if not prod.check_lot_neg_stock:
+                continue
+            if not move.lot_id:
+                continue
+            qty_virt=get_model("stock.balance").get_qty_virt(move.location_from_id.id,prod.id,move.lot_id.id) # XXX: improve speed
+            print("loc_id=%s prod_id=%s lot_id=%s => qty_virt=%s"%(move.location_from_id.id,prod.id,move.lot_id.id,qty_virt))
+            if qty_virt<0:
+                raise Exception("Lot %s is out of stock (product %s)"%(move.lot_id.number,prod.code))
+
+    def approve(self, ids, context={}):
+        settings=get_model("settings").browse(1)
+        for obj in self.browse(ids):
+            for move in obj.lines:
+                move.write({"state": "approved", "date": obj.date, "contact_id":obj.contact_id.id})
+            obj.write({"state": "approved"})
+
+    def void(self, ids, context={}):
+        for obj in self.browse(ids):
+            for move in obj.lines:
+                move.write({"state": "voided"})
+            obj.write({"state": "voided"})
+
+    def to_draft(self,ids,context={}):
+        for obj in self.browse(ids):
+            move_ids=[]
+            for move in obj.lines:
+                move_ids.append(move.id)
+            get_model("stock.move").to_draft(move_ids)
+            obj.write({"state":"draft"})
+            obj.qc_results.delete()
+
+    def to_planned(self,ids,context={}):
+        for obj in self.browse(ids):
+            obj.to_draft()
+            obj.pending()
+
+    def qc_check(self,ids,context={}):
+        settings=get_model("settings").browse(1)
+        for obj in self.browse(ids):
+            if settings.require_qc_in and obj.type=="in" and not obj.qc_results:
+                raise Exception("Missing QC results")
+            if settings.require_qc_out and obj.type=="out" and not obj.qc_results:
+                raise Exception("Missing QC results")
+            obj.write({"state":"qc_checked"})
+
+    def reject(self,ids,context={}):
+        settings=get_model("settings").browse(1)
+        for obj in self.browse(ids):
+            if not obj.qc_results:
+                raise Exception("Missing QC results")
+            for move in obj.lines:
+                move.write({"state": "voided"})
+            obj.write({"state":"rejected"})
+
+    def set_done(self,ids,context={}):
+        settings=get_model("settings").browse(1)
+        user_id=get_active_user()
+        for obj in self.browse(ids):
+            if settings.require_qc_in and obj.type=="in" and not obj.qc_results:
+                raise Exception("Missing QC results")
+            if settings.require_qc_out and obj.type=="out" and not obj.qc_results:
+                raise Exception("Missing QC results")
+            move_ids=[]
+            for line in obj.lines:
+                move_ids.append(line.id)
+            desc=obj.number
+            get_model("stock.move").write(move_ids,vals={"date":obj.date,"journal_id":obj.journal_id.id,"ref":obj.number,"contact_id":obj.contact_id.id},context=context)
+            get_model("stock.move").set_done(move_ids,context=context)
+            obj.write({"state":"done","done_by_id":user_id},context=context)
+            obj.set_currency_rate()
+            obj.set_purchase_fg_cost_price()
+        self.check_order_qtys(ids)
+        self.trigger(ids,"done")
+
+    def check_order_qtys(self, ids, context={}):
+        obj = self.browse(ids)[0]
+        if not obj.related_id:
+            return
+        model = obj.related_id._model
+        if model == "sale.order":
+            obj.related_id.check_delivered_qtys()
+        elif model == "purchase.order":
+            obj.related_id.check_received_qtys()
+
+    def onchange_contact(self, context={}):
+        settings = get_model("settings").browse(1)
+        data = context["data"]
+        contact_id = data["contact_id"]
+        contact = get_model("contact").browse(contact_id)
+        data["ship_address_id"] = contact.get_address(pref_type="shipping")
+        if data["type"] == "in":
+            data["journal_id"] = contact.pick_in_journal_id.id or settings.pick_in_journal_id.id
+        elif data["type"] == "out":
+            data["journal_id"] = contact.pick_out_journal_id.id or settings.pick_out_journal_id.id
+        elif data["type"] == "internal":
+            data["journal_id"] = contact.pick_internal_journal_id.id or settings.pick_internal_journal_id.id
+        self.onchange_journal(context=context)
+        return data
+
+    def onchange_journal(self, context={}):
+        data = context["data"]
+        journal_id = data["journal_id"]
+        if not journal_id:
+            return
+        journal = get_model("stock.journal").browse(journal_id)
+        ctx = {
+            "pick_type": data["type"],
+            "journal_id": data["journal_id"],
+        }
+        data["number"] = self._get_number(ctx)
+        for line in data["lines"]:
+            if journal.location_from_id:
+                line["location_from_id"] = journal.location_from_id.id
+            if journal.location_to_id:
+                line["location_to_id"] = journal.location_to_id.id
+        return data
+
+    def onchange_product(self, context):
+        data = context["data"]
+        path = context["path"]
+        line = get_data_path(data, path, parent=True)
+        prod_id = line.get("product_id")
+        if not prod_id:
+            return {}
+        prod = get_model("product").browse(prod_id)
+        line["qty"] = 1
+        if prod.uom_id is not None:
+            line["uom_id"] = prod.uom_id.id
+        if data["type"] == "in":
+            if prod.purchase_price is not None:
+                line["cost_price_cur"] = prod.purchase_price
+        elif data["type"] == "internal":
+            line["sale_price"]=prod.sale_price
+            line["sale_amount"]=(line.get("qty") or 1)*(prod.sale_price or 0)
+        journal_id=data.get("journal_id")
+        if journal_id:
+            journal=get_model("stock.journal").browse(journal_id)
+            if journal.location_from_id:
+                line["location_from_id"]=journal.location_from_id.id
+            if journal.location_to_id:
+                line["location_to_id"]=journal.location_to_id.id
+        self.update_cost_price(context=context)
+        return data
+
+    def copy_to_invoice(self, ids, context):
+        id = ids[0]
+        obj = self.browse(id)
+        number = get_model("account.invoice")._get_number(context={"type": obj.type, "inv_type": "invoice"})
+        if obj.type in ("out","internal"):
+            if not obj.contact_id:
+                raise Exception("Please select a customer for this goods issue first")
+            contact=obj.contact_id
+            inv_vals = {
+                "type": "out",
+                "inv_type": "invoice",
+                "ref": obj.number,
+                "number": number,
+                "contact_id": obj.contact_id.id,
+                "date": obj.date[:10],
+                "lines": [],
+            }
+            if contact.sale_pay_term_id:
+                inv_vals["pay_term_id"]=contact.sale_pay_term_id.id
+            if obj.related_id._model=="sale.order":
+                inv_vals["seller_id"]=obj.related_id.seller_id.id
+            refs=[]
+            for line in obj.lines:
+                if line.invoice_id:
+                    raise Exception("Invoice already created for product %s"%line.product_id.code)
+                prod = line.product_id
+                line_vals = {
+                    "product_id": prod.id,
+                    "description": prod.description or "/",
+                    "qty": line.qty,
+                    "uom_id": line.uom_id.id,
+                    "account_id": prod.sale_account_id.id,
+                }
+                so_line=None
+                if obj.related_id and obj.related_id._model == "sale.order":
+                    so_line_id = obj.related_id.find_sale_line(prod.id)
+                    if so_line_id:
+                        so_line = get_model("sale.order.line").browse(so_line_id)
+                if not so_line:
+                    continue # XXX: only products that are in SO (for ex needed for bundles)
+                sale=so_line.order_id
+                refs.append(sale.number)
+                line_vals["unit_price"] = so_line.unit_price
+                line_vals["tax_id"] = so_line.tax_id.id
+                line_vals["amount"] = line_vals["unit_price"] * line_vals["qty"]
+                line_vals["related_id"]="sale.order,%s"%sale.id
+                inv_vals["lines"].append(("create", line_vals))
+            refs=list(set(refs))
+            inv_vals["ref"]=", ".join(refs)
+            inv_id = get_model("account.invoice").create(inv_vals, context={"type": "out", "inv_type": "invoice"})
+            inv=get_model("account.invoice").browse(inv_id)
+            inv.set_pay_term()
+            move_ids = get_model("stock.move").search([["picking_id", "=", obj.id]])
+            get_model("stock.move").write(move_ids, {"invoice_id": inv_id})
+            obj.write({"invoice_id":inv_id})
+            return {
+                "next": {
+                    "name": "view_invoice",
+                    "active_id": inv_id,
+                },
+                "flash": "Customer invoice copied from goods issue",
+            }
+        elif obj.type == "in":
+            if not obj.contact_id:
+                raise Exception("Please select a supplier for this goods receipt first")
+            inv_vals = {
+                "type": "in",
+                "inv_type": "invoice",
+                "ref": obj.number,
+                "number": number,
+                "contact_id": obj.contact_id.id,
+                "currency_id": obj.currency_id.id,
+                "currency_rate": obj.currency_rate,
+                "lines": [],
+            }
+            for line in obj.lines:
+                if line.invoice_id:
+                    raise Exception("Invoice already created for product %s"%line.product_id.code)
+                prod = line.product_id
+                line_vals = {
+                    "product_id": line.product_id.id,
+                    "description": prod.description or "/",
+                    "qty": line.qty,
+                    "uom_id": line.uom_id.id,
+                    "unit_price": line.cost_price_cur,
+                    "tax_id": prod.purchase_tax_id.id,
+                    "account_id": prod.purchase_account_id.id,
+                    "amount": line.qty * line.cost_price_cur,
+                }
+                inv_vals["lines"].append(("create", line_vals))
+            inv_id = get_model("account.invoice").create(inv_vals, context=context)
+            move_ids = get_model("stock.move").search([["picking_id", "=", obj.id]])
+            get_model("stock.move").write(move_ids, {"invoice_id": inv_id})
+            return {
+                "next": {
+                    "name": "view_invoice",
+                    "active_id": inv_id,
+                },
+                "flash": "Supplier invoice copied from goods receipt",
+            }
+        else:
+            raise Exception("Invalid picking type")
+
+    def copy(self, ids, from_location=None, to_location=None, state=None, type=None, context={}):
+        print("picking.copy",ids)
+        obj = self.browse(ids[0])
+        if from_location:
+            res=get_model("stock.location").search([["code","=",from_location]])
+            if not res:
+                raise Exception("Location code not found: %s"%from_location)
+            from_loc_id=res[0]
+        else:
+            from_loc_id=None
+        if to_location:
+            res=get_model("stock.location").search([["code","=",to_location]])
+            if not res:
+                raise Exception("Location code not found: %s"%to_location)
+            to_loc_id=res[0]
+        else:
+            to_loc_id=None
+        vals = {
+            "type": type and type or obj.type,
+            "contact_id": obj.contact_id.id,
+            "ref": obj.ref,
+            "lines": [],
+        }
+        if obj.related_id:
+            vals["related_id"] = "%s,%d" % (obj.related_id._model, obj.related_id.id)
+        for line in obj.lines:
+            line_vals = {
+                "product_id": line.product_id.id,
+                "qty": line.qty,
+                "uom_id": line.uom_id.id,
+                "location_from_id": from_loc_id and from_loc_id or line.location_from_id.id,
+                "location_to_id": to_loc_id and to_loc_id or line.location_to_id.id,
+                "lot_id": line.lot_id.id,
+            }
+            if line.related_id:
+                line_vals["related_id"] = "%s,%d" % (line.related_id._model, line.related_id.id)
+            if obj.type == "in":
+                line_vals["cost_price_cur"] = line.cost_price_cur
+                line_vals["cost_price"] = line.cost_price
+                line_vals["cost_amount"] = line.cost_amount
+            vals["lines"].append(("create", line_vals))
+        from pprint import pprint
+        pprint(vals)
+        new_id = self.create(vals, {"pick_type": vals["type"]})
+        if state in ("planned","approved"):
+            self.pending([new_id])
+        if state=="approved":
+            self.approve([new_id])
+        new_obj = self.browse(new_id)
+        if obj.type == "in":
+            return {
+                "next": {
+                    "name": "pick_in",
+                    "mode": "form",
+                    "active_id": new_id,
+                },
+                "flash": "Goods receipt %s copied to %s" % (obj.number, new_obj.number),
+            }
+        elif obj.type == "internal":
+            return {
+                "next": {
+                    "name": "pick_internal",
+                    "mode": "form",
+                    "active_id": new_id,
+                },
+                "flash": "Goods transfer %s copied to %s" % (obj.number, new_obj.number),
+            }
+        elif obj.type == "out":
+            return {
+                "next": {
+                    "name": "pick_out",
+                    "mode": "form",
+                    "active_id": new_id,
+                },
+                "flash": "Goods issue %s copied to %s" % (obj.number, new_obj.number),
+            }
+
+    def wkf_copy(self, context={}, **kw): # XXX
+        print("#"*80)
+        print("picking.wkf_copy")
+        trigger_ids=context.get("trigger_ids")
+        if not trigger_ids:
+            raise Exception("Missing trigger ids")
+        print("trigger_ids",trigger_ids)
+        self.copy(trigger_ids,context=context,**kw)
+
+    def copy_to_receipt(self, ids, context={}):
+        obj = self.browse(ids)[0]
+        vals = {
+            "type": "in",
+            "contact_id": obj.contact_id.id,
+            "ref": obj.ref,
+            "lines": [],
+        }
+        if obj.related_id:
+            vals["related_id"] = "%s,%d" % (obj.related_id._model, obj.related_id.id)
+        for line in obj.lines:
+            line_vals = {
+                "product_id": line.product_id.id,
+                "qty": line.qty,
+                "uom_id": line.uom_id.id,
+                "location_from_id": line.location_to_id.id,
+                "location_to_id": line.location_from_id.id,
+            }
+            if obj.type == "in":
+                line_vals["unit_price"] = line.unit_price
+            vals["lines"].append(("create", line_vals))
+        from pprint import pprint
+        pprint(vals)
+        new_id = self.create(vals, {"pick_type": "in"})
+        new_obj = self.browse(new_id)
+        return {
+            "next": {
+                "name": "pick_in",
+                "mode": "form",
+                "active_id": new_id,
+            },
+            "flash": "Goods receipt %s copied to %s" % (obj.number, new_obj.number),
+        }
+
+    def view_picking(self, ids, context={}):
+        obj = self.browse(ids[0])
+        if obj.type == "out":
+            action = "pick_out"
+        elif obj.type == "in":
+            action = "pick_in"
+        elif obj.type == "internal":
+            action = "pick_internal"
+        return {
+            "next": {
+                "name": action,
+                "mode": "form",
+                "active_id": obj.id,
+            }
+        }
+
+    def search_product(self, clause, context={}):
+        op = clause[1]
+        val = clause[2]
+        return ["lines.product_id.name", op, val]
+
+    def search_product2(self, clause, context={}): #XXX ICC
+        product_id = clause[2]
+        product = get_model("product").browse(product_id)
+        product_ids = [product_id]
+        for var in product.variants:
+            product_ids.append(var.id)
+        for comp in product.components:
+            product_ids.append(comp.component_id.id)
+        picking_ids = []
+        for line in get_model("stock.move").search_browse([["product_id","in",product_ids]]):
+            picking_ids.append(line.picking_id.id)
+        cond = [["id","in",picking_ids]]
+        return cond
+
+    def write(self, ids, vals, **kw):
+        super().write(ids, vals, **kw)
+        if "date" in vals:
+            date = vals["date"]
+            move_ids = get_model("stock.move").search([["picking_id", "in", ids]])
+            get_model("stock.move").write(move_ids, {"date": date})
+
+    def get_qty_total(self, ids, context={}):
+        res = {}
+        for obj in self.browse(ids):
+            qty = sum([line.qty for line in obj.lines])
+            res[obj.id] = qty or 0
+        return res
+
+    def get_qty_validated(self, ids, context={}):
+        res = {}
+        for obj in self.browse(ids):
+            qty = sum([line.validate_qty or 0 for line in obj.lines])
+            res[obj.id] = qty or 0
+        return res
+
+    def get_cost_total(self, ids, context={}):
+        res = {}
+        for obj in self.browse(ids):
+            amt = sum([line.cost_amount for line in obj.lines])
+            res[obj.id] = amt or 0
+        return res
+
+    def add_container(self, ids, context={}):
+        obj = self.browse(ids)[0]
+        return {
+            "next": {
+                "name": "add_container",
+                "defaults": {
+                    "picking_id": obj.id,
+                }
+            }
+        }
+
+    def onchange_container(self, context={}):
+        data = context["data"]
+        cont_id = data.get("container_id")
+        if not cont_id:
+            return
+        cont = get_model("stock.container").browse(cont_id)
+        contents = cont.get_contents()
+        lines = []
+        for (prod_id, lot_id, loc_id), (qty, amt, qty2) in contents.items():
+            prod = get_model("product").browse(prod_id)
+            line_vals = {
+                "product_id": prod_id,
+                "qty": qty,
+                "uom_id": prod.uom_id.id,
+                "qty2": qty2,
+                "location_from_id": loc_id,
+                "location_to_id": None,
+                "lot_id": lot_id,
+                "container_from_id": cont_id,
+            }
+            if data["type"] == "internal":
+                line_vals["container_to_id"] = cont_id
+            lines.append(line_vals)
+        data["lines"] = lines
+        return data
+
+    def approve_done(self, ids, context={}):
+        obj = self.browse(ids)[0]
+        user_id = get_active_user()
+        obj.write({"done_approved_by_id": user_id})
+
+    def view_journal_entry(self,ids,context={}):
+        obj=self.browse(ids)[0]
+        move_id=None
+        for line in obj.lines:
+            if line.move_id:
+                if move_id is None:
+                    move_id=line.move_id.id
+                else:
+                    if line.move_id.id!=move_id:
+                        raise Exception("Stock movements have different journal entries")
+        if not move_id:
+            raise Exception("Journal entry not found")
+        return {
+            "next": {
+                "name": "journal_entry",
+                "mode": "form",
+                "active_id": move_id,
+            }
+        }
+
+    def copy_to_landed(self, ids, context={}):
+        vals={
+            "cost_allocs": [],
+        }
+        for obj in self.browse(ids):
+            for line in obj.lines:
+                prod=line.product_id
+                alloc_vals={
+                    "move_id": line.id,
+                    "est_ship": line.qty*(line.cost_price_cur or 0)*(prod.purchase_ship_percent or 0)/100,
+                    "est_duty": line.qty*(line.cost_price_cur or 0)*(prod.purchase_duty_percent or 0)/100,
+                }
+                vals["cost_allocs"].append(("create",alloc_vals))
+        landed_id=get_model("landed.cost").create(vals)
+        return {
+            "next": {
+                "name": "landed_cost",
+                "mode": "form",
+                "active_id": landed_id,
+            },
+            "flash": "Landed costs copied from goods receipt",
+        }
+
+    def get_landed_costs(self, ids, context={}):
+        vals={}
+        for obj in self.browse(ids):
+            landed_ids=[]
+            for move in obj.lines:
+                for alloc in move.alloc_costs:
+                    landed_ids.append(alloc.landed_id.id)
+            landed_ids=list(set(landed_ids))
+            vals[obj.id]=landed_ids
+        return vals
+
+    def assign_lots(self,ids,context={}):
+        print("assign_lots",ids)
+        obj=self.browse(ids[0])
+        delete_ids=[]
+        for line in obj.lines:
+            prod=line.product_id
+            if prod.lot_id:
+                continue
+            lot_avail_qtys={}
+            for bal in get_model("stock.balance").search_browse([["product_id","=",prod.id],["location_id","=",line.location_from_id.id]]):
+                lot_id=bal.lot_id.id
+                lot_avail_qtys.setdefault(lot_id,0)
+                lot_avail_qtys[lot_id]+=bal.qty_virt
+            print("lot_avail_qtys",lot_avail_qtys)
+            if not lot_avail_qtys:
+                continue
+            lot_ids=lot_avail_qtys.keys()
+            lots=[lot for lot in get_model("stock.lot").browse(lot_ids)]
+            if prod.lot_select=="fifo":
+                lots.sort(key=lambda l: l.received_date)
+            elif prod.lot_select=="fefo":
+                lots.sort(key=lambda l: l.expiry_date)
+            elif prod.lot_select=="qty":
+                lots.sort(key=lambda l: -lot_avail_qtys[l.id])
+            remain_qty=line.qty
+            lot_use_qtys={}
+            for lot in lots:
+                if prod.min_life_remain_percent:
+                    if not lot.life_remain_percent or lot.life_remain_percent<prod.min_life_remain_percent:
+                        continue
+                avail_qty=lot_avail_qtys[lot.id]
+                use_qty=min(avail_qty,remain_qty) # XXX: uom
+                lot_use_qtys[lot.id]=use_qty
+                remain_qty-=use_qty
+                if remain_qty<=0:
+                    break
+            if prod.max_lots_per_sale and len(lot_use_qtys)>prod.max_lots_per_sale:
+                lot_use_qtys={}
+                remain_qty=line.qty
+            print("lot_use_qtys",lot_use_qtys)
+            if remain_qty:
+                line.write({"qty":remain_qty})
+            else:
+                delete_ids.append(line.id)
+            for lot_id,use_qty in lot_use_qtys.items():
+                vals={
+                    "picking_id": line.picking_id.id,
+                    "product_id": line.product_id.id,
+                    "qty": use_qty,
+                    "uom_id": line.uom_id.id,
+                    "location_from_id": line.location_from_id.id,
+                    "location_to_id": line.location_to_id.id,
+                    "lot_id": lot_id,
+                    "track_id": line.track_id.id,
+                }
+                rel=line.related_id
+                if rel:
+                    vals["related_id"]="%s,%s"%(rel._model,rel.id)
+                get_model("stock.move").create(vals)
+        if delete_ids:
+            get_model("stock.move").delete(delete_ids)
+
+    def wkf_check_location(self,ids,from_location=None,to_location=None,context={}):
+        print("#"*80)
+        print("picking.check_location",ids,from_location,to_location)
+        obj=self.browse(ids[0])
+        if from_location:
+            res=get_model("stock.location").search([["code","=",from_location]])
+            if not res:
+                raise Exception("Location code not found: %s"%from_location)
+            from_loc_id=res[0]
+        else:
+            from_loc_id=None
+        if to_location:
+            res=get_model("stock.location").search([["code","=",to_location]])
+            if not res:
+                raise Exception("Location code not found: %s"%to_location)
+            to_loc_id=res[0]
+        else:
+            to_loc_id=None
+        for line in obj.lines:
+            if from_loc_id and line.location_from_id.id!=from_loc_id:
+                return []
+            if to_loc_id and line.location_to_id.id!=to_loc_id:
+                return []
+        return ids
+
+    def set_currency_rate(self,ids,context={}):
+        obj=self.browse(ids[0])
+        settings=get_model("settings").browse(1)
+        if obj.currency_rate:
+            currency_rate = obj.currency_rate
+        else:
+            if not obj.currency_id:
+                raise Exception("Missing picking currency")
+            if obj.currency_id.id == settings.currency_id.id:
+                currency_rate = 1
+            else:
+                rate_from = obj.currency_id.get_rate(date=obj.date)
+                if not rate_from:
+                    raise Exception("Missing currency rate for %s" % obj.currency_id.code)
+                if not settings.currency_id:
+                    raise Exception("Missing company currency")
+                rate_to = settings.currency_id.get_rate(date=obj.date)
+                if not rate_to:
+                    raise Exception("Missing currency rate for %s" % settings.currency_id.code)
+                currency_rate = rate_from / rate_to
+        obj.write({"currency_rate":currency_rate})
+
+    def update_cost_price(self, context):
+        data = context["data"]
+        path = context["path"]
+        line = get_data_path(data, path, parent=True)
+        cost_price_cur=line.get("cost_price_cur") or 0
+        qty=line["qty"] or 0
+        currency_id=data.get("currency_id")
+        if not currency_id:
+            return data
+        currency=get_model("currency").browse(currency_id)
+        currency_rate=data["currency_rate"]
+        date=data["date"]
+        settings=get_model("settings").browse(1)
+        if not currency_rate:
+            if currency_id == settings.currency_id.id:
+                currency_rate = 1
+            else:
+                rate_from = currency.get_rate(date=date)
+                if not rate_from:
+                    raise Exception("Missing currency rate for %s" % currency.code)
+                rate_to = settings.currency_id.get_rate(date=date)
+                if not rate_to:
+                    raise Exception("Missing currency rate for %s" % settings.currency_id.code)
+                currency_rate = rate_from / rate_to
+        cost_price=get_model("currency").convert(cost_price_cur,currency_id,settings.currency_id.id,rate=currency_rate)
+        cost_amount=cost_price*qty
+        line["cost_price"]=cost_price
+        line["cost_amount"]=cost_amount
+        return data
+
+    def get_from_coords(self,ids,context={}):
+        vals={}
+        for obj in self.browse(ids):
+            coords=None
+            for line in obj.lines:
+                loc=line.location_from_id
+                addr=loc.address_id
+                if addr and addr.coordinates:
+                    coords=addr.coordinates
+                    break
+            vals[obj.id]=coords
+        return vals
+
+    def get_to_coords(self,ids,context={}):
+        vals={}
+        for obj in self.browse(ids):
+            addr=obj.ship_address_id
+            if addr and addr.coordinates:
+                coords=addr.coordinates
+            else:
+                coords=None
+            vals[obj.id]=coords
+        return vals
+
+    def copy_to_delivery(self,ids,context={}):
+        print("Picking.copy_to_delivery",ids)
+        n=0
+        for obj in self.browse(ids):
+            if obj.type!="out":
+                raise Exception("Invalid picking type")
+            if not obj.contact_id:
+                raise Exception("Missing contact in goods issue %s"%obj.number)
+            if not obj.ship_address_id:
+                raise Exception("Missing shipping address in goods issue %s"%obj.number)
+            vals={
+                "customer_id": obj.contact_id.id,
+                "delivery_date": obj.date[:10],
+                "ship_address_id": obj.ship_address_id.id,
+                "lines": [],
+            }
+            slot=obj.delivery_slot_id
+            if slot:
+                vals["time_from"]=slot.time_from
+                vals["time_to"]=slot.time_to
+            if not obj.lines:
+                raise Exception("Goods issue %s is empty"%obj.number)
+            for line in obj.lines:
+                line_vals={
+                    "product_id": line.product_id.id,
+                    "qty": line.qty,
+                }
+                vals["lines"].append(("create",line_vals))
+            new_id=get_model("nd.order").create(vals)
+            obj.write({"delivery_id":new_id})
+            n+=1
+        return {
+            "flash": "%d delivery orders created"%n,
+        }
+
+    def get_route_text(self,ids,context={}):
+        vals={}
+        for obj in self.browse(ids):
+            vals[obj.id]={
+                "ship_route": obj.route_id.name_get()[0][1] if obj.route_id else None,
+                "ship_tracking": obj.delivery_id.name_get()[0][1] if obj.delivery_id else None,
+            }
+        return vals
+
+    def do_validate(self, ids, context={}):
+        obj = self.browse(ids)[0]
+        remain_lines = []
+        if not obj.validate_lines:
+            raise Exception("Missing validations")
+        for vline in obj.validate_lines:
+            move = vline.move_id
+            if not move:
+                raise Exception("Missing stock move in validate line %s"%vline.id)
+            remain_qty = move.qty - get_model("uom").convert(vline.qty, vline.uom_id.id, move.uom_id.id)
+            if remain_qty:
+                remain_lines.append({
+                    "date": move.date,
+                    "product_id": move.product_id.id,
+                    "location_from_id": move.location_from_id.id,
+                    "location_to_id": move.location_to_id.id,
+                    "qty": remain_qty,
+                    "uom_id": move.uom_id.id,
+                    "cost_price": move.cost_price,
+                    'cost_price_cur': move.cost_price_cur,
+                    "state": move.state,
+                })
+            if vline.qty:
+                move.write({"qty": vline.qty, "uom_id": vline.uom_id.id, "lot_id": vline.lot_id.id, "container_id": vline.container_id.id})
+            elif remain_qty:
+                move.delete()
+        if remain_lines and not context.get("no_backorder"):
+            vals = {
+                "type": obj.type,
+                "contact_id": obj.contact_id.id,
+                "journal_id": obj.journal_id.id,
+                "date": obj.date,
+                "ref": obj.number,
+                "lines": [("create", x) for x in remain_lines],
+                "state": obj.state,
+            }
+            if obj.related_id:
+                vals["related_id"]="%s,%d"%(obj.related_id._model,obj.related_id.id)
+            rpick_id = get_model("stock.picking").create(vals, context={"pick_type": obj.type})
+            rpick = get_model("stock.picking").browse(rpick_id)
+            message = "Picking %s validated and back order %s created" % (obj.number, rpick.number)
+        else:
+            message = "Picking %s validated" % obj.number
+        #obj.validate_lines.delete() # XXX
+        obj.set_done()
+        if obj.type == "in":
+            action = "pick_in"
+        elif obj.type == "out":
+            action = "pick_out"
+        elif obj.type == "internal":
+            action = "pick_internal"
+        return {
+            "next": {
+                "name": action,
+                "mode": "form",
+                "active_id": obj.id,
+            },
+            "flash": message,
+        }
+
+    def try_validate_all(self, date, journal_id, context):
+        time_from=date+" 00:00:00"
+        time_to=date+" 23:59:59"
+        cond=[["date",">=",time_from],["date","<=",time_to],["state","=","approved"]]
+        for obj in self.search_browse(cond):
+            done=True
+            for line in obj.lines: 
+                if line.validate_qty<line.qty:
+                    done=False
+            if not done:
+                continue
+            obj.do_validate()
+
+    def copy_to_return(self, ids, context={}):
+        print("picking.copy_to_return",ids)
+        settings=get_model("settings").browse(1)
+        obj = self.browse(ids[0])
+        journal_id=None
+        if obj.type=="in":
+            journal_id=settings.pick_out_return_journal_id.id
+        if not journal_id:
+            raise Exception("Missing stock journal")
+        vals = {
+            "type": obj.type=="in" and "out" or "in",
+            "contact_id": obj.contact_id.id,
+            "ref": obj.ref,
+            "journal_id": journal_id,
+            "lines": [],
+        }
+        if obj.related_id:
+            vals["related_id"] = "%s,%d" % (obj.related_id._model, obj.related_id.id)
+        for line in obj.lines:
+            line_vals = {
+                "product_id": line.product_id.id,
+                "qty": line.qty,
+                "uom_id": line.uom_id.id,
+                "location_from_id": line.location_to_id.id,
+                "location_to_id": line.location_from_id.id,
+                "lot_id": line.lot_id.id,
+                "cost_price_cur": line.cost_price_cur,
+                "cost_price": line.cost_price,
+                "cost_amount": line.cost_amount,
+            }
+            if line.related_id:
+                line_vals["related_id"] = "%s,%d" % (line.related_id._model, line.related_id.id)
+            vals["lines"].append(("create", line_vals))
+        new_id = self.create(vals, {"pick_type": vals["type"]})
+        self.pending([new_id])
+
+    def set_purchase_fg_cost_price(self,ids,context={}):
+        print("set_purchase_fg_cost_price")
+        obj=self.browse(ids[0])
+        if obj.type!="in":
+            return
+        fg_line=None
+        for line in obj.lines:
+            prod=line.product_id
+            if prod.cost_method=="purchase_fg":
+                fg_line=line
+                break
+        if not fg_line:
+            return
+        related=obj.related_id
+        if not related or related._model!="purchase.order":
+            return
+        purch=related
+        purch_cost=0
+        for line in purch.lines:
+            if line.product_id.id!=fg_line.product_id.id:
+                continue
+            purch_cost+=line.amount
+        rm_cost=0
+        for pick in purch.pickings:
+            if not pick.ref or not pick.ref.startswith("RM-OUT"):
+                continue
+            for line in pick.lines:
+                rm_cost+=line.cost_amount
+        print("rm_cost",rm_cost)
+        fg_cost=purch_cost+rm_cost
+        fg_price=fg_cost/fg_line.qty
+        fg_line.write({"cost_price":fg_price,"cost_amount":fg_cost})
+
+    def get_total_qty(self,ids,context={}):
+        vals={}
+        for obj in self.browse(ids):
+            total_qty=0
+            for line in obj.lines:
+                total_qty+=line.qty or 0
+            vals[obj.id]=total_qty
+        return vals
+
+    def get_total_lot_weight(self,ids,context={}):
+        vals={}
+        for obj in self.browse(ids):
+            total_weight=0
+            for line in obj.lines:
+                if line.lot_id:
+                    total_weight+=line.lot_id.weight or 0
+            vals[obj.id]=total_weight
+        return vals
+
+    def get_total_weight(self,ids,context={}):
+        vals={}
+        for obj in self.browse(ids):
+            total_net_weight=0
+            total_gross_weight=0
+            for line in obj.lines:
+                total_net_weight+=line.net_weight or 0
+                total_gross_weight+=line.gross_weight or 0
+            vals[obj.id]={
+                "total_net_weight": total_net_weight,
+                "total_gross_weight": total_gross_weight,
+            }
+        return vals
+
+    def copy_to_transform(self,ids,context={}):
+        vals={
+            "lines": [],
+        }
+        for obj in self.browse(ids):
+            for line in obj.lines:
+                line_vals={
+                    "type": "in",
+                    "product_id": line.product_id.id,
+                    "lot_id": line.lot_id.id,
+                    "qty": line.qty,
+                    "uom_id": line.uom_id.id,
+                    "location_id": line.location_to_id.id,
+                    "picking_id": obj.id,
+                }
+                vals["lines"].append(("create",line_vals))
+        trans_id=get_model("stock.transform").create(vals)
+        return {
+            "next": {
+                "name": "transform",
+                "mode": "form",
+                "active_id": trans_id,
+            }
+        }
+
+    def get_transforms(self,ids,context={}):
+        vals={}
+        for obj in self.browse(ids):
+            trans_ids=[]
+            for line in obj.transform_lines:
+                trans_ids.append(line.transform_id.id)
+            trans_ids=list(set(trans_ids))
+            vals[obj.id]=trans_ids
+        return vals
+
+    def copy_to_grading(self,ids,context={}):
+        loc_id=None
+        for obj in self.browse(ids):
+            for line in obj.lines:
+                if not loc_id:
+                    loc_id=line.location_to_id.id
+                else:
+                    if line.location_to_id.id!=loc_id:
+                        raise Exception("Different locations")
+        vals={
+            "location_id": loc_id,
+            "lines": [],
+        }
+        for obj in self.browse(ids):
+            for line in obj.lines:
+                prod=line.product_id
+                line_vals={
+                    "product_id": prod.id,
+                    "qty": line.qty,
+                    "lot_id": line.lot_id.id,
+                    "uom_id": line.uom_id.id,
+                    "product_gb_id": prod.product_gb_id.id,
+                    "picking_id": obj.id,
+                }
+                vals["lines"].append(("create",line_vals))
+        grade_id=get_model("stock.grade").create(vals)
+        return {
+            "next": {
+                "name": "grade",
+                "mode": "form",
+                "active_id": grade_id,
+            }
+        }
+
+    def expand_bundles(self,ids,context={}):
+        n=0
+        for obj in self.browse(ids):
+            i=0
+            for line in obj.lines:
+                i+=1
+                line.write({"sequence":i})
+                prod=line.product_id
+                if prod.type=="bundle":
+                    if not prod.components:
+                        raise Exception("No components for bundle product %s"%prod.code)
+                    for comp in prod.components:
+                        comp_prod=comp.component_id
+                        qty=line.qty*comp.qty
+                        related_id="%s,%s"%(line.related_id._model,line.related_id.id) if line.related_id else None
+                        i+=1
+                        line_vals = {
+                            "sequence": i,
+                            "picking_id": obj.id,
+                            "product_id": comp_prod.id,
+                            "qty": qty,
+                            "uom_id": comp_prod.uom_id.id,
+                            "location_from_id": line.location_from_id.id,
+                            "location_to_id": line.location_to_id.id,
+                            "related_id": related_id,
+                        }
+                        get_model("stock.move").create(line_vals)
+                        n+=1
+        return {
+            "alert": "%d components added"%n,
+        }
+
+    def remove_bundle_components(self,ids,context={}):
+        del_move_ids=[]
+        for obj in self.browse(ids):
+            for line in obj.lines:
+                prod=line.product_id
+                if prod.type!="bundle":
+                    del_move_ids.append(line.id)
+        get_model("stock.move").delete(del_move_ids)
+
+    def get_total_sale_amount(self,ids,context={}):
+        vals={}
+        for obj in self.browse(ids):
+            amt=0
+            for line in obj.lines:
+                amt+=line.sale_amount or 0
+            vals[obj.id]=amt
+        return vals
+
+    def get_location(self,ids,context={}):
+        vals={}
+        for obj in self.browse(ids):
+            loc_id=None
+            if obj.lines:
+                loc_id=obj.lines[0].location_to_id.id
+            vals[obj.id]=loc_id
+        return vals
+
+    def onchange_purchase(self, context):
+        print("onchange_purchase")
+        data = context["data"]
+        path = context["path"]
+        line = get_data_path(data, path, parent=True)
+        purch_id = line.get("purchase_id")
+        if not purch_id:
+            return {}
+        purch = get_model("purchase.order").browse(purch_id)
+        prod_id = line.get("product_id")
+        if not prod_id:
+            return {}
+        prod = get_model("product").browse(prod_id)
+        prod_line=None
+        for purch_line in purch.lines:
+            if purch_line.product_id.id==prod.id:
+                prod_line=purch_line
+        print("product not found in PO")
+        if not prod_line:
+            return {}
+        line["cost_price"]=prod_line.unit_price or 0
+        line["cost_amount"]=line["cost_price"]*(line["qty"] or 0)
+        return data
+
+Picking.register()

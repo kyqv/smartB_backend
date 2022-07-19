@@ -1,0 +1,7 @@
+<record model="action">                                                                                                                                
+    <field name="name">wishlist</field>
+    <field name="string">Product Wishlist</field>                                                                                                                 
+    <field name="view">multi_view</field>                                                                                                          
+    <field name="model">ecom.wishlist</field>                                                                                                               
+    <field name="menu">ecom_menu</field>                                                                                                           
+</record>

@@ -1,0 +1,11 @@
+<list model="voice.call">
+    <field name="plan_time"/>
+    <field name="phone_from"/>
+    <field name="phone_to"/>
+    <field name="start_time"/>
+    <field name="end_time"/>
+    <field name="duration"/>
+    <field name="state"/>
+    <field name="contact_id"/>
+    <field name="related_id"/>
+</list>

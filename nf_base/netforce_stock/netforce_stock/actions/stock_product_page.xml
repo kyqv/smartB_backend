@@ -1,0 +1,4 @@
+<action>
+    <field name="template">stock_product_page</field>
+    <field name="menu">stock_menu</field>
+</action>

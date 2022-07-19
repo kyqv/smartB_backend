@@ -1,0 +1,7 @@
+<action>
+    <field name="string">Purchase Requests</field>
+    <field name="view">multi_view</field>
+    <field name="model">purchase.request</field>
+    <field name="tabs">[["All",[]],["Draft",[["state","=","draft"]]],["Waiting Approval",[["state","=","waiting_approval"]]],["Waiting PO",[["state","=","waiting_po"]]],["Completed",[["state","=","done"]]],["Rejected",["state","=","rejected"]],["Voided",["state","=","voided"]]]</field>
+    <field name="menu">purchase_menu</field>
+</action>

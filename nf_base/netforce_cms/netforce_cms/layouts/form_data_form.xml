@@ -1,0 +1,7 @@
+<form model="form.data">
+    <field name="time"/>
+    <field name="type"/>
+    <field name="user_id"/>
+    <separator/>
+    <field name="data"/>
+</form>

@@ -1,0 +1,9 @@
+<form model="service.stage">
+    <field name="categ_id"/>
+    <field name="name"/>
+    <field name="description"/>
+    <field name="sequence"/>
+    <related>
+        <field name="comments"/>
+    </related>
+</form>

@@ -1,0 +1,9 @@
+<list model="contact" hide_select="1" hide_page="1">
+    <head replace="1">
+        <button string="Add Contact" icon="plus" noselect="1" action="contact" action_options='{"mode":"form"}'/>
+    </head>
+    <field name="name"/>
+    <field name="code"/>
+    <field name="categ_id"/>
+    <field name="parent_id"/>
+</list>

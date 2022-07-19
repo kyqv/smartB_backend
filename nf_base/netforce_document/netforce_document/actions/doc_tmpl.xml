@@ -1,0 +1,7 @@
+<action>
+    <field name="name">doc_tmpl</field>
+    <field name="string">Document Templates</field>
+    <field name="view">multi_view</field>
+    <field name="model">document.tmpl</field>
+    <field name="menu">doc_menu</field>
+</action>

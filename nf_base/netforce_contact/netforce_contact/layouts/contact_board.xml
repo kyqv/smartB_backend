@@ -1,0 +1,8 @@
+<board>
+    <vpanel>
+        <widget string="Contacts Per Category" action="contact_categ_widget"/>
+    </vpanel>
+    <vpanel>
+        <widget string="Recent Contacts" action="contact_recent_widget"/>
+    </vpanel>
+</board>

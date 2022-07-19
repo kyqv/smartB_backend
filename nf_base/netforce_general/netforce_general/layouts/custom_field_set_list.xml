@@ -1,0 +1,7 @@
+<list model="custom.field.set">
+    <field name="model_id"/>
+    <field name="name"/>
+    <field name="default"/>
+    <field name="user_id"/>
+    <field name="company_id"/>
+</list>

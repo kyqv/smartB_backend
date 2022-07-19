@@ -1,0 +1,14 @@
+<form model="qc.result">
+    <field name="pick_id"/>
+    <field name="product_id"/>
+    <field name="lot_id"/>
+    <field name="total_qty"/>
+    <field name="sample_qty"/>
+    <field name="result"/>
+    <separator/>
+    <field name="test1"/>
+    <field name="test2"/>
+    <field name="test3"/>
+    <field name="test4"/>
+    <field name="test5"/>
+</form>

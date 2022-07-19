@@ -1,0 +1,21 @@
+<menu string="Main Menu">
+    <item string="Search" action="search" icon="search"/>
+    <item string="Dashboards" action="main_board"/>
+    <item string="Contacts" action="contact_board"/>
+    <item string="Products" action="product_board"/>
+    <item string="Accounting" action="account_board"/>
+    <item string="Inventory" action="stock_board"/>
+    <item string="Sales" action="sale_board"/>
+    <item string="Purchasing" action="purchase_board"/>
+    <item string="Delivery" action="nd_board" addon="DELIVERY"/>
+    <item string="POS" action="pos_board" addon="POS"/>
+    <item string="Services" action="service_board" addon="SERVICE"/>
+    <item string="Manufacturing" action="mfg_board" addon="MFG"/>
+    <item string="HR" action="hr_board" addon="HR"/>
+    <item string="Website" action="cms_board"/>
+    <item string="Ecommerce" action="ecom2_board"/>
+    <item string="Documents" action="doc_board"/>
+    <item string="Messaging" action="msg_board"/>
+    <item string="General" action="gen_board"/>
+    <!--<item string="Addons" action="addon"/>-->
+</menu>

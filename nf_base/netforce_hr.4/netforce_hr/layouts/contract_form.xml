@@ -1,0 +1,4 @@
+<form model="hr.contract">
+    <field name="name"/>
+    <field name="employee_id"/>
+</form>

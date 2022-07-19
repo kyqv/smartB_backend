@@ -1,0 +1,4 @@
+<list model="board.user">
+    <field name="name"/>
+    <field name="user_id"/>
+</list>

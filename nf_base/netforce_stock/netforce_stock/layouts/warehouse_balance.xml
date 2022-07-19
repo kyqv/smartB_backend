@@ -1,0 +1,21 @@
+<list model="stock.balance">
+    <head>
+        <button string="New Purchase Order" method="make_po" icon="plus-sign"/>
+        <button string="New Goods Transfer" method="make_transfer" icon="plus-sign"/>
+        <button string="New Goods Issue" method="make_issue" icon="plus-sign"/>
+    </head>
+    <search>
+        <field name="product_id"/>
+        <field name="lot_id"/>
+        <field name="container_id"/>
+    </search>
+    <field name="product_id"/>
+    <field name="lot_id"/>
+    <field name="container_id"/>
+    <field name="qty_phys"/>
+    <field name="qty_virt"/>
+    <field name="min_qty"/>
+    <field name="uom_id"/>
+    <field name="amount"/>
+    <field name="last_change"/>
+</list>

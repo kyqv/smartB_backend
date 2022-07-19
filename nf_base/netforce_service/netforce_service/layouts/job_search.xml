@@ -1,0 +1,10 @@
+<search model="job">
+    <field name="number"/>
+    <field name="name"/>
+    <field name="contact_id"/>
+    <field name="service_type_id"/>
+    <newline/>
+    <field name="state"/>
+    <field name="due_date"/>
+    <field name="resource_id"/>
+</search>

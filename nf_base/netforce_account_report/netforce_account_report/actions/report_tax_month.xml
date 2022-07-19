@@ -1,0 +1,8 @@
+<action>
+    <field name="string">Tax Monthly Report</field>
+    <field name="view">report</field>
+    <field name="model">report.tax.month</field>
+    <field name="template">report_tax_month</field>
+    <field name="template_xls">report_tax_month</field>
+    <field name="menu">account_menu</field>
+</action>

@@ -1,0 +1,5 @@
+<action>
+    <field name="view">list</field>
+    <field name="model">stock.balance</field>
+    <field name="layout">warehouse_balance</field>
+</action>

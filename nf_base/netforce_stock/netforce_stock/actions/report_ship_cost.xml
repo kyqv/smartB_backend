@@ -1,0 +1,8 @@
+<action>
+    <field name="view">report</field>
+    <field name="string">Shipping Cost Report</field>
+    <field name="model">report.ship.cost</field>
+    <field name="template">report_ship_cost</field>
+    <field name="template_xls">ship_cost</field>
+    <field name="menu">stock_menu</field>
+</action>

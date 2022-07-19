@@ -1,0 +1,7 @@
+<action>
+    <field name="view">list_details</field>
+    <field name="model">account.statement.line</field>
+    <field name="order">date desc,id desc</field>
+    <field name="limit">50</field>
+    <field name="layout">bank_reconcile</field>
+</action>

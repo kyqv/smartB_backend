@@ -1,0 +1,5 @@
+<form_m model="uom">
+    <field name="name"/>
+    <newline/>
+    <field name="code"/>
+</form_m>

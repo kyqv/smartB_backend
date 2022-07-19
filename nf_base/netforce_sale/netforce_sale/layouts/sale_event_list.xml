@@ -1,0 +1,3 @@
+<list model="sale.event">
+    <field name="name"/>
+</list>

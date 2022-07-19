@@ -1,0 +1,6 @@
+Account Code,Account Name,Type,Parent / Account Code,Account Currency / Code
+1010,Bank Accounts,View,,THB
+1011,Current account,Bank Account,1010,THB
+1012,Savings Accounts,Bank Account,1010,THB
+4010,Service Sales,Revenue,,THB
+5010,Purchases,Expense,,THB

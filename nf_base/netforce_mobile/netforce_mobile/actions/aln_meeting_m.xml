@@ -1,0 +1,7 @@
+<action>
+    <field name="view">list_m</field>
+    <field name="title">Meetings</field>
+    <field name="model">aln.meeting</field>
+    <field name="tabs">[["Requested",[["state","=","requested"]]],["Confirmed",[["state","=","confirmed"]]],["Completed",[["state","=","done"]]]]</field>
+    <field name="menu">main_menu_m</field>
+</action>

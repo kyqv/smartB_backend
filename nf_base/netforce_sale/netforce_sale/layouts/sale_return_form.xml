@@ -1,0 +1,103 @@
+<form model="sale.return" attrs='{"readonly":[["state","in",["confirmed","done","voided"]]]}' show_company="1" show_save="1">
+    <head>
+        <field name="state"/>
+        <button string="Print" icon="print" action="report_sale_return_form"/>
+        <button string="Print (New)" icon="print" action="report_sale_return_form2" action_options='{"active_id":id}'/>
+        <button string="Options" dropdown="1">
+            <item string="Copy" method="copy"/>
+            <item string="Copy To Credit Note" method="copy_to_credit_note" states="confirmed"/>
+            <item string="Copy To Goods Receipt" method="copy_to_picking" states="confirmed"/>
+            <item string="To Draft" method="to_draft"/>
+            <item string="Void" method="void" confirm="Are you sure you want to void this sales return?" states="confirmed,done"/>
+        </button>
+    </head>
+    <tabs>
+        <tab string="General">
+            <group form_layout="stacked">
+                <field name="contact_id" span="2" create="1" onchange="onchange_contact"/>
+                <field name="date" span="2"/>
+                <field name="number" span="2"/>
+                <field name="ref" span="2"/>
+                <field name="due_date" span="2"/>
+                <field name="is_delivered" span="2"/>
+                <newline/>
+                <field name="currency_id" span="2"/>
+                <field name="tax_type" span="2" onchange="update_amounts"/>
+                <field name="price_list_id" span="2"/>
+                <field name="related_id" span="2"/>
+                <field name="team_id" span="2"/>
+                <field name="is_paid" span="2"/>
+                <newline/>
+                <field name="bill_address_id" span="2" condition='[["contact_id","!=",null],["contact_id","=",contact_id]]'/>
+                <field name="ship_address_id" span="2" condition='[["contact_id","!=",null],["contact_id","=",contact_id]]'/>
+                <field name="orig_sale_id" span="2"/>
+            </group>
+            <field name="lines" nolabel="1">
+                <list>
+                    <field name="product_id" onchange="onchange_product" condition='[["can_sell","=",true]]'/>
+                    <field name="description"/>
+                    <field name="qty" onchange="onchange_qty"/>
+                    <field name="uom_id" onchange="onchange_uom"/>
+                    <field name="unit_price" onchange="update_amounts"/>
+                    <field name="discount" onchange="update_amounts"/>
+                    <field name="discount_amount" onchange="update_amounts"/>
+                    <field name="tax_id" onchange="update_amounts"/>
+                    <field name="amount"/>
+                    <field name="location_id"/>
+                    <field name="qty_stock"/>
+                    <field name="ship_method_id"/>
+                    <field name="qty_received"/>
+                    <field name="return_type"/>
+                    <field name="reason_code_id"/>
+                </list>
+            </field>
+            <group offset="8" span="4" columns="1" horizontal="1">
+                <field name="amount_subtotal"/>
+                <field name="amount_tax"/>
+                <field name="amount_total"/>
+            </group>
+            <field name="payment_terms"/>
+            <newline/>
+            <field name="other_info"/>
+        </tab>
+        <tab string="Other Info">
+            <field name="user_id"/>
+            <newline/>
+            <field name="sequence_id" condition='[["type","=","sale_return"]]' onchange="onchange_sequence"/>
+            <newline/>
+            <field name="ship_term_id"/>
+            <newline/>
+            <field name="pay_method_id"/>
+            <newline/>
+            <field name="create_time"/>
+        </tab>
+    </tabs>
+    <field name="company_id" invisible="1"/>
+    <foot>
+        <button string="Confirm" method="confirm" size="large" type="success" states="draft" perm="approve_sale"/>
+        <button string="Completed" method="done" size="large" type="success" states="confirmed"/>
+        <button string="Reopen" method="reopen" size="large" states="done" icon="refresh"/>
+    </foot>
+    <related>
+        <field name="documents">
+            <list>
+                <field name="file" target="_blank" preview="1"/>
+                <field name="categ_id"/>
+                <field name="description"/>
+                <field name="date"/>
+            </list>
+            <form>
+                <field name="file" target="_blank" onchange="onchange_file"/>
+                <field name="categ_id"/>
+                <field name="date"/>
+                <field name="description"/>
+                <field name="contact_id" invisible="1"/>
+            </form>
+        </field>
+        <field name="invoices" click_action="view_invoice"/>
+        <field name="pickings"/>
+        <field name="activities"/>
+        <field name="emails"/>
+        <field name="comments"/>
+    </related>
+</form>

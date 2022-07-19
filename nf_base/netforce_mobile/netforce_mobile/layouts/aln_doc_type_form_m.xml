@@ -1,0 +1,3 @@
+<form_m model="aln.doc.type">
+    <field name="name"/>
+</form_m>

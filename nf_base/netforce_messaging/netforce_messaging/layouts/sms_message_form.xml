@@ -1,0 +1,16 @@
+<form model="sms.message">
+    <head>
+        <field name="state"/>
+    </head>
+    <field name="account_id"/>
+    <field name="date"/>
+    <field name="phone"/>
+    <field name="state"/>
+    <field name="body" width="800" height="300"/>
+    <newline/>
+    <field name="num_chars"/>
+    <field name="error" attrs='{"invisible":[["state","!=","error"]]}'/>
+    <foot>
+        <button string="Send" method="send" type="success" icon="envelope" states="to_send,draft"/>
+    </foot>
+</form>

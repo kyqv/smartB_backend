@@ -1,0 +1,25 @@
+<form model="expense" show_company="1">
+    <separator string="Transaction Details"/>
+    <field name="date"/>
+    <field name="related_id"/>
+    <field name="employee_id"/>
+    <field name="claim_id" condition='[["employee_id","=",employee_id]]'/>
+    <separator/>
+    <newline/>
+    <field name="merchant"/>
+    <field name="currency_id"/>
+    <newline/>
+    <field name="amount"/>
+    <field name="product_id" onchange="onchange_product"/>
+    <newline/>
+    <field name="description"/>
+    <field name="image"/>
+    <separator/>
+    <field name="account_id"/>
+    <field name="tax_id"/>
+    <newline/>
+    <field name="currency_rate"/>
+    <separator/>
+    <field name="invoice_id"/>
+    <field name="company_id" invisible="1"/>
+</form>

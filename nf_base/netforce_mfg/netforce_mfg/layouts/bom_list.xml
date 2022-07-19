@@ -1,0 +1,14 @@
+<list model="bom">
+    <head>
+        <button string="Print" icon="print" action="report_bom_form2" action_options='{"ids":ids}'/>
+        <button string="Copy" method="copy"/>
+        <button string="Update Product Cost" method="update_product_cost"/>
+    </head>
+    <field name="number"/>
+    <field name="product_id"/>
+    <field name="qty"/>
+    <field name="uom_id"/>
+    <field name="location_id"/>
+    <field name="routing_id"/>
+    <field name="type"/>
+</list>

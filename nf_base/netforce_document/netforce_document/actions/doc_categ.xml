@@ -1,0 +1,7 @@
+<action>
+    <field name="name">doc_categ</field>
+    <field name="string">Document Categories</field>
+    <field name="view">multi_view</field>
+    <field name="model">document.categ</field>
+    <field name="menu">doc_menu</field>
+</action>

@@ -1,0 +1,9 @@
+<form model="province">
+    <field name="country_id"/>
+    <field name="name"/>
+    <field name="code"/>
+    <related>
+        <field name="districts"/>
+        <field name="postal_codes"/>
+    </related>
+</form>

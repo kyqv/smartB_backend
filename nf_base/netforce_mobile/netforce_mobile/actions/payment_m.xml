@@ -1,0 +1,6 @@
+<action>
+    <field name="view">list_m</field>
+    <field name="title">Payments</field>
+    <field name="model">account.payment</field>
+    <field name="menu">main_menu_m</field>
+</action>

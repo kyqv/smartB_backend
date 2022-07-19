@@ -1,0 +1,9 @@
+<form model="track.distrib" show_save="1">
+    <field name="lines">
+        <list>
+            <field name="track_id"/>
+            <field name="ratio"/>
+            <field name="percent"/>
+        </list>
+    </field>
+</form>

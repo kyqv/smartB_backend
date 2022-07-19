@@ -1,0 +1,5 @@
+<list model="account.budget">
+    <field name="name"/>
+    <field name="date_from"/>
+    <field name="date_to"/>
+</list>

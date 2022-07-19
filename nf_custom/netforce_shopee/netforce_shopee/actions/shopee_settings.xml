@@ -1,0 +1,9 @@
+<action>
+    <field name="string">Shopee Settings</field>
+    <field name="view">form_view</field>
+    <field name="active_id">1</field>
+    <field name="model">shopee.settings</field>
+    <field name="layout">shopee_settings_form</field>
+    <field name="menu">shopee_menu</field>
+    <field name="theme">orange</field>
+</action>

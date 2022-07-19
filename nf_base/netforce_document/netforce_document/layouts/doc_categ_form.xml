@@ -1,0 +1,23 @@
+<form model="document.categ">
+    <field name="name"/>
+    <field name="parent_id"/>
+    <field name="code"/>
+    <field name="description"/>
+    <field name="expire_after" help="Examples: 30d, 6m, 1y"/>
+    <field name="file_name"/>
+    <related>
+        <field name="reminder_templates">
+            <list>
+                <field name="scheduled_date"/>
+                <field name="user_id"/>
+                <field name="subject"/>
+            </list>
+            <form>
+                <field name="scheduled_date"/>
+                <field name="user_id"/>
+                <field name="subject"/>
+            </form>
+        </field>
+        <field name="comments"/>
+    </related>
+</form>

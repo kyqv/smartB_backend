@@ -1,0 +1,22 @@
+<div class="navbar navbar-inverse">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="brand" href="#">
+                <img src="/static/img/netforce_logo_16.png" style="margin-right:5px">
+                <span style="position:relative;top:1px">Netforce</span>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="span8">
+        {{#view "page" title="Change password" context=context}}
+            {{view "flash" context=context}}
+            {{view "field" name="new_password" password="1" context=context}}
+            {{view "field" name="new_password_repeat" password="1" context=context}}
+            {{#view "form_actions" context=context}}
+                {{view "button" string="Change password" type="primary" method="change_passwd" context=context}}
+            {{/view}}
+        {{/view}}
+    </div>
+</div>

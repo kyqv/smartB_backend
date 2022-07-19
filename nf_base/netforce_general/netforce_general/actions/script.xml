@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Scripts</field>
+    <field name="view">multi_view</field>
+    <field name="model">script</field>
+    <field name="menu">gen_menu</field>
+</action>

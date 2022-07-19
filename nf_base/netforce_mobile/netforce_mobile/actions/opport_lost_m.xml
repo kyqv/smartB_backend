@@ -1,0 +1,8 @@
+<action>
+    <field name="view">form_m</field>
+    <field name="no_save">1</field>
+    <field name="title">Lost Sales Opportunity</field>
+    <field name="model">sale.opportunity</field>
+    <field name="layout">opport_lost_m</field>
+    <field name="target">sub_action</field>
+</action>

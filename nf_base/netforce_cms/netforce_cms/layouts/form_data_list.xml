@@ -1,0 +1,5 @@
+<list model="form.data">
+    <field name="time"/>
+    <field name="type"/>
+    <field name="user_id"/>
+</list>

@@ -1,0 +1,6 @@
+<action>
+    <field name="type">export</field>
+    <field name="model">currency</field>
+    <field name="filename">currencies.csv</field>
+    <field name="export_fields">["name", "code", "sign", "rate"]</field>
+</action>

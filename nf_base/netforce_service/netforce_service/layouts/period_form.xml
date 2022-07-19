@@ -1,0 +1,9 @@
+<form model="service.period">
+    <field name="name"/>
+    <newline/>
+    <field name="date_from"/>
+    <field name="date_to"/>
+    <related>
+        <field name="comments"/>
+    </related>
+</form>

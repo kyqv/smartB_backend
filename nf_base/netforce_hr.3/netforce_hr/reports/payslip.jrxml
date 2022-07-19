@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="payslip" pageWidth="576" pageHeight="864" columnWidth="576" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.2100000000000442"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="default" isDefault="true" hAlign="Left" vAlign="Middle" fontName="Loma" fontSize="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="/usr/share/fonts/truetype/thai/Loma.ttf" pdfEncoding="Identity-H"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ID_MAIN" class="java.lang.String"/>
+	<queryString language="json">
+		<![CDATA[lines]]>
+	</queryString>
+	<field name="name" class="java.lang.String">
+		<fieldDescription><![CDATA[name]]></fieldDescription>
+	</field>
+	<field name="code" class="java.lang.String">
+		<fieldDescription><![CDATA[code]]></fieldDescription>
+	</field>
+	<field name="department" class="java.lang.String">
+		<fieldDescription><![CDATA[department]]></fieldDescription>
+	</field>
+	<field name="period_stop" class="java.lang.String">
+		<fieldDescription><![CDATA[period_stop]]></fieldDescription>
+	</field>
+	<field name="credit_note" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[credit_note]]></fieldDescription>
+	</field>
+	<field name="line_period_gross" class="java.lang.Double">
+		<fieldDescription><![CDATA[line_period_gross]]></fieldDescription>
+	</field>
+	<field name="line_total_deduct" class="java.lang.Double">
+		<fieldDescription><![CDATA[line_total_deduct]]></fieldDescription>
+	</field>
+	<field name="line_net" class="java.lang.Double">
+		<fieldDescription><![CDATA[line_net]]></fieldDescription>
+	</field>
+	<field name="line_pvd" class="java.lang.Double">
+		<fieldDescription><![CDATA[line_pvd]]></fieldDescription>
+	</field>
+	<field name="line_accum_pvd" class="java.lang.Double">
+		<fieldDescription><![CDATA[line_accum_pvd]]></fieldDescription>
+	</field>
+	<field name="line_accum_income" class="java.lang.Double">
+		<fieldDescription><![CDATA[line_accum_income]]></fieldDescription>
+	</field>
+	<field name="line_accum_tax" class="java.lang.Double">
+		<fieldDescription><![CDATA[line_accum_tax]]></fieldDescription>
+	</field>
+	<field name="id" class="java.lang.String">
+		<fieldDescription><![CDATA[id]]></fieldDescription>
+	</field>
+	<field name="income_lines" class="java.lang.String">
+		<fieldDescription><![CDATA[income_lines]]></fieldDescription>
+	</field>
+	<field name="deduction_lines" class="java.lang.String">
+		<fieldDescription><![CDATA[deduction_lines]]></fieldDescription>
+	</field>
+	<background>
+		<band height="864">
+			<image>
+				<reportElement x="0" y="0" width="576" height="853"/>
+				<imageExpression class="java.lang.String"><![CDATA["payslip_bg.gif"]]></imageExpression>
+			</image>
+		</band>
+	</background>
+	<detail>
+		<band height="288" splitType="Stretch">
+			<textField pattern="#,##0.00">
+				<reportElement x="180" y="238" width="100" height="16"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{line_pvd}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="180" y="256" width="100" height="16"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{line_accum_pvd}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="419" y="238" width="125" height="16"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{line_accum_income}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="419" y="256" width="125" height="16"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{line_accum_tax}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="55" y="40" width="209" height="18"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="273" y="40" width="59" height="18"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{code}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="55" y="80" width="277" height="18"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{department}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="437" y="21" width="61" height="16"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{period_stop}.split(" ")[1]]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="435" y="40" width="109" height="18"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{line_period_gross}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="435" y="60" width="109" height="18"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{line_total_deduct}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="435" y="80" width="109" height="18"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{line_net}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="21" y="133" width="25" height="16">
+					<printWhenExpression><![CDATA[Arrays.asList($F{income_lines}.split("\n")).size() > 0]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[Arrays.asList($F{income_lines}.split("\n")).get(0)]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="46" y="133" width="100" height="16">
+					<printWhenExpression><![CDATA[Arrays.asList($F{income_lines}.split("\n")).size() > 2]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[new Double(Arrays.asList($F{income_lines}.split("\n")).get(2))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="21" y="147" width="25" height="16">
+					<printWhenExpression><![CDATA[Arrays.asList($F{income_lines}.split("\n")).size() > 5]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[Arrays.asList($F{income_lines}.split("\n")).get(5)]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="46" y="147" width="100" height="16">
+					<printWhenExpression><![CDATA[Arrays.asList($F{income_lines}.split("\n")).size() > 7]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[new Double(Arrays.asList($F{income_lines}.split("\n")).get(7))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="21" y="161" width="25" height="16">
+					<printWhenExpression><![CDATA[Arrays.asList($F{income_lines}.split("\n")).size() > 10]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[Arrays.asList($F{income_lines}.split("\n")).get(10)]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="46" y="161" width="100" height="16">
+					<printWhenExpression><![CDATA[Arrays.asList($F{income_lines}.split("\n")).size() > 12]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[new Double(Arrays.asList($F{income_lines}.split("\n")).get(12))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="21" y="175" width="25" height="16">
+					<printWhenExpression><![CDATA[Arrays.asList($F{income_lines}.split("\n")).size() > 15]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[Arrays.asList($F{income_lines}.split("\n")).get(15)]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="46" y="175" width="100" height="16">
+					<printWhenExpression><![CDATA[Arrays.asList($F{income_lines}.split("\n")).size() > 17]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[new Double(Arrays.asList($F{income_lines}.split("\n")).get(17))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="21" y="189" width="25" height="16">
+					<printWhenExpression><![CDATA[Arrays.asList($F{income_lines}.split("\n")).size() > 20]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[Arrays.asList($F{income_lines}.split("\n")).get(20)]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="46" y="189" width="100" height="16">
+					<printWhenExpression><![CDATA[Arrays.asList($F{income_lines}.split("\n")).size() > 22]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[new Double(Arrays.asList($F{income_lines}.split("\n")).get(22))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="21" y="203" width="25" height="16">
+					<printWhenExpression><![CDATA[Arrays.asList($F{income_lines}.split("\n")).size() > 25]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[Arrays.asList($F{income_lines}.split("\n")).get(25)]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="46" y="203" width="100" height="16">
+					<printWhenExpression><![CDATA[Arrays.asList($F{income_lines}.split("\n")).size() > 27]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[new Double(Arrays.asList($F{income_lines}.split("\n")).get(27))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="161" y="133" width="25" height="16">
+					<printWhenExpression><![CDATA[Arrays.asList($F{income_lines}.split("\n")).size() > 30]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[Arrays.asList($F{income_lines}.split("\n")).get(30)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="161" y="175" width="25" height="16">
+					<printWhenExpression><![CDATA[Arrays.asList($F{income_lines}.split("\n")).size() > 45]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[Arrays.asList($F{income_lines}.split("\n")).get(45)]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="186" y="175" width="100" height="16">
+					<printWhenExpression><![CDATA[Arrays.asList($F{income_lines}.split("\n")).size() > 47]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[new Double(Arrays.asList($F{income_lines}.split("\n")).get(47))]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="186" y="203" width="100" height="16">
+					<printWhenExpression><![CDATA[Arrays.asList($F{income_lines}.split("\n")).size() > 57]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[new Double(Arrays.asList($F{income_lines}.split("\n")).get(57))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="161" y="161" width="25" height="16">
+					<printWhenExpression><![CDATA[Arrays.asList($F{income_lines}.split("\n")).size() > 40]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[Arrays.asList($F{income_lines}.split("\n")).get(40)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="161" y="147" width="25" height="16">
+					<printWhenExpression><![CDATA[Arrays.asList($F{income_lines}.split("\n")).size() > 35]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[Arrays.asList($F{income_lines}.split("\n")).get(35)]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="186" y="133" width="100" height="16">
+					<printWhenExpression><![CDATA[Arrays.asList($F{income_lines}.split("\n")).size() > 32]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[new Double(Arrays.asList($F{income_lines}.split("\n")).get(32))]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="186" y="161" width="100" height="16">
+					<printWhenExpression><![CDATA[Arrays.asList($F{income_lines}.split("\n")).size() > 42]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[new Double(Arrays.asList($F{income_lines}.split("\n")).get(42))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="161" y="189" width="25" height="16">
+					<printWhenExpression><![CDATA[Arrays.asList($F{income_lines}.split("\n")).size() > 50]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[Arrays.asList($F{income_lines}.split("\n")).get(50)]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="186" y="147" width="100" height="16">
+					<printWhenExpression><![CDATA[Arrays.asList($F{income_lines}.split("\n")).size() > 37]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[new Double(Arrays.asList($F{income_lines}.split("\n")).get(37))]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="186" y="189" width="100" height="16">
+					<printWhenExpression><![CDATA[Arrays.asList($F{income_lines}.split("\n")).size() > 52]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[new Double(Arrays.asList($F{income_lines}.split("\n")).get(52))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="161" y="203" width="25" height="16">
+					<printWhenExpression><![CDATA[Arrays.asList($F{income_lines}.split("\n")).size() > 55]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[Arrays.asList($F{income_lines}.split("\n")).get(55)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="302" y="133" width="25" height="16">
+					<printWhenExpression><![CDATA[Arrays.asList($F{deduction_lines}.split("\n")).size() > 0]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[Arrays.asList($F{deduction_lines}.split("\n")).get(0)]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="327" y="133" width="100" height="16">
+					<printWhenExpression><![CDATA[Arrays.asList($F{deduction_lines}.split("\n")).size() > 2]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[new Double(Arrays.asList($F{deduction_lines}.split("\n")).get(2))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="302" y="147" width="25" height="16">
+					<printWhenExpression><![CDATA[Arrays.asList($F{deduction_lines}.split("\n")).size() > 5]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[Arrays.asList($F{deduction_lines}.split("\n")).get(5)]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="327" y="147" width="100" height="16">
+					<printWhenExpression><![CDATA[Arrays.asList($F{deduction_lines}.split("\n")).size() > 7]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[new Double(Arrays.asList($F{deduction_lines}.split("\n")).get(7))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="302" y="161" width="25" height="16">
+					<printWhenExpression><![CDATA[Arrays.asList($F{deduction_lines}.split("\n")).size() > 10]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[Arrays.asList($F{deduction_lines}.split("\n")).get(10)]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="327" y="161" width="100" height="16">
+					<printWhenExpression><![CDATA[Arrays.asList($F{deduction_lines}.split("\n")).size() > 12]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[new Double(Arrays.asList($F{deduction_lines}.split("\n")).get(12))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="302" y="175" width="25" height="16">
+					<printWhenExpression><![CDATA[Arrays.asList($F{deduction_lines}.split("\n")).size() > 15]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[Arrays.asList($F{deduction_lines}.split("\n")).get(15)]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="327" y="203" width="100" height="16">
+					<printWhenExpression><![CDATA[Arrays.asList($F{deduction_lines}.split("\n")).size() > 27]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[new Double(Arrays.asList($F{deduction_lines}.split("\n")).get(27))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="302" y="189" width="25" height="16">
+					<printWhenExpression><![CDATA[Arrays.asList($F{deduction_lines}.split("\n")).size() > 20]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[Arrays.asList($F{deduction_lines}.split("\n")).get(20)]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="327" y="175" width="100" height="16">
+					<printWhenExpression><![CDATA[Arrays.asList($F{deduction_lines}.split("\n")).size() > 17]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[new Double(Arrays.asList($F{deduction_lines}.split("\n")).get(17))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="302" y="203" width="25" height="16">
+					<printWhenExpression><![CDATA[Arrays.asList($F{deduction_lines}.split("\n")).size() > 25]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[Arrays.asList($F{deduction_lines}.split("\n")).get(25)]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="327" y="189" width="100" height="16">
+					<printWhenExpression><![CDATA[Arrays.asList($F{deduction_lines}.split("\n")).size() > 22]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[new Double(Arrays.asList($F{deduction_lines}.split("\n")).get(22))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="442" y="133" width="25" height="16">
+					<printWhenExpression><![CDATA[Arrays.asList($F{deduction_lines}.split("\n")).size() > 30]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[Arrays.asList($F{deduction_lines}.split("\n")).get(30)]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="467" y="161" width="82" height="16">
+					<printWhenExpression><![CDATA[Arrays.asList($F{deduction_lines}.split("\n")).size() > 42]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[new Double(Arrays.asList($F{deduction_lines}.split("\n")).get(42))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="442" y="147" width="25" height="16">
+					<printWhenExpression><![CDATA[Arrays.asList($F{deduction_lines}.split("\n")).size() > 35]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[Arrays.asList($F{deduction_lines}.split("\n")).get(35)]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="467" y="133" width="82" height="16">
+					<printWhenExpression><![CDATA[Arrays.asList($F{deduction_lines}.split("\n")).size() > 32]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[new Double(Arrays.asList($F{deduction_lines}.split("\n")).get(32))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="442" y="161" width="25" height="16">
+					<printWhenExpression><![CDATA[Arrays.asList($F{deduction_lines}.split("\n")).size() > 40]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[Arrays.asList($F{deduction_lines}.split("\n")).get(40)]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="467" y="147" width="82" height="16">
+					<printWhenExpression><![CDATA[Arrays.asList($F{deduction_lines}.split("\n")).size() > 37]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[new Double(Arrays.asList($F{deduction_lines}.split("\n")).get(37))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="442" y="175" width="25" height="16">
+					<printWhenExpression><![CDATA[Arrays.asList($F{deduction_lines}.split("\n")).size() > 45]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[Arrays.asList($F{deduction_lines}.split("\n")).get(45)]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="467" y="203" width="82" height="16">
+					<printWhenExpression><![CDATA[Arrays.asList($F{deduction_lines}.split("\n")).size() > 57]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[new Double(Arrays.asList($F{deduction_lines}.split("\n")).get(57))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="442" y="189" width="25" height="16">
+					<printWhenExpression><![CDATA[Arrays.asList($F{deduction_lines}.split("\n")).size() > 50]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[Arrays.asList($F{deduction_lines}.split("\n")).get(50)]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="467" y="175" width="82" height="16">
+					<printWhenExpression><![CDATA[Arrays.asList($F{deduction_lines}.split("\n")).size() > 47]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[new Double(Arrays.asList($F{deduction_lines}.split("\n")).get(47))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="442" y="203" width="25" height="16">
+					<printWhenExpression><![CDATA[Arrays.asList($F{deduction_lines}.split("\n")).size() > 55]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[Arrays.asList($F{deduction_lines}.split("\n")).get(55)]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="467" y="189" width="82" height="16">
+					<printWhenExpression><![CDATA[Arrays.asList($F{deduction_lines}.split("\n")).size() > 52]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[new Double(Arrays.asList($F{deduction_lines}.split("\n")).get(52))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="515" y="21" width="30" height="16"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{period_stop}.split(" ")[2]]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

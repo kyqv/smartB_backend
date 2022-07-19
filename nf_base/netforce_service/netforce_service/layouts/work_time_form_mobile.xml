@@ -1,0 +1,11 @@
+<form_mobile model="work.time">
+    <field name="date"/>
+    <field name="project_id"/>
+    <newline/>
+    <field name="actual_hours"/>
+    <field name="bill_hours"/>
+    <newline/>
+    <field name="description"/>
+    <newline/>
+    <field name="state"/>
+</form_mobile>

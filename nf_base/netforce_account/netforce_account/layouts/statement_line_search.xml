@@ -1,0 +1,7 @@
+<search model="account.statement.line">
+    <field name="date"/>
+    <field name="description"/>
+    <field name="received"/>
+    <field name="spent"/>
+    <field name="balance"/>
+</search>

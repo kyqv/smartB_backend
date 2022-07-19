@@ -1,0 +1,17 @@
+<form model="email.account">
+    <head>
+        <button string="Options" dropdown="1">
+            <item string="List IMAP Mailboxes" method="list_imap_mailboxes"/>
+        </button>
+    </head>
+    <field name="name"/>
+    <field name="type"/>
+    <field name="host"/>
+    <field name="port"/>
+    <field name="user"/>
+    <field name="password" password="1"/>
+    <field name="security"/>
+    <related>
+        <field name="comments"/>
+    </related>
+</form>

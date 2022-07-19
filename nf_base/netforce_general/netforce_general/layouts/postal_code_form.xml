@@ -1,0 +1,7 @@
+<form model="postal.code">
+    <field name="code"/>
+    <field name="country_id"/>
+    <field name="province_id"/>
+    <field name="district_id"/>
+    <field name="subdistrict_id"/>
+</form>

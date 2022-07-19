@@ -1,0 +1,7 @@
+<form model="sale.event">
+    <field name="name"/>
+    <field name="code"/>
+    <group span="12" form_layout="stacked">
+        <field name="products" span="12"/>
+    </group>
+</form>

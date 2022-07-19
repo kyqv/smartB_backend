@@ -1,0 +1,19 @@
+<form_m model="qc.result">
+    <field name="pick_id" invisible="1"/>
+    <field name="move_id" invisible="1"/>
+    <field name="product_id"/>
+    <field name="total_qty"/>
+    <newline/>
+    <field name="sample_qty"/>
+    <field name="result"/>
+    <newline/>
+    <field name="test5"/>
+    <field name="test6"/>
+    <field name="test7"/>
+    <field name="test8"/>
+    <newline/>
+    <field name="image"/>
+    <foot>
+        <button string="OK" method="dummy" type="primary" size="large"/>
+    </foot>
+</form_m>

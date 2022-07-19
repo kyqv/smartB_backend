@@ -1,0 +1,4 @@
+<list model="hr.tax.profile">
+    <field name="employee_id"/>
+    <field name="tax_year_id"/>
+</list>

@@ -1,0 +1,4 @@
+<list model="hr.payslip.template">
+    <field name="employee_id"/>
+    <!--<field name="name"/>-->
+</list>

@@ -1,0 +1,10 @@
+<board>
+    <vpanel>
+        <widget string="Purchases per month" action="purch_month_widget"/>
+        <widget string="Purchases per product category" action="purch_product_categ_widget"/>
+        <widget string="Purchases per supplier" action="purch_supplier_widget"/>
+    </vpanel>
+    <vpanel>
+        <widget string="Pending purchase orders" action="rfq_widget"/>
+    </vpanel>
+</board>

@@ -1,0 +1,7 @@
+<action>
+    <field name="string">Website Settings</field>
+    <field name="view">form_view</field>
+    <field name="model">cms.settings</field>
+    <field name="active_id">1</field>
+    <field name="menu">cms_menu</field>
+</action>

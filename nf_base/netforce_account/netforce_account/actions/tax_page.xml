@@ -1,0 +1,4 @@
+<action>
+    <field name="template">tax_page</field>
+    <field name="menu">account_menu</field>
+</action>

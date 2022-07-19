@@ -1,0 +1,8 @@
+<list model="approve.wkf">
+    <field name="type"/>
+    <field name="user_id"/>
+    <field name="group_id"/>
+    <field name="min_amount"/>
+    <field name="max_amount"/>
+    <field name="company_id"/>
+</list>

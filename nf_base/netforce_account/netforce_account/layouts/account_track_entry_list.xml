@@ -1,0 +1,16 @@
+<list model="account.track.entry">
+    <head>
+        <button string="Copy To Invoice" method="copy_to_invoice"/>
+    </head>
+    <field name="date"/>
+    <field name="track_id"/>
+    <field name="product_id"/>
+    <field name="description"/>
+    <field name="unit_price"/>
+    <field name="qty"/>
+    <field name="uom_id"/>
+    <field name="amount"/>
+    <field name="contact_id"/>
+    <field name="related_id"/>
+    <field name="invoice_id"/>
+</list>

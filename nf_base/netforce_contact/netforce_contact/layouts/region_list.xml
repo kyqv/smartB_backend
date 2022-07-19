@@ -1,0 +1,4 @@
+<list model="region">
+    <field name="name"/>
+    <field name="code"/>
+</list>

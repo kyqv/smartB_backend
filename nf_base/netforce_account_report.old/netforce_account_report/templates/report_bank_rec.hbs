@@ -1,0 +1,124 @@
+<center>
+    <h2>
+        Bank Reconciliation Summary
+    </h2>
+    <h3>
+        {{company_name}}
+        <br/>
+        {{account_name}}
+        <br/>
+        As at {{fmt_date date}}
+    </h3>
+</center>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Date
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Reference
+            </th>
+            <th style="text-align:right">
+                Amount
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td colspan="10" style="border-bottom:1px solid black">
+            </td>
+        </tr>
+        <tr>
+            <td style="font-weight:bold;border-bottom:1px solid black">
+                {{fmt_date date}}
+            </td>
+            <td style="font-weight:bold;border-bottom:1px solid black">
+                Accounting Balance
+            </td>
+            <td style="border-bottom:1px solid black">
+            </td>
+            <td style="font-weight:bold;text-align:right;border-bottom:1px solid black">
+                {{currency account_balance}}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="10" style="font-weight:bold;padding-top:20px">
+                Plus Outstanding Payments
+            </td>
+        </tr>
+        {{#each move_lines}}
+            <tr>
+                <td>
+                    {{fmt_date date}}
+                </td>
+                <td>
+                    {{description}}
+                </td>
+                <td>
+                    {{ref}}
+                </td>
+                <td style="text-align:right">
+                    {{currency amount}}
+                </td>
+            </tr>
+        {{/each}}
+        <tr>
+            <td colspan="3" style="font-weight:bold;border-top:1px solid #999">
+                Total Outstanding Payments
+            </td>
+            <td style="text-align:right;border-top:1px solid #999">
+                {{currency total_move_lines}}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="10" style="font-weight:bold;padding-top:20px">
+                Plus Unreconciled Statement Lines
+            </td>
+        </tr>
+        {{#each statement_lines}}
+            <tr>
+                <td>
+                    {{fmt_date date}}
+                </td>
+                <td>
+                    {{description}}
+                </td>
+                <td>
+                    {{ref}}
+                </td>
+                <td style="text-align:right">
+                    {{currency amount}}
+                </td>
+            </tr>
+        {{/each}}
+        <tr>
+            <td colspan="3" style="font-weight:bold;border-top:1px solid #999">
+                Total Unreconciled Statement Lines
+            </td>
+            <td style="text-align:right;border-top:1px solid #999">
+                {{currency total_statement_lines}}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="10" style="border-bottom:1px solid black">
+            </td>
+        </tr>
+        <tr style="border-bottom: 1px solid black">
+            <td style="font-weight:bold">
+                {{fmt_date date}}
+            </td>
+            <td style="font-weight:bold">
+                Statement Balance
+            </td>
+            <td>
+            </td>
+            <td style="font-weight:bold;text-align:right">
+                {{currency statement_balance}}
+            </td>
+        </tr>
+    </tbody>
+</table>

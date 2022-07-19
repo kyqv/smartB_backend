@@ -1,0 +1,15 @@
+<list model="stock.picking" action="view_picking" priority="1">
+    <head>
+        <button string="To Draft" method="to_draft"/>
+    </head>
+    <field name="journal_id"/>
+    <field name="number"/>
+    <field name="date"/>
+    <field name="delivery_slot_id"/>
+    <field name="contact_id"/>
+    <field name="ref"/>
+    <field name="related_id"/>
+    <field name="state"/>
+    <field name="ship_tracking"/>
+    <field name="ship_state"/>
+</list>

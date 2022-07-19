@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Import Theme ZIP File</field>
+    <field name="view">form_popup</field>
+    <field name="model">import.theme.zip</field>
+    <field name="target">popup</field>
+</action>

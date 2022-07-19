@@ -1,0 +1,9 @@
+<action>
+    <field name="view">form_popup</field>
+    <field name="string">Print Payslip</field>
+    <field name="model">print.wizard</field>
+    <field name="print_model">ecom.cart</field>
+    <field name="template_format">jrxml2</field>
+    <field name="custom_template_type">other</field>
+    <field name="target">_popup</field>
+</action>

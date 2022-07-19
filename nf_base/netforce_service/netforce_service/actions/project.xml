@@ -1,0 +1,8 @@
+<action>
+    <field name="string">Projects</field>
+    <field name="view">multi_view</field>
+    <field name="model">project</field>
+    <field name="tabs">[["All",[]],["In Progress",[["state","=","in_progress"]]],["Completed",[["state","=","done"]]]]</field>
+    <field name="modes">list,form</field>
+    <field name="menu">service_menu</field>
+</action>

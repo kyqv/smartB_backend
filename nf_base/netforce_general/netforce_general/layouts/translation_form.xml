@@ -1,0 +1,9 @@
+<form model="translation">
+    <field name="lang_id"/>
+    <newline/>
+    <field name="original"/>
+    <field name="translation"/>
+    <related>
+        <field name="comments"/>
+    </related>
+</form>

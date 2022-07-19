@@ -1,0 +1,8 @@
+<action>
+    <field name="view">report</field>
+    <field name="string">Commission Purchase Report</field>
+    <field name="model">report.commission.po</field>
+    <field name="template">report_commission_po</field>
+    <field name="template_xls">commission_po</field>
+    <field name="menu">purchase_menu</field>
+</action>

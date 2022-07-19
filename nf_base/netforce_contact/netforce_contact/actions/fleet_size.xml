@@ -1,0 +1,6 @@
+<action>
+    <field name="string">Fleet Sizes</field>
+    <field name="view">multi_view</field>
+    <field name="model">fleet.size</field>
+    <field name="menu">contact_menu</field>
+</action>

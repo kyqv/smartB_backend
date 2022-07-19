@@ -1,0 +1,7 @@
+<list model="verif.request">
+    <field name="time"/>
+    <field name="phone"/>
+    <field name="state"/>
+    <field name="verif_code"/>
+    <field name="ref"/>
+</list>

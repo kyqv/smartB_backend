@@ -1,0 +1,39 @@
+<form model="stock.consign" show_company="1">
+    <head>
+        <button string="Options" dropdown="1">
+            <item string="Create Purchase Orders" method="create_purchase"/>
+            <item string="Create Sales Orders" method="create_sale"/>
+        </button>
+    </head>
+    <field name="location_id"/>
+    <field name="type"/>
+    <field name="contact_id"/>
+    <field name="company_id"/>
+    <field name="order_type"/>
+    <related>
+        <field name="periods">
+            <list>
+                <field name="date_from"/>
+                <field name="date_to"/>
+                <field name="use_qty"/>
+                <field name="use_amount"/>
+                <field name="sale_qty"/>
+                <field name="sale_amount"/>
+                <field name="sale_id"/>
+                <field name="purchase_id"/>
+            </list>
+            <form>
+                <field name="date_from"/>
+                <field name="date_to"/>
+                <field name="use_qty"/>
+                <field name="use_amount"/>
+                <field name="sale_qty"/>
+                <field name="sale_amount"/>
+                <field name="sale_id"/>
+                <field name="purchase_id"/>
+            </form>
+        </field>
+        <field name="purchase_orders"/>
+        <field name="new_invoice_lines"/>
+    </related>
+</form>

@@ -1,0 +1,9 @@
+<form model="convert.lead">
+    <field name="lead_id" invisible="1"/>
+    <field name="user_id"/>
+    <field name="contact_id"/>
+    <field name="name"/>
+    <foot>
+        <button string="Copy" method="do_copy" type="primary"/>
+    </foot>
+</form>

@@ -1,0 +1,6 @@
+<action>
+    <field name="view_cls">list</field>
+    <field name="model">hr.employee</field>
+    <field name="domain">[["work_status","=","working"]]</field>
+    <field name="view_xml">attend_widget</field>
+</action>

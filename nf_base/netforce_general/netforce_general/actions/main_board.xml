@@ -1,0 +1,5 @@
+<action>
+    <field name="string">Dashboards</field>
+    <field name="view">board_user</field>
+    <field name="menu">board_menu</field>
+</action>
