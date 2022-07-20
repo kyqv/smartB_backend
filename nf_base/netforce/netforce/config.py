@@ -36,9 +36,9 @@ def load_config(filename=None):
     config = {
         "host": "localhost",
         "port": "9999",
-        "db_user": "postgres",
-        "db_password": "postgres",
-        "super_password": "admin",
+        "db_user": "macbook",
+        "db_password": "macbook123",
+        "super_password": "macbook123",
         "web_processes": "4",
         "job_processes": "1",
     }

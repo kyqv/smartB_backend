@@ -51,19 +51,28 @@ mimetypes.add_type("text/plain", ".log")
 
 
 def get_static_data(path,req):
-    print("get_static_data", path)
+    print("print 1 get_static_data", path)
     static_dir=config.get("static_dir") or "static"
+    print("print 2", static_dir)
     fs_path=os.path.join(static_dir,path)
+    print("print 3", fs_path)
     if os.path.exists(fs_path):
+	print("print 4")
         data = open(fs_path, "rb").read()
         return data
+    print("print 5")
     data = module.read_module_file("static/" + path)
+    print("print 6", data)
     if data:
+	print("print 7")
         # if not config.DEV_MODE:
         #    write_static_data(path,data)
         return data
+    print("print 8")
     comps = path.split("/")
+    print("print 9", comps)
     if comps[0] == "db" and comps[2] == "themes": # XXX
+	print("print 10")
         theme_name = comps[3]
         file_path = "/".join(comps[4:])
         db = database.get_connection()
@@ -76,11 +85,12 @@ def get_static_data(path,req):
             if not config.DEV_MODE:
                 write_static_data(path, data)
             return data
+    print("print 11")
     raise Exception("Static file not found: %s" % path)
 
 
 def write_static_data(path, data):
-    print("write_static_data", path)
+    print("print 2 write_static_data", path)
     static_dir=config.get("static_dir") or "static"
     fs_path=os.path.join(static_dir,path)
     dirname = os.path.dirname(fs_path)
