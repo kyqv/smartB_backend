@@ -128,6 +128,7 @@ def get_connection():
 
 class Transaction:
     def __enter__(self):
+        print("hello database")
         self.db=get_connection()
         self.db.begin()
 
