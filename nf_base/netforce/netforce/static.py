@@ -57,14 +57,14 @@ def get_static_data(path,req):
     fs_path=os.path.join(static_dir,path)
     print("print 3", fs_path)
     if os.path.exists(fs_path):
-	print("print 4")
+        print("print 4")
         data = open(fs_path, "rb").read()
         return data
     print("print 5")
     data = module.read_module_file("static/" + path)
     print("print 6", data)
     if data:
-	print("print 7")
+        print("print 7")
         # if not config.DEV_MODE:
         #    write_static_data(path,data)
         return data
@@ -72,7 +72,7 @@ def get_static_data(path,req):
     comps = path.split("/")
     print("print 9", comps)
     if comps[0] == "db" and comps[2] == "themes": # XXX
-	print("print 10")
+        print("print 10")
         theme_name = comps[3]
         file_path = "/".join(comps[4:])
         db = database.get_connection()
