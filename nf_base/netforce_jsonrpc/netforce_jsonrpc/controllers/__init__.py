@@ -20,3 +20,4 @@
 
 from . import json_rpc
 from . import json_rpc_iframe
+from . import json_rpc_pub
