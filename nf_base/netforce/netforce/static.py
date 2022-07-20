@@ -52,7 +52,8 @@ mimetypes.add_type("text/plain", ".log")
 
 def get_static_data(path,req):
     print("print 1 get_static_data", path)
-    static_dir=config.get("static_dir") or "static"
+    # static_dir=config.get("static_dir") or "static"
+    static_dir=config.get("static_dir") or "/smartB/smartB_backend/run/static"
     print("print 2", static_dir)
     fs_path=os.path.join(static_dir,path)
     print("print 3", fs_path)
