@@ -112,6 +112,7 @@ def get_connection():
     if not active_db:
         return None
     db = connections.get(active_db)
+    print("db is", db)
     if db:
         if db.is_closed():
             del connections[active_db]
