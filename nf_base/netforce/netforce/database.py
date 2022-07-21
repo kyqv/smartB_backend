@@ -108,7 +108,7 @@ def get_active_db():
     return active_db
 
 def get_connection():
-    #print("DB.get_connection db=%s"%active_db)
+    print("DB.get_connection db=%s"%active_db)
     if not active_db:
         return None
     db = connections.get(active_db)
