@@ -124,7 +124,7 @@ def get_connection():
             db = None
     if not db:
         db = connect(active_db)
-    #print("db.get_connection db=%s pid=%s back_pid=%s"%(active_db,os.getpid(),db._db.get_backend_pid()))
+    print("db.get_connection db=%s pid=%s back_pid=%s"%(active_db,os.getpid(),db._db.get_backend_pid()))
     return db
 
 class Transaction:
