@@ -1,6 +1,6 @@
 <action>
     <field name="view">report</field>
-    <field name="string">Purchase vs Goods Receipt Report</field>
+    <field name="string">Purchase vs Goods Receipt Report two</field>
     <field name="model">report.purchase.picking</field>
     <field name="template">report_purchase_picking</field>
     <field name="template_xls">commission_po</field>
