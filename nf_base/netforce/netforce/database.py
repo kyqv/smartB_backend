@@ -109,30 +109,19 @@ def get_active_db():
 
 def get_connection():
     #print("DB.get_connection db=%s"%active_db)
-    print("print1")
     if not active_db:
-        print("print2")
         return None
-    print("print3")
     db = connections.get(active_db)
-    print("print4")
     if db:
-
-        print("print5")
         if db.is_closed():
-            print("print6")
-
             del connections[active_db]
             db = None
         elif db.pid!=os.getpid():
-            print("print7")
             print("!"*80)
             print("WARNING: received db connection from another process (%d / %d)"%(db.pid,os.getpid()))
             del connections[active_db]
             db = None
-    print("print8")
     if not db:
-        print("print 9")
         db = connect(active_db)
     #print("db.get_connection db=%s pid=%s back_pid=%s"%(active_db,os.getpid(),db._db.get_backend_pid()))
     return db
