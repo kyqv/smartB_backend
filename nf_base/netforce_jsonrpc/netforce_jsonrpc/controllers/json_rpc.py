@@ -32,8 +32,11 @@ class JsonRpc(Controller):
     _path = "/json_rpc"
 
     def post(self):
+        print("print 1")
         t0 = time.time()
+        print("print 2")
         req = json.loads(self.request.body.decode())
+        print("print 3")
         # open("/tmp/json_rpc.log","a").write(self.request.body.decode()+"\n###############################################################\n")
         user_id=None
         company_id=None
@@ -43,10 +46,14 @@ class JsonRpc(Controller):
         opts=None
         dbname=None
         try:
+            print("print 4")
             clear_cache()
+            print("print 5")
             method = req["method"]
             params = req["params"]
+            print("print 6")
             if method == "execute":
+                print("print 7")
                 model = params[0]
                 method = params[1]
                 if method.startswith("_"):
@@ -115,8 +122,10 @@ class JsonRpc(Controller):
                                 if company_id:
                                     access.set_active_company(company_id)
                         m = get_model(model)
+                        print("model is ", m)
                         print("\n\nBEFORE m.exec_func():\n method=%s\n args=%s\n opts=%s\n\n"%(method,args,opts))
                         res=m.exec_func(method,args,opts)
+                        print("response is ", res)
                 t1 = time.time()
                 dt = int((t1 - t0) * 1000)
                 resp = {
