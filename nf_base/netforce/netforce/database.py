@@ -68,7 +68,7 @@ active_db = None
 con_id=0
 
 def connect(dbname):
-    print("DB.connect db=%s pid=%s"%(dbname,os.getpid()))
+    # print("DB.connect db=%s pid=%s"%(dbname,os.getpid()))
     try:
         if dbname in connections:
             return connections[dbname]
@@ -90,7 +90,7 @@ def connect(dbname):
         if res.password:
             args["password"] = res.password
         db = Connection(**args)
-        print("  => con_id=%s"%db.con_id)
+        # print("  => con_id=%s"%db.con_id)
         db._dbname = dbname
         connections[dbname] = db
         return db
@@ -108,11 +108,10 @@ def get_active_db():
     return active_db
 
 def get_connection():
-    print("DB.get_connection db=%s"%active_db)
+    # print("DB.get_connection db=%s"%active_db)
     if not active_db:
         return None
     db = connections.get(active_db)
-    print("db is", db)
     if db:
         if db.is_closed():
             del connections[active_db]
@@ -124,13 +123,12 @@ def get_connection():
             db = None
     if not db:
         db = connect(active_db)
-    print("db.get_connection db=%s pid=%s back_pid=%s"%(active_db,os.getpid(),db._db.get_backend_pid()))
+    # print("db.get_connection db=%s pid=%s back_pid=%s"%(active_db,os.getpid(),db._db.get_backend_pid()))
     return db
 
 class Transaction:
     def __enter__(self):
         print("hello database")
-        print("get connection", get_connection())
         self.db=get_connection()
 
         self.db.begin()
@@ -142,7 +140,7 @@ class Transaction:
             self.db.rollback()
 
 def close_oldest_connection():
-    print("db.close_oldest_connection pid=%s" % os.getpid())
+    # print("db.close_oldest_connection pid=%s" % os.getpid())
     oldest_time = None
     oldest_db = None
     for dbname, con in connections.items():
@@ -170,7 +168,7 @@ class Connection():
             raise Exception("failed to connect: %s" % e)
 
     def begin(self):
-        print(">>> db.begin db=%s pid=%s back_pid=%s"%(self._dbname,os.getpid(),self._db.get_backend_pid()))
+        # print(">>> db.begin db=%s pid=%s back_pid=%s"%(self._dbname,os.getpid(),self._db.get_backend_pid()))
         if self.is_closed():
             raise Exception("Connection is closed")
         try:
@@ -247,7 +245,7 @@ class Connection():
         return res and res[0] or None
 
     def commit(self):
-        print("<<< DB.commit con_id=%s db=%s pid=%s back_pid=%s"%(self.con_id,self._dbname,os.getpid(),self._db.get_backend_pid()))
+        # print("<<< DB.commit con_id=%s db=%s pid=%s back_pid=%s"%(self.con_id,self._dbname,os.getpid(),self._db.get_backend_pid()))
         if self.is_closed():
             raise Exception("Connection is closed")
         try:
@@ -259,7 +257,7 @@ class Connection():
             raise e
 
     def rollback(self):
-        print("<<< db.rollback pid=%s" % os.getpid())
+        # print("<<< db.rollback pid=%s" % os.getpid())
         if self.is_closed():
             return
         try:
