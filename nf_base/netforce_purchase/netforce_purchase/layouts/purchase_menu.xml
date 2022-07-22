@@ -16,8 +16,8 @@
         <item string="Commission Purchase Report" action="report_commission_po"/>
         <divider/>
         <item string="Purchase Goods Receipt Report" action="report_purchase_picking"/>
-        <divider/>
-        <item string="Purchase Goods Receipt Report" action="report_purchase_picking"/>
+<!--        <divider/>-->
+<!--        <item string="Purchase Goods Receipt Report" action="report_purchase_picking"/>-->
     </item>
     <item string="Settings">
         <item string="Purchase Settings" action="purchase_settings"/>
