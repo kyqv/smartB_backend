@@ -51,11 +51,16 @@ class UIParams(Model):
     def load_ui_params(self,context={}):
         print("UIParams.load_ui_params")
         user_id=access.get_active_user()
+        print("user_id", user_id)
         profile_id=access.get_active_profile()
+        print("profile_id", profile_id)
         access.set_active_user(1)
         dbname=database.get_active_db()
+        print("dbname", dbname)
         modules_str=str(context.get("modules"))
+        print("modules_str", modules_str)
         translations_only=context.get("translations_only")
+        print("translations_only", translations_only)
         ui_params=_cache.get((dbname,user_id,modules_str,translations_only))
         if ui_params:
             return ui_params
