@@ -38,7 +38,7 @@
         <divider/>
         <item string="Commission Report" action="report_sale_commission"/>
         <divider/>
-        <item string="Commission Report two" action="report_sale_commission"/>
+        <item string="Commission Report two" action="report_sale_commission_two"/>
 
 
     </item>
