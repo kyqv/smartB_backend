@@ -6,7 +6,7 @@
     <item string="Accounting" action="account_board"/>
     <item string="Inventory" action="stock_board"/>
     <item string="Sales" action="sale_board"/>
-    <item string="Purchasing" action="purchase_board"/>
+    <item string="Purchasing by asad" action="purchase_board"/>
     <item string="Delivery" action="nd_board" addon="DELIVERY"/>
     <item string="POS" action="pos_board" addon="POS"/>
     <item string="Services" action="service_board" addon="SERVICE"/>
