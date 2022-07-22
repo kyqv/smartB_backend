@@ -37,6 +37,10 @@
         <item string="Demand Forecast Analysis" action="demand_analysis"/>
         <divider/>
         <item string="Commission Report" action="report_sale_commission"/>
+        <divider/>
+        <item string="Commission Report two" action="report_sale_commission"/>
+
+
     </item>
     <item string="Settings">
         <item string="Sales Settings" action="sale_settings"/>
