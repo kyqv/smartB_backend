@@ -6,7 +6,7 @@ from netforce.access import get_active_company
 from pprint import pprint
 
 
-class ReportSaleCommissionTwo(Model):
+class Report_Sale_Picking(Model):
     _name = "report.sale.commission"
     _transient = True
     _fields = {

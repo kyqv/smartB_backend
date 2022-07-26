@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import netforce
+import os
 
 modules=[
     "netforce_jsonrpc",
@@ -19,7 +20,7 @@ modules=[
     "netforce_purchase",
     "netforce_mfg",
     "netforce_marketing",
-    # "netforce_hr",
+    "netforce_hr",
     "netforce_document",
     "netforce_cms",
     "netforce_ecom2",
@@ -31,6 +32,5 @@ modules=[
     #"netforce_kff",
     #"netforce_shopee",
 ]
-
 netforce.load_modules(modules)
 netforce.run_server()
